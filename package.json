@@ -1,6 +1,6 @@
 {
   "name": "atlas-sdk-core",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha",
   "description": "Atlas JavaScript SDK Core for Zalando Checkout, Guest Checkout, and Catalog APIs.",
   "main": "lib/index.js",
   "files": [
