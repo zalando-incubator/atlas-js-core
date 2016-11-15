@@ -34,8 +34,13 @@ AtlasSDK.configure({
 }).catch((error) => {
   console.error(`${error}`);
 };
-
 ```
+
+## AtlasSDK Documentation
+
+[AtlasSDK Reference Documentation](https://zalando-incubator.github.io/atlas-js-core/) is generated automatically during the production build.
+
+
 ## LICENSE
 
 The MIT License (MIT) Copyright © 2016 Zalando SE, https://tech.zalando.com
