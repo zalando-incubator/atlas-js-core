@@ -1,6 +1,6 @@
 {
   "name": "atlas-sdk-core",
-  "version": "0.1.0",
+  "version": "1.0.0-alpha",
   "description": "Atlas JavaScript SDK Core for Zalando Checkout, Guest Checkout, and Catalog APIs.",
   "main": "lib/index.js",
   "files": [
@@ -8,7 +8,12 @@
     "lib/"
   ],
   "keywords": [
-    "atlas", "guest checkout", "checkout", "catalog", "api", "extensions"
+    "atlas",
+    "guest checkout",
+    "checkout",
+    "catalog",
+    "api",
+    "extensions"
   ],
   "license": "MIT",
   "repository": {
@@ -17,30 +22,22 @@
   },
   "scripts": {
     "clean": "rm -rf lib",
-
     "dev:build": "npm run clean && ./node_modules/.bin/webpack --config webpack.dev.config.js --watch",
     "production:build": "npm run clean && ./node_modules/.bin/webpack --config webpack.config.js",
-
     "audit": "nsp check package",
     "check": "npm run audit && npm outdated --depth 0",
-
-
     "cover": "nyc --reporter lcov --reporter text npm run test",
     "cover:check": "nyc check-coverage",
     "cover:report-coverage": "npm run cover && cat ./coverage/lcov.info | codecov",
-
     "github-release": "conventional-github-releaser -p angular",
     "lint": "eslint src test",
-
     "test": "FORCE_COLOR=t ava --tap | tap-notify | tap-diff",
     "tdd": "ava --watch",
-
     "validate": "npm run lint && npm test",
     "pp": "npm run prepare",
     "major": "pmm major",
     "minor": "pmm minor",
     "patch": "pmm patch",
-
     "prepare": "npm run validate && npm run production:build && npm run check",
     "release:production": "npm run prepare && npm run docs",
     "docs": "./node_modules/.bin/jsdoc -c ./jsdoc_conf.json -t ./node_modules/ink-docstrap/template -d docs/ -R README.md -r src/",
@@ -77,19 +74,15 @@
     "babel-plugin-transform-runtime": "6.15.0",
     "babel-preset-es2015": "6.18.0",
     "babel-preset-stage-0": "6.16.0",
-
     "eslint": "^3.9.1",
     "eslint-loader": "^1.6.1",
-
     "webpack": "^1.13.3",
     "babel-loader": "6.2.7",
-
     "ava": "0.16.0",
     "tap-diff": "0.1.1",
     "tap-notify": "1.0.0",
     "chalk": "1.1.3",
     "fetch-mock": "5.5.0",
-
     "conventional-github-releaser": "^1.1.0",
     "codecov": "1.0.1",
     "nsp": "^2.2.0",
@@ -97,13 +90,11 @@
     "pmm": "^1.3.0",
     "cz-customizable": "4.0.0",
     "pre-commit": "^1.1.2",
-
     "jsdoc": "3.4.3",
     "jsdoc-babel": "0.2.1",
     "ink-docstrap": "1.3.0",
     "gh-pages": "0.11.0"
   },
-
   "config": {
     "commitizen": {
       "path": "node_modules/cz-customizable"
@@ -112,7 +103,6 @@
       "config": "./cz-config.js"
     }
   },
-
   "ava": {
     "babel": "inherit",
     "require": "babel-register",
