@@ -1,19 +1,19 @@
 {
   "name": "atlas-sdk-core",
   "version": "0.1.0",
-  "description": "Atlas JS SDK Core module: Checkout API and Extensions Middleware",
+  "description": "Atlas JavaScript SDK Core for Zalando Checkout, Guest Checkout, and Catalog APIs.",
   "main": "lib/index.js",
   "files": [
     "src/",
     "lib/"
   ],
   "keywords": [
-    "atlas", "checkout", "extensions"
+    "atlas", "guest checkout", "checkout", "catalog", "api", "extensions"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.bus.zalan.do/Atlas/atlas-js-core.git"
+    "url": "git@github.com:zalando-incubator/atlas-js-core.git"
   },
   "scripts": {
     "clean": "rm -rf lib",
@@ -40,7 +40,7 @@
     "prepare": "npm run validate && npm run production:build && npm run check",
     "release:production": "npm run prepare && npm run docs",
     "docs": "./node_modules/.bin/jsdoc -c ./jsdoc_conf.json -t ./node_modules/ink-docstrap/template -d docs/ -R README.md -r src/",
-    "docs:deploy": "npm run docs && gh-pages -d docs"
+    "docs:deploy": "npm run docs && ./node_modules/.bin/gh-pages -d docs"
   },
   "author": "Zalando SE",
   "maintainers": [
