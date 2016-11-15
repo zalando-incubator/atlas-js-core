@@ -8,5 +8,5 @@ install:
 script:
   - npm run release:production
 after_success:
-  - npm run coveralls
-#  - npm run github-release
+  - npm run cover:report-coverage
+  - npm run docs:deploy
