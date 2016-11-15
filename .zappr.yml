@@ -1,0 +1,7 @@
+approvals:
+  from:
+    orgs:
+      - atlas
+    collaborators: true
+X-Zalando-Team: "dc"
+X-Zalando-Type: code

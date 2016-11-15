@@ -1,0 +1,26 @@
+{
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc"]
+    },
+    "source": {
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "plugins": ["node_modules/jsdoc-babel"],
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false,
+        "default": {
+            "outputSourceFiles": true
+        },
+        "systemName"      : "AtlasSDK",
+        "copyright"       : "Zalando SE Copyright © 2016.",
+        "navType"         : "vertical",
+        "theme"           : "paper",
+        "linenums"        : true,
+        "collapseSymbols" : false,
+        "inverseNav"      : true,
+        "includeDate"     : false
+    }
+  }

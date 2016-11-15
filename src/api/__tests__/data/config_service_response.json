@@ -1,0 +1,31 @@
+{
+  "sales-channels": [{
+    "locale": "de_DE",
+    "sales-channel": "SALES_CHANNEL",
+    "toc_url": "https://m.zalando.de/agb/"
+  }, {
+    "locale": "nl_NL",
+    "sales-channel": "SALES_CHANNEL2",
+    "toc_url": "https://m.zalando.nl/algemene-voorwaarden/"
+  }, {
+    "locale": "fr_FR",
+    "sales-channel": "SALES_CHANNEL3",
+    "toc_url": "https://m.zalando.fr/cgv/"
+  }],
+  "atlas-catalog-api": {
+    "url": "https://catalog_api.com/api"
+  },
+  "atlas-checkout-api": {
+    "payment": {
+      "selection-callback": "http://atlas.AtlasCheckoutDemo/redirect",
+      "third-party-callback": "http://atlas.AtlasCheckoutDemo/redirect"
+    },
+    "url": "https://checkout_api.com/api"
+  },
+  "atlas-checkout-gateway": {
+    "url": "https://atlas-checkout-gateway.com"
+  },
+  "oauth2-provider": {
+    "url": "https://oauth2_provider.com/api"
+  }
+}
