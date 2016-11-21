@@ -1,17 +1,23 @@
 /* eslint no-console: 0 */
-
+/* eslint no-native-reassign: 0 */
 import 'isomorphic-fetch';
 import { Article } from '../models/catalog_api_models.js';
 import { CreateOrderResponse } from '../models/guest_checkout_models.js';
 
 const successCode = 200;
-const badRequestCode = 399;
+const badRequestCode = 300;
+const acceptedCode = 204;
 
 function checkStatus(response) {
+
+  if (response.headers.get('Location') && response.status === acceptedCode) {
+    location = response.headers.get('Location');
+  }
+
   if (response.status >= successCode && response.status < badRequestCode) {
     return response;
   }
-  const error = new Error(`${response.statusText}: ${response.status}`);
+  const error = new Error(`${response.statusText}: ${response.status}${response.headers}`);
 
   error.response = response;
   throw error;
@@ -20,6 +26,8 @@ function checkStatus(response) {
 function fetchEndpoint(endpoint) {
   return fetch(endpoint.url, {
     method: endpoint.method,
+    mode: 'cors',
+    redirect: 'manual',
     headers: endpoint.headers,
     body: endpoint.body
   })
@@ -29,6 +37,8 @@ function fetchEndpoint(endpoint) {
     })
     .then(json => {
       return endpoint.transform(json);
+    }).catch(error => {
+      console.log(error);
     });
 }
 
