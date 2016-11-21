@@ -17,7 +17,7 @@ function checkStatus(response) {
   if (response.status >= successCode && response.status < badRequestCode) {
     return response;
   }
-  const error = new Error(`${response.statusText}: ${response.status}${response.headers}`);
+  const error = new Error(`${response.statusText}: ${response.status}`);
 
   error.response = response;
   throw error;
