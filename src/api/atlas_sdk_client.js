@@ -2,7 +2,7 @@
 /* eslint no-native-reassign: 0 */
 import 'isomorphic-fetch';
 import { Article } from '../models/catalog_api_models.js';
-import { CreateOrderResponse } from '../models/guest_checkout_models.js';
+import { CreateOrderResponse, GetCheckoutResponse } from '../models/guest_checkout_models.js';
 
 const successCode = 200;
 const badRequestCode = 300;
@@ -74,6 +74,32 @@ class AtlasSDKClient {
     return fetchEndpoint(CatalogEndpoint).then(article => {
       return article;
     });
+  }
+
+  getCheckout(checkoutId, token) {
+    const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/checkouts/${checkoutId}/${token}`;
+
+    console.log(url);
+    const GetCheckoutEndpoint = {
+      url: url,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/x.zalando.guest-checkout+json',
+        Accept: 'application/x.zalando.guest-checkout+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel,
+        'X-UID': this.config.clientId,
+        checkout_id: checkoutId,
+        token: token
+      },
+      transform: (response) => {
+        return new GetCheckoutResponse(response);
+      }
+    };
+
+    return fetchEndpoint(GetCheckoutEndpoint).then(getCheckoutResponse => {
+      return getCheckoutResponse;
+    });
+
   }
 
   createGuestCheckout(json) {
