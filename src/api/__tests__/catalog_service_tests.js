@@ -3,11 +3,12 @@ import fetchMock from 'fetch-mock';
 import AtlasSDK from '../../index.js';
 
 const fs = require('fs');
-const json = fs.readFileSync('./data/catalog_service_response.json', 'utf8');
-const configjson = fs.readFileSync('./data/config_service_response.json', 'utf8');
+const path = require('path');
+const json = fs.readFileSync(path.join(__dirname, 'data/catalog_service_response.json'), 'utf8');
+const configJson = fs.readFileSync(path.join(__dirname, 'data/config_service_response.json'), 'utf8');
 
 test('Should fetch article successfully after configuring SDK', async t => {
-  fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', configjson);
+  fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', configJson);
   fetchMock.get('https://catalog_api.com/api/articles/AD112B0F6-A11?client_id=CLIENT_ID', json);
 
   const sdk = await AtlasSDK.configure({
