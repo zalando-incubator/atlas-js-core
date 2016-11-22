@@ -1,6 +1,6 @@
 {
   "name": "atlas-sdk-core",
-  "version": "0.0.0-development",
+  "version": "1.0.1-alpha",
   "description": "Atlas JavaScript SDK Core for Zalando Checkout, Guest Checkout, and Catalog APIs.",
   "main": "lib/index.js",
   "files": [
@@ -21,28 +21,28 @@
   },
   "license": "MIT",
   "scripts": {
+    "lint": "eslint src test",
+
     "clean": "rm -rf lib",
     "dev:build": "npm run clean && ./node_modules/.bin/webpack --config webpack.dev.config.js --watch",
     "production:build": "npm run clean && ./node_modules/.bin/webpack --config webpack.config.js",
-    "audit": "nsp check package",
-    "check": "npm run audit && npm outdated --depth 0",
+
+    "check": "npm run nsp check package && npm outdated --depth 0",
     "cover": "nyc --reporter lcov --reporter text npm run test",
     "cover:check": "nyc check-coverage",
     "cover:report-coverage": "npm run cover && cat ./coverage/lcov.info | codecov",
-    "github-release": "conventional-github-releaser -p angular",
-    "lint": "eslint src test",
+
     "test": "FORCE_COLOR=t ./node_modules/.bin/ava --tap | tap-notify | tap-diff",
     "tdd": "ava --watch",
     "validate": "npm run lint && npm test",
-    "pp": "npm run prepare",
-    "major": "pmm major",
-    "minor": "pmm minor",
-    "patch": "pmm patch",
+
     "prepare": "npm run validate && npm run production:build && npm run check",
     "release:production": "npm run prepare && npm run docs",
+
     "docs": "./node_modules/.bin/jsdoc -c ./jsdoc_conf.json -t ./node_modules/ink-docstrap/template -d docs/ -R README.md -r src/",
     "docs:deploy": "./node_modules/.bin/gh-pages -d docs",
     "gh-pages-travis": "gh-pages-travis",
+
     "commit": "./node_modules/.bin/git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
