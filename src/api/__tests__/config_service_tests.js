@@ -3,10 +3,11 @@ import AtlasSDK from '../../index.js';
 import fetchMock from 'fetch-mock';
 
 const fs = require('fs');
-const json = fs.readFileSync('./data/config_service_response.json', 'utf8');
+const path = require('path');
+const configJson = fs.readFileSync(path.join(__dirname, 'data/config_service_response.json'), 'utf8');
 
 test('Should configure AtlasSDK successfully', async t => {
-  fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', json);
+  fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', configJson);
 
   const sdk = await AtlasSDK.configure({
     client_id: 'CLIENT_ID',
@@ -23,7 +24,7 @@ test('Should configure AtlasSDK successfully', async t => {
 });
 
 test('Should return current locale and language according to Sales Channel', async t => {
-  fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', json);
+  fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', configJson);
 
   const sdk = await AtlasSDK.configure({
     client_id: 'CLIENT_ID',
