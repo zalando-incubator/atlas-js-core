@@ -84,7 +84,8 @@ class AtlasSDKClient {
       headers: {
         'Content-Type': 'application/x.zalando.order.create+json',
         Accept: 'application/x.zalando.order.create.response+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel
+        'X-Sales-Channel': this.config.salesChannel,
+        'X-UID': this.config.clientId
       },
       body: json,
       transform: (response) => {
