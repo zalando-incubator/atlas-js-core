@@ -1,14 +1,34 @@
 language: node_js
 cache:
   directories:
-    - node_modules
+  - node_modules
+notifications:
+  email: false
 node_js:
-  - "4"
-  - "5"
-install:
-  - npm install
+- '7'
+- '6'
+- '4'
+before_install:
+- openssl aes-256-cbc -K $encrypted_9413e5187502_key -iv $encrypted_9413e5187502_iv -in id_rsa.enc -out id_rsa -d
+before_script:
+- npm prune
 script:
-  - npm run release:production
+- npm run validate
+- npm run production:build
 after_success:
-  - npm run cover:report-coverage
-  - npm run docs:deploy
+- npm run cover:report-coverage
+- npm run semantic-release
+- npm run docs
+- npm run gh-pages-travis
+branches:
+  except:
+  - "/^v\\d+\\.\\d+\\.\\d+$/"
+  - gh-pages
+env:
+  global:
+    - ENCRYPTION_LABEL="9413e5187502"
+    - GIT_NAME="Travis CI"
+    - GIT_EMAIL="COMMIT_AUTHOR_EMAIL"
+    - SOURCE_DIR="docs"
+    - DEPLOY_BRANCH="master"
+    - SSH_KEY="id_rsa"
