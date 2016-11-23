@@ -1,13 +1,19 @@
 /* eslint no-console: 0 */
-
+/* eslint no-native-reassign: 0 */
 import 'isomorphic-fetch';
 import { Article } from '../models/catalog_api_models.js';
-import { CreateOrderResponse } from '../models/guest_checkout_models.js';
+import { CreateOrderResponse, GetCheckoutResponse } from '../models/guest_checkout_models.js';
 
 const successCode = 200;
-const badRequestCode = 399;
+const badRequestCode = 300;
+const acceptedCode = 204;
 
 function checkStatus(response) {
+
+  if (response.headers.get('Location') && response.status === acceptedCode) {
+    location = response.headers.get('Location');
+  }
+
   if (response.status >= successCode && response.status < badRequestCode) {
     return response;
   }
@@ -20,6 +26,8 @@ function checkStatus(response) {
 function fetchEndpoint(endpoint) {
   return fetch(endpoint.url, {
     method: endpoint.method,
+    mode: 'cors',
+    redirect: 'manual',
     headers: endpoint.headers,
     body: endpoint.body
   })
@@ -29,6 +37,8 @@ function fetchEndpoint(endpoint) {
     })
     .then(json => {
       return endpoint.transform(json);
+    }).catch(error => {
+      console.log(error);
     });
 }
 
@@ -66,6 +76,30 @@ class AtlasSDKClient {
     });
   }
 
+  getCheckout(checkoutId, token) {
+    const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/checkouts/${checkoutId}/${token}`;
+    const GetCheckoutEndpoint = {
+      url: url,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/x.zalando.guest-checkout+json',
+        Accept: 'application/x.zalando.guest-checkout+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel,
+        'X-UID': this.config.clientId,
+        checkout_id: checkoutId,
+        token: token
+      },
+      transform: (response) => {
+        return new GetCheckoutResponse(response);
+      }
+    };
+
+    return fetchEndpoint(GetCheckoutEndpoint).then(getCheckoutResponse => {
+      return getCheckoutResponse;
+    });
+
+  }
+
   createGuestCheckout(json) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
     const GuestCheckoutEndpoint = {
@@ -74,7 +108,8 @@ class AtlasSDKClient {
       headers: {
         'Content-Type': 'application/x.zalando.order.create+json',
         Accept: 'application/x.zalando.order.create.response+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel
+        'X-Sales-Channel': this.config.salesChannel,
+        'X-UID': this.config.clientId
       },
       body: json,
       transform: (response) => {
