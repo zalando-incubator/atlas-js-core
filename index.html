@@ -93,25 +93,45 @@
 
 
     <section class="readme-section">
-        <article><p><a href="https://npmjs.org/package/atlas-sdk-core"><img src="https://img.shields.io/npm/v/atlas-sdk-core.svg" alt="NPM Version"></a>
+        <article><p><a href="https://npmjs.org/package/atlas-sdk-core"><img src="https://img.shields.io/npm/v/atlas-sdk-core.svg" alt="npm"></a>
+<a href="https://www.npmjs.com/package/atlas-sdk-core"><img src="https://img.shields.io/npm/dm/atlas-sdk-core.svg" alt="downloads"></a>
 <a href="https://raw.githubusercontent.com/zalando-incubator/atlas-js-core/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT licensed"></a>
 <a href="https://travis-ci.org/zalando-incubator/atlas-js-core"><img src="https://travis-ci.org/zalando-incubator/atlas-js-core.svg?branch=master" alt="Build Status"></a>
+<a href="https://david-dm.org/zalando-incubator/atlas-js-core.svg"><img src="https://img.shields.io/david/strongloop/express.svg" alt="David"></a>
+<a href="https://codecov.io/gh/zalando-incubator/atlas-js-core"><img src="https://codecov.io/gh/zalando-incubator/atlas-js-core/branch/master/graph/badge.svg" alt="codecov"></a>
 <a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen friendly"></a>
- <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square" alt="semantic-release"></a></p>
+<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square" alt="semantic-release"></a></p>
 <h1>Atlas JavaScript SDK Core</h1><p>Atlas JavaScript SDK Core for Zalando Checkout, Guest Checkout, and Catalog APIs.</p>
 <p>The purpose of this project is to provide low-level calls to API backend and response models for Zalando Checkout, Guest Checkout, and Catalog APIs in order to allow easily integrate and run Zalando Сheckout in
 minutes using your own UI solution.</p>
 <p>We use Promises a lot :)</p>
 <h2>Installation</h2><pre class="prettyprint source lang-sh"><code>npm install -g atlas-sdk-core</code></pre><h2>Configuration and Usage</h2><p>You need to configure Atlas JavaScript SDK Core first and use configured instance variable to interact with AtlasSDK.</p>
 <p>In order to configure AtlasSDK manually provide an object with 2 mandatory parameters <strong>client_id</strong> and <strong>sales_channel</strong>:</p>
-<pre class="prettyprint source lang-javascript"><code>AtlasSDK.configure({
+<pre class="prettyprint source lang-javascript"><code>import AtlasSDK from 'atlas-sdk-core';
+
+AtlasSDK.configure({
   client_id: 'CLIENT_ID',
   sales_channel: 'SALES_CHANNEL',
 }).then((sdk) => {
+  // sdk instance is ready to use
+
   const article = sdk.getArticle('AD112B0F6-A11');
+  console.log(`Article name: ${article.name}`);
 }).catch((error) => {
   console.error(`${error}`);
-};</code></pre><h2>LICENSE</h2><p>The MIT License (MIT) Copyright © 2016 Zalando SE, https://tech.zalando.com</p>
+};</code></pre><p>Since we are using <strong>Promises</strong> you can benefit from <strong>await/async</strong>:</p>
+<pre class="prettyprint source lang-javascript"><code>import AtlasSDK from 'atlas-sdk-core';
+
+const sdk = await AtlasSDK.configure({
+  client_id: 'CLIENT_ID',
+  sales_channel: 'SALES_CHANNEL'
+});
+const article = await sdk.getArticle('AD112B0F6-A11');
+console.log(`Article name: ${article.name}`);</code></pre><h2>Local Development</h2><p>If you want to contribute, please, read out <a href="CONTRIBUTING.md">Contributing</a> guidelines first.</p>
+<p>In order to start SDK development simply run</p>
+<pre class="prettyprint source lang-bash"><code>npm run tdd</code></pre><p>Check existing codebase tests for test examples.</p>
+<h2>AtlasSDK Documentation</h2><p><a href="https://zalando-incubator.github.io/atlas-js-core/">AtlasSDK Reference Documentation</a> is generated automatically during the production build.</p>
+<h2>LICENSE</h2><p>The MIT License (MIT) Copyright © 2016 Zalando SE, https://tech.zalando.com</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the “Software”), to deal in
 the Software without restriction, including without limitation the rights to
