@@ -1,3 +1,4 @@
+/* eslint max-len: 0 */
 import createModel from './base_model';
 import { Price } from './catalog_api_models';
 
@@ -122,4 +123,25 @@ const CreateOrderResponse = createModel({
   externalPaymentURL: { key: 'external_payment_url', type: 'string', optional: true }
 });
 
-export { Customer, Address, PickupPoint, CartItem, Cart, Payment, Price, CreateOrderRequest, CreateOrderResponse };
+/**
+ * @class Class for GetCheckoutResponse model
+ * @param {String} customerNumber - Customer Number.
+ * @param {Cart} cart - Cart of Order.
+ * @param {Address} billingAddress - Billing Address of Order.
+ * @param {Address} shippingAddress - Shipping Address of Order.
+ * @param {Payment} payment - Payment of Order.
+ * @constructor
+ */
+
+const GetCheckoutResponse = createModel({
+  customerNumber: { key: 'customer_number', type: 'string' },
+  cart: { key: 'cart', type: 'object', model: Cart },
+  billingAddress: { key: 'billing_address', type: 'object', model: Address },
+  shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
+  payment: { key: 'payment', type: 'object', model: Payment },
+  grossTotal: { key: 'gross_total', type: 'object', model: Price },
+  taxTotal: { key: 'tax_total', type: 'object', model: Price }
+
+});
+
+export { Customer, Address, PickupPoint, CartItem, Cart, Payment, Price, CreateOrderRequest, CreateOrderResponse, GetCheckoutResponse };
