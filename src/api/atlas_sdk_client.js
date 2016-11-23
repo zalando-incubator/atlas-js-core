@@ -5,7 +5,7 @@ import { Article } from '../models/catalog_api_models.js';
 import { CreateOrderResponse } from '../models/guest_checkout_models.js';
 
 const successCode = 200;
-const badRequestCode = 300;
+const badRequestCode = 399;
 const acceptedCode = 204;
 
 function checkStatus(response) {
@@ -26,8 +26,8 @@ function checkStatus(response) {
 function fetchEndpoint(endpoint) {
   return fetch(endpoint.url, {
     method: endpoint.method,
-    mode: 'cors',
-    redirect: 'manual',
+    mode: endpoint.mode,
+    redirect: endpoint.redirect,
     headers: endpoint.headers,
     body: endpoint.body
   })
@@ -38,7 +38,7 @@ function fetchEndpoint(endpoint) {
     .then(json => {
       return endpoint.transform(json);
     }).catch(error => {
-      console.log(error);
+      console.error(error);
     });
 }
 
@@ -81,6 +81,8 @@ class AtlasSDKClient {
     const GuestCheckoutEndpoint = {
       url: url,
       method: 'POST',
+      mode: 'cors',
+      redirect: 'manual',
       headers: {
         'Content-Type': 'application/x.zalando.order.create+json',
         Accept: 'application/x.zalando.order.create.response+json, application/x.problem+json',
