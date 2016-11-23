@@ -29,15 +29,42 @@ You need to configure Atlas JavaScript SDK Core first and use configured instanc
 In order to configure AtlasSDK manually provide an object with 2 mandatory parameters __client_id__ and __sales_channel__:
 
 ```javascript
+import AtlasSDK from 'atlas-sdk-core';
+
 AtlasSDK.configure({
   client_id: 'CLIENT_ID',
   sales_channel: 'SALES_CHANNEL',
 }).then((sdk) => {
+  // sdk instance is ready to use
+
   const article = sdk.getArticle('AD112B0F6-A11');
+  console.log(`Article name: ${article.name}`);
 }).catch((error) => {
   console.error(`${error}`);
 };
 ```
+
+Since we are using __Promises__ you can benefit from __await/async__:
+```javascript
+import AtlasSDK from 'atlas-sdk-core';
+
+const sdk = await AtlasSDK.configure({
+  client_id: 'CLIENT_ID',
+  sales_channel: 'SALES_CHANNEL'
+});
+const article = await sdk.getArticle('AD112B0F6-A11');
+console.log(`Article name: ${article.name}`);
+```
+
+## Local Development
+
+If you want to contribute, please, read out [Contributing](CONTRIBUTING.md) guidelines first.
+
+In order to start SDK development simply run
+```bash
+npm run tdd
+```
+Check existing codebase tests for test examples.
 
 ## AtlasSDK Documentation
 
