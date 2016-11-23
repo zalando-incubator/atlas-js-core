@@ -5,8 +5,9 @@ import fetchMock from 'fetch-mock';
 import AtlasSDK from '../../index.js';
 
 const fs = require('fs');
-const json = fs.readFileSync('./data/guest_checkout_service_response.json', 'utf8');
-const configJson = fs.readFileSync('./data/config_service_response.json', 'utf8');
+const path = require('path');
+const json = fs.readFileSync(path.join(__dirname, 'data/guest_checkout_service_response.json'), 'utf8');
+const configJson = fs.readFileSync(path.join(__dirname, 'data/config_service_response.json'), 'utf8');
 
 test('Should create guest checkout successfully after configuring SDK', async t => {
   fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', configJson);
