@@ -8,6 +8,7 @@ Pull requests should only be merged after all discussions have been concluded an
 
 ## Guidelines
 
-- **every change** needs a test
-- keep the current code style
-- we use [Commitizen](https://github.com/commitizen/cz-cli) for preparing commits. Please, use `git cz`.
+- **Every change** needs a test (we are using TDD)
+- Keep the current code style
+- We use [semantic-release](https://github.com/semantic-release/semantic-release) together with [Commitizen](https://github.com/commitizen/cz-cli) for preparing commits. Please, use `git cz` while making a commit and follow [AngularJS Git Commit Message Conventions
+](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#).
