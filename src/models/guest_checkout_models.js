@@ -138,7 +138,9 @@ const GetCheckoutResponse = createModel({
   cart: { key: 'cart', type: 'object', model: Cart },
   billingAddress: { key: 'billing_address', type: 'object', model: Address },
   shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
-  payment: { key: 'payment', type: 'object', model: Payment }
+  payment: { key: 'payment', type: 'object', model: Payment },
+  grossTotal: { key: 'gross_total', type: 'object', model: Price },
+  taxTotal: { key: 'tax_total', type: 'object', model: Price }
 
 });
 

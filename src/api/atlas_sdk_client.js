@@ -78,8 +78,6 @@ class AtlasSDKClient {
 
   getCheckout(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/checkouts/${checkoutId}/${token}`;
-
-    console.log(url);
     const GetCheckoutEndpoint = {
       url: url,
       method: 'GET',

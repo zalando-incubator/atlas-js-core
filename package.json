@@ -27,7 +27,7 @@
     "dev:build": "npm run clean && ./node_modules/.bin/webpack --config webpack.dev.config.js --watch",
     "production:build": "npm run clean && ./node_modules/.bin/webpack --config webpack.config.js",
 
-    "check": "npm run nsp check package && npm outdated --depth 0",
+    "check": "nsp check package && npm outdated --depth 0",
     "cover": "nyc --reporter lcov --reporter text npm run test",
     "cover:check": "nyc check-coverage",
     "cover:report-coverage": "npm run cover && cat ./coverage/lcov.info | codecov",
