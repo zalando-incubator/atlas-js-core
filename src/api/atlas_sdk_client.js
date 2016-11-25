@@ -39,6 +39,7 @@ function fetchEndpoint(endpoint) {
       return endpoint.transform(json);
     }).catch(error => {
       console.error(error);
+      throw error;
     });
 }
 
