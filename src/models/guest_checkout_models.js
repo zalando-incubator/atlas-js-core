@@ -64,10 +64,16 @@ const CartItem = createModel({
 * Class for Cart model
 * @class Cart
 * @param {CartItem} items - Array of CartItem.
+* @param {CartItem} itemsOutOfStock - Array of CartItem which are out of stock.
+* @param {Price} grossTotal - Gross Total Price.
+* @param {Price} taxTotal - Tax Total Price.
 * @constructor
 */
 const Cart = createModel({
-  items: { key: 'items', type: 'object', model: CartItem }
+  items: { key: 'items', type: 'object', model: CartItem },
+  itemsOutOfStock: { key: 'items_out_of_stock', type: 'object', model: CartItem, optional: true },
+  grossTotal: { key: 'gross_total', type: 'object', model: Price },
+  taxTotal: { key: 'tax_total', type: 'object', model: Price }
 });
 
 /**
