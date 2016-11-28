@@ -82,6 +82,21 @@ const Payment = createModel({
 });
 
 /**
+* @class Class for Delivery model
+* @param {String} service - Delivery Service type.
+* @param {Object} cost - Cost for Delivery.
+* @param {String} earliest - Delivery earliest date.
+* @param {String} latest - Delivery latest date.
+* @constructor
+*/
+const Delivery = createModel({
+  service: { key: 'service', type: 'string' },
+  cost: { key: 'cost', type: 'object', model: Price },
+  earliest: { key: 'earliest', type: 'string' },
+  latest: { key: 'latest', type: 'string' }
+});
+
+/**
  * @class Class for CreateOrderRequest model
  * @param {Customer} customer - Customer object.
  * @param {Address} billingAddress - Billing Address of Order.
@@ -113,7 +128,6 @@ const CreateOrderRequest = createModel({
  */
 const CreateOrderResponse = createModel({
   orderNumber: { key: 'order_number', type: 'string' },
-  customerNumber: { key: 'customer_number', type: 'string' },
   billingAddress: { key: 'billing_address', type: 'object', model: Address },
   shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
   grossTotal: { key: 'gross_total', type: 'object', model: Price },
@@ -134,14 +148,13 @@ const CreateOrderResponse = createModel({
  */
 
 const GetCheckoutResponse = createModel({
-  customerNumber: { key: 'customer_number', type: 'string' },
   cart: { key: 'cart', type: 'object', model: Cart },
   billingAddress: { key: 'billing_address', type: 'object', model: Address },
   shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
   payment: { key: 'payment', type: 'object', model: Payment },
   grossTotal: { key: 'gross_total', type: 'object', model: Price },
-  taxTotal: { key: 'tax_total', type: 'object', model: Price }
-
+  taxTotal: { key: 'tax_total', type: 'object', model: Price },
+  delivery: { key: 'delivery', type: 'object', model: Delivery }
 });
 
 export { Customer, Address, PickupPoint, CartItem, Cart, Payment, Price, CreateOrderRequest, CreateOrderResponse, GetCheckoutResponse };
