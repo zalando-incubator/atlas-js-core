@@ -11,7 +11,7 @@ const acceptedCode = 204;
 function checkStatus(response) {
 
   if (response.headers.get('Location') && response.status === acceptedCode) {
-    location.replace(response.headers.get('Location'));
+    document.location.replace(response.headers.get('Location'));
   }
 
   if (response.status >= successCode && response.status < badRequestCode) {
