@@ -84,7 +84,7 @@ const Cart = createModel({
 */
 const Payment = createModel({
   method: { key: 'method', type: 'string' },
-  metadata: { key: 'metadata', type: 'object' }
+  metadata: { key: 'metadata', type: 'object', optional: true }
 });
 
 /**
