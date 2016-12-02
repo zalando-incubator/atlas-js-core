@@ -128,7 +128,6 @@ const CreateOrderRequest = createModel({
  * @param {Price} grossTotal - Gross Total Price.
  * @param {Price} taxTotal - Tax Total Price.
  * @param {String} created - Date/Time when the order was created.
- * @param {String} detailURL - URL of Article details page.
  * @param {String} externalPaymentURL - URL of Payment.
  * @constructor
  */
@@ -139,7 +138,6 @@ const CreateOrderResponse = createModel({
   grossTotal: { key: 'gross_total', type: 'object', model: Price },
   taxTotal: { key: 'tax_total', type: 'object', model: Price },
   created: { key: 'created', type: 'string' },
-  detailURL: { key: 'detail_url', type: 'string' },
   externalPaymentURL: { key: 'external_payment_url', type: 'string', optional: true }
 });
 
