@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>AtlasSDK Class: Unit</title>
+	<title>AtlasSDK Class: Delivery</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,16 +72,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: Unit</h1>
+	<h1 class="page-title">Class: Delivery</h1>
 <section>
 
 <header>
     
         <h2>
-        Unit
+        Delivery
         </h2>
         
-            <div class="class-description">Class for Article Unit model.</div>
+            <div class="class-description">Class for Delivery model</div>
         
     
 </header>
@@ -93,7 +93,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="Unit"><span class="type-signature"></span>new Unit(id, size, price, originalPrice, available, stock, partner, media)</h4>
+    <h4 class="name" id="Delivery"><span class="type-signature"></span>new Delivery(service, cost, earliest, latest)</h4>
     
     
 </dt>
@@ -132,7 +132,7 @@
 
         <tr>
             
-                <td class="name"><code>id</code></td>
+                <td class="name"><code>service</code></td>
             
 
             <td class="type">
@@ -149,14 +149,38 @@
 
             
 
-            <td class="description last">id of article.</td>
+            <td class="description last">Delivery Service type.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>size</code></td>
+                <td class="name"><code>cost</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Cost for Delivery.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>earliest</code></td>
             
 
             <td class="type">
@@ -173,20 +197,20 @@
 
             
 
-            <td class="description last">size of article.</td>
+            <td class="description last">Delivery earliest date.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>price</code></td>
+                <td class="name"><code>latest</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Price.html">Price</a></span>
+<span class="param-type">String</span>
 
 
 
@@ -197,127 +221,7 @@
 
             
 
-            <td class="description last">price of article.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>originalPrice</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Price.html">Price</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">price of article.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>available</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">whether the unit is available or not.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>stock</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>partner</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Partner.html">Partner</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>media</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Media.html">Media</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
+            <td class="description last">Delivery latest date.</td>
         </tr>
 
     

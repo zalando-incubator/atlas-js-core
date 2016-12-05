@@ -59,7 +59,6 @@ test('Should create guest checkout successfully after configuring SDK', async t 
   const createOrderResponse = await sdk.createGuestCheckout(JSON.stringify(createOrderRequestJson));
 
   t.is(createOrderResponse.orderNumber, '1');
-  t.is(createOrderResponse.customerNumber, '1');
   t.is(createOrderResponse.externalPaymentURL, 'https://pay.paypal.com/ae45f19');
 });
 

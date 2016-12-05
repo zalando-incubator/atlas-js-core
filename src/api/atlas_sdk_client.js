@@ -11,7 +11,7 @@ const acceptedCode = 204;
 function checkStatus(response) {
 
   if (response.headers.get('Location') && response.status === acceptedCode) {
-    location = response.headers.get('Location');
+    document.location.replace(response.headers.get('Location'));
   }
 
   if (response.status >= successCode && response.status < badRequestCode) {
@@ -39,6 +39,7 @@ function fetchEndpoint(endpoint) {
       return endpoint.transform(json);
     }).catch(error => {
       console.error(error);
+      throw error;
     });
 }
 
@@ -64,7 +65,8 @@ class AtlasSDKClient {
       method: 'GET',
       headers: {
         Accept: 'application/x.zalando.article+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel
+        'X-Sales-Channel': this.config.salesChannel,
+        'X-UID': this.config.clientId
       },
       transform: (json) => {
         return new Article(json);
@@ -97,7 +99,32 @@ class AtlasSDKClient {
     return fetchEndpoint(GetCheckoutEndpoint).then(getCheckoutResponse => {
       return getCheckoutResponse;
     });
+  }
 
+  createOrder(checkoutId, token) {
+    const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
+    const json = JSON.stringify({
+      checkout_id: checkoutId,
+      token: token
+    });
+    const CreateOrderEndpoint = {
+      url: url,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x.zalando.order.create.continue+json',
+        Accept: 'application/x.zalando.order.create.response+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel,
+        'X-UID': this.config.clientId
+      },
+      body: json,
+      transform: (response) => {
+        return new CreateOrderResponse(response);
+      }
+    };
+
+    return fetchEndpoint(CreateOrderEndpoint).then(createOrderResponse => {
+      return createOrderResponse;
+    });
   }
 
   createGuestCheckout(json) {

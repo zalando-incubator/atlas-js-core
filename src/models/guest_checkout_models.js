@@ -64,10 +64,16 @@ const CartItem = createModel({
 * Class for Cart model
 * @class Cart
 * @param {CartItem} items - Array of CartItem.
+* @param {CartItem} itemsOutOfStock - Array of CartItem which are out of stock.
+* @param {Price} grossTotal - Gross Total Price.
+* @param {Price} taxTotal - Tax Total Price.
 * @constructor
 */
 const Cart = createModel({
-  items: { key: 'items', type: 'object', model: CartItem }
+  items: { key: 'items', type: 'object', model: CartItem },
+  itemsOutOfStock: { key: 'items_out_of_stock', type: 'object', model: CartItem, optional: true },
+  grossTotal: { key: 'gross_total', type: 'object', model: Price },
+  taxTotal: { key: 'tax_total', type: 'object', model: Price }
 });
 
 /**
@@ -78,7 +84,22 @@ const Cart = createModel({
 */
 const Payment = createModel({
   method: { key: 'method', type: 'string' },
-  metadata: { key: 'metadata', type: 'object' }
+  metadata: { key: 'metadata', type: 'object', optional: true }
+});
+
+/**
+* @class Class for Delivery model
+* @param {String} service - Delivery Service type.
+* @param {Object} cost - Cost for Delivery.
+* @param {String} earliest - Delivery earliest date.
+* @param {String} latest - Delivery latest date.
+* @constructor
+*/
+const Delivery = createModel({
+  service: { key: 'service', type: 'string' },
+  cost: { key: 'cost', type: 'object', model: Price },
+  earliest: { key: 'earliest', type: 'string' },
+  latest: { key: 'latest', type: 'string' }
 });
 
 /**
@@ -107,19 +128,16 @@ const CreateOrderRequest = createModel({
  * @param {Price} grossTotal - Gross Total Price.
  * @param {Price} taxTotal - Tax Total Price.
  * @param {String} created - Date/Time when the order was created.
- * @param {String} detailURL - URL of Article details page.
  * @param {String} externalPaymentURL - URL of Payment.
  * @constructor
  */
 const CreateOrderResponse = createModel({
   orderNumber: { key: 'order_number', type: 'string' },
-  customerNumber: { key: 'customer_number', type: 'string' },
   billingAddress: { key: 'billing_address', type: 'object', model: Address },
   shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
   grossTotal: { key: 'gross_total', type: 'object', model: Price },
   taxTotal: { key: 'tax_total', type: 'object', model: Price },
   created: { key: 'created', type: 'string' },
-  detailURL: { key: 'detail_url', type: 'string' },
   externalPaymentURL: { key: 'external_payment_url', type: 'string', optional: true }
 });
 
@@ -134,14 +152,13 @@ const CreateOrderResponse = createModel({
  */
 
 const GetCheckoutResponse = createModel({
-  customerNumber: { key: 'customer_number', type: 'string' },
   cart: { key: 'cart', type: 'object', model: Cart },
   billingAddress: { key: 'billing_address', type: 'object', model: Address },
   shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
   payment: { key: 'payment', type: 'object', model: Payment },
   grossTotal: { key: 'gross_total', type: 'object', model: Price },
-  taxTotal: { key: 'tax_total', type: 'object', model: Price }
-
+  taxTotal: { key: 'tax_total', type: 'object', model: Price },
+  delivery: { key: 'delivery', type: 'object', model: Delivery }
 });
 
 export { Customer, Address, PickupPoint, CartItem, Cart, Payment, Price, CreateOrderRequest, CreateOrderResponse, GetCheckoutResponse };
