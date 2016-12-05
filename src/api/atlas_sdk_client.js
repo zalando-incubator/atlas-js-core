@@ -65,7 +65,8 @@ class AtlasSDKClient {
       method: 'GET',
       headers: {
         Accept: 'application/x.zalando.article+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel
+        'X-Sales-Channel': this.config.salesChannel,
+        'X-UID': this.config.clientId
       },
       transform: (json) => {
         return new Article(json);
