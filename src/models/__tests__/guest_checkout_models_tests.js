@@ -1,9 +1,9 @@
 /* eslint no-magic-numbers: [0]*/
 import test from 'ava';
 import { Customer, Address, Cart, Payment, Price,
-  CreateOrderRequest, CreateOrderResponse } from '../guest_checkout_models.js';
+  CreateOrderRequest, CreateOrderResponse, CreateOrderRedirectResponse } from '../guest_checkout_models.js';
 
-test('Should create Customer successfully from JSON', (t) => {
+test('Should create Customer successfully from JSON', t => {
   const json = {
     email: 'jdoe@zalando.com',
     subscribe_newsletter: true
@@ -13,7 +13,7 @@ test('Should create Customer successfully from JSON', (t) => {
   t.is(customer.email, 'jdoe@zalando.com');
 });
 
-test('Should create Address (Pickup Point) from JSON', (t) => {
+test('Should create Address (Pickup Point) from JSON', t => {
   const json = {
     gender: 'MALE',
     first_name: 'John',
@@ -41,7 +41,7 @@ test('Should create Address (Pickup Point) from JSON', (t) => {
   t.is(address.pickupPoint.memberId, '111444777');
 });
 
-test('Should create Address (Normal) from JSON', (t) => {
+test('Should create Address (Normal) from JSON', t => {
   const json = {
     gender: 'MALE',
     first_name: 'John',
@@ -63,7 +63,7 @@ test('Should create Address (Normal) from JSON', (t) => {
   t.is(address.street, 'Mollstr. 1');
 });
 
-test('Should create Cart from JSON', (t) => {
+test('Should create Cart from JSON', t => {
   const json = {
     items: [{
       sku: 'C5154C00I-C110035000',
@@ -77,7 +77,7 @@ test('Should create Cart from JSON', (t) => {
   t.is(cart.items[0].quantity, quantity);
 });
 
-test('Should create Payment from JSON', (t) => {
+test('Should create Payment from JSON', t => {
   const json = {
     method: 'VIRTUAL_CREDIT_CARD',
     metadata: {
@@ -114,7 +114,7 @@ test('Should create Price from JSON', (t) => {
   t.is(price.currency, 'EUR');
 });
 
-test('Should create CreateOrderRequest from JSON', (t) => {
+test('Should create CreateOrderRequest from JSON', t => {
   const json = {
     customer: {
       email: 'jdoe@zalando.com',
@@ -166,7 +166,7 @@ test('Should create CreateOrderRequest from JSON', (t) => {
   t.truthy(req);
 });
 
-test('Should create CreateOrderResponse from JSON', (t) => {
+test('Should create CreateOrderResponse from JSON', t => {
   const json = {
     order_number: '1',
     customer_number: '1',
@@ -208,7 +208,16 @@ test('Should create CreateOrderResponse from JSON', (t) => {
     external_payment_url: 'https://pay.paypal.com/ae45f19'
   };
 
-  const req = new CreateOrderResponse(json);
+  const res = new CreateOrderResponse(json);
 
-  t.truthy(req);
+  t.truthy(res);
+});
+
+test('Should create CreateOrderRedirectResponse from Location header', t => {
+  const json = {
+    redirect_url: 'redirect'
+  };
+  const res = new CreateOrderRedirectResponse(json);
+
+  t.is(res.redirectURL, 'redirect');
 });

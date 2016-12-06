@@ -2,18 +2,22 @@
 /* eslint no-native-reassign: 0 */
 import 'isomorphic-fetch';
 import { Article } from '../models/catalog_api_models.js';
-import { CreateOrderResponse, GetCheckoutResponse } from '../models/guest_checkout_models.js';
+import { CreateOrderResponse,
+  CreateOrderRedirectResponse,
+  GetCheckoutResponse } from '../models/guest_checkout_models.js';
 
 const successCode = 200;
 const badRequestCode = 399;
-const acceptedCode = 204;
 
+/**
+* Checks the status code of the Response.
+* If the status code is <= 400 the Response object is returned.
+* Otherwise the Error is thrown.
+* @param {Response} response - Response object
+* @return {Response} Response object
+* @throws {Error} - error object accoding to the bad response.
+*/
 function checkStatus(response) {
-
-  if (response.headers.get('Location') && response.status === acceptedCode) {
-    document.location.replace(response.headers.get('Location'));
-  }
-
   if (response.status >= successCode && response.status < badRequestCode) {
     return response;
   }
@@ -21,6 +25,21 @@ function checkStatus(response) {
 
   error.response = response;
   throw error;
+}
+
+/**
+* Checks whether "Location" header is preset.
+* Location header means that this is a redirect response with empty body, so
+* the Response object with simple JSON { redirect_url: 'URL'} will be returned.
+* Otherwise initial Response object is returned.
+* @param {Response} response - Response object
+* @return {Response} Response object either original or with redirect URL
+*/
+function checkRedirect(response) {
+  if (response.headers.get('Location')) {
+    return new Response(JSON.stringify({ redirect_url: response.headers.get('Location') }));
+  }
+  return response;
 }
 
 function fetchEndpoint(endpoint) {
@@ -32,11 +51,12 @@ function fetchEndpoint(endpoint) {
     body: endpoint.body
   })
     .then(checkStatus)
+    .then(checkRedirect)
     .then(response => {
       return response.json();
     })
-    .then(json => {
-      return endpoint.transform(json);
+    .then(response => {
+      return endpoint.transform(response);
     }).catch(error => {
       console.error(error);
       throw error;
@@ -91,8 +111,8 @@ class AtlasSDKClient {
         checkout_id: checkoutId,
         token: token
       },
-      transform: (response) => {
-        return new GetCheckoutResponse(response);
+      transform: (json) => {
+        return new GetCheckoutResponse(json);
       }
     };
 
@@ -103,7 +123,7 @@ class AtlasSDKClient {
 
   createOrder(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
-    const json = JSON.stringify({
+    const body = JSON.stringify({
       checkout_id: checkoutId,
       token: token
     });
@@ -116,9 +136,9 @@ class AtlasSDKClient {
         'X-Sales-Channel': this.config.salesChannel,
         'X-UID': this.config.clientId
       },
-      body: json,
-      transform: (response) => {
-        return new CreateOrderResponse(response);
+      body: body,
+      transform: (json) => {
+        return new CreateOrderResponse(json);
       }
     };
 
@@ -142,6 +162,10 @@ class AtlasSDKClient {
       },
       body: json,
       transform: (response) => {
+        if (response.redirect_url) {
+          return new CreateOrderRedirectResponse(response);
+        }
+
         return new CreateOrderResponse(response);
       }
     };
@@ -153,4 +177,4 @@ class AtlasSDKClient {
 
 }
 
-export { AtlasSDKClient, fetchEndpoint };
+export { AtlasSDKClient, fetchEndpoint, checkStatus, checkRedirect };
