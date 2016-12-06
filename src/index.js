@@ -39,8 +39,8 @@ const AtlasSDK = {
     const ConfigEndpoint = {
       url: url,
       method: 'GET',
-      transform: (json) => {
-        return new Config(Object.assign(json, options));
+      transform: (response) => {
+        return new Config(Object.assign(response, options));
       }
     };
 

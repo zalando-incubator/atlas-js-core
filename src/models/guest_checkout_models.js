@@ -142,6 +142,14 @@ const CreateOrderResponse = createModel({
 });
 
 /**
+* @class Class for CreateOrderRedirectResponse model
+* @param {String} url -Redirect URL.
+*/
+const CreateOrderRedirectResponse = createModel({
+  redirectURL: { key: 'redirect_url', type: 'string' }
+});
+
+/**
  * @class Class for GetCheckoutResponse model
  * @param {String} customerNumber - Customer Number.
  * @param {Cart} cart - Cart of Order.
@@ -150,7 +158,6 @@ const CreateOrderResponse = createModel({
  * @param {Payment} payment - Payment of Order.
  * @constructor
  */
-
 const GetCheckoutResponse = createModel({
   cart: { key: 'cart', type: 'object', model: Cart },
   billingAddress: { key: 'billing_address', type: 'object', model: Address },
@@ -161,4 +168,4 @@ const GetCheckoutResponse = createModel({
   delivery: { key: 'delivery', type: 'object', model: Delivery }
 });
 
-export { Customer, Address, PickupPoint, CartItem, Cart, Payment, Price, CreateOrderRequest, CreateOrderResponse, GetCheckoutResponse };
+export { Customer, Address, PickupPoint, CartItem, Cart, Payment, Price, CreateOrderRequest, CreateOrderResponse, CreateOrderRedirectResponse, GetCheckoutResponse };
