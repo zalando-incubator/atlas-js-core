@@ -32,7 +32,7 @@
     "cover:check": "nyc check-coverage",
     "cover:report-coverage": "npm run cover && cat ./coverage/lcov.info | codecov",
 
-    "test": "FORCE_COLOR=t ./node_modules/.bin/ava --tap | tap-notify | tap-diff",
+    "test": "FORCE_COLOR=t ./node_modules/.bin/ava --verbose | tap-notify | tap-diff",
     "tdd": "ava --watch",
     "validate": "npm run lint && npm test",
 
