@@ -58,8 +58,6 @@ test('Config should be initialized from JSON object', t => {
   t.is(config.salesChannel, 'SALES_CHANNEL');
   t.is(config.isSandbox, true);
   t.is(config.catalogApi.url, 'https://catalog_api.com/api');
-  t.is(config.checkoutApi.url, 'https://checkout_api.com/api');
-  t.is(config.oauth2Provider.url, 'https://oauth2_provider.com/api');
   t.is(config.atlasCheckoutGateway.url, 'https://atlas-checkout-gateway.com');
   t.is(config.salesChannels[0].locale, 'de_DE');
   t.is(config.salesChannels[0].channel, '11111111-1111-1111-1111-111111111111');

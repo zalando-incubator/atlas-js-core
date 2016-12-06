@@ -29,8 +29,6 @@ const config = new Config(source);
 */
 const Config = createModel({
   catalogApi: { key: 'atlas-catalog-api', type: 'object' },
-  checkoutApi: { key: 'atlas-checkout-api', type: 'object' },
-  oauth2Provider: { key: 'oauth2-provider', type: 'object' },
   atlasCheckoutGateway: { key: 'atlas-checkout-gateway', type: 'object' },
   salesChannels: { key: 'sales-channels', type: 'object', model: SalesChannel },
   clientId: { key: 'client_id', type: 'string' },
