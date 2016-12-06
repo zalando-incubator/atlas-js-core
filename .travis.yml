@@ -7,7 +7,7 @@ notifications:
 node_js:
 - '7'
 - '6'
-- '4'
+#- '4'
 before_install:
 - openssl aes-256-cbc -K $encrypted_9413e5187502_key -iv $encrypted_9413e5187502_iv -in id_rsa.enc -out id_rsa -d
 before_script:
