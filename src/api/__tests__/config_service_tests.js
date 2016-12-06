@@ -18,8 +18,6 @@ test('Should configure AtlasSDK successfully', async t => {
   });
 
   t.is(sdk.config.catalogApi.url, 'https://catalog_api.com/api');
-  t.is(sdk.config.checkoutApi.url, 'https://checkout_api.com/api');
-  t.is(sdk.config.oauth2Provider.url, 'https://oauth2_provider.com/api');
   t.is(sdk.config.atlasCheckoutGateway.url, 'https://atlas-checkout-gateway.com');
 });
 
