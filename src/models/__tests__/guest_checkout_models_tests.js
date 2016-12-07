@@ -221,3 +221,51 @@ test('Should create CreateOrderRedirectResponse from Location header', t => {
 
   t.is(res.redirectURL, 'redirect');
 });
+
+test('Should be JSON.stringify()', t => {
+  const json = {
+    order_number: '1',
+    customer_number: '1',
+    billing_address: {
+      gender: 'MALE',
+      first_name: 'John',
+      last_name: 'Doe',
+      street: 'Mollstr. 1',
+      additional: 'EG',
+      zip: '10178',
+      city: 'Berlin',
+      country_code: 'DE'
+    },
+    shipping_address: {
+      gender: 'MALE',
+      first_name: 'John',
+      last_name: 'Doe',
+      street: 'Mollstr. 1',
+      additional: 'EG',
+      zip: '10178',
+      city: 'Berlin',
+      country_code: 'DE',
+      pickup_point: {
+        name: 'PACKSTATION',
+        id: '802',
+        member_id: '45685217'
+      }
+    },
+    gross_total: {
+      amount: 99.95,
+      currency: 'EUR'
+    },
+    tax_total: {
+      amount: 99.95,
+      currency: 'EUR'
+    },
+    created: '2015-04-21T13:27:31+01:00',
+    detail_url: 'https://www.zalando.de/benutzerkonto/bestellung-detail/123456789',
+    external_payment_url: 'https://pay.paypal.com/ae45f19'
+  };
+
+  const res = new CreateOrderResponse(json);
+  const stringifyVersion = JSON.stringify(res);
+
+  t.is(JSON.parse(stringifyVersion).orderNumber, '1');
+});

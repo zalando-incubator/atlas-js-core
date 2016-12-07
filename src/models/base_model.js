@@ -29,7 +29,7 @@ const createModel = (schema) =>
         }
       }
 
-      Object.defineProperty(this, key, { value, writable: false });
+      Object.defineProperty(this, key, { value, writable: false, enumerable: true });
     });
   };
 
