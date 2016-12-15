@@ -83,7 +83,8 @@ const Cart = createModel({
 * @constructor
 */
 const Payment = createModel({
-  method: { key: 'method', type: 'string' },
+  method: { key: 'method', type: 'string', optional: true },
+  selectionPageUrl: { key: 'selection_page_url', type: 'string', optional: true },
   metadata: { key: 'metadata', type: 'object', optional: true }
 });
 
@@ -116,7 +117,7 @@ const CreateOrderRequest = createModel({
   billingAddress: { key: 'billing_address', type: 'object', model: Address },
   shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
   cart: { key: 'cart', type: 'object', model: Cart },
-  payment: { key: 'payment', type: 'object', model: Payment }
+  payment: { key: 'payment', type: 'object', model: Payment, optional: true }
 });
 
 /**
@@ -162,7 +163,7 @@ const GetCheckoutResponse = createModel({
   cart: { key: 'cart', type: 'object', model: Cart },
   billingAddress: { key: 'billing_address', type: 'object', model: Address },
   shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
-  payment: { key: 'payment', type: 'object', model: Payment },
+  payment: { key: 'payment', type: 'object', model: Payment, optional: true },
   grossTotal: { key: 'gross_total', type: 'object', model: Price },
   taxTotal: { key: 'tax_total', type: 'object', model: Price },
   delivery: { key: 'delivery', type: 'object', model: Delivery }
