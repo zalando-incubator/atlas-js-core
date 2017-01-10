@@ -27,7 +27,7 @@
     "dev:build": "npm run clean && ./node_modules/.bin/webpack --config webpack.dev.config.js --watch",
     "production:build": "npm run clean && ./node_modules/.bin/webpack --config webpack.config.js",
 
-    "check": "nsp check package && npm outdated --depth 0",
+    "check": "nsp check package && ./node_modules/.bin/david",
     "cover": "nyc --reporter lcov --reporter text npm run test",
     "cover:check": "nyc check-coverage",
     "cover:report-coverage": "npm run cover && cat ./coverage/lcov.info | codecov",
@@ -98,7 +98,8 @@
     "gh-pages": "0.12.0",
     "gh-pages-travis": "1.0.0",
     "semantic-release": "^6.3.5",
-    "commitizen": "2.9.5"
+    "commitizen": "2.9.5",
+    "david": "9.0.0"
   },
   "config": {
     "commitizen": {
