@@ -1,3 +1,4 @@
+/* eslint no-magic-numbers : 0 */
 import test from 'ava';
 import { Article } from '../catalog_api_models.js';
 
@@ -58,13 +59,23 @@ test('Article should be initialized from JSON object', t => {
       summary: {
         total: 45,
         rating: {
-          average: 4.3,
-          distribution: [
-            {
-              level: 4,
-              count: 17
-            }
-          ]
+          average: 4.5851064,
+          distribution: [{
+            level: '5',
+            count: 69
+          }, {
+            level: '4',
+            count: 18
+          }, {
+            level: '3',
+            count: 3
+          }, {
+            level: '2',
+            count: 1
+          }, {
+            level: '1',
+            count: 3
+          }]
         },
         recommendations: {
           total: 30,
@@ -98,4 +109,18 @@ test('Article should be initialized from JSON object', t => {
   t.is(article.attributes[0].name, 'Internal material');
   t.is(article.attributes[0].values[0], 'textile');
   t.is(article.infos[0], 'Removable cover sole');
+  t.is(article.reviews.entries.length, 1);
+  t.is(article.reviews.summary.total, 45);
+  t.is(article.reviews.summary.rating.average, 4.5851064);
+  t.is(article.reviews.summary.rating.distribution.length, 5);
+  t.is(article.reviews.summary.rating.distribution[0].level, '5');
+  t.is(article.reviews.summary.rating.distribution[0].count, 69);
+  t.is(article.reviews.summary.recommendations.total, 30);
+  t.is(article.reviews.summary.recommendations.positive, 25);
+  t.is(article.reviews.entries[0].name, 'John');
+  t.is(article.reviews.entries[0].title, 'Loved it!');
+  t.is(article.reviews.entries[0].description, 'The best sneakers I ever bought! :)');
+  t.is(article.reviews.entries[0].rating, 5);
+  t.is(article.reviews.entries[0].recommends, true);
+  t.is(article.reviews.entries[0].created, '2015-04-21T13:27:31+01:00');
 });
