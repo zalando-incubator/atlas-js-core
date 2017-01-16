@@ -27,15 +27,15 @@ const PickupPoint = createModel({
 });
 
 /**
- * @class Class for Address model
+ * @class Class for GuestAddress model
  * @param {String} gender - gender of a customer.
  * @param {String} firstName - First name of a customer.
  * @param {String} lastName - Last name of a customer.
- * @param {String} street - Street of the Address.
- * @param {String} zip - Zipcode of the Address.
- * @param {String} city - City of the Address.
- * @param {String} countryCode - Country of the Address.
- * @param {PickupPoint} pickupPoint - Pickup Point of the Address. (Optional in case of Billing)
+ * @param {String} street - Street of the GuestAddress.
+ * @param {String} zip - Zipcode of the GuestAddress.
+ * @param {String} city - City of the GuestAddress.
+ * @param {String} countryCode - Country of the GuestAddress.
+ * @param {PickupPoint} pickupPoint - Pickup Point of the GuestAddress. (Optional in case of Billing)
  * @constructor
  */
 const Address = createModel({
@@ -106,8 +106,8 @@ const Delivery = createModel({
 /**
  * @class Class for CreateOrderRequest model
  * @param {Customer} customer - Customer object.
- * @param {Address} billingAddress - Billing Address of Order.
- * @param {Address} shippingAddress - Shipping Address of Order.
+ * @param {Address} billingAddress - Billing GuestAddress of Order.
+ * @param {Address} shippingAddress - Shipping GuestAddress of Order.
  * @param {Cart} cart - Cart of Order.
  * @param {Payment} payment - Payment of Order.
  * @constructor
@@ -124,8 +124,8 @@ const CreateOrderRequest = createModel({
  * @class Class for CreateOrderResponse model
  * @param {String} orderNumber - Order Number.
  * @param {String} customerNumber - Customer Number.
- * @param {Address} billingAddress - Billing Address of Order.
- * @param {Address} shippingAddress - Shipping Address of Order.
+ * @param {Address} billingAddress - Billing GuestAddress of Order.
+ * @param {Address} shippingAddress - Shipping GuestAddress of Order.
  * @param {Price} grossTotal - Gross Total Price.
  * @param {Price} taxTotal - Tax Total Price.
  * @param {String} created - Date/Time when the order was created.
@@ -154,8 +154,8 @@ const CreateOrderRedirectResponse = createModel({
  * @class Class for GetCheckoutResponse model
  * @param {String} customerNumber - Customer Number.
  * @param {Cart} cart - Cart of Order.
- * @param {Address} billingAddress - Billing Address of Order.
- * @param {Address} shippingAddress - Shipping Address of Order.
+ * @param {Address} billingAddress - Billing GuestAddress of Order.
+ * @param {Address} shippingAddress - Shipping GuestAddress of Order.
  * @param {Payment} payment - Payment of Order.
  * @constructor
  */

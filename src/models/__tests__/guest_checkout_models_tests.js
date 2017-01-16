@@ -68,13 +68,19 @@ test('Should create Cart from JSON', t => {
     items: [{
       sku: 'C5154C00I-C110035000',
       quantity: 1
+    },
+    {
+      sku: 'C5154C00I-C110035111',
+      quantity: 1
     }]
   };
   const cart = new Cart(json);
   const quantity = 1;
 
   t.is(cart.items[0].sku, 'C5154C00I-C110035000');
+  t.is(cart.items[1].sku, 'C5154C00I-C110035111');
   t.is(cart.items[0].quantity, quantity);
+  t.is(cart.items[1].quantity, quantity);
 });
 
 test('Should create Payment from JSON', t => {
