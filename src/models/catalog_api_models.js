@@ -113,7 +113,8 @@ const Article = createModel({
   units: { key: 'units', type: 'object', model: Unit },
   media: { key: 'media', type: 'object', model: Media },
   attributes: { key: 'attributes', type: 'object', model: Attribute, optional: true },
-  infos: { key: 'infos', type: 'string', optional: true }
+  infos: { key: 'infos', type: 'string', optional: true },
+  reviews: { key: 'reviews', type: 'object', optional: true }
 });
 
 export { Article, Price };
