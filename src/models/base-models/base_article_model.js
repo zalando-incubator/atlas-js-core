@@ -114,6 +114,20 @@ const Item = createModel({
 });
 
 /**
+ * @class Class for CartItem model
+ * @param {String} sku - SKU of item.
+ * @param {Number} quantity - Quantity of item.
+ * @param {Price} price - pirce of the item
+ * @constructor
+ */
+const ItemWithPrice = createModel({
+  sku: { key: 'sku', type: 'string' },
+  quantity: { key: 'quantity', type: 'number' },
+  price: { key: 'price', type: 'object', model: Price },
+  originalPrice: { key: 'original_price', type: 'object', model: Price }
+});
+
+/**
  * @class Class for Payment model
  * @param {String} method - Payment Method type.
  * @param {Object} metadata - Metadata for payment.
@@ -134,10 +148,15 @@ const Payment = createModel({
  * @constructor
  */
 const Delivery = createModel({
-  service: { key: 'service', type: 'string' },
-  cost: { key: 'cost', type: 'object', model: Price },
   earliest: { key: 'earliest', type: 'string' },
   latest: { key: 'latest', type: 'string' }
 });
 
-export { Brand, Partner, Price, Unit, Attribute, ArticleImage, Media, Item, Payment, Delivery };
+const TotalDiscount = createModel({
+  grossTotal: { key: 'grossTotal', type: 'object', model: Price },
+  taxTotal: { key: 'taxTotal', type: 'object', model: Price }
+});
+
+export {
+  Brand, Partner, Price, Unit, Attribute, ArticleImage, Media, ItemWithPrice, Item, Payment, Delivery, TotalDiscount
+};

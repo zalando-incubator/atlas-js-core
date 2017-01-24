@@ -1,64 +1,67 @@
 /* eslint max-len: 0 */
 import createModel from './base_model';
-import { Price } from './catalog_api_models';
+// import { Price } from './catalog_api_models';
+import { Price, Item, Payment, Delivery } from './base-models/base_article_model.js';
+import { GuestCustomer } from './customer_model.js';
+import { GuestAddress } from './address_model.js';
 
-/**
- * @class Class for Customer model
- * @param {String} email - email of a customer.
- * @param {boolean} subscribeNewsletter - indicates wether a customer subscribed
- * @constructor
- */
-const Customer = createModel({
-  email: { key: 'email', type: 'string' },
-  subscribeNewsletter: { key: 'subscribe_newsletter', type: 'boolean' }
-});
+// /**
+//  * @class Class for Customer model
+//  * @param {String} email - email of a customer.
+//  * @param {boolean} subscribeNewsletter - indicates wether a customer subscribed
+//  * @constructor
+//  */
+// const Customer = createModel({
+//   email: { key: 'email', type: 'string' },
+//   subscribeNewsletter: { key: 'subscribe_newsletter', type: 'boolean' }
+// });
+//
+// /**
+// * @class Class for PickupPoint model
+// * @param {String} name - Name of Pickup Point.
+// * @param {String} id - id of Pickup Point.
+// * @param {String} memberId - Member ID of Pickup Point.
+// * @constructor
+// */
+// const PickupPoint = createModel({
+//   name: { key: 'name', type: 'string' },
+//   id: { key: 'id', type: 'string' },
+//   memberId: { key: 'member_id', type: 'string' }
+// });
+//
+// /**
+//  * @class Class for GuestAddress model
+//  * @param {String} gender - gender of a customer.
+//  * @param {String} firstName - First name of a customer.
+//  * @param {String} lastName - Last name of a customer.
+//  * @param {String} street - Street of the GuestAddress.
+//  * @param {String} zip - Zipcode of the GuestAddress.
+//  * @param {String} city - City of the GuestAddress.
+//  * @param {String} countryCode - Country of the GuestAddress.
+//  * @param {PickupPoint} pickupPoint - Pickup Point of the GuestAddress. (Optional in case of Billing)
+//  * @constructor
+//  */
+// const Address = createModel({
+//   gender: { key: 'gender', type: 'string' },
+//   firstName: { key: 'first_name', type: 'string' },
+//   lastName: { key: 'last_name', type: 'string' },
+//   street: { key: 'street', type: 'string', optional: true },
+//   zip: { key: 'zip', type: 'string' },
+//   city: { key: 'city', type: 'string' },
+//   countryCode: { key: 'country_code', type: 'string' },
+//   pickupPoint: { key: 'pickup_point', type: 'object', model: PickupPoint, optional: true }
+// });
 
-/**
-* @class Class for PickupPoint model
-* @param {String} name - Name of Pickup Point.
-* @param {String} id - id of Pickup Point.
-* @param {String} memberId - Member ID of Pickup Point.
-* @constructor
-*/
-const PickupPoint = createModel({
-  name: { key: 'name', type: 'string' },
-  id: { key: 'id', type: 'string' },
-  memberId: { key: 'member_id', type: 'string' }
-});
-
-/**
- * @class Class for GuestAddress model
- * @param {String} gender - gender of a customer.
- * @param {String} firstName - First name of a customer.
- * @param {String} lastName - Last name of a customer.
- * @param {String} street - Street of the GuestAddress.
- * @param {String} zip - Zipcode of the GuestAddress.
- * @param {String} city - City of the GuestAddress.
- * @param {String} countryCode - Country of the GuestAddress.
- * @param {PickupPoint} pickupPoint - Pickup Point of the GuestAddress. (Optional in case of Billing)
- * @constructor
- */
-const Address = createModel({
-  gender: { key: 'gender', type: 'string' },
-  firstName: { key: 'first_name', type: 'string' },
-  lastName: { key: 'last_name', type: 'string' },
-  street: { key: 'street', type: 'string', optional: true },
-  zip: { key: 'zip', type: 'string' },
-  city: { key: 'city', type: 'string' },
-  countryCode: { key: 'country_code', type: 'string' },
-  pickupPoint: { key: 'pickup_point', type: 'object', model: PickupPoint, optional: true }
-});
-
-/**
- * @class Class for CartItem model
- * @param {String} sku - SKU of item.
- * @param {Number} quantity - Quantity of item.
- * @constructor
- */
-const CartItem = createModel({
-  sku: { key: 'sku', type: 'string' },
-  quantity: { key: 'quantity', type: 'number' }
-});
+// /**
+//  * @class Class for CartItem model
+//  * @param {String} sku - SKU of item.
+//  * @param {Number} quantity - Quantity of item.
+//  * @constructor
+//  */
+// const CartItem = createModel({
+//   sku: { key: 'sku', type: 'string' },
+//   quantity: { key: 'quantity', type: 'number' }
+// });
 
 /**
 * Class for Cart model
@@ -70,38 +73,50 @@ const CartItem = createModel({
 * @constructor
 */
 const Cart = createModel({
-  items: { key: 'items', type: 'object', model: CartItem },
-  itemsOutOfStock: { key: 'items_out_of_stock', type: 'object', model: CartItem, optional: true },
+  items: { key: 'items', type: 'object', model: Item },
+  itemsOutOfStock: { key: 'items_out_of_stock', type: 'string', optional: true },
   grossTotal: { key: 'gross_total', type: 'object', model: Price },
   taxTotal: { key: 'tax_total', type: 'object', model: Price }
 });
 
 /**
-* @class Class for Payment model
-* @param {String} method - Payment Method type.
-* @param {Object} metadata - Metadata for payment.
-* @constructor
-*/
-const Payment = createModel({
-  method: { key: 'method', type: 'string', optional: true },
-  selectionPageUrl: { key: 'selection_page_url', type: 'string', optional: true },
-  metadata: { key: 'metadata', type: 'object', optional: true }
-});
-
-/**
-* @class Class for Delivery model
-* @param {String} service - Delivery Service type.
-* @param {Object} cost - Cost for Delivery.
-* @param {String} earliest - Delivery earliest date.
-* @param {String} latest - Delivery latest date.
-* @constructor
-*/
-const Delivery = createModel({
+ * @class Class for GuestDelivery model
+ * @param {String} service - Service method (STANDARD, EXPRESS, ...)
+ * @param {Price} cost - Cost of the delivery
+ * @param {Delivery} delivery object
+ * @constructor
+ */
+const GuestDelivery = createModel(Object.assign({
   service: { key: 'service', type: 'string' },
-  cost: { key: 'cost', type: 'object', model: Price },
-  earliest: { key: 'earliest', type: 'string' },
-  latest: { key: 'latest', type: 'string' }
-});
+  cost: { key: 'cost', type: 'object', model: Price }
+}, Delivery));
+
+// /**
+// * @class Class for Payment model
+// * @param {String} method - Payment Method type.
+// * @param {Object} metadata - Metadata for payment.
+// * @constructor
+// */
+// const Payment = createModel({
+//   method: { key: 'method', type: 'string', optional: true },
+//   selectionPageUrl: { key: 'selection_page_url', type: 'string', optional: true },
+//   metadata: { key: 'metadata', type: 'object', optional: true }
+// });
+//
+// /**
+// * @class Class for Delivery model
+// * @param {String} service - Delivery Service type.
+// * @param {Object} cost - Cost for Delivery.
+// * @param {String} earliest - Delivery earliest date.
+// * @param {String} latest - Delivery latest date.
+// * @constructor
+// */
+// const Delivery = createModel({
+//   service: { key: 'service', type: 'string' },
+//   cost: { key: 'cost', type: 'object', model: Price },
+//   earliest: { key: 'earliest', type: 'string' },
+//   latest: { key: 'latest', type: 'string' }
+// });
 
 /**
  * @class Class for CreateOrderRequest model
@@ -113,9 +128,9 @@ const Delivery = createModel({
  * @constructor
  */
 const CreateOrderRequest = createModel({
-  customer: { key: 'customer', type: 'object', model: Customer },
-  billingAddress: { key: 'billing_address', type: 'object', model: Address },
-  shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
+  customer: { key: 'customer', type: 'object', model: GuestCustomer },
+  billingAddress: { key: 'billing_address', type: 'object', model: GuestAddress },
+  shippingAddress: { key: 'shipping_address', type: 'object', model: GuestAddress },
   cart: { key: 'cart', type: 'object', model: Cart },
   payment: { key: 'payment', type: 'object', model: Payment, optional: true }
 });
@@ -134,8 +149,8 @@ const CreateOrderRequest = createModel({
  */
 const CreateOrderResponse = createModel({
   orderNumber: { key: 'order_number', type: 'string' },
-  billingAddress: { key: 'billing_address', type: 'object', model: Address },
-  shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
+  billingAddress: { key: 'billing_address', type: 'object', model: GuestAddress },
+  shippingAddress: { key: 'shipping_address', type: 'object', model: GuestAddress },
   grossTotal: { key: 'gross_total', type: 'object', model: Price },
   taxTotal: { key: 'tax_total', type: 'object', model: Price },
   created: { key: 'created', type: 'string' },
@@ -161,12 +176,12 @@ const CreateOrderRedirectResponse = createModel({
  */
 const GetCheckoutResponse = createModel({
   cart: { key: 'cart', type: 'object', model: Cart },
-  billingAddress: { key: 'billing_address', type: 'object', model: Address },
-  shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
+  billingAddress: { key: 'billing_address', type: 'object', model: GuestAddress },
+  shippingAddress: { key: 'shipping_address', type: 'object', model: GuestAddress },
   payment: { key: 'payment', type: 'object', model: Payment, optional: true },
   grossTotal: { key: 'gross_total', type: 'object', model: Price },
   taxTotal: { key: 'tax_total', type: 'object', model: Price },
-  delivery: { key: 'delivery', type: 'object', model: Delivery }
+  delivery: { key: 'delivery', type: 'object', model: GuestDelivery }
 });
 
-export { Customer, Address, PickupPoint, CartItem, Cart, Payment, Price, CreateOrderRequest, CreateOrderResponse, CreateOrderRedirectResponse, GetCheckoutResponse };
+export { CreateOrderRequest, CreateOrderResponse, CreateOrderRedirectResponse, GetCheckoutResponse };
