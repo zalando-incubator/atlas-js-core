@@ -5,6 +5,7 @@ import { Article } from '../models/catalog_api_models.js';
 import { CreateOrderResponse,
   CreateOrderRedirectResponse,
   GetCheckoutResponse } from '../models/guest_checkout_models.js';
+import { RecommendedArticles } from '../models/recommendation_models.js';
 
 const successCode = 200;
 const badRequestCode = 399;
@@ -146,6 +147,32 @@ class AtlasSDKClient {
       return createOrderResponse;
     });
   }
+
+  getRecommendations(sku) {
+    const url = `${this.config.catalogApi.url}/articles/${sku}/recommendations/?client_id=${this.config.clientId}`;
+
+    const GetRecommendationsEndpoint = {
+      url: url,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/x.zalando.article.recommendation+json',
+        Accept: 'application/x.zalando.article.recommendation+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel,
+        'X-UID': this.config.clientId
+      },
+      transform: (json) => {
+        const result = [];
+
+        json.forEach(articleJson => result.push(new RecommendedArticles(articleJson)));
+        return result;
+      }
+    };
+
+    return fetchEndpoint(GetRecommendationsEndpoint).then(recommendedArticles => {
+      return recommendedArticles;
+    });
+  }
+
 
   createGuestCheckout(json) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
