@@ -1,7 +1,7 @@
 /* eslint max-len: 0 */
 import createModel from './base_model';
 // import { Price } from './catalog_api_models';
-import { Price, Item, Payment, Delivery } from './base-models/base_article_model.js';
+import { Price, Item, Payment, DeliverySchema } from './base-models/base_article_model.js';
 import { GuestCustomer } from './customer_model.js';
 import { GuestAddress } from './address_model.js';
 
@@ -89,7 +89,7 @@ const Cart = createModel({
 const GuestDelivery = createModel(Object.assign({
   service: { key: 'service', type: 'string' },
   cost: { key: 'cost', type: 'object', model: Price }
-}, Delivery));
+}, DeliverySchema));
 
 // /**
 // * @class Class for Payment model

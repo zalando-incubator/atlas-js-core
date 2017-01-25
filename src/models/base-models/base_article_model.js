@@ -147,16 +147,18 @@ const Payment = createModel({
  * @param {String} latest - Delivery latest date.
  * @constructor
  */
-const Delivery = createModel({
+const DeliverySchema = {
   earliest: { key: 'earliest', type: 'string' },
   latest: { key: 'latest', type: 'string' }
-});
+};
 
-const TotalDiscount = createModel({
+const Delivery = createModel(DeliverySchema);
+
+const DiscountSchema = {
   grossTotal: { key: 'grossTotal', type: 'object', model: Price },
   taxTotal: { key: 'taxTotal', type: 'object', model: Price }
-});
+};
 
 export {
-  Brand, Partner, Price, Unit, Attribute, ArticleImage, Media, ItemWithPrice, Item, Payment, Delivery, TotalDiscount
+  Brand, Partner, Price, Unit, Attribute, ArticleImage, Media, ItemWithPrice, Item, Payment, Delivery, DeliverySchema, DiscountSchema
 };

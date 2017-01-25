@@ -1,5 +1,5 @@
 import createModel from './base_model.js';
-import {Brand, Partner, Price, Unit, Attribute, ArticleImage, Media, ItemWithPrice, Item, Payment, Delivery} from './base-models/base_article_model.js'
+import { Brand, Unit, Attribute, Media } from './base-models/base_article_model.js';
 
 // /**
 //  * @class Class for ArticleImage model.

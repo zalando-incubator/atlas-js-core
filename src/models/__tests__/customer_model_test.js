@@ -1,3 +1,4 @@
+/* eslint no-magic-numbers: [0]*/
 import test from 'ava';
 import { GuestCustomer, CheckoutCustomer } from '../customer_model.js';
 
