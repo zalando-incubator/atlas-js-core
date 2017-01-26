@@ -160,5 +160,6 @@ const DiscountSchema = {
 };
 
 export {
-  Brand, Partner, Price, Unit, Attribute, ArticleImage, Media, ItemWithPrice, Item, Payment, Delivery, DeliverySchema, DiscountSchema
+  Brand, Partner, Price, Unit, Attribute, ArticleImage, Media, ItemWithPrice,
+    Item, Payment, Delivery, DeliverySchema, DiscountSchema
 };

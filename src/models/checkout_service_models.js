@@ -73,8 +73,6 @@ const CreateCheckoutResponse = createModel({
   payment: { key: 'payment', type: 'object', model: Payment }
 });
 
-
-
 const PutCheckoutRequest = createModel({
   billingAddressId: { key: 'billing_address_id', type: 'number', optional: true },
   billingAddress: { key: 'billing_address', type: 'object', model: createModel(Address) },
