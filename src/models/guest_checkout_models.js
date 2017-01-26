@@ -149,7 +149,7 @@ const CreateOrderRequest = createModel({
  * @constructor
  */
 const CreateOrderResponse = createModel(OrderResponse);
- //{
+ // {
 //   orderNumber: { key: 'order_number', type: 'string' },
 //   billingAddress: { key: 'billing_address', type: 'object', model: GuestAddress },
 //   shippingAddress: { key: 'shipping_address', type: 'object', model: GuestAddress },

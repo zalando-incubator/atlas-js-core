@@ -86,7 +86,8 @@ const PutCheckoutRequest = createModel({
 const CheckoutOrderResponse = createModel(CheckoutApiOrderResponse);
 
 const CheckoutGetOrderResponses = createModel(CheckoutOrder);
-console.log(CheckoutOrder);
+
+// console.log(CheckoutOrder);
 
 export { CreateCartRequest, CartResponse, CreateCheckoutRequest, CheckoutResponse, PutCheckoutRequest,
   CheckoutOrderResponse, CheckoutGetOrderResponses };

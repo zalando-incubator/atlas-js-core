@@ -11,7 +11,7 @@ const PickupPoint = {
   id: { key: 'id', type: 'string' },
   memberId: { key: 'member_id', type: 'string' }
 };
-//TODO seperate schema for pickuppoint
+// TODO seperate schema for pickuppoint
 /**
  * @class Baseclass for Address model
  * @param {String} email - email of a customer.

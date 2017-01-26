@@ -1,7 +1,8 @@
 /* eslint no-magic-numbers : 0 */
 
 import test from 'ava';
-import { CreateCartRequest, CartResponse, CreateCheckoutRequest, CheckoutResponse, PutCheckoutRequest, CheckoutGetOrderResponses, CheckoutOrderResponse }
+import { CreateCartRequest, CartResponse, CreateCheckoutRequest, CheckoutResponse, PutCheckoutRequest,
+  CheckoutGetOrderResponses }
   from '../checkout_service_models';
 
 test('CreateCartRequest should be initialized from JSON object', t => {
@@ -282,6 +283,6 @@ test('Should create .. from JSON', t => {
   ];
 
   const checkoutGetOrderResponses = new CheckoutGetOrderResponses(json);
-  console.log(checkoutGetOrderResponses);
+
   t.is(checkoutGetOrderResponses[0].orderNumber, '1');
 });
