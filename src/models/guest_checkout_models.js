@@ -4,6 +4,7 @@ import createModel from './base_model';
 import { Price, Item, Payment, DeliverySchema } from './base-models/base_article_model.js';
 import { GuestCustomer } from './customer_model.js';
 import { GuestAddress } from './address_model.js';
+import { OrderResponse } from './order_model';
 
 // /**
 //  * @class Class for Customer model
@@ -147,15 +148,16 @@ const CreateOrderRequest = createModel({
  * @param {String} externalPaymentURL - URL of Payment.
  * @constructor
  */
-const CreateOrderResponse = createModel({
-  orderNumber: { key: 'order_number', type: 'string' },
-  billingAddress: { key: 'billing_address', type: 'object', model: GuestAddress },
-  shippingAddress: { key: 'shipping_address', type: 'object', model: GuestAddress },
-  grossTotal: { key: 'gross_total', type: 'object', model: Price },
-  taxTotal: { key: 'tax_total', type: 'object', model: Price },
-  created: { key: 'created', type: 'string' },
-  externalPaymentURL: { key: 'external_payment_url', type: 'string', optional: true }
-});
+const CreateOrderResponse = createModel(OrderResponse);
+ //{
+//   orderNumber: { key: 'order_number', type: 'string' },
+//   billingAddress: { key: 'billing_address', type: 'object', model: GuestAddress },
+//   shippingAddress: { key: 'shipping_address', type: 'object', model: GuestAddress },
+//   grossTotal: { key: 'gross_total', type: 'object', model: Price },
+//   taxTotal: { key: 'tax_total', type: 'object', model: Price },
+//   created: { key: 'created', type: 'string' },
+//   externalPaymentURL: { key: 'external_payment_url', type: 'string', optional: true }
+// });
 
 /**
 * @class Class for CreateOrderRedirectResponse model

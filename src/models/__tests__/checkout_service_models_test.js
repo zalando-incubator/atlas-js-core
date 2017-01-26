@@ -1,7 +1,7 @@
 /* eslint no-magic-numbers : 0 */
 
 import test from 'ava';
-import { CreateCartRequest, CartResponse, CreateCheckoutRequest, CreateCheckoutResponse, PutCheckoutRequest }
+import { CreateCartRequest, CartResponse, CreateCheckoutRequest, CheckoutResponse, PutCheckoutRequest, CheckoutGetOrderResponses, CheckoutOrderResponse }
   from '../checkout_service_models';
 
 test('CreateCartRequest should be initialized from JSON object', t => {
@@ -122,7 +122,7 @@ test('CreateCheckoutRequest is initialized from JSON object', t => {
 
 });
 
-test('CreateCheckoutResponse is initialized from JSON object', t => {
+test('CheckoutResponse is initialized from JSON object', t => {
 
   const json = {
     id: 1,
@@ -201,7 +201,7 @@ test('CreateCheckoutResponse is initialized from JSON object', t => {
     }
   };
 
-  const createCheckoutResponse = new CreateCheckoutResponse(json);
+  const createCheckoutResponse = new CheckoutResponse(json);
 
   t.is(createCheckoutResponse.id, 1);
   t.is(createCheckoutResponse.cartId, 1);
@@ -265,4 +265,23 @@ test('PutCheckoutresponse is initialized from JSON object', t => {
   t.is(putCheckoutResponse.shippingAddress.gender, 'MALE');
   t.is(putCheckoutResponse.delivery.service, 'STANDARD');
 
+});
+
+test('Should create .. from JSON', t => {
+  const json = [
+    {
+      order_number: '1',
+      customer_number: '1',
+      gross_total: {
+        amount: 99.95,
+        currency: 'EUR'
+      },
+      created: '2015-04-21T13:27:31+01:00',
+      detail_url: 'https://www.zalando.de/benutzerkonto/bestellung-detail/123456789'
+    }
+  ];
+
+  const checkoutGetOrderResponses = new CheckoutGetOrderResponses(json);
+  console.log(checkoutGetOrderResponses);
+  t.is(checkoutGetOrderResponses[0].orderNumber, '1');
 });

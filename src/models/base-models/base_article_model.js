@@ -28,10 +28,11 @@ const Partner = createModel({
  * @param {String} currency - currency of price.
  * @constructor
  */
-const Price = createModel({
+const PriceSchema = {
   amount: { key: 'amount', type: 'number' },
   currency: { key: 'currency', type: 'string' }
-});
+};
+const Price = createModel(PriceSchema);
 
 /**
  * @class Class for Article Unit model.
@@ -161,5 +162,5 @@ const DiscountSchema = {
 
 export {
   Brand, Partner, Price, Unit, Attribute, ArticleImage, Media, ItemWithPrice,
-    Item, Payment, Delivery, DeliverySchema, DiscountSchema
+    Item, Payment, Delivery, DeliverySchema, DiscountSchema, PriceSchema
 };

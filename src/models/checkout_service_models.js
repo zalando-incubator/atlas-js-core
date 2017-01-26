@@ -1,6 +1,7 @@
 import createModel from './base_model';
 import { Item, ItemWithPrice, Price, Delivery, DeliverySchema, DiscountSchema } from './base-models/base_article_model';
 import Address from './base-models/base_address_model';
+import { CheckoutApiOrderResponse, CheckoutOrder } from './order_model';
 
 const DeliveryRequest = createModel({
   service: { key: 'service', type: 'string' }
@@ -62,7 +63,7 @@ const CreateCheckoutRequest = createModel({
   coupons: { key: 'coupons', type: 'string' }
 });
 
-const CreateCheckoutResponse = createModel({
+const CheckoutResponse = createModel({
   id: { key: 'id', type: 'number' },
   customerNumber: { key: 'customer_number', type: 'number' },
   cartId: { key: 'cart_id', type: 'number' },
@@ -82,4 +83,10 @@ const PutCheckoutRequest = createModel({
   coupons: { key: 'coupons', type: 'string' }
 });
 
-export { CreateCartRequest, CartResponse, CreateCheckoutRequest, CreateCheckoutResponse, PutCheckoutRequest };
+const CheckoutOrderResponse = createModel(CheckoutApiOrderResponse);
+
+const CheckoutGetOrderResponses = createModel(CheckoutOrder);
+console.log(CheckoutOrder);
+
+export { CreateCartRequest, CartResponse, CreateCheckoutRequest, CheckoutResponse, PutCheckoutRequest,
+  CheckoutOrderResponse, CheckoutGetOrderResponses };
