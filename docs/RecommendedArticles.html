@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>AtlasSDK Class: Payment</title>
+	<title>AtlasSDK Class: RecommendedArticles</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,16 +72,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: Payment</h1>
+	<h1 class="page-title">Class: RecommendedArticles</h1>
 <section>
 
 <header>
     
         <h2>
-        Payment
+        RecommendedArticles
         </h2>
         
-            <div class="class-description">Class for Payment model</div>
+            <div class="class-description">Class for Recommended Article model</div>
         
     
 </header>
@@ -93,7 +93,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="Payment"><span class="type-signature"></span>new Payment(method, metadata)</h4>
+    <h4 class="name" id="RecommendedArticles"><span class="type-signature"></span>new RecommendedArticles(id, name, lowestPrice, brand, media)</h4>
     
     
 </dt>
@@ -132,7 +132,7 @@
 
         <tr>
             
-                <td class="name"><code>method</code></td>
+                <td class="name"><code>id</code></td>
             
 
             <td class="type">
@@ -149,20 +149,20 @@
 
             
 
-            <td class="description last">Payment Method type.</td>
+            <td class="description last">id of article.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>metadata</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">String</span>
 
 
 
@@ -173,7 +173,79 @@
 
             
 
-            <td class="description last">Metadata for payment.</td>
+            <td class="description last">name of article.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lowestPrice</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Price.html">Price</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">lowestPrice of article.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>brand</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Brand.html">Brand</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">brand of article.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>media</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Media.html">Media</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">media of article.</td>
         </tr>
 
     
