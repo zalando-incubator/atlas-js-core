@@ -1,0 +1,7 @@
+{
+  "customer_number": 1,
+  "gender": "MALE",
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "john.doe@example.com"
+}

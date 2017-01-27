@@ -1,0 +1,19 @@
+{
+  "id": "1",
+  "customer_number": "1",
+  "gender": "MALE",
+  "first_name": "John",
+  "last_name": "Doe",
+  "street": "Mollstr. 1",
+  "additional": "EG",
+  "zip": "10178",
+  "city": "Berlin",
+  "country_code": "DE",
+  "pickup_point": {
+    "name": "PACKSTATION",
+    "id": "802",
+    "member_id": "45685217"
+  },
+  "default_billing": true,
+  "default_shipping": false
+}

@@ -1,5 +1,5 @@
 import createModel from './base_model.js';
-import Address from './base-models/base_address_model';
+import { Address } from './base-models/base_address_model';
 import { PriceSchema } from './base-models/base_article_model';
 
 const OrderAddress = createModel(Address);

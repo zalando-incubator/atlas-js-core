@@ -1,9 +1,5 @@
 import test from 'ava';
-import { CheckoutAddress, GuestAddress } from '../address_model.js';
-
-
-const ADRESS_ID = 1;
-const CUSTOMER_NR = 1;
+import { CheckoutAddress, GuestAddress, CheckedAddress } from '../address_model.js';
 
 
 test('Addresses should be initialized from JSON object', t => {
@@ -40,8 +36,8 @@ test('Addresses should be initialized from JSON object', t => {
 
 test('Checkout addresses should be initialized from JSON object', t => {
   const json = {
-    id: 1,
-    customer_number: 1,
+    id: '1',
+    customer_number: '1',
     gender: 'MALE',
     first_name: 'John',
     last_name: 'Doe',
@@ -61,8 +57,8 @@ test('Checkout addresses should be initialized from JSON object', t => {
 
   const address = new CheckoutAddress(json);
 
-  t.is(address.id, ADRESS_ID);
-  t.is(address.customerNumber, CUSTOMER_NR);
+  t.is(address.id, '1');
+  t.is(address.customerNumber, '1');
   t.is(address.gender, 'MALE');
   t.is(address.firstName, 'John');
   t.is(address.lastName, 'Doe');
@@ -76,5 +72,25 @@ test('Checkout addresses should be initialized from JSON object', t => {
   t.is(address.pickupPoint.memberId, '45685217');
   t.is(address.defaultBilling, true);
   t.is(address.defaultShipping, false);
+
+});
+
+test('CheckedAddress should be initialized from JSON object', t => {
+
+  const json = {
+    status: 'CORRECT',
+    normalized_address: {
+      street: 'Mollstr. 1',
+      additional: 'EG',
+      zip: '10178',
+      city: 'Berlin',
+      country_code: 'DE'
+    }
+  };
+
+  const address = new CheckedAddress(json);
+
+  t.is(address.status, 'CORRECT');
+  t.is(address.normalizedAddress.street, 'Mollstr. 1');
 
 });

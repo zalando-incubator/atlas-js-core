@@ -6,6 +6,8 @@ import { CreateOrderResponse,
   CreateOrderRedirectResponse,
   GetCheckoutResponse } from '../models/guest_checkout_models.js';
 import { RecommendedArticles } from '../models/recommendation_models.js';
+import { CheckoutCustomer } from '../models/customer_model';
+import { CheckoutAddress } from '../models/address_model';
 
 const successCode = 200;
 const badRequestCode = 399;
@@ -202,6 +204,73 @@ class AtlasSDKClient {
     });
   }
 
-}
+  getCheckoutCustomer() {
+    const url = `${this.config.atlasCheckoutApi.url}/api/customer`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'GET',
+      headers: {
+        Accept: 'application/x.zalando.order.create.response+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel,
+        'X-UID': this.config.clientId
+      },
+      transform: (response) => {
+        return new CheckoutCustomer(response);
+      }
+    };
 
+    return fetchEndpoint(CheckoutEndpoint).then(CheckoutResponse => {
+      return CheckoutResponse;
+    });
+  }
+
+  getCheckoutAdresses() {
+    const url = `${this.config.atlasCheckoutApi.url}/api/addresses`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'GET',
+      headers: {
+        Accept: 'application/x.zalando.order.customer.addresses+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel,
+        'X-UID': this.config.clientId
+      },
+      transform: (json) => {
+
+        const result = [];
+
+        json.forEach(addressJson => result.push(new CheckoutAddress(addressJson)));
+        return result;
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(CheckoutResponse => {
+      return CheckoutResponse;
+    });
+  }
+
+  createCheckoutAddress(json) {
+    const url = `${this.config.atlasCheckoutApi.url}/api/addresses`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x.zalando.address.create+json',
+        Accept: 'application/x.zalando.address.create.response+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel,
+        'X-UID': this.config.clientId
+      },
+      body: json,
+      transform: (response) => {
+        return new CheckoutAddress(response);
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(CheckoutResponse => {
+      return CheckoutResponse;
+    });
+
+  }
+
+
+}
 export { AtlasSDKClient, fetchEndpoint, checkStatus, checkRedirect };

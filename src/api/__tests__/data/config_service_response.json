@@ -17,5 +17,8 @@
   },
   "atlas-checkout-gateway": {
     "url": "https://atlas-checkout-gateway.com"
+  },
+  "atlas-checkout-api": {
+    "url": "https://atlas-checkout-api.com"
   }
 }

@@ -11,6 +11,15 @@ const PickupPoint = {
   id: { key: 'id', type: 'string' },
   memberId: { key: 'member_id', type: 'string' }
 };
+
+const NormalizedAddress = {
+  street: { key: 'street', type: 'string' },
+  additional: { key: 'additional', type: 'string', optional: true },
+  zip: { key: 'zip', type: 'string' },
+  city: { key: 'city', type: 'string' },
+  countryCode: { key: 'country_code', type: 'string' }
+};
+
 // TODO seperate schema for pickuppoint
 /**
  * @class Baseclass for Address model
@@ -35,4 +44,4 @@ const Address = {
   pickupPoint: { key: 'pickup_point', type: 'object', model: createModel(PickupPoint), optional: true }
 };
 
-export default Address;
+export { Address, NormalizedAddress };
