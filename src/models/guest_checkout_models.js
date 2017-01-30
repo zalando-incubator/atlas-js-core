@@ -149,15 +149,7 @@ const CreateOrderRequest = createModel({
  * @constructor
  */
 const CreateOrderResponse = createModel(OrderResponse);
- // {
-//   orderNumber: { key: 'order_number', type: 'string' },
-//   billingAddress: { key: 'billing_address', type: 'object', model: GuestAddress },
-//   shippingAddress: { key: 'shipping_address', type: 'object', model: GuestAddress },
-//   grossTotal: { key: 'gross_total', type: 'object', model: Price },
-//   taxTotal: { key: 'tax_total', type: 'object', model: Price },
-//   created: { key: 'created', type: 'string' },
-//   externalPaymentURL: { key: 'external_payment_url', type: 'string', optional: true }
-// });
+
 
 /**
 * @class Class for CreateOrderRedirectResponse model
