@@ -86,7 +86,7 @@
     "tap-diff": "0.1.1",
     "tap-notify": "1.0.0",
     "chalk": "1.1.3",
-    "fetch-mock": "5.8.1",
+    "fetch-mock": "5.9.3",
     "codecov": "1.0.1",
     "nsp": "^2.2.0",
     "nyc": "10.0.0",

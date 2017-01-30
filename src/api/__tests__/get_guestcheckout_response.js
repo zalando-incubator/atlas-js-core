@@ -14,7 +14,7 @@ test('Should create guest checkout with Prepayment successfully', async t => {
 
   fetchMock.get('https://atlas-checkout-gateway.com/guest-checkout/api/checkouts/123/123', json);
 
-  const getCheckoutObject = await sdk.getCheckout('123', '123');
+  const getCheckoutObject = await sdk.getGuestCheckout('123', '123');
 
   t.deepEqual(getCheckoutObject, new GetCheckoutResponse(json));
 

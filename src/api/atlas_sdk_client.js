@@ -1,5 +1,6 @@
 /* eslint no-console: 0 */
 /* eslint no-native-reassign: 0 */
+
 import 'isomorphic-fetch';
 import { Article } from '../models/catalog_api_models.js';
 import { CreateOrderResponse,
@@ -7,7 +8,11 @@ import { CreateOrderResponse,
   GetCheckoutResponse } from '../models/guest_checkout_models.js';
 import { RecommendedArticles } from '../models/recommendation_models.js';
 import { CheckoutCustomer } from '../models/customer_model';
-import { CheckoutAddress } from '../models/address_model';
+import { CheckoutAddress, CheckedAddress } from '../models/address_model';
+import { CartResponse,
+  CheckoutResponse,
+  CheckoutOrderResponse,
+  CheckoutGetOrderResponses } from '../models/checkout_service_models';
 
 const successCode = 200;
 const badRequestCode = 399;
@@ -101,7 +106,7 @@ class AtlasSDKClient {
     });
   }
 
-  getCheckout(checkoutId, token) {
+  getGuestCheckout(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/checkouts/${checkoutId}/${token}`;
     const GetCheckoutEndpoint = {
       url: url,
@@ -124,7 +129,7 @@ class AtlasSDKClient {
     });
   }
 
-  createOrder(checkoutId, token) {
+  createGuestOrder(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
     const body = JSON.stringify({
       checkout_id: checkoutId,
@@ -211,16 +216,15 @@ class AtlasSDKClient {
       method: 'GET',
       headers: {
         Accept: 'application/x.zalando.order.create.response+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel,
-        'X-UID': this.config.clientId
+        'X-Sales-Channel': this.config.salesChannel
       },
       transform: (response) => {
         return new CheckoutCustomer(response);
       }
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(CheckoutResponse => {
-      return CheckoutResponse;
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
     });
   }
 
@@ -231,8 +235,7 @@ class AtlasSDKClient {
       method: 'GET',
       headers: {
         Accept: 'application/x.zalando.order.customer.addresses+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel,
-        'X-UID': this.config.clientId
+        'X-Sales-Channel': this.config.salesChannel
       },
       transform: (json) => {
 
@@ -243,8 +246,8 @@ class AtlasSDKClient {
       }
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(CheckoutResponse => {
-      return CheckoutResponse;
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
     });
   }
 
@@ -256,8 +259,7 @@ class AtlasSDKClient {
       headers: {
         'Content-Type': 'application/x.zalando.address.create+json',
         Accept: 'application/x.zalando.address.create.response+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel,
-        'X-UID': this.config.clientId
+        'X-Sales-Channel': this.config.salesChannel
       },
       body: json,
       transform: (response) => {
@@ -265,8 +267,284 @@ class AtlasSDKClient {
       }
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(CheckoutResponse => {
-      return CheckoutResponse;
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
+    });
+
+  }
+
+  deleteCheckoutAddress(addressId) {
+    const url = `${this.config.atlasCheckoutApi.url}/api/addresses/${addressId}`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'POST',
+      headers: {
+        Accept: 'application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
+    });
+
+  }
+
+  getCheckoutAddress(addressId) {
+    const url = `${this.config.atlasCheckoutApi.url}/api/addresses/${addressId}`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/x.zalando.address.create+json',
+        Accept: 'application/x.zalando.address.create.response+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      },
+      transform: (response) => {
+        return new CheckoutAddress(response);
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
+    });
+
+  }
+
+  putCheckoutAddress(json, addressId) {
+    const url = `${this.config.atlasCheckoutApi.url}/api/addresses/${addressId}`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/x.zalando.customer.address.update+json',
+        Accept: 'application/x.zalando.address.customer.address.update.response+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      },
+      body: json,
+      transform: (response) => {
+        return new CheckoutAddress(response);
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
+    });
+
+  }
+
+  checkAddress(json) {
+    const url = `${this.config.atlasCheckoutApi.url}/api/address-checks`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x.zalando.address-check.create+json',
+        Accept: 'application/x.zalando.address-check.create.response+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      },
+      body: json,
+      transform: (response) => {
+        return new CheckedAddress(response);
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
+    });
+
+  }
+
+  createCheckoutCart(json) {
+    const url = `${this.config.atlasCheckoutApi.url}/api/carts`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x.zalando.cart.create+json',
+        Accept: 'application/x.zalando.cart.create.response+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      },
+      body: json,
+      transform: (response) => {
+        return new CartResponse(response);
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
+    });
+
+  }
+
+  getCheckoutCart(cartId) {
+    const url = `${this.config.atlasCheckoutApi.url}/api/carts/${cartId}`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'GET',
+      headers: {
+        Accept: 'application/x.zalando.cart+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      },
+      transform: (response) => {
+        return new CartResponse(response);
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
+    });
+
+  }
+
+  putCheckoutcart(json, cartId) {
+    const url = `${this.config.atlasCheckoutApi.url}/api/carts/${cartId}`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/x.zalando.cart.update+json',
+        Accept: 'application/x.zalando.address.cart.update.response+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      },
+      body: json,
+      transform: (response) => {
+        return new CartResponse(response);
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
+    });
+
+  }
+
+
+  createCheckout(json) {
+    const url = `${this.config.atlasCheckoutApi.url}/api/checkouts`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x.zalando.customer.checkout.create+json',
+        Accept: 'application/x.zalando.customer.checkout.create.response+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      },
+      body: json,
+      transform: (response) => {
+        return new CheckoutResponse(response);
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
+    });
+
+  }
+
+  getCheckout(checkoutId) {
+    const url = `${this.config.atlasCheckoutApi.url}/api/checkouts/${checkoutId}`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'GET',
+      headers: {
+        Accept: 'application/x.zalando.customer.checkout+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      },
+      transform: (response) => {
+        return new CheckoutResponse(response);
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
+    });
+
+  }
+
+  putCheckout(json, checkoutId) {
+    const url = `${this.config.atlasCheckoutApi.url}/api/checkouts/${checkoutId}`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/x.zalando.customer.checkout+json',
+        Accept: 'application/x.zalando.customer.checkout.update.response+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      },
+      body: json,
+      transform: (response) => {
+        return new CheckoutResponse(response);
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
+    });
+
+  }
+
+  getOrders() {
+    const url = `${this.config.atlasCheckoutApi.url}/api/orders`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'GET',
+      headers: {
+        Accept: 'application/x.zalando.customer.orders+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      },
+      transform: (json) => {
+        const result = [];
+
+        json.forEach(oderJson => result.push(new CheckoutGetOrderResponses(oderJson)));
+        return result;
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
+    });
+
+  }
+
+  createOrder(json) {
+    const url = `${this.config.atlasCheckoutApi.url}/api/orders`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x.zalando.customer.order.create+json',
+        Accept: 'application/x.zalando.customer.order.create.response+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      },
+      body: json,
+      transform: (response) => {
+        return new CheckoutOrderResponse(response);
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
+    });
+
+  }
+
+  getOrder(orderId) {
+    const url = `${this.config.atlasCheckoutApi.url}/api/orders/${orderId}`;
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'GET',
+      headers: {
+        Accept: 'application/x.zalando.customer.orders+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      },
+      transform: (reponse) => {
+        return new CheckoutOrderResponse(reponse);
+      }
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
+      return EndpointResponse;
     });
 
   }

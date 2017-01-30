@@ -1,0 +1,76 @@
+{
+  "id": 1,
+  "customer_number": 1,
+  "cart_id": 1,
+  "billing_address": {
+    "id": 1,
+    "gender": "MALE",
+    "first_name": "John",
+    "last_name": "Doe",
+    "street": "Mollstr. 1",
+    "additional": "EG",
+    "zip": "10178",
+    "city": "Berlin",
+    "country_code": "DE"
+  },
+  "shipping_address": {
+    "id": 1,
+    "gender": "MALE",
+    "first_name": "John",
+    "last_name": "Doe",
+    "street": "Mollstr. 1",
+    "additional": "EG",
+    "zip": "10178",
+    "city": "Berlin",
+    "country_code": "DE",
+    "pickup_point": {
+      "name": "PACKSTATION",
+      "id": 802,
+      "member_id": 45685217
+    }
+  },
+  "delivery": {
+    "service": "STANDARD",
+    "cost": {
+      "amount": 99.95,
+      "currency": "EUR"
+    },
+    "earliest": "2015-04-21T13:27:31+01:00",
+    "latest": "2015-04-23T13:27:31+01:00",
+    "options": [
+      "STANDARD"
+    ]
+  },
+  "coupon_details": [
+    {
+      "coupon": "COUPON_1",
+      "warning": "Your coupon expires in 5 days",
+      "error": "Coupon COUPON_1 does not exist. Please make sure that you are using the right coupon code.",
+      "discount": {
+        "gross": {
+          "amount": 99.95,
+          "currency": "EUR"
+        },
+        "tax": {
+          "amount": 99.95,
+          "currency": "EUR"
+        },
+        "remaining": {
+          "amount": 99.95,
+          "currency": "EUR"
+        }
+      }
+    }
+  ],
+  "payment": {
+    "selected": {
+      "method": "CREDIT_CARD",
+      "metadata": {
+        "key_1": "value_1",
+        "key_2": "value_2"
+      },
+      "external_payment": true
+    },
+    "selection_page_url": "https://pay.zalando.de/ae45f19"
+  }
+}
