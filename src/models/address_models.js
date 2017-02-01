@@ -1,4 +1,4 @@
-import createModel from '../base_model.js';
+import createModel from './base_model';
 
 /**
  * @Class PickupPoint
@@ -6,21 +6,12 @@ import createModel from '../base_model.js';
  * @param {String} id - id of the pickup point
  * @param {String} memberId - member id of the pickpup point
  */
-const PickupPoint = {
+const PickupPoint = createModel({
   name: { key: 'name', type: 'string' },
   id: { key: 'id', type: 'string' },
   memberId: { key: 'member_id', type: 'string' }
-};
+});
 
-const NormalizedAddress = {
-  street: { key: 'street', type: 'string' },
-  additional: { key: 'additional', type: 'string', optional: true },
-  zip: { key: 'zip', type: 'string' },
-  city: { key: 'city', type: 'string' },
-  countryCode: { key: 'country_code', type: 'string' }
-};
-
-// TODO seperate schema for pickuppoint
 /**
  * @class Baseclass for Address model
  * @param {String} email - email of a customer.
@@ -33,15 +24,38 @@ const NormalizedAddress = {
  * @param {String} countryCode - country of the address
  * @param {PickupPoint} pickupPoint - pickup point of the address (Optional because only valid in shipping addresses)
  */
-const Address = {
+const AddressSchema = {
+  id: { key: 'id', type: 'string', optional: true },
   gender: { key: 'gender', type: 'string' },
   firstName: { key: 'first_name', type: 'string' },
   lastName: { key: 'last_name', type: 'string' },
   street: { key: 'street', type: 'string', optional: true },
+  additional: { key: 'additional', type: 'string', optional: true },
   zip: { key: 'zip', type: 'string' },
   city: { key: 'city', type: 'string' },
   countryCode: { key: 'country_code', type: 'string' },
-  pickupPoint: { key: 'pickup_point', type: 'object', model: createModel(PickupPoint), optional: true }
+  pickupPoint: { key: 'pickup_point', type: 'object', model: PickupPoint, optional: true }
 };
 
-export { Address, NormalizedAddress };
+const Address = createModel(AddressSchema);
+
+const CheckoutAddress = createModel({
+  customerNumber: { key: 'customer_number', type: 'string' },
+  defaultBilling: { key: 'default_billing', type: 'boolean' },
+  defaultShipping: { key: 'default_shipping', type: 'boolean' },
+  ...AddressSchema });
+
+const NormalizedAddress = createModel({
+  street: { key: 'street', type: 'string' },
+  additional: { key: 'additional', type: 'string', optional: true },
+  zip: { key: 'zip', type: 'string' },
+  city: { key: 'city', type: 'string' },
+  countryCode: { key: 'country_code', type: 'string' }
+});
+
+const CheckedAddress = createModel({
+  status: { key: 'status', type: 'string' },
+  normalizedAddress: { key: 'normalized_address', type: 'object', model: NormalizedAddress }
+});
+
+export { CheckoutAddress, CheckedAddress, Address };

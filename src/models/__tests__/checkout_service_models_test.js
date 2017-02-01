@@ -126,11 +126,11 @@ test('CreateCheckoutRequest is initialized from JSON object', t => {
 test('CheckoutResponse is initialized from JSON object', t => {
 
   const json = {
-    id: 1,
-    customer_number: 1,
-    cart_id: 1,
+    id: '1',
+    customer_number: '1',
+    cart_id: '1',
     billing_address: {
-      id: 1,
+      id: '1',
       gender: 'MALE',
       first_name: 'John',
       last_name: 'Doe',
@@ -141,7 +141,7 @@ test('CheckoutResponse is initialized from JSON object', t => {
       country_code: 'DE'
     },
     shipping_address: {
-      id: 1,
+      id: '1',
       gender: 'MALE',
       first_name: 'John',
       last_name: 'Doe',
@@ -204,12 +204,12 @@ test('CheckoutResponse is initialized from JSON object', t => {
 
   const createCheckoutResponse = new CheckoutResponse(json);
 
-  t.is(createCheckoutResponse.id, 1);
-  t.is(createCheckoutResponse.cartId, 1);
-  t.is(createCheckoutResponse.customerNumber, 1);
-  t.is(createCheckoutResponse.billingAddress.id, 1);
+  t.is(createCheckoutResponse.id, '1');
+  t.is(createCheckoutResponse.cartId, '1');
+  t.is(createCheckoutResponse.customerNumber, '1');
+  t.is(createCheckoutResponse.billingAddress.id, '1');
   t.is(createCheckoutResponse.billingAddress.gender, 'MALE');
-  t.is(createCheckoutResponse.shippingAddress.id, 1);
+  t.is(createCheckoutResponse.shippingAddress.id, '1');
   t.is(createCheckoutResponse.shippingAddress.gender, 'MALE');
   t.is(createCheckoutResponse.delivery.service, 'STANDARD');
   t.is(createCheckoutResponse.delivery.cost.amount, 99.95);

@@ -1,9 +1,9 @@
 {
-  "id": 1,
-  "customer_number": 1,
-  "cart_id": 1,
+  "id": "1",
+  "customer_number": "1",
+  "cart_id": "1",
   "billing_address": {
-    "id": 1,
+    "id": "1",
     "gender": "MALE",
     "first_name": "John",
     "last_name": "Doe",
@@ -14,7 +14,7 @@
     "country_code": "DE"
   },
   "shipping_address": {
-    "id": 1,
+    "id": "1",
     "gender": "MALE",
     "first_name": "John",
     "last_name": "Doe",

@@ -1,18 +1,19 @@
-/* eslint no-console: 0 */
-/* eslint no-native-reassign: 0 */
-
 import 'isomorphic-fetch';
-import { Article } from '../models/catalog_api_models.js';
-import { CreateOrderResponse,
+import { Article } from '../models/catalog_api_models';
+import {
+  CreateOrderResponse,
   CreateOrderRedirectResponse,
-  GetCheckoutResponse } from '../models/guest_checkout_models.js';
-import { RecommendedArticles } from '../models/recommendation_models.js';
+  GetCheckoutResponse
+} from '../models/guest_checkout_models';
+import { RecommendedArticles } from '../models/recommendation_models';
 import { CheckoutCustomer } from '../models/customer_model';
-import { CheckoutAddress, CheckedAddress } from '../models/address_model';
-import { CartResponse,
+import { CheckoutAddress, CheckedAddress } from '../models/address_models';
+import {
+  CartResponse,
   CheckoutResponse,
   CheckoutOrderResponse,
-  CheckoutGetOrderResponses } from '../models/checkout_service_models';
+  CheckoutGetOrderResponses
+} from '../models/checkout_service_models';
 
 const successCode = 200;
 const badRequestCode = 399;
@@ -66,7 +67,6 @@ function fetchEndpoint(endpoint) {
     .then(response => {
       return endpoint.transform(response);
     }).catch(error => {
-      console.error(error);
       throw error;
     });
 }

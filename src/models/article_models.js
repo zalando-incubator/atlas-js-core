@@ -1,4 +1,4 @@
-import createModel from '../base_model.js';
+import createModel from './base_model';
 
 /**
  * @class Class for Brand model.
@@ -98,11 +98,6 @@ const Media = createModel({
 });
 
 
-// TODO what is the right model
-// const Review = createModel({
-//   summary: {key: 'summary', type 'object', model: Summary'}
-// });
-
 /**
  * @class Class for CartItem model
  * @param {String} sku - SKU of item.
@@ -152,15 +147,9 @@ const DeliverySchema = {
   earliest: { key: 'earliest', type: 'string' },
   latest: { key: 'latest', type: 'string' }
 };
-
 const Delivery = createModel(DeliverySchema);
-
-const DiscountSchema = {
-  grossTotal: { key: 'grossTotal', type: 'object', model: Price },
-  taxTotal: { key: 'taxTotal', type: 'object', model: Price }
-};
 
 export {
   Brand, Partner, Price, Unit, Attribute, ArticleImage, Media, ItemWithPrice,
-    Item, Payment, Delivery, DeliverySchema, DiscountSchema, PriceSchema
+    Item, Payment, Delivery, DeliverySchema, PriceSchema
 };

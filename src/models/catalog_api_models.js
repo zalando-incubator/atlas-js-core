@@ -1,5 +1,5 @@
-import createModel from './base_model.js';
-import { Brand, Unit, Attribute, Media } from './base-models/base_article_model.js';
+import createModel from './base_model';
+import { Brand, Unit, Attribute, Media } from './article_models';
 
 /**
  * @class Class for Article model

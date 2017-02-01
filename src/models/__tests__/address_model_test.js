@@ -1,5 +1,5 @@
 import test from 'ava';
-import { CheckoutAddress, GuestAddress, CheckedAddress } from '../address_model.js';
+import { CheckoutAddress, Address, CheckedAddress } from '../address_models';
 
 
 test('Addresses should be initialized from JSON object', t => {
@@ -19,7 +19,7 @@ test('Addresses should be initialized from JSON object', t => {
 
   };
 
-  const address = new GuestAddress(json);
+  const address = new Address(json);
 
   t.is(address.gender, 'MALE');
   t.is(address.firstName, 'John');

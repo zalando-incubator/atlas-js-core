@@ -4,7 +4,7 @@ import test from 'ava';
 import fetchMock from 'fetch-mock';
 import configureSDK from './helpers/AtlasTestSDK';
 import { CheckoutCustomer } from '../../models/customer_model';
-import { CheckoutAddress, CheckedAddress } from '../../models/address_model';
+import { CheckoutAddress, CheckedAddress } from '../../models/address_models';
 import { CartResponse,
   CheckoutResponse,
   CheckoutOrderResponse,
@@ -220,26 +220,26 @@ test('Should create checkout successfully after configuring SDK', async t => {
 
 
   const req = {
-    cart_id: 1,
-    billing_address_id: 1,
+    cart_id: '1',
+    billing_address_id: '1',
     billing_address: {
       gender: 'MALE',
       first_name: 'John',
       last_name: 'Doe',
       street: 'Mollstr. 1',
       additional: 'EG',
-      zip: 10178,
+      zip: '10178',
       city: 'Berlin',
       country_code: 'DE'
     },
-    shipping_address_id: 1,
+    shipping_address_id: '1',
     shipping_address: {
       gender: 'MALE',
       first_name: 'John',
       last_name: 'Doe',
       street: 'Mollstr. 1',
       additional: 'EG',
-      zip: 10178,
+      zip: '10178',
       city: 'Berlin',
       country_code: 'DE',
       pickup_point: {
@@ -284,7 +284,7 @@ test('Should update checkout successfully after configuring SDK', async t => {
   fetchMock.put('https://atlas-checkout-api.com/api/checkouts/123', json);
 
   const req = {
-    billing_address_id: 1,
+    billing_address_id: '1',
     billing_address: {
       gender: 'MALE',
       first_name: 'John',
@@ -295,7 +295,7 @@ test('Should update checkout successfully after configuring SDK', async t => {
       city: 'Berlin',
       country_code: 'DE'
     },
-    shipping_address_id: 1,
+    shipping_address_id: '1',
     shipping_address: {
       id: 1,
       gender: 'MALE',

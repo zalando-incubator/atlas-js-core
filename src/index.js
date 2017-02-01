@@ -40,7 +40,7 @@ const AtlasSDK = {
       url: url,
       method: 'GET',
       transform: (response) => {
-        return new Config(Object.assign(response, options));
+        return new Config({ ...response, ...options });
       }
     };
 
@@ -50,4 +50,4 @@ const AtlasSDK = {
   }
 };
 
-export default Object.assign(AtlasSDK, models);
+export default { ...AtlasSDK, ...models };
