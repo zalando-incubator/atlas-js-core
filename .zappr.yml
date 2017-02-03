@@ -1,0 +1,8 @@
+approvals:
+  from:
+    orgs:
+      - zalando
+      - zalando-incubator
+    collaborators: true
+X-Zalando-Team: "dc"
+X-Zalando-Type: code
