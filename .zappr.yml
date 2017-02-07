@@ -1,8 +1,11 @@
 approvals:
-  from:
-    orgs:
-      - zalando
-      - zalando-incubator
-    collaborators: true
+  groups:
+    zalando:
+      minimum: 2
+      from:
+        orgs:
+          - zalando
+          - zalando-incubator
+
 X-Zalando-Team: "dc"
 X-Zalando-Type: code
