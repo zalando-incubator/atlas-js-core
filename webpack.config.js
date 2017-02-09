@@ -8,7 +8,9 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'lib'),
     filename: 'index.js',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    library: 'AtlasSDK',
+    umdNamedDefine: 'atlas_sdk'
   },
   resolve: {
     extensions: ['', '.js'],

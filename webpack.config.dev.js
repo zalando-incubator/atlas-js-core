@@ -1,25 +1,25 @@
 const path = require('path');
 const webpack = require('webpack');
+const webpackMerge = require('webpack-merge');
+
 const srcPath = path.join(__dirname, 'src');
 
-module.exports = {
+const baseConfig = {
+  target: 'node',
   entry: ['babel-polyfill', path.join(__dirname, 'src/index.js')],
-  debug: true,
   output: {
     path: path.join(__dirname, 'lib'),
-    filename: 'index.js',
-    libraryTarget: 'umd'
+    filename: 'index.node.js',
+    libraryTarget: 'umd',
+    library: 'AtlasSDK',
+    umdNamedDefine: 'atlas_sdk'
   },
+  debug: true,
   resolve: {
     extensions: ['', '.js'],
     alias: {
       models: `${srcPath}/models/`
     }
-  },
-  node: {
-    net: 'empty',
-    tls: 'empty',
-    dns: 'empty'
   },
   module: {
     preLoaders: [{
@@ -32,6 +32,10 @@ module.exports = {
         test: /\.(js)$/,
         loader: 'babel',
         include: path.join(__dirname, 'src')
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   },
@@ -42,7 +46,22 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('dev')
-    })
+    }),
+    new webpack.NormalModuleReplacementPlugin(/iconv-loader$/, 'node-noop')
   ]
 
 };
+
+const clientConfig = webpackMerge(baseConfig, {
+  target: 'web',
+  output: {
+    filename: 'index.js'
+  },
+  node: {
+    net: 'empty',
+    tls: 'empty',
+    dns: 'empty'
+  }
+});
+
+module.exports = [clientConfig, baseConfig];

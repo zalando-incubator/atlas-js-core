@@ -41,7 +41,7 @@ AtlasSDK.configure({
   console.log(`Article name: ${article.name}`);
 }).catch((error) => {
   console.error(`${error}`);
-};
+});
 ```
 
 Since we are using __Promises__ you can benefit from __await/async__:
