@@ -112,7 +112,7 @@ AtlasSDK.configure({
   console.log(`Article name: ${article.name}`);
 }).catch((error) => {
   console.error(`${error}`);
-};</code></pre><p>Since we are using <strong>Promises</strong> you can benefit from <strong>await/async</strong>:</p>
+});</code></pre><p>Since we are using <strong>Promises</strong> you can benefit from <strong>await/async</strong>:</p>
 <pre class="prettyprint source lang-javascript"><code>import AtlasSDK from 'atlas-sdk-core';
 
 const sdk = await AtlasSDK.configure({
