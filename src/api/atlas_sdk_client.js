@@ -1,6 +1,7 @@
 /* eslint no-console: 0 */
 /* eslint no-native-reassign: 0 */
-import 'isomorphic-fetch';
+require('isomorphic-fetch');
+
 import { Article } from '../models/catalog_api_models.js';
 import { CreateOrderResponse,
   CreateOrderRedirectResponse,
