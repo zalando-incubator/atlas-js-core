@@ -39,12 +39,34 @@ const AddressSchema = {
 
 const Address = createModel(AddressSchema);
 
+/**
+ * @class Baseclass for CheckoutAddress model
+ * @param {String} customerNumber - customer number
+ * @param {String} email - email of a customer.
+ * @param {String} gender - gender of the customer (FEMALE / MALE)
+ * @param {String} firstName - first name of the customer
+ * @param {String} lastName - last name of the customer
+ * @param {String} street - street of the address
+ * @param {String} zip - zip code of the address
+ * @param {String} city - city of the address
+ * @param {String} countryCode - country of the address
+ * @param {PickupPoint} pickupPoint - pickup point of the address (Optional because only valid in shipping addresses)
+ * @param {Boolean} defaultBilling - is this address the default billing address
+ * @param {Boolean} defaultShipping - is this address the default shipping address
+ */
 const CheckoutAddress = createModel({
   customerNumber: { key: 'customer_number', type: 'string' },
   defaultBilling: { key: 'default_billing', type: 'boolean' },
   defaultShipping: { key: 'default_shipping', type: 'boolean' },
   ...AddressSchema });
 
+/**
+ * @class Baseclass for NormalizedAddress model
+ * @param {String} street - street of the address
+ * @param {String} zip - zip code of the address
+ * @param {String} city - city of the address
+ * @param {String} countryCode - country of the address
+ */
 const NormalizedAddress = createModel({
   street: { key: 'street', type: 'string' },
   additional: { key: 'additional', type: 'string', optional: true },
@@ -53,6 +75,11 @@ const NormalizedAddress = createModel({
   countryCode: { key: 'country_code', type: 'string' }
 });
 
+/**
+ * @class Baseclass for CheckedAddress model
+ * @param {String} status - status of the address check
+ * @param {NormalizedAddress} normalizedAddress - the normalized address
+ */
 const CheckedAddress = createModel({
   status: { key: 'status', type: 'string' },
   normalizedAddress: { key: 'normalized_address', type: 'object', model: NormalizedAddress }

@@ -1,5 +1,5 @@
 {
-  "customer_number": 1,
+  "customer_number": "1",
   "gender": "MALE",
   "first_name": "John",
   "last_name": "Doe",

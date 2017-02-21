@@ -126,6 +126,7 @@ const ItemWithPrice = createModel({
 /**
  * @class Class for Payment model
  * @param {String} method - Payment Method type.
+ * @param {String} selectionPageUrl - URL of the payment selection page.
  * @param {Object} metadata - Metadata for payment.
  * @constructor
  */
@@ -137,14 +138,12 @@ const Payment = createModel({
 
 /**
  * @class Class for Delivery model
- * @param {String} service - Delivery Service type.
- * @param {Object} cost - Cost for Delivery.
  * @param {String} earliest - Delivery earliest date.
  * @param {String} latest - Delivery latest date.
  * @constructor
  */
 const DeliverySchema = {
-  earliest: { key: 'earliest', type: 'string' },
+  earliest: { key: 'earliest', type: 'string', optional: true },
   latest: { key: 'latest', type: 'string' }
 };
 const Delivery = createModel(DeliverySchema);

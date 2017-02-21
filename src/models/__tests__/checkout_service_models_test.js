@@ -25,7 +25,7 @@ test('CreateCartRequest should be initialized from JSON object', t => {
 
 test('CartResponse should be initialized from JSON object', t => {
   const json = {
-    id: 1,
+    id: '1',
     items: [
       {
         sku: 'ME142C002-Q110500000',
@@ -69,14 +69,14 @@ test('CartResponse should be initialized from JSON object', t => {
 
   const createCartResponse = new CartResponse(json);
 
-  t.is(createCartResponse.id, 1);
+  t.is(createCartResponse.id, '1');
   t.is(createCartResponse.items[0].price.amount, 99.95);
   t.is(createCartResponse.delivery.earliest, '2015-04-21T13:27:31+01:00');
 });
 
 test('CreateCheckoutRequest is initialized from JSON object', t => {
   const json = {
-    cart_id: 1,
+    cart_id: '1',
     billing_address_id: 1,
     billing_address: {
       gender: 'MALE',
@@ -113,7 +113,7 @@ test('CreateCheckoutRequest is initialized from JSON object', t => {
   };
   const createCheckoutRequest = new CreateCheckoutRequest(json);
 
-  t.is(createCheckoutRequest.cartId, 1);
+  t.is(createCheckoutRequest.cartId, '1');
   t.is(createCheckoutRequest.billingAddressId, 1);
   t.is(createCheckoutRequest.billingAddress.street, 'Mollstr. 1');
   t.is(createCheckoutRequest.shippingAddressId, 1);
@@ -215,6 +215,7 @@ test('CheckoutResponse is initialized from JSON object', t => {
   t.is(createCheckoutResponse.delivery.cost.amount, 99.95);
   t.is(createCheckoutResponse.delivery.earliest, '2015-04-21T13:27:31+01:00');
   t.is(createCheckoutResponse.delivery.options[0], 'STANDARD');
+  t.is(createCheckoutResponse.couponDetails[0].discount.gross.amount, 99.95);
   t.is(createCheckoutResponse.couponDetails[0].discount.remaining.amount, 99.95);
   t.is(createCheckoutResponse.payment.selected.method, 'CREDIT_CARD');
   t.is(createCheckoutResponse.payment.selected.metadata.key_1, 'value_1');
