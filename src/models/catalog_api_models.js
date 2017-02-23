@@ -27,7 +27,7 @@ const ArticleImage = createModel({
  * @constructor
  */
 const Media = createModel({
-  images: { key: 'images', type: 'object', model: ArticleImage }
+  images: { key: 'media_items', type: 'object', model: ArticleImage, optional: true }
 });
 
 /**
@@ -81,7 +81,7 @@ const Unit = createModel({
   price: { key: 'price', type: 'object', model: Price },
   originalPrice: { key: 'original_price', type: 'object', model: Price },
   available: { key: 'available', type: 'boolean' },
-  stock: { key: 'stock', type: 'number' },
+  stock: { key: 'stock', type: 'number', optional: true },
   partner: { key: 'partner', type: 'object', model: Partner }
 });
 
@@ -111,7 +111,7 @@ const Article = createModel({
   color: { key: 'color', type: 'string' },
   brand: { key: 'brand', type: 'object', model: Brand },
   units: { key: 'units', type: 'object', model: Unit },
-  media: { key: 'media', type: 'object', model: Media },
+  media: { key: 'media', type: 'object', model: Media, optional: true },
   attributes: { key: 'attributes', type: 'object', model: Attribute, optional: true },
   infos: { key: 'infos', type: 'string', optional: true },
   reviews: { key: 'reviews', type: 'object', optional: true }

@@ -23,7 +23,6 @@ test('Article should be initialized from JSON object', t => {
           currency: 'EUR'
         },
         available: true,
-        stock: 3,
         partner: {
           id: '123',
           name: 'Adidas',
@@ -32,7 +31,7 @@ test('Article should be initialized from JSON object', t => {
       }
     ],
     media: {
-      images: [
+      media_items: [
         {
           order: 1,
           catalog: 'https://i6.ztat.net/catalog/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
@@ -44,14 +43,6 @@ test('Article should be initialized from JSON object', t => {
         }
       ]
     },
-    attributes: [
-      {
-        name: 'Internal material',
-        values: [
-          'textile'
-        ]
-      }
-    ],
     infos: [
       'Removable cover sole'
     ],
@@ -103,11 +94,17 @@ test('Article should be initialized from JSON object', t => {
   t.is(article.id, 'AD112B0F6-A11');
   t.is(article.color, 'Orange');
   t.is(article.units[0].size, 'M');
-  t.is(article.units[0].stock, testStock);
+  if (article.units[0].stock) {
+    t.is(article.units[0].stock, testStock);
+  }
   t.is(article.units[0].partner.id, testPartnerId);
-  t.is(article.media.images[0].catalog, 'https://i6.ztat.net/catalog/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg');
-  t.is(article.attributes[0].name, 'Internal material');
-  t.is(article.attributes[0].values[0], 'textile');
+  if (article.media) {
+    t.is(article.media.images[0].catalog, 'https://i6.ztat.net/catalog/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg');
+  }
+  if (article.attributes) {
+    t.is(article.attributes[0].name, 'Internal material');
+    t.is(article.attributes[0].values[0], 'textile');
+  }
   t.is(article.infos[0], 'Removable cover sole');
   t.is(article.reviews.entries.length, 1);
   t.is(article.reviews.summary.total, 45);
@@ -155,7 +152,7 @@ test('Article should be initialized from JSON object with optional fields', t =>
       }
     ],
     media: {
-      images: [
+      media_items: [
         {
           order: 1,
           catalog: 'https://i6.ztat.net/catalog/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
