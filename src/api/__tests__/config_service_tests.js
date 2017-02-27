@@ -19,6 +19,10 @@ test('Should configure AtlasSDK successfully', async t => {
 
   t.is(sdk.config.catalogApi.url, 'https://catalog_api.com/api');
   t.is(sdk.config.atlasCheckoutGateway.url, 'https://atlas-checkout-gateway.com');
+  t.is(sdk.config.recommendation.location, 'my_app_pdp');
+  t.is(sdk.config.recommendation.type, 'similar');
+  t.is(sdk.config.recommendation.channel, 'myapp');
+
 });
 
 test('Should return current locale and language according to Sales Channel', async t => {
