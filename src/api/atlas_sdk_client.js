@@ -149,9 +149,9 @@ class AtlasSDKClient {
     });
   }
 
-  getRecommendations(sku) {
-    const url = `${this.config.catalogApi.url}/articles/${sku}/recommendations/?client_id=${this.config.clientId}`;
-
+  getRecommendations(sku, recoId) {
+    const catalogUrl = this.config.catalogApi.url;
+    const url = `${catalogUrl}/articles/${sku}/recommendations/?client_id=${this.config.clientId}&anon_id=${recoId}`;
     const GetRecommendationsEndpoint = {
       url: url,
       method: 'GET',
