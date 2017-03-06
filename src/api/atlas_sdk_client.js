@@ -162,13 +162,13 @@ class AtlasSDKClient {
       url: url,
       method: 'GET',
       headers: {
-        'Content-Type': 'application/x.zalando.article.recommendation+json',
-        Accept: 'application/x.zalando.article.recommendation+json, application/x.problem+json',
+        'Content-Type': 'application/x.zalando.article.recommendations+json',
+        Accept: 'application/x.zalando.article.recommendations+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel,
         'X-UID': this.config.clientId,
-        'X-Reco-Location': this.config.recommendation.location,
-        'X-Reco-Type': this.config.recommendation.type,
-        'X-Channel': this.config.recommendation.channel
+        'X-Reco-Location': this.config.recommendations[0].location,
+        'X-Reco-Type': this.config.recommendations[0].type,
+        'X-Channel': this.config.recommendations[0].channel
       },
       transform: (json) => {
         const result = [];
