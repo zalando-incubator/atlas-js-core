@@ -18,7 +18,7 @@
   "atlas-checkout-gateway": {
     "url": "https://atlas-checkout-gateway.com"
   },
-  "recommendation": {
+  "recommendations": {
     "location" : "my_app_pdp",
     "type" : "similar",
     "channel" : "myapp"
