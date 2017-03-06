@@ -25,7 +25,7 @@ test('Should configure AtlasSDK successfully', async t => {
 
 });
 
-test('Should return current locale and language according to Sales Channel', async t => {
+test('Should return current locale, language and country code according to Sales Channel', async t => {
   fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', configJson);
 
   const sdk = await AtlasSDK.configure({
@@ -38,6 +38,7 @@ test('Should return current locale and language according to Sales Channel', asy
 
   t.is(sdk.getLocale(), 'de_DE');
   t.is(sdk.getLanguage(), 'de');
+  t.is(sdk.getCountryCode(), 'DE');
 });
 
 test.afterEach.always(() => {
