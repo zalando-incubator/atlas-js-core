@@ -80,6 +80,12 @@ class AtlasSDKClient {
     return this.getLocale().substring(startPosition, this.getLocale().indexOf('_'));
   }
 
+  getCountryCode() {
+    const underscorePosition = 1;
+
+    return this.getLocale().substring(this.getLocale().indexOf('_') + underscorePosition);
+  }
+
   getArticle(sku) {
     const url = `${this.config.catalogApi.url}/articles/${sku}?client_id=${this.config.clientId}`;
     const CatalogEndpoint = {
