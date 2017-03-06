@@ -11,10 +11,10 @@ const SalesChannel = createModel({
 });
 
 /**
- * @class Recommendation class struct
- * @param source {Object} - Initialisation object for Recommendation
+ * @class Recommendations class struct
+ * @param source {Object} - Initialisation object for Recommendations
  */
-const Recommendation = createModel({
+const Recommendations = createModel({
   location: { key: 'location', type: 'string' },
   type: { key: 'type', type: 'string' },
   channel: { key: 'channel', type: 'string' }
@@ -33,7 +33,7 @@ const source = {
     channel: '11111111-1111-1111-1111-111111111111',
     toc_url: 'https://m.zalando.de/agb/'
   },
-  recommendation: {
+  recommendations: {
     location: 'my_app_pdp',
     type: 'similar',
     channel: 'myapp'
@@ -48,7 +48,7 @@ const Config = createModel({
   salesChannels: { key: 'sales-channels', type: 'object', model: SalesChannel },
   clientId: { key: 'client_id', type: 'string' },
   salesChannel: { key: 'sales_channel', type: 'string' },
-  recommendation: { key: 'recommendation', type: 'object', model: Recommendation },
+  recommendations: { key: 'recommendations', type: 'object', model: Recommendations },
   isSandbox: { key: 'is_sandbox', type: 'boolean' }
 });
 
