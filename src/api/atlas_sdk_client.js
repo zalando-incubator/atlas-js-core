@@ -80,6 +80,12 @@ class AtlasSDKClient {
     return this.getLocale().substring(startPosition, this.getLocale().indexOf('_'));
   }
 
+  getCountryCode() {
+    const underscorePosition = 1;
+
+    return this.getLocale().substring(this.getLocale().indexOf('_') + underscorePosition);
+  }
+
   getArticle(sku) {
     const url = `${this.config.catalogApi.url}/articles/${sku}?client_id=${this.config.clientId}`;
     const CatalogEndpoint = {
@@ -156,13 +162,13 @@ class AtlasSDKClient {
       url: url,
       method: 'GET',
       headers: {
-        'Content-Type': 'application/x.zalando.article.recommendations+json',
-        Accept: 'application/x.zalando.article.recommendations+json, application/x.problem+json',
+        'Content-Type': 'application/x.zalando.article.recommendation+json',
+        Accept: 'application/x.zalando.article.recommendation+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel,
         'X-UID': this.config.clientId,
-        'X-Reco-Location': this.config.recommendations.location,
-        'X-Reco-Type': this.config.recommendations.type,
-        'X-Channel': this.config.recommendations.channel
+        'X-Reco-Location': this.config.recommendations[0].location,
+        'X-Reco-Type': this.config.recommendations[0].type,
+        'X-Channel': this.config.recommendations[0].channel
       },
       transform: (json) => {
         const result = [];
