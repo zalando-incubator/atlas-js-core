@@ -34,6 +34,7 @@ test('Article should be initialized from JSON object', t => {
       media_items: [
         {
           order: 1,
+          type: 'IMAGE',
           catalog: 'https://i6.ztat.net/catalog/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
           catalog_hd: 'https://i6.ztat.net/catalog_hd/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
           detail: 'https://i6.ztat.net/detail/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
@@ -100,6 +101,8 @@ test('Article should be initialized from JSON object', t => {
   t.is(article.units[0].partner.id, testPartnerId);
   if (article.media) {
     t.is(article.media.images[0].catalog, 'https://i6.ztat.net/catalog/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg');
+    t.is(article.media.images[0].type, 'IMAGE');
+
   }
   if (article.attributes) {
     t.is(article.attributes[0].name, 'Internal material');
@@ -155,6 +158,7 @@ test('Article should be initialized from JSON object with optional fields', t =>
       media_items: [
         {
           order: 1,
+          type: 'IMAGE',
           catalog: 'https://i6.ztat.net/catalog/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
           catalog_hd: 'https://i6.ztat.net/catalog_hd/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
           detail: 'https://i6.ztat.net/detail/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
