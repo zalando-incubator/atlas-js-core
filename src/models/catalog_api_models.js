@@ -18,7 +18,8 @@ const ArticleImage = createModel({
   detail: { key: 'detail', type: 'string' },
   detailHD: { key: 'detail_hd', type: 'string' },
   large: { key: 'large', type: 'string' },
-  largeHD: { key: 'large_hd', type: 'string' }
+  largeHD: { key: 'large_hd', type: 'string' },
+  type: { key: 'type', type: 'string' }
 });
 
 /**
