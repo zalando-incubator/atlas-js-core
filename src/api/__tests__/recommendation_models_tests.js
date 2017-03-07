@@ -12,7 +12,7 @@ const configJson = fs.readFileSync(path.join(__dirname, 'data/config_service_res
 test('Article should be initialized from JSON object', async t => {
   fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', configJson);
 
-  const url = 'https://catalog_api.com/api/articles/AD112B0F6-A11/recommendations/?client_id=CLIENT_ID';
+  const url = 'https://catalog_api.com/api/articles/AD112B0F6-A11/recommendations/?client_id=CLIENT_ID&anon_id=1234';
 
   fetchMock.get(url, RecommendedJSON);
 
@@ -22,7 +22,7 @@ test('Article should be initialized from JSON object', async t => {
     is_sandbox: true
   });
 
-  const recommendedArticles = await sdk.getRecommendations('AD112B0F6-A11');
+  const recommendedArticles = await sdk.getRecommendations('AD112B0F6-A11', '1234');
 
   const imgurl = 'https://i3.ztat.net/catalog/ZA/88/2F/A0/1A/11/ZA882FA01-A11@4.1.jpg';
 
