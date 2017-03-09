@@ -129,6 +129,10 @@ class AtlasSDKClient {
     });
   }
 
+  getConfig() {
+    return this.config;
+  }
+
   createOrder(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
     const body = JSON.stringify({
