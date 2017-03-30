@@ -110,6 +110,7 @@ const Article = createModel({
   id: { key: 'id', type: 'string' },
   name: { key: 'name', type: 'string' },
   color: { key: 'color', type: 'string' },
+  detailUrl: { key: 'detail_url', type: 'string', optional: true },
   brand: { key: 'brand', type: 'object', model: Brand },
   units: { key: 'units', type: 'object', model: Unit },
   media: { key: 'media', type: 'object', model: Media, optional: true },
