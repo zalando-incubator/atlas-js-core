@@ -10,6 +10,7 @@ test('Article should be initialized from JSON object', t => {
     brand: {
       name: 'Adidas'
     },
+    detail_url: 'https://www.zalando.de/adidas-originals-los-angeles-sneaker-ad112b0f6-a11.html',
     units: [
       {
         id: 'AD112B0F6-A110135000',
@@ -94,6 +95,7 @@ test('Article should be initialized from JSON object', t => {
 
   t.is(article.id, 'AD112B0F6-A11');
   t.is(article.color, 'Orange');
+  t.is(article.detailUrl, 'https://www.zalando.de/adidas-originals-los-angeles-sneaker-ad112b0f6-a11.html');
   t.is(article.units[0].size, 'M');
   if (article.units[0].stock) {
     t.is(article.units[0].stock, testStock);
@@ -133,6 +135,7 @@ test('Article should be initialized from JSON object with optional fields', t =>
     brand: {
       name: 'Adidas'
     },
+    detail_url: 'https://www.zalando.de/adidas-originals-los-angeles-sneaker-ad112b0f6-a11.html',
     units: [
       {
         id: 'AD112B0F6-A110135000',
@@ -177,6 +180,7 @@ test('Article should be initialized from JSON object with optional fields', t =>
 
   t.is(article.id, 'AD112B0F6-A11');
   t.is(article.color, 'Orange');
+  t.is(article.detailUrl, 'https://www.zalando.de/adidas-originals-los-angeles-sneaker-ad112b0f6-a11.html');
   t.is(article.units[0].size, 'M');
   t.is(article.units[0].stock, testStock);
   t.is(article.units[0].partner.id, testPartnerId);
