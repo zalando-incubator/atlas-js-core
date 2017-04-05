@@ -8,6 +8,7 @@ import {
   CreateOrderRedirectResponse,
   GetCheckoutResponse
 } from '../models/guest_checkout_models';
+
 import { RecommendedArticles } from '../models/recommendation_models';
 import { CheckoutCustomer } from '../models/customer_model';
 import { CheckoutAddress, CheckedAddress } from '../models/address_models';
