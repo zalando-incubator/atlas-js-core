@@ -139,8 +139,8 @@ class AtlasSDKClient {
   }
 
   getConfig() {
-        return this.config;
-    }
+    return this.config;
+  }
 
   createGuestOrder(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;

@@ -45,6 +45,15 @@ test('Article should be initialized from JSON object', t => {
         }
       ]
     },
+    attributes: [
+      {
+        category: 'Material',
+        name: 'Internal material',
+        values: [
+          'textile'
+        ]
+      }
+    ],
     infos: [
       'Removable cover sole'
     ],

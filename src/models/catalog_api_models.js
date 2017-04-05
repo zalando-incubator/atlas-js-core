@@ -114,7 +114,7 @@ const Article = createModel({
   brand: { key: 'brand', type: 'object', model: Brand },
   units: { key: 'units', type: 'object', model: Unit },
   media: { key: 'media', type: 'object', model: Media, optional: true },
-  attributes: { key: 'attributes', type: 'object', model: Attribute },
+  attributes: { key: 'attributes', type: 'object', model: Attribute, optional: true },
   infos: { key: 'infos', type: 'string', optional: true },
   reviews: { key: 'reviews', type: 'object', optional: true }
 });
