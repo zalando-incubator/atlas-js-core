@@ -39,6 +39,9 @@ const AtlasSDK = {
     const ConfigEndpoint = {
       url: url,
       method: 'GET',
+      headers: {
+        Accept: 'application/json'
+      },
       transform: (response) => {
         return new Config({ ...response, ...options });
       }

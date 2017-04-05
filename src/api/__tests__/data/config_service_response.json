@@ -20,5 +20,10 @@
   },
   "atlas-checkout-api": {
     "url": "https://atlas-checkout-api.com"
-  }
+  },
+  "recommendations": [{
+    "location" : "my_app_pdp",
+    "type" : "similar",
+    "channel" : "myapp"
+  }]
 }

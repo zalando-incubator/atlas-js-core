@@ -1,8 +1,9 @@
 {
   "name": "atlas-sdk-core",
-  "version": "1.0.0",
+  "version": "1.6.3",
   "description": "Atlas JavaScript SDK Core for Zalando Checkout, Guest Checkout, and Catalog APIs.",
-  "main": "lib/index.js",
+  "main": "lib/index.node.js",
+  "browser": "lib/index.js",
   "files": [
     "src/",
     "lib/"
@@ -24,7 +25,7 @@
     "lint": "eslint src test",
 
     "clean": "rm -rf lib",
-    "dev:build": "npm run clean && ./node_modules/.bin/webpack --config webpack.dev.config.js --watch",
+    "dev:build": "npm run clean && ./node_modules/.bin/webpack --config webpack.config.dev.js --watch",
     "production:build": "npm run clean && ./node_modules/.bin/webpack --config webpack.config.js",
 
     "david": "./node_modules/.bin/david",
@@ -81,7 +82,10 @@
     "eslint": "^3.13.1",
     "eslint-loader": "^1.6.1",
     "webpack": "^1.14.0",
+    "webpack-merge": "2.6.1",
     "babel-loader": "6.2.10",
+    "json-loader": "0.5.4",
+    "node-noop": "*",
     "ava": "0.17.0",
     "tap-diff": "0.1.1",
     "tap-notify": "1.0.0",

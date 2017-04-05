@@ -5,6 +5,7 @@
   "brand": {
     "name": "Adidas"
   },
+  "detail_url": "https://www.zalando.de/adidas-originals-los-angeles-sneaker-ad112b0f6-a11.html",
   "units": [
     {
       "id": "AD112B0F6-A110135000",
@@ -41,6 +42,7 @@
     "images": [
       {
         "order": 1,
+        "type": "IMAGE",
         "catalog": "https://i6.ztat.net/catalog/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg",
         "catalog_hd": "https://i6.ztat.net/catalog_hd/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg",
         "detail": "https://i6.ztat.net/detail/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg",

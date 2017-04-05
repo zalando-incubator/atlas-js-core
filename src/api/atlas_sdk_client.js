@@ -1,4 +1,7 @@
-import 'isomorphic-fetch';
+/* eslint no-console: 0 */
+/* eslint no-native-reassign: 0 */
+require('isomorphic-fetch');
+
 import { Article } from '../models/catalog_api_models';
 import {
   CreateOrderResponse,
@@ -86,6 +89,12 @@ class AtlasSDKClient {
     return this.getLocale().substring(startPosition, this.getLocale().indexOf('_'));
   }
 
+  getCountryCode() {
+    const underscorePosition = 1;
+
+    return this.getLocale().substring(this.getLocale().indexOf('_') + underscorePosition);
+  }
+
   getArticle(sku) {
     const url = `${this.config.catalogApi.url}/articles/${sku}?client_id=${this.config.clientId}`;
     const CatalogEndpoint = {
@@ -129,6 +138,10 @@ class AtlasSDKClient {
     });
   }
 
+  getConfig() {
+        return this.config;
+    }
+
   createGuestOrder(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
     const body = JSON.stringify({
@@ -155,9 +168,9 @@ class AtlasSDKClient {
     });
   }
 
-  getRecommendations(sku) {
-    const url = `${this.config.catalogApi.url}/articles/${sku}/recommendations/?client_id=${this.config.clientId}`;
-
+  getRecommendations(sku, recoId) {
+    const catalogUrl = this.config.catalogApi.url;
+    const url = `${catalogUrl}/articles/${sku}/recommendations/?client_id=${this.config.clientId}&anon_id=${recoId}`;
     const GetRecommendationsEndpoint = {
       url: url,
       method: 'GET',
@@ -165,7 +178,10 @@ class AtlasSDKClient {
         'Content-Type': 'application/x.zalando.article.recommendation+json',
         Accept: 'application/x.zalando.article.recommendation+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel,
-        'X-UID': this.config.clientId
+        'X-UID': this.config.clientId,
+        'X-Reco-Location': this.config.recommendations[0].location,
+        'X-Reco-Type': this.config.recommendations[0].type,
+        'X-Channel': this.config.recommendations[0].channel
       },
       transform: (json) => {
         const result = [];
