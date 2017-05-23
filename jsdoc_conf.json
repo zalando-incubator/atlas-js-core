@@ -4,10 +4,10 @@
         "dictionaries": ["jsdoc"]
     },
     "source": {
+        "include": "src/",
         "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
-    "plugins": ["node_modules/jsdoc-babel"],
     "templates": {
         "cleverLinks": false,
         "monospaceLinks": false,

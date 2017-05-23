@@ -1,7 +1,15 @@
 /* eslint no-magic-numbers: [0]*/
 import test from 'ava';
-import { Customer, Address, Cart, Payment, Price,
-  CreateOrderRequest, CreateOrderResponse, CreateOrderRedirectResponse } from '../guest_checkout_models.js';
+import {
+  Customer,
+  Address,
+  Cart,
+  Payment,
+  Price,
+  CreateOrderRequest,
+  CreateOrderResponse,
+  CreateOrderRedirectResponse
+} from '../guest_checkout_models.js';
 
 test('Should create Customer successfully from JSON', t => {
   const json = {

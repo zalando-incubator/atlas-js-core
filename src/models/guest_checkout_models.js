@@ -169,4 +169,16 @@ const GetCheckoutResponse = createModel({
   delivery: { key: 'delivery', type: 'object', model: Delivery }
 });
 
-export { Customer, Address, PickupPoint, CartItem, Cart, Payment, Price, CreateOrderRequest, CreateOrderResponse, CreateOrderRedirectResponse, GetCheckoutResponse };
+export {
+  Customer,
+  Address,
+  PickupPoint,
+  CartItem,
+  Cart,
+  Payment,
+  Price,
+  CreateOrderRequest,
+  CreateOrderResponse,
+  CreateOrderRedirectResponse,
+  GetCheckoutResponse
+};

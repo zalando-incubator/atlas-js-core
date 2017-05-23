@@ -1,6 +1,6 @@
 import test from 'ava';
 import fetchMock from 'fetch-mock';
-import AtlasSDK from '../../index.js';
+import AtlasSDK from '../../index';
 
 const fs = require('fs');
 const path = require('path');

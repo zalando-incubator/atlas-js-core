@@ -1,5 +1,5 @@
 import test from 'ava';
-import { SalesChannel, Config } from '../config_models.js';
+import { SalesChannel, Config } from '../config_models';
 
 test('SalesChannel should be initialized from JSON object', t => {
   const json = {

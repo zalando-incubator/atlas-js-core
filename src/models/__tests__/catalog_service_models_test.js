@@ -1,6 +1,6 @@
 /* eslint no-magic-numbers : 0 */
 import test from 'ava';
-import { Article } from '../catalog_api_models.js';
+import { Article } from '../catalog_api_models';
 
 test('Article should be initialized from JSON object', t => {
   const json = {

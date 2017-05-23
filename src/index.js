@@ -4,7 +4,7 @@ import { Config } from './models/config_models';
 
 /**
  * AtlasSDK is a global namespace.
- * @class AtlasSDK
+ * @namespace AtlasSDK
  * @public
  * @static
  */
@@ -14,14 +14,13 @@ const AtlasSDK = {
    * Configure AtlasSDK. This is the main entry point to use the AtlasSDK.
    *
    * @example {@lang javascript}
-   * const sdk = AtlasSDK.configure({
+   * const sdk = await AtlasSDK.configure({
    *   client_id: 'CLIENT_ID',
    *   sales_channel: 'SALES_CHANNEL',
    *   is_sandBox: true
    * });
-   *
+   * @memberof AtlasSDK
    * @method configure
-   * @for AtlasSDK
    * @static
    * @public
    * @param {Object} options An object containing configiration data. Possible fields are: <br />

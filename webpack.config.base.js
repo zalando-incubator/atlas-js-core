@@ -5,30 +5,34 @@ const webpackMerge = require('webpack-merge');
 const srcPath = path.join(__dirname, 'src');
 
 const baseConfig = {
-  entry: ['babel-polyfill', path.join(__dirname, 'src/index.js')],
+  entry: [path.join(srcPath, 'index.js')],
   output: {
     path: path.join(__dirname, 'lib'),
     libraryTarget: 'umd',
     library: 'AtlasSDK',
-    umdNamedDefine: 'atlas_sdk'
+    umdNamedDefine: true
   },
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['.js'],
     alias: {
-      models: `${srcPath}/models/`
+      models: path.join(srcPath, 'models')
     }
   },
   module: {
-    preLoaders: [{
-      test: /\.(js)$/,
-      include: srcPath,
-      loader: 'eslint-loader'
-    }],
-    loaders: [
+    rules: [
       {
         test: /\.(js)$/,
-        loader: 'babel',
-        include: path.join(__dirname, 'src')
+        include: srcPath,
+        exclude: /node_modules/,
+        enforce: 'pre',
+        use: [
+          'eslint-loader'
+        ]
+      },
+      {
+        test: /\.(js)$/,
+        loader: 'babel-loader',
+        include: srcPath
       },
       {
         test: /\.json$/,
@@ -36,7 +40,6 @@ const baseConfig = {
       }
     ]
   },
-
   devtool: 'module-source-map',
   plugins: [
     new webpack.NormalModuleReplacementPlugin(/iconv-loader$/, 'node-noop')

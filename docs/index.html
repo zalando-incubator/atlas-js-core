@@ -31,9 +31,23 @@
 		<ul class="nav navbar-nav">
 			
 			<li class="dropdown">
-				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
 					<li><a href="AtlasSDK.html">AtlasSDK</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Address.html">Address</a></li><li><a href="Article.html">Article</a></li><li><a href="ArticleImage.html">ArticleImage</a></li><li><a href="Attribute.html">Attribute</a></li><li><a href="Brand.html">Brand</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartItem.html">CartItem</a></li><li><a href="Config.html">Config</a></li><li><a href="CreateOrderRedirectResponse.html">CreateOrderRedirectResponse</a></li><li><a href="CreateOrderRequest.html">CreateOrderRequest</a></li><li><a href="CreateOrderResponse.html">CreateOrderResponse</a></li><li><a href="Customer.html">Customer</a></li><li><a href="Delivery.html">Delivery</a></li><li><a href="GetCheckoutResponse.html">GetCheckoutResponse</a></li><li><a href="Media.html">Media</a></li><li><a href="Partner.html">Partner</a></li><li><a href="Payment.html">Payment</a></li><li><a href="PickupPoint.html">PickupPoint</a></li><li><a href="Price.html">Price</a></li><li><a href="Recommendations.html">Recommendations</a></li><li><a href="RecommendedArticles.html">RecommendedArticles</a></li><li><a href="SalesChannel.html">SalesChannel</a></li><li><a href="Unit.html">Unit</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#checkRedirect">checkRedirect</a></li><li><a href="global.html#checkStatus">checkStatus</a></li><li><a href="global.html#createModel">createModel</a></li>
 				</ul>
 			</li>
 			
@@ -98,7 +112,8 @@
 <p>The purpose of this project is to provide low-level calls to API backend and response models for Zalando Checkout, Guest Checkout, and Catalog APIs in order to allow easily integrate and run Zalando Сheckout in
 minutes using your own UI solution.</p>
 <p>We use Promises a lot :)</p>
-<h2>Installation</h2><pre class="prettyprint source lang-sh"><code>npm install -g atlas-sdk-core</code></pre><h2>Configuration and Usage</h2><p>You need to configure Atlas JavaScript SDK Core first and use configured instance variable to interact with AtlasSDK.</p>
+<h2>Installation</h2><pre class="prettyprint source lang-sh"><code>npm install --save atlas-sdk-core es6-promise</code></pre><h2>Warning</h2><p>Cause we are using Promises you must bring your own ES6 Promise compatible polyfill, e.g. <a href="https://github.com/jakearchibald/es6-promise">es6-promise</a>.</p>
+<h2>Configuration and Usage</h2><p>You need to configure Atlas JavaScript SDK Core first and use configured instance variable to interact with AtlasSDK.</p>
 <p>In order to configure AtlasSDK manually provide an object with 2 mandatory parameters <strong>client_id</strong> and <strong>sales_channel</strong>:</p>
 <pre class="prettyprint source lang-javascript"><code>import AtlasSDK from 'atlas-sdk-core';
 
