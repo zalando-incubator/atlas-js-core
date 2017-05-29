@@ -1,12 +1,12 @@
-/* eslint no-console: 0 */
-/* eslint no-native-reassign: 0 */
 require('isomorphic-fetch');
 
-import { Article } from '../models/catalog_api_models.js';
-import { CreateOrderResponse,
+import { Article } from '../models/catalog_api_models';
+import {
+  CreateOrderResponse,
   CreateOrderRedirectResponse,
-  GetCheckoutResponse } from '../models/guest_checkout_models.js';
-import { RecommendedArticles } from '../models/recommendation_models.js';
+  GetCheckoutResponse
+} from '../models/guest_checkout_models';
+import { RecommendedArticles } from '../models/recommendation_models';
 
 const successCode = 200;
 const badRequestCode = 399;
@@ -60,7 +60,7 @@ function fetchEndpoint(endpoint) {
     .then(response => {
       return endpoint.transform(response);
     }).catch(error => {
-      console.error(error);
+      console.error(error); /* eslint no-console: 0 */
       throw error;
     });
 }
@@ -218,4 +218,9 @@ class AtlasSDKClient {
 
 }
 
-export { AtlasSDKClient, fetchEndpoint, checkStatus, checkRedirect };
+export {
+  AtlasSDKClient,
+  fetchEndpoint,
+  checkStatus,
+  checkRedirect
+};

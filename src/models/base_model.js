@@ -1,11 +1,11 @@
 /**
-Utility function for creating models from schema and source provided.
-We use convention over configuration approach to define the schema.
-This function also recognizes complex sources, e.g. arrays of custom objects.
-Using a simple type validation check the read-only properties are defined for created models.
-* @param {Object} schema - name of attribute.
-* @returns {Function|Model} Model - constructor function for a model.
-*/
+ * Utility function for creating models from schema and source provided.
+ * We use convention over configuration approach to define the schema.
+ * This function also recognizes complex sources, e.g. arrays of custom objects.
+ * Using a simple type validation check the read-only properties are defined for created models.
+ * @param {Object} schema - name of attribute.
+ * @returns {Function|Model} Model - constructor function for a model.
+ */
 const createModel = (schema) =>
   function Model(source) {
     Object.keys(schema).forEach((key) => {

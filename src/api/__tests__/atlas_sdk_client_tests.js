@@ -1,5 +1,5 @@
 import test from 'ava';
-import { checkStatus, checkRedirect } from '../atlas_sdk_client.js';
+import { checkStatus, checkRedirect } from '../atlas_sdk_client';
 
 const successCode = 200;
 

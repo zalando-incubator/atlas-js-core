@@ -1,5 +1,5 @@
-import createModel from './base_model.js';
-import { Brand, Price, Media } from './catalog_api_models.js';
+import createModel from './base_model';
+import { Brand, Price, Media } from './catalog_api_models';
 
 /**
  * @class Class for Recommended Article model

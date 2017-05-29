@@ -1,4 +1,4 @@
-import createModel from './base_model.js';
+import createModel from './base_model';
 
 /**
  * @class Class for ArticleImage model.

@@ -19,8 +19,11 @@ We use Promises a lot :)
 ## Installation
 
 ```sh
-npm install -g atlas-sdk-core
+npm install --save atlas-sdk-core es6-promise
 ```
+
+## Warning
+Cause we are using Promises you must bring your own ES6 Promise compatible polyfill, e.g. [es6-promise](https://github.com/jakearchibald/es6-promise).
 
 ## Configuration and Usage
 
