@@ -1,4 +1,5 @@
 import createModel from './base_model';
+import { Reviews } from './article_reviews_model';
 
 /**
  * @class Class for ArticleImage model.
@@ -116,7 +117,7 @@ const Article = createModel({
   media: { key: 'media', type: 'object', model: Media, optional: true },
   attributes: { key: 'attributes', type: 'object', model: Attribute, optional: true },
   infos: { key: 'infos', type: 'string', optional: true },
-  reviews: { key: 'reviews', type: 'object', optional: true }
+  reviews: { key: 'reviews', type: 'object', model: Reviews, optional: true }
 });
 
 export { Article, Price };
