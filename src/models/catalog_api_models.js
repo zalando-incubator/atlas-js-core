@@ -1,5 +1,6 @@
 import createModel from './base_model';
 import { Reviews } from './article_reviews_model';
+import mediaTransform from './transforms/media_trasform';
 
 /**
  * @class Class for MediaItem model.
@@ -101,7 +102,7 @@ const Article = createModel({
   detailUrl: { key: 'detail_url', type: 'string', optional: true },
   brand: { key: 'brand', type: 'object', model: Brand },
   units: { key: 'units', type: 'object', model: Unit },
-  media: { key: 'media.media_items', type: 'object', model: MediaItem, optional: true },
+  media: { key: 'media.media_items', type: 'object', model: MediaItem, optional: true, transform: mediaTransform },
   attributes: { key: 'attributes', type: 'object', model: Attribute, optional: true },
   infos: { key: 'infos', type: 'string', optional: true },
   reviews: { key: 'reviews', type: 'object', model: Reviews, optional: true }

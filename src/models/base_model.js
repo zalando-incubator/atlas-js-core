@@ -9,9 +9,9 @@ const isNested = (originalKey) => originalKey.split('.').length > 1; /* eslint "
  * @returns {Function|Model} Model - constructor function for a model.
  */
 const createModel = (schema) => {
-  return function Model(source) {
-    Object.keys(schema).forEach((key) => {
-      const { key: originalKey, type, model: ChildModel, optional } = schema[key];
+  return function Model(source, transformOptions = {}) {
+    Object.keys(schema).forEach((key) => { /* eslint complexity: 0 */
+      const { key: originalKey, type, model: ChildModel, optional, transform } = schema[key];
 
       if (!source) return;
       let value = source[originalKey];
@@ -41,7 +41,11 @@ const createModel = (schema) => {
         }
       }
 
-      Object.defineProperty(this, key, { value, writable: false, enumerable: true });
+      if (transform) {
+        value = transform(key, value, transformOptions);
+      }
+
+      Object.defineProperty(this, key, { value, writable: false, enumerable: true, configurable: true });
     });
   };
 };

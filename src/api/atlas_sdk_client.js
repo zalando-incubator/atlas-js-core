@@ -86,7 +86,24 @@ class AtlasSDKClient {
     return this.getLocale().substring(this.getLocale().indexOf('_') + underscorePosition);
   }
 
-  getArticle(sku) {
+  /**
+   * Fetches an article based on a SKU.
+   *
+   * It's possible to pass options to the media's transform,
+   * this allows getting multiple resolutions per image.
+   *
+   * The default resolutions are:
+   * * Desktop
+   * * Mobile
+   * * Thumbnail
+   *
+   * At this moment, we cannot provide support for other resolutions {externally}.
+   *
+   * @param  {String}   sku
+   * @param  {Object}   [options=mediaTransformOpts]
+   * @return {Response}
+   */
+  getArticle(sku, options = {}) {
     const url = `${this.config.catalogApi.url}/articles/${sku}?client_id=${this.config.clientId}`;
     const CatalogEndpoint = {
       url: url,
@@ -97,7 +114,7 @@ class AtlasSDKClient {
         'X-UID': this.config.clientId
       },
       transform: (json) => {
-        return new Article(json);
+        return new Article(json, options);
       }
     };
 
