@@ -59,7 +59,7 @@
         "average": 4.3,
         "distribution": [
           {
-            "level": 4,
+            "level": "4",
             "count": 17
           }
         ]
