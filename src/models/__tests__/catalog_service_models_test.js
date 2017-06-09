@@ -34,14 +34,9 @@ test('Article should be initialized from JSON object', t => {
     media: {
       media_items: [
         {
-          order: 1,
           type: 'IMAGE',
-          catalog: 'https://i6.ztat.net/catalog/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
-          catalog_hd: 'https://i6.ztat.net/catalog_hd/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
-          detail: 'https://i6.ztat.net/detail/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
-          detail_hd: 'https://i6.ztat.net/detail_hd/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
-          large: 'https://i6.ztat.net/large/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
-          large_hd: 'https://i6.ztat.net/large_hd/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg'
+          path: 'AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
+          media_character: 'MODEL'
         }
       ]
     },
@@ -101,9 +96,11 @@ test('Article should be initialized from JSON object', t => {
     t.is(article.units[0].stock, testStock);
   }
   t.is(article.units[0].partner.id, testPartnerId);
+
   if (article.media) {
-    t.is(article.media.images[0].catalog, 'https://i6.ztat.net/catalog/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg');
-    t.is(article.media.images[0].type, 'IMAGE');
+    t.is(article.media[0].path, 'AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg');
+    t.is(article.media[0].mediaCharacter, 'MODEL');
+    t.is(article.media[0].type, 'IMAGE');
 
   }
   if (article.attributes) {
@@ -160,14 +157,9 @@ test('Article should be initialized from JSON object with optional fields', t =>
     media: {
       media_items: [
         {
-          order: 1,
           type: 'IMAGE',
-          catalog: 'https://i6.ztat.net/catalog/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
-          catalog_hd: 'https://i6.ztat.net/catalog_hd/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
-          detail: 'https://i6.ztat.net/detail/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
-          detail_hd: 'https://i6.ztat.net/detail_hd/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
-          large: 'https://i6.ztat.net/large/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
-          large_hd: 'https://i6.ztat.net/large_hd/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg'
+          path: 'AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg',
+          media_character: 'MODEL'
         }
       ]
     }
@@ -184,7 +176,7 @@ test('Article should be initialized from JSON object with optional fields', t =>
   t.is(article.units[0].size, 'M');
   t.is(article.units[0].stock, testStock);
   t.is(article.units[0].partner.id, testPartnerId);
-  t.is(article.media.images[0].catalog, 'https://i6.ztat.net/catalog/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg');
+  t.is(article.media[0].path, 'AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg');
   t.is(article.attributes, undefined);
   t.is(article.infos, undefined);
   t.is(article.reviews, undefined);
