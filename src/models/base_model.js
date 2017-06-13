@@ -5,13 +5,14 @@ const isNested = (originalKey) => originalKey.split('.').length > 1; /* eslint "
  * We use convention over configuration approach to define the schema.
  * This function also recognizes complex sources, e.g. arrays of custom objects.
  * Using a simple type validation check the read-only properties are defined for created models.
+ * @ignore
  * @param {Object} schema - name of attribute.
  * @returns {Function|Model} Model - constructor function for a model.
  */
 const createModel = (schema) => {
-  return function Model(source, transformOptions = {}) {
+  return function Model(source) {
     Object.keys(schema).forEach((key) => { /* eslint complexity: 0 */
-      const { key: originalKey, type, model: ChildModel, optional, transform } = schema[key];
+      const { key: originalKey, type, model: ChildModel, optional } = schema[key];
 
       if (!source) return;
       let value = source[originalKey];
@@ -39,10 +40,6 @@ const createModel = (schema) => {
         if (typeof value !== type) {
           throw new Error(`Model validation error: ${originalKey} is not of type ${type}. The value is ${value}`);
         }
-      }
-
-      if (transform) {
-        value = transform(key, value, transformOptions);
       }
 
       Object.defineProperty(this, key, { value, writable: false, enumerable: true, configurable: true });

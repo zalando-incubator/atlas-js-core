@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>AtlasSDK Class: ReviewRating</title>
+	<title>AtlasSDK Class: Video</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,16 +72,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: ReviewRating</h1>
+	<h1 class="page-title">Class: Video</h1>
 <section>
 
 <header>
     
         <h2>
-        ReviewRating
+        Video
         </h2>
         
-            <div class="class-description">Class for ReviewRating.</div>
+            <div class="class-description">Class for Video model.</div>
         
     
 </header>
@@ -93,7 +93,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="ReviewRating"><span class="type-signature"></span>new ReviewRating(average, distribution)</h4>
+    <h4 class="name" id="Video"><span class="type-signature"></span>new Video(type, mediaCharacter, url)</h4>
     
     
 </dt>
@@ -132,13 +132,13 @@
 
         <tr>
             
-                <td class="name"><code>average</code></td>
+                <td class="name"><code>type</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">String</span>
 
 
 
@@ -149,20 +149,20 @@
 
             
 
-            <td class="description last">average rating of Article reviews.</td>
+            <td class="description last">Type of the media item, e.g. 'VIDEO', 'VIDEO_HD', 'VIDEO_THUMBNAIL', 'VIDEO_SMALL'</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>distribution</code></td>
+                <td class="name"><code>mediaCharacter</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="ReviewRatingDistribution.html">ReviewRatingDistribution</a></span>
+<span class="param-type">String</span>
 
 
 
@@ -173,7 +173,32 @@
 
             
 
-            <td class="description last">distribution of reviews.</td>
+            <td class="description last">Media Character descriptor with meta information about video,
+for example 'MODEL' image that indicates that this media item contains model image URL.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An absolute URL to the image</td>
         </tr>
 
     

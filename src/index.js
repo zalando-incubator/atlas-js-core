@@ -13,23 +13,23 @@ const AtlasSDK = {
   /**
    * Configure AtlasSDK. This is the main entry point to use the AtlasSDK.
    *
+   * @memberof AtlasSDK
+   * @method configure
+   * @static
+   * @public
+   * @param {Object} options An object containing configiration data: <br />
+   *  <ul>
+   *    <li>{String} client_id Client Id of a partner</li>
+   *    <li>{String} sales_channel Sales Channel assigned for a partner</li>
+   *    <li>{boolean} is_sandbox Indicates sandbox mode (default <i>false</i>)</li>
+   *  </ul>
+   * @return {Promise<AtlasSDKClient>} a promise resolving with an {@link AtlasSDKClient} object
    * @example {@lang javascript}
    * const sdk = await AtlasSDK.configure({
    *   client_id: 'CLIENT_ID',
    *   sales_channel: 'SALES_CHANNEL',
    *   is_sandBox: true
    * });
-   * @memberof AtlasSDK
-   * @method configure
-   * @static
-   * @public
-   * @param {Object} options An object containing configiration data. Possible fields are: <br />
-   *  <ul>
-   *    <li>{String} client_id Client Id of a partner</li>
-   *    <li>{String} sales_channel Sales Channel assigned for a partner</li>
-   *    <li>{boolean} is_sandbox Indicates sandbox mode</li>
-   *  </ul>
-   * @return {Promise|AtlasSDKClient} a promise resolving with an object of `AtlasSDKClient`
    */
   configure(options = {}) {
     const env = options.is_sandbox ? 'staging' : 'production';

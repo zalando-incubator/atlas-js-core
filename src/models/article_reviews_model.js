@@ -17,7 +17,6 @@ const ReviewRatingDistribution = createModel({
  * @param {ReviewRatingDistribution} distribution - distribution of reviews.
  * @constructor
  */
-
 const ReviewRating = createModel({
   average: { key: 'average', type: 'number', optional: true },
   distribution: { key: 'distribution', type: 'object', model: ReviewRatingDistribution, optional: true }
@@ -29,8 +28,6 @@ const ReviewRating = createModel({
  * @param {Number} positive - number of positive reviews.
  * @constructor
  */
-
-
 const ReviewRecommendations = createModel({
   total: { key: 'total', type: 'number', optional: true },
   positive: { key: 'positive', type: 'number', optional: true }
@@ -43,7 +40,6 @@ const ReviewRecommendations = createModel({
  * @param {ReviewRecommendations} recommendations - recommendations of Article review.
  * @constructor
  */
-
 const ReviewSummary = createModel({
   total: { key: 'total', type: 'number', optional: true },
   rating: { key: 'rating', type: 'object', model: ReviewRating, optional: true },
@@ -60,7 +56,6 @@ const ReviewSummary = createModel({
  * @param {String} created - created timestamp of Article review.
  * @constructor
  */
-
 const ReviewEntry = createModel({
   name: { key: 'name', type: 'string', optional: true },
   title: { key: 'title', type: 'string', optional: true },

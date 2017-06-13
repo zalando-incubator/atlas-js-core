@@ -2,24 +2,26 @@ require('isomorphic-fetch');
 
 import { Article } from '../models/catalog_api_models';
 import {
-  CreateOrderResponse,
-  CreateOrderRedirectResponse,
-  GetCheckoutResponse
+    CreateOrderResponse,
+    CreateOrderRedirectResponse,
+    GetCheckoutResponse
 } from '../models/guest_checkout_models';
 import { RecommendedArticles } from '../models/recommendation_models';
+import mediaTransform from './transforms/media_trasform';
 
 const successCode = 200;
 const badRequestCode = 399;
 
 /**
-* Checks the status code of the Response.
-* If the status code is <= 400 the Response object is returned.
-* Otherwise the Error is thrown.
-* @param {Response} response - Response object
-* @return {Response} Response object
-* @throws {Error} - error object accoding to the bad response.
-*/
-function checkStatus(response) {
+ * Checks the status code of the Response.
+ * If the status code is <= 400 the Response object is returned.
+ * Otherwise the Error is thrown.
+ * @ignore
+ * @param {Response} response - Response object
+ * @return {Response} Response object
+ * @throws {Error} - error object accoding to the bad response.
+ */
+const checkStatus = (response) => {
   if (response.status >= successCode && response.status < badRequestCode) {
     return response;
   }
@@ -27,22 +29,23 @@ function checkStatus(response) {
 
   error.response = response;
   throw error;
-}
+};
 
 /**
-* Checks whether "Location" header is preset.
-* Location header means that this is a redirect response with empty body, so
-* the Response object with simple JSON { redirect_url: 'URL'} will be returned.
-* Otherwise initial Response object is returned.
-* @param {Response} response - Response object
-* @return {Response} Response object either original or with redirect URL
-*/
-function checkRedirect(response) {
+ * Checks whether "Location" header is preset.
+ * Location header means that this is a redirect response with empty body, so
+ * the Response object with simple JSON { redirect_url: 'URL'} will be returned.
+ * Otherwise initial Response object is returned.
+ * @ignore
+ * @param {Response} response - Response object
+ * @return {Response} Response object either original or with redirect URL
+ */
+const checkRedirect = (response) => {
   if (response.headers.get('Location')) {
     return new Response(JSON.stringify({ redirect_url: response.headers.get('Location') }));
   }
   return response;
-}
+};
 
 function fetchEndpoint(endpoint) {
   return fetch(endpoint.url, {
@@ -52,34 +55,57 @@ function fetchEndpoint(endpoint) {
     headers: endpoint.headers,
     body: endpoint.body
   })
-    .then(checkStatus)
-    .then(checkRedirect)
-    .then(response => {
-      return response.json();
-    })
-    .then(response => {
-      return endpoint.transform(response);
-    }).catch(error => {
-      console.error(error); /* eslint no-console: 0 */
-      throw error;
-    });
+        .then(checkStatus)
+        .then(checkRedirect)
+        .then(response => {
+          return response.json();
+        })
+        .then(response => {
+          return endpoint.transform(response);
+        }).catch(error => {
+          console.error(error); /* eslint no-console: 0 */
+          throw error;
+        });
 }
 
+/**
+ * AtlasSDK instance returned from {@link AtlasSDK.configure} method.
+ * @instance
+ */
 class AtlasSDKClient {
+
+  /**
+   * Creates an AtlasSDK instance from config provided by config-api
+   *
+   * @constructor {ignore}
+   * @param {Object} config - config from config-api
+   */
   constructor(config) {
     this.config = config;
   }
 
+  /**
+   * Returns locale based on sales channel, e.g. 'de_DE'
+   * @return {String} locale
+   */
   getLocale() {
     return this.config.salesChannels.find(sc => sc.channel === this.config.salesChannel).locale;
   }
 
+  /**
+   * Returns language based on sales channel, e.g. 'de'
+   * @return {String} language
+   */
   getLanguage() {
     const startPosition = 0;
 
     return this.getLocale().substring(startPosition, this.getLocale().indexOf('_'));
   }
 
+  /**
+   * Returns country code based on sales channel, e.g. 'DE'
+   * @return {String} country code
+   */
   getCountryCode() {
     const underscorePosition = 1;
 
@@ -87,21 +113,56 @@ class AtlasSDKClient {
   }
 
   /**
+   * Returns configuration from config-api
+   * @return {Object} config
+   */
+  getConfig() {
+    return this.config;
+  }
+
+  /**
    * Fetches an article based on a SKU.
-   *
-   * It's possible to pass options to the media's transform,
-   * this allows getting multiple resolutions per image.
-   *
-   * The default resolutions are:
-   * * Desktop
-   * * Mobile
-   * * Thumbnail
-   *
-   * At this moment, we cannot provide support for other resolutions {externally}.
-   *
-   * @param  {String}   sku
-   * @param  {Object}   [options=mediaTransformOpts]
-   * @return {Response}
+   * @public
+   * @param  {String} sku - SKU of an article
+   * @param  {Object} [options] - Configuration options:
+   * <ul>
+   *  <li>
+   *    <strong>media</strong>:
+   *    <ul>
+   *      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>
+   *      <li>
+   *        {Array} <strong>image_resolutions</strong>: request media image with the different resolutions
+   *        (default ['catalog', 'detail', 'large']):
+   *        <ul>
+   *          <li>'catalog' - width: 246px</li>
+   *          <li>'detail' - width: 300px, height: 400px</li>
+   *          <li>'large' - width: 1100px, height: 1100px</li>
+   *        </ul>
+   *      </li>
+   *    </ul>
+   *  </li>
+   * </ul>
+   * For example
+   * <pre>
+   * {
+   *  media: {
+   *    cdn: 'mosaic02',
+   *    image_resolutions: ['catalog', 'detail']
+   *  }
+   * }
+   * </pre>
+   * @return {Article} return {@link Article} object
+   * @example {@lang javascript}
+   * const sdk = await AtlasSDK.configure({
+   *   client_id: 'CLIENT_ID',
+   *   sales_channel: 'SALES_CHANNEL',
+   *   is_sandBox: true
+   * });
+   * const article = await sdk.getArticle('AD112B0F6-A11', {
+   *    media: {
+   *      image_resolutions: ['catalog', 'detail']
+   *    }
+   * });
    */
   getArticle(sku, options = {}) {
     const url = `${this.config.catalogApi.url}/articles/${sku}?client_id=${this.config.clientId}`;
@@ -114,7 +175,9 @@ class AtlasSDKClient {
         'X-UID': this.config.clientId
       },
       transform: (json) => {
-        return new Article(json, options);
+        const article = mediaTransform(json, options);
+
+        return new Article(article);
       }
     };
 
@@ -146,10 +209,6 @@ class AtlasSDKClient {
     });
   }
 
-  getConfig() {
-    return this.config;
-  }
-
   createOrder(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
     const body = JSON.stringify({
@@ -176,25 +235,85 @@ class AtlasSDKClient {
     });
   }
 
-  getRecommendations(sku, recoId) {
-    const catalogUrl = this.config.catalogApi.url;
-    const url = `${catalogUrl}/articles/${sku}/recommendations/?client_id=${this.config.clientId}&anon_id=${recoId}`;
+  /**
+   * Fetches recommendations for an article based on a SKU.
+   * @public
+   * @param  {String} sku - SKU of an article
+   * @param  {Object} [options] - Configuration options:
+   * <ul>
+   *  <li>
+   *    {String} <strong>reco_id</strong>: UUID for recommendations API
+   *  </li>
+   *  <li>
+   *    {String} <strong>tracking_string</strong>: random tracking string
+   *  </li>
+   *  <li>
+   *    <strong>media</strong>:
+   *    <ul>
+   *      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>
+   *      <li>
+   *        {Array} <strong>image_resolutions</strong>: request media image with the different resolutions
+   *        (default ['catalog', 'detail', 'large']):
+   *        <ul>
+   *          <li>'catalog' - width: 246px</li>
+   *          <li>'detail' - width: 300px, height: 400px</li>
+   *          <li>'large' - width: 1100px, height: 1100px</li>
+   *        </ul>
+   *      </li>
+   *    </ul>
+   *  </li>
+   * </ul>
+   * For example
+   * <pre>
+   * {
+   *  reco_id: 'UUUID',
+   *  tracking_string: 'SOME_TRACKING_STRING',
+   *  media: {
+   *    cdn: 'mosaic02',
+   *    image_resolutions: ['catalog', 'detail']
+   *  }
+   * }
+   * </pre>
+   * @return {Array<RecommendedArticles>} return array of {@link RecommendedArticles} objects
+   * @example {@lang javascript}
+   * const sdk = await AtlasSDK.configure({
+   *   client_id: 'CLIENT_ID',
+   *   sales_channel: 'SALES_CHANNEL',
+   *   is_sandBox: true
+   * });
+   * const recos = await sdk.getRecommendations('AD112B0F6-A11', {
+   *    reco_id: 'UUID',
+   *    tracking_string: 'TRACK'
+   * });
+   */
+  getRecommendations(sku, options = {
+    reco_id: '',
+    tracking_string: ''
+  }) {
+    const config = this.config;
+    const catalogUrl = config.catalogApi.url;
+    const url = `${catalogUrl}/articles/${sku}/recommendations/?client_id=${config.clientId}&anon_id=${options.reco_id}`; /* eslint max-len: 0 */
     const GetRecommendationsEndpoint = {
       url: url,
       method: 'GET',
       headers: {
         'Content-Type': 'application/x.zalando.article.recommendation+json',
         Accept: 'application/x.zalando.article.recommendation+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel,
-        'X-UID': this.config.clientId,
-        'X-Reco-Location': this.config.recommendations[0].location,
-        'X-Reco-Type': this.config.recommendations[0].type,
-        'X-Channel': this.config.recommendations[0].channel
+        'X-Sales-Channel': config.salesChannel,
+        'X-UID': config.clientId,
+        'X-Reco-Location': config.recommendations[0].location,
+        'X-Reco-Type': config.recommendations[0].type,
+        'X-Channel': config.recommendations[0].channel,
+        'X-Tracking-String': options.tracking_string
       },
-      transform: (json) => {
+      transform: (response) => {
         const result = [];
 
-        json.forEach(articleJson => result.push(new RecommendedArticles(articleJson)));
+        response.forEach(articleJson => {
+          const json = mediaTransform(articleJson, options);
+
+          result.push(new RecommendedArticles(json));
+        });
         return result;
       }
     };
@@ -203,7 +322,6 @@ class AtlasSDKClient {
       return recommendedArticles;
     });
   }
-
 
   createGuestCheckout(json) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
@@ -236,8 +354,8 @@ class AtlasSDKClient {
 }
 
 export {
-  AtlasSDKClient,
-  fetchEndpoint,
-  checkStatus,
-  checkRedirect
+    AtlasSDKClient,
+    fetchEndpoint,
+    checkStatus,
+    checkRedirect
 };

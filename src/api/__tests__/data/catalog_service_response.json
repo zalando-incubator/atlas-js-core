@@ -39,16 +39,30 @@
     "Removable cover sole"
   ],
   "media": {
-    "images": [
+    "media_items": [
       {
-        "order": 1,
         "type": "IMAGE",
-        "catalog": "https://i6.ztat.net/catalog/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg",
-        "catalog_hd": "https://i6.ztat.net/catalog_hd/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg",
-        "detail": "https://i6.ztat.net/detail/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg",
-        "detail_hd": "https://i6.ztat.net/detail_hd/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg",
-        "large": "https://i6.ztat.net/large/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg",
-        "large_hd": "https://i6.ztat.net/large_hd/AD/11/2B/0F/6A/11/AD112B0F6-A11@108.1.jpg"
+        "path": "SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg",
+        "media_character": "NON_MODEL"
+      },
+      {
+        "type": "IMAGE",
+        "path": "SO/25/4J/00/0C/00/SO254J000-C00@2.1.jpg",
+        "media_character": "NON_MODEL"
+      },
+      {
+        "type": "IMAGE",
+        "path": "SO/25/4J/00/0C/00/SO254J000-C00@3.1.jpg",
+        "media_character": "NON_MODEL"
+      },
+       {
+        "type": "VIDEO_THUMBNAIL",
+        "path": "/comet/LE/22/1N/02/PK/11/VIDEO/PREVIEW_IMG/1479494993512.jpg",
+        "media_character": "UNKNOWN"
+      }, {
+        "type": "VIDEO_HD",
+        "path": "/comet/LE/22/1N/02/PK/11/VIDEO/HD/1479494993512.mp4",
+        "media_character": "UNKNOWN"
       }
     ]
   },
