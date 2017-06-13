@@ -37,11 +37,13 @@ import AtlasSDK from 'atlas-sdk-core';
 AtlasSDK.configure({
   client_id: 'CLIENT_ID',
   sales_channel: 'SALES_CHANNEL',
+  is_sandbox: true
 }).then((sdk) => {
   // sdk instance is ready to use
 
-  const article = sdk.getArticle('AD112B0F6-A11');
-  console.log(`Article name: ${article.name}`);
+  sdk.getArticle('AD112B0F6-A11').then((article) => {
+    console.log(`Article name: ${article.name}`);
+  });
 }).catch((error) => {
   console.error(`${error}`);
 });
