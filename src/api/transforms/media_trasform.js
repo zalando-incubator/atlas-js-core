@@ -1,14 +1,24 @@
 const cdns = ['mosaic01', 'mosaic02'];
-const defaultResolutions = ['catalog', 'detail', 'large'];
+const resolutions = {
+  thumbnail: 'pdp-thumb',
+  thumbnail_hd: 'thumb_hd',
+  small: 'catalog',
+  small_hd: 'catalog_hd',
+  medium: 'detail',
+  medium_hd: 'detail_hd',
+  large: 'large',
+  large_hd: 'large_hd'
+};
+const defaultResolutions = ['thumbnail', 'medium', 'large'];
 
 const isImage = (type) => ['IMAGE', 'IMAGE_360'].includes(type);
 const isVideo = (type) => ['VIDEO_THUMBNAIL', 'VIDEO_HD', 'VIDEO_LOW'].includes(type);
 
-const createImageItem = (item, cdn, resolutions) => {
+const createImageItem = (item, cdn, imageResolutions) => {
   const urls = {};
 
-  resolutions.forEach(resolution => {
-    urls[resolution] = `https://${cdn}.ztat.net/vgs/media/${resolution}/${item.path}`;
+  Object.keys(imageResolutions).forEach(resolutionKey => {
+    urls[resolutionKey] = `https://${cdn}.ztat.net/vgs/media/${resolutions[resolutionKey]}/${item.path}`;
   });
 
   return {
@@ -26,16 +36,29 @@ const createVideoItem = (item, cdn) => {
   };
 };
 
+const getImageResolutions = (optsImageResolutions) => {
+  const imageResolutions = optsImageResolutions || defaultResolutions;
+
+  return Object.keys(resolutions)
+               .filter(key => imageResolutions.includes(key))
+               .reduce((finalResolutions, key) => {
+                 finalResolutions[key] = resolutions[key];
+                 return finalResolutions;
+               }, {});
+};
+
 const getCdnAndResolutions = (options) => {
   let { cdn, image_resolutions: imageResolutions } = options && options.media
   ? options.media
   : {
     cdn: cdns[0],
-    imageResolutions: defaultResolutions
+    optsImageResolutions: defaultResolutions
   };
 
   cdn = cdn || cdns[0];
-  imageResolutions = imageResolutions || defaultResolutions;
+
+  imageResolutions = getImageResolutions(imageResolutions);
+
   return { cdn, imageResolutions };
 };
 
@@ -51,8 +74,6 @@ export default (json, options) => {
         json.images.push(createImageItem(item, cdn, imageResolutions));
       } else if (isVideo(item.type)) {
         json.videos.push(createVideoItem(item, cdn));
-      } else {
-        throw Error(`Unsupported type ${item.type}`);
       }
     });
 

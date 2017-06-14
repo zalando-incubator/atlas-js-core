@@ -185,6 +185,335 @@
             
 <hr>
 <dt>
+    <h4 class="name" id="createGuestCheckout"><span class="type-signature"></span>createGuestCheckout(json)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Creates guest checkout object with payload.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>json</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON payload</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    response containing <strong>redirectURL</strong>
+that should be used to go to the payment.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="CreateOrderRedirectResponse.html">CreateOrderRedirectResponse</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="createOrder"><span class="type-signature"></span>createOrder(checkoutId, token)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Creates an order for the guest chekout object based on <strong>checkoutId</strong>, <strong>token</strong>.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>checkoutId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Id of guest checkout object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>token</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    object with order information
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="CreateOrderResponse.html">CreateOrderResponse</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
     <h4 class="name" id="getArticle"><span class="type-signature"></span>getArticle(sku [, options])</h4>
     
     
@@ -297,11 +626,16 @@
      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>
      <li>
        {Array} <strong>image_resolutions</strong>: request media image with the different resolutions
-       (default ['catalog', 'detail', 'large']):
+       (default ['thumbnail', 'medium', 'large']):
        <ul>
-         <li>'catalog' - width: 246px</li>
-         <li>'detail' - width: 300px, height: 400px</li>
-         <li>'large' - width: 1100px, height: 1100px</li>
+         <li>'thumbnail' – width: 78px</li>
+         <li>'thumbnail_hd' – width: 76px</li>
+         <li>'small' – width: 135px</li>
+         <li>'small_hd' – width: 270px</li>
+         <li>'medium' – width: 300px, height: 400px</li>
+         <li>'medium_hd' – width: 600px, height: 800px</li>
+         <li>'large' – width: 1100px, height: 1100px</li>
+         <li>'large_hd' – height: 1650px</li>
        </ul>
      </li>
    </ul>
@@ -312,7 +646,7 @@ For example
 {
  media: {
    cdn: 'mosaic02',
-   image_resolutions: ['catalog', 'detail']
+   image_resolutions: ['thumbnail', 'medium']
  }
 }
 </pre></td>
@@ -411,10 +745,187 @@ const sdk = await AtlasSDK.configure({
 });
 const article = await sdk.getArticle(&#x27;AD112B0F6-A11&#x27;, {
    media: {
-     image_resolutions: [&#x27;catalog&#x27;, &#x27;detail&#x27;]
+     image_resolutions: [&#x27;thumbnail&#x27;, &#x27;medium&#x27;]
    }
 });</pre>
 
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="getCheckout"><span class="type-signature"></span>getCheckout(checkoutId, token)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns guest checkout object <a href="GetCheckoutResponse.html">GetCheckoutResponse</a> created using <a href="AtlasSDKClient.html#createGuestCheckout">AtlasSDKClient#createGuestCheckout</a>.
+Parameters <strong>checkoutId</strong>, <strong>token</strong> should be fetched from redirect URL after payment.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>checkoutId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Id of guest checkout object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>token</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    guest checkout object
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="GetCheckoutResponse.html">GetCheckoutResponse</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -949,11 +1460,16 @@ const article = await sdk.getArticle(&#x27;AD112B0F6-A11&#x27;, {
      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>
      <li>
        {Array} <strong>image_resolutions</strong>: request media image with the different resolutions
-       (default ['catalog', 'detail', 'large']):
+       (default ['thumbnail', 'medium', 'large']):
        <ul>
-         <li>'catalog' - width: 246px</li>
-         <li>'detail' - width: 300px, height: 400px</li>
-         <li>'large' - width: 1100px, height: 1100px</li>
+         <li>'thumbnail' – width: 78px</li>
+         <li>'thumbnail_hd' – width: 76px</li>
+         <li>'small' – width: 135px</li>
+         <li>'small_hd' – width: 270px</li>
+         <li>'medium' – width: 300px, height: 400px</li>
+         <li>'medium_hd' – width: 600px, height: 800px</li>
+         <li>'large' – width: 1100px, height: 1100px</li>
+         <li>'large_hd' – height: 1650px</li>
        </ul>
      </li>
    </ul>
@@ -966,7 +1482,7 @@ For example
  tracking_string: 'SOME_TRACKING_STRING',
  media: {
    cdn: 'mosaic02',
-   image_resolutions: ['catalog', 'detail']
+   image_resolutions: ['thumbnail', 'medium']
  }
 }
 </pre></td>
@@ -1065,7 +1581,11 @@ const sdk = await AtlasSDK.configure({
 });
 const recos = await sdk.getRecommendations(&#x27;AD112B0F6-A11&#x27;, {
    reco_id: &#x27;UUID&#x27;,
-   tracking_string: &#x27;TRACK&#x27;
+   tracking_string: &#x27;TRACK&#x27;,
+   media: {
+     cdn: &#x27;mosaic02&#x27;,
+     image_resolutions: [&#x27;thumbnail&#x27;, &#x27;medium&#x27;]
+   }
 });</pre>
 
 

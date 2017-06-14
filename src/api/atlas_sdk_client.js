@@ -76,7 +76,6 @@ class AtlasSDKClient {
 
   /**
    * Creates an AtlasSDK instance from config provided by config-api
-   *
    * @constructor {ignore}
    * @param {Object} config - config from config-api
    */
@@ -86,6 +85,7 @@ class AtlasSDKClient {
 
   /**
    * Returns locale based on sales channel, e.g. 'de_DE'
+   * @method
    * @return {String} locale
    */
   getLocale() {
@@ -94,6 +94,7 @@ class AtlasSDKClient {
 
   /**
    * Returns language based on sales channel, e.g. 'de'
+   * @method
    * @return {String} language
    */
   getLanguage() {
@@ -104,6 +105,7 @@ class AtlasSDKClient {
 
   /**
    * Returns country code based on sales channel, e.g. 'DE'
+   * @method
    * @return {String} country code
    */
   getCountryCode() {
@@ -114,6 +116,7 @@ class AtlasSDKClient {
 
   /**
    * Returns configuration from config-api
+   * @method
    * @return {Object} config
    */
   getConfig() {
@@ -123,6 +126,7 @@ class AtlasSDKClient {
   /**
    * Fetches an article based on a SKU.
    * @public
+   * @method
    * @param  {String} sku - SKU of an article
    * @param  {Object} [options] - Configuration options:
    * <ul>
@@ -132,11 +136,16 @@ class AtlasSDKClient {
    *      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>
    *      <li>
    *        {Array} <strong>image_resolutions</strong>: request media image with the different resolutions
-   *        (default ['catalog', 'detail', 'large']):
+   *        (default ['thumbnail', 'medium', 'large']):
    *        <ul>
-   *          <li>'catalog' - width: 246px</li>
-   *          <li>'detail' - width: 300px, height: 400px</li>
-   *          <li>'large' - width: 1100px, height: 1100px</li>
+   *          <li>'thumbnail' – width: 78px</li>
+   *          <li>'thumbnail_hd' – width: 76px</li>
+   *          <li>'small' – width: 135px</li>
+   *          <li>'small_hd' – width: 270px</li>
+   *          <li>'medium' – width: 300px, height: 400px</li>
+   *          <li>'medium_hd' – width: 600px, height: 800px</li>
+   *          <li>'large' – width: 1100px, height: 1100px</li>
+   *          <li>'large_hd' – height: 1650px</li>
    *        </ul>
    *      </li>
    *    </ul>
@@ -147,7 +156,7 @@ class AtlasSDKClient {
    * {
    *  media: {
    *    cdn: 'mosaic02',
-   *    image_resolutions: ['catalog', 'detail']
+   *    image_resolutions: ['thumbnail', 'medium']
    *  }
    * }
    * </pre>
@@ -160,7 +169,7 @@ class AtlasSDKClient {
    * });
    * const article = await sdk.getArticle('AD112B0F6-A11', {
    *    media: {
-   *      image_resolutions: ['catalog', 'detail']
+   *      image_resolutions: ['thumbnail', 'medium']
    *    }
    * });
    */
@@ -186,6 +195,15 @@ class AtlasSDKClient {
     });
   }
 
+  /**
+   * Returns guest checkout object {@link GetCheckoutResponse} created using {@link AtlasSDKClient#createGuestCheckout}.
+   * Parameters <strong>checkoutId</strong>, <strong>token</strong> should be fetched from redirect URL after payment.
+   * @public
+   * @method
+   * @param {String} checkoutId - Id of guest checkout object
+   * @param {String} token
+   * @return {GetCheckoutResponse} guest checkout object
+   */
   getCheckout(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/checkouts/${checkoutId}/${token}`;
     const GetCheckoutEndpoint = {
@@ -209,6 +227,14 @@ class AtlasSDKClient {
     });
   }
 
+  /**
+   * Creates an order for the guest chekout object based on <strong>checkoutId</strong>, <strong>token</strong>.
+   * @public
+   * @method
+   * @param {String} checkoutId - Id of guest checkout object
+   * @param {String} token
+   * @return {CreateOrderResponse} object with order information
+   */
   createOrder(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
     const body = JSON.stringify({
@@ -238,6 +264,7 @@ class AtlasSDKClient {
   /**
    * Fetches recommendations for an article based on a SKU.
    * @public
+   * @method
    * @param  {String} sku - SKU of an article
    * @param  {Object} [options] - Configuration options:
    * <ul>
@@ -253,11 +280,16 @@ class AtlasSDKClient {
    *      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>
    *      <li>
    *        {Array} <strong>image_resolutions</strong>: request media image with the different resolutions
-   *        (default ['catalog', 'detail', 'large']):
+   *        (default ['thumbnail', 'medium', 'large']):
    *        <ul>
-   *          <li>'catalog' - width: 246px</li>
-   *          <li>'detail' - width: 300px, height: 400px</li>
-   *          <li>'large' - width: 1100px, height: 1100px</li>
+   *          <li>'thumbnail' – width: 78px</li>
+   *          <li>'thumbnail_hd' – width: 76px</li>
+   *          <li>'small' – width: 135px</li>
+   *          <li>'small_hd' – width: 270px</li>
+   *          <li>'medium' – width: 300px, height: 400px</li>
+   *          <li>'medium_hd' – width: 600px, height: 800px</li>
+   *          <li>'large' – width: 1100px, height: 1100px</li>
+   *          <li>'large_hd' – height: 1650px</li>
    *        </ul>
    *      </li>
    *    </ul>
@@ -270,7 +302,7 @@ class AtlasSDKClient {
    *  tracking_string: 'SOME_TRACKING_STRING',
    *  media: {
    *    cdn: 'mosaic02',
-   *    image_resolutions: ['catalog', 'detail']
+   *    image_resolutions: ['thumbnail', 'medium']
    *  }
    * }
    * </pre>
@@ -283,7 +315,11 @@ class AtlasSDKClient {
    * });
    * const recos = await sdk.getRecommendations('AD112B0F6-A11', {
    *    reco_id: 'UUID',
-   *    tracking_string: 'TRACK'
+   *    tracking_string: 'TRACK',
+   *    media: {
+   *      cdn: 'mosaic02',
+   *      image_resolutions: ['thumbnail', 'medium']
+   *    }
    * });
    */
   getRecommendations(sku, options = {
@@ -292,6 +328,7 @@ class AtlasSDKClient {
   }) {
     const config = this.config;
     const catalogUrl = config.catalogApi.url;
+    const type = config.recommendations[0].type;
     const url = `${catalogUrl}/articles/${sku}/recommendations/?client_id=${config.clientId}&anon_id=${options.reco_id}`; /* eslint max-len: 0 */
     const GetRecommendationsEndpoint = {
       url: url,
@@ -302,14 +339,14 @@ class AtlasSDKClient {
         'X-Sales-Channel': config.salesChannel,
         'X-UID': config.clientId,
         'X-Reco-Location': config.recommendations[0].location,
-        'X-Reco-Type': config.recommendations[0].type,
+        'X-Reco-Type': type,
         'X-Channel': config.recommendations[0].channel,
         'X-Tracking-String': options.tracking_string
       },
       transform: (response) => {
         const result = [];
 
-        response.forEach(articleJson => {
+        response[type].forEach(articleJson => {
           const json = mediaTransform(articleJson, options);
 
           result.push(new RecommendedArticles(json));
@@ -323,6 +360,14 @@ class AtlasSDKClient {
     });
   }
 
+  /**
+   * Creates guest checkout object with payload.
+   * @public
+   * @method
+   * @param {Object} json - JSON payload
+   * @return {CreateOrderRedirectResponse} response containing <strong>redirectURL</strong>
+   * that should be used to go to the payment.
+   */
   createGuestCheckout(json) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
     const GuestCheckoutEndpoint = {

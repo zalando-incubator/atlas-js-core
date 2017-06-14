@@ -48,14 +48,14 @@ test('media_transform: check createImageItem', t => {
     media_character: 'NON_MODEL'
   };
 
-  const imageItem = createImageItem(item, 'mosaic01', ['catalog', 'detail', 'large']);
+  const imageItem = createImageItem(item, 'mosaic01', { thumbnail: 'pdp-thumb', medium: 'detail', large: 'large' });
 
   t.deepEqual(imageItem, {
     type: 'IMAGE',
     mediaCharacter: 'NON_MODEL',
     resolutions: {
-      catalog: 'https://mosaic01.ztat.net/vgs/media/catalog/SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg',
-      detail: 'https://mosaic01.ztat.net/vgs/media/detail/SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg',
+      thumbnail: 'https://mosaic01.ztat.net/vgs/media/pdp-thumb/SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg',
+      medium: 'https://mosaic01.ztat.net/vgs/media/detail/SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg',
       large: 'https://mosaic01.ztat.net/vgs/media/large/SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg'
     }
   });
@@ -65,7 +65,7 @@ test('media_transform: getCdnAndResolutions returns default values', t => {
   const { cdn, imageResolutions } = getCdnAndResolutions();
 
   t.is(cdn, 'mosaic01');
-  t.deepEqual(imageResolutions, ['catalog', 'detail', 'large']);
+  t.deepEqual(imageResolutions, { thumbnail: 'pdp-thumb', medium: 'detail', large: 'large' });
 });
 
 test('media_transform: getCdnAndResolutions returns cdn and default resolutions', t => {
@@ -76,30 +76,30 @@ test('media_transform: getCdnAndResolutions returns cdn and default resolutions'
   });
 
   t.is(cdn, 'mosaic02');
-  t.deepEqual(imageResolutions, ['catalog', 'detail', 'large']);
+  t.deepEqual(imageResolutions, { thumbnail: 'pdp-thumb', medium: 'detail', large: 'large' });
 });
 
 test('media_transform: getCdnAndResolutions returns custom resolutions and default cdn', t => {
   const { cdn, imageResolutions } = getCdnAndResolutions({
     media: {
-      image_resolutions: ['catalog']
+      image_resolutions: ['small']
     }
   });
 
   t.is(cdn, 'mosaic01');
-  t.deepEqual(imageResolutions, ['catalog']);
+  t.deepEqual(imageResolutions, { small: 'catalog' });
 });
 
 test('media_transform: getCdnAndResolutions returns custom resolutions and custom cdn', t => {
   const { cdn, imageResolutions } = getCdnAndResolutions({
     media: {
       cdn: 'mosaic02',
-      image_resolutions: ['catalog']
+      image_resolutions: ['small']
     }
   });
 
   t.is(cdn, 'mosaic02');
-  t.deepEqual(imageResolutions, ['catalog']);
+  t.deepEqual(imageResolutions, { small: 'catalog' });
 });
 
 test('media_transform: mediaTransform middleware', t => {
@@ -109,24 +109,24 @@ test('media_transform: mediaTransform middleware', t => {
     { type: 'IMAGE',
       mediaCharacter: 'NON_MODEL',
       resolutions: {
-        catalog: 'https://mosaic01.ztat.net/vgs/media/catalog/SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg',
-        detail: 'https://mosaic01.ztat.net/vgs/media/detail/SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg',
+        thumbnail: 'https://mosaic01.ztat.net/vgs/media/pdp-thumb/SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg',
+        medium: 'https://mosaic01.ztat.net/vgs/media/detail/SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg',
         large: 'https://mosaic01.ztat.net/vgs/media/large/SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg'
       }
     }, {
       type: 'IMAGE',
       mediaCharacter: 'NON_MODEL',
       resolutions: {
-        catalog: 'https://mosaic01.ztat.net/vgs/media/catalog/SO/25/4J/00/0C/00/SO254J000-C00@2.1.jpg',
-        detail: 'https://mosaic01.ztat.net/vgs/media/detail/SO/25/4J/00/0C/00/SO254J000-C00@2.1.jpg',
+        thumbnail: 'https://mosaic01.ztat.net/vgs/media/pdp-thumb/SO/25/4J/00/0C/00/SO254J000-C00@2.1.jpg',
+        medium: 'https://mosaic01.ztat.net/vgs/media/detail/SO/25/4J/00/0C/00/SO254J000-C00@2.1.jpg',
         large: 'https://mosaic01.ztat.net/vgs/media/large/SO/25/4J/00/0C/00/SO254J000-C00@2.1.jpg'
       }
     }, {
       type: 'IMAGE',
       mediaCharacter: 'NON_MODEL',
       resolutions: {
-        catalog: 'https://mosaic01.ztat.net/vgs/media/catalog/SO/25/4J/00/0C/00/SO254J000-C00@3.1.jpg',
-        detail: 'https://mosaic01.ztat.net/vgs/media/detail/SO/25/4J/00/0C/00/SO254J000-C00@3.1.jpg',
+        thumbnail: 'https://mosaic01.ztat.net/vgs/media/pdp-thumb/SO/25/4J/00/0C/00/SO254J000-C00@3.1.jpg',
+        medium: 'https://mosaic01.ztat.net/vgs/media/detail/SO/25/4J/00/0C/00/SO254J000-C00@3.1.jpg',
         large: 'https://mosaic01.ztat.net/vgs/media/large/SO/25/4J/00/0C/00/SO254J000-C00@3.1.jpg'
       }
     }
