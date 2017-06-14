@@ -11,8 +11,8 @@ const resolutions = {
 };
 const defaultResolutions = ['thumbnail', 'medium', 'large'];
 
-const isImage = (type) => ['IMAGE', 'IMAGE_360'].includes(type);
-const isVideo = (type) => ['VIDEO_THUMBNAIL', 'VIDEO_HD', 'VIDEO_LOW'].includes(type);
+const isImage = (type) => ['IMAGE', 'IMAGE_360'].indexOf(type) !== -1;
+const isVideo = (type) => ['VIDEO_THUMBNAIL', 'VIDEO_HD', 'VIDEO_LOW'].indexOf(type) !== -1;
 
 const createImageItem = (item, cdn, imageResolutions) => {
   const urls = {};
@@ -40,7 +40,7 @@ const getImageResolutions = (optsImageResolutions) => {
   const imageResolutions = optsImageResolutions || defaultResolutions;
 
   return Object.keys(resolutions)
-               .filter(key => imageResolutions.includes(key))
+               .filter(key => imageResolutions.indexOf(key) !== -1) /* eslint no-magic-numbers: [0] */
                .reduce((finalResolutions, key) => {
                  finalResolutions[key] = resolutions[key];
                  return finalResolutions;
