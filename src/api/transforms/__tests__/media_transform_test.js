@@ -1,6 +1,7 @@
 import test from 'ava';
 import fs from 'fs';
 import path from 'path';
+
 const json = fs.readFileSync(path.join(__dirname, '../../__tests__/data/catalog_service_response.json'), 'utf8');
 
 import mediaTransform, {
@@ -146,4 +147,3 @@ test('media_transform: mediaTransform middleware', t => {
 
   t.is(tranformedJSON.media, undefined);
 });
-

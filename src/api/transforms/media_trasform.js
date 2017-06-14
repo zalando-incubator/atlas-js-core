@@ -1,5 +1,5 @@
-const cdns = ['mosaic01', 'mosaic02'];
-const resolutions = {
+const CDNS = ['mosaic01', 'mosaic02'];
+const AVAILABLE_RESOLUTIONS = {
   thumbnail: 'pdp-thumb',
   thumbnail_hd: 'thumb_hd',
   small: 'catalog',
@@ -9,7 +9,7 @@ const resolutions = {
   large: 'large',
   large_hd: 'large_hd'
 };
-const defaultResolutions = ['thumbnail', 'medium', 'large'];
+const DEFAULT_RESOLUTIONS = ['thumbnail', 'medium', 'large'];
 
 const isImage = (type) => ['IMAGE', 'IMAGE_360'].indexOf(type) !== -1;
 const isVideo = (type) => ['VIDEO_THUMBNAIL', 'VIDEO_HD', 'VIDEO_LOW'].indexOf(type) !== -1;
@@ -18,7 +18,7 @@ const createImageItem = (item, cdn, imageResolutions) => {
   const urls = {};
 
   Object.keys(imageResolutions).forEach(resolutionKey => {
-    urls[resolutionKey] = `https://${cdn}.ztat.net/vgs/media/${resolutions[resolutionKey]}/${item.path}`;
+    urls[resolutionKey] = `https://${cdn}.ztat.net/vgs/media/${AVAILABLE_RESOLUTIONS[resolutionKey]}/${item.path}`;
   });
 
   return {
@@ -37,25 +37,25 @@ const createVideoItem = (item, cdn) => {
 };
 
 const getImageResolutions = (optsImageResolutions) => {
-  const imageResolutions = optsImageResolutions || defaultResolutions;
+  const imageResolutions = optsImageResolutions || DEFAULT_RESOLUTIONS;
 
-  return Object.keys(resolutions)
+  return Object.keys(AVAILABLE_RESOLUTIONS)
                .filter(key => imageResolutions.indexOf(key) !== -1) /* eslint no-magic-numbers: [0] */
                .reduce((finalResolutions, key) => {
-                 finalResolutions[key] = resolutions[key];
+                 finalResolutions[key] = AVAILABLE_RESOLUTIONS[key];
                  return finalResolutions;
                }, {});
 };
 
 const getCdnAndResolutions = (options) => {
-  let { cdn, image_resolutions: imageResolutions } = options && options.media
-  ? options.media
-  : {
-    cdn: cdns[0],
-    optsImageResolutions: defaultResolutions
+  const defaultOptions = {
+    cdn: CDNS[0],
+    optsImageResolutions: DEFAULT_RESOLUTIONS
   };
 
-  cdn = cdn || cdns[0];
+  let { cdn, image_resolutions: imageResolutions } = (options && options.media) || defaultOptions;
+
+  cdn = cdn || defaultOptions.cdn;
 
   imageResolutions = getImageResolutions(imageResolutions);
 
