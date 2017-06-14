@@ -1,521 +1,331 @@
-[
-  {
-    "id": "ZA882FA01-A11",
-    "name": "5 PACK - Socken - white",
-    "brand": {
-      "name": "Zalando Essentials"
-    },
-    "lowest_price": {
-      "amount": 11.95,
-      "currency": "EUR"
-    },
-    "media": {
-      "images": [
-        {
-          "order": 1,
-          "catalog": "https://i3.ztat.net/catalog/ZA/88/2F/A0/1A/11/ZA882FA01-A11@4.1.jpg",
-          "catalog_hd": "https://i3.ztat.net/catalog_hd/ZA/88/2F/A0/1A/11/ZA882FA01-A11@4.1.jpg",
-          "detail": "https://i3.ztat.net/detail/ZA/88/2F/A0/1A/11/ZA882FA01-A11@4.1.jpg",
-          "detail_hd": "https://i3.ztat.net/detail_hd/ZA/88/2F/A0/1A/11/ZA882FA01-A11@4.1.jpg",
-          "large": "https://i3.ztat.net/large/ZA/88/2F/A0/1A/11/ZA882FA01-A11@4.1.jpg",
-          "large_hd": "https://i3.ztat.net/large_hd/ZA/88/2F/A0/1A/11/ZA882FA01-A11@4.1.jpg"
-        },
-        {
-          "order": 2,
-          "catalog": "https://i4.ztat.net/catalog/ZA/88/2F/A0/1A/11/ZA882FA01-A11@3.1.jpg",
-          "catalog_hd": "https://i4.ztat.net/catalog_hd/ZA/88/2F/A0/1A/11/ZA882FA01-A11@3.1.jpg",
-          "detail": "https://i4.ztat.net/detail/ZA/88/2F/A0/1A/11/ZA882FA01-A11@3.1.jpg",
-          "detail_hd": "https://i4.ztat.net/detail_hd/ZA/88/2F/A0/1A/11/ZA882FA01-A11@3.1.jpg",
-          "large": "https://i4.ztat.net/large/ZA/88/2F/A0/1A/11/ZA882FA01-A11@3.1.jpg",
-          "large_hd": "https://i4.ztat.net/large_hd/ZA/88/2F/A0/1A/11/ZA882FA01-A11@3.1.jpg"
-        }
-      ]
-    }
-  },
-  {
-    "id": "C5154C00N-K11",
-    "name": "SPORT 4 PACK - Sportsocken - navy",
-    "brand": {
-      "name": "camano"
-    },
-    "lowest_price": {
-      "amount": 14.95,
-      "currency": "EUR"
-    },
-    "media": {
-      "images": [
-        {
-          "order": 1,
-          "catalog": "https://i5.ztat.net/catalog/C5/15/4C/00/NK/11/C5154C00N-K11@4.1.jpg",
-          "catalog_hd": "https://i5.ztat.net/catalog_hd/C5/15/4C/00/NK/11/C5154C00N-K11@4.1.jpg",
-          "detail": "https://i5.ztat.net/detail/C5/15/4C/00/NK/11/C5154C00N-K11@4.1.jpg",
-          "detail_hd": "https://i5.ztat.net/detail_hd/C5/15/4C/00/NK/11/C5154C00N-K11@4.1.jpg",
-          "large": "https://i5.ztat.net/large/C5/15/4C/00/NK/11/C5154C00N-K11@4.1.jpg",
-          "large_hd": "https://i5.ztat.net/large_hd/C5/15/4C/00/NK/11/C5154C00N-K11@4.1.jpg"
-        },
-        {
-          "order": 2,
-          "catalog": "https://i6.ztat.net/catalog/C5/15/4C/00/NK/11/C5154C00N-K11@3.1.jpg",
-          "catalog_hd": "https://i6.ztat.net/catalog_hd/C5/15/4C/00/NK/11/C5154C00N-K11@3.1.jpg",
-          "detail": "https://i6.ztat.net/detail/C5/15/4C/00/NK/11/C5154C00N-K11@3.1.jpg",
-          "detail_hd": "https://i6.ztat.net/detail_hd/C5/15/4C/00/NK/11/C5154C00N-K11@3.1.jpg",
-          "large": "https://i6.ztat.net/large/C5/15/4C/00/NK/11/C5154C00N-K11@3.1.jpg",
-          "large_hd": "https://i6.ztat.net/large_hd/C5/15/4C/00/NK/11/C5154C00N-K11@3.1.jpg"
-        }
-      ]
-    }
-  },
-  {
-    "id": "C5154C00H-C11",
-    "name": "BOX  7 PACK - Socken - grey",
-    "brand": {
-      "name": "camano"
-    },
-    "lowest_price": {
-      "amount": 16.95,
-      "currency": "EUR"
-    },
-    "media": {
-      "images": [
-        {
-          "order": 1,
-          "catalog": "https://i3.ztat.net/catalog/C5/15/4C/00/HC/11/C5154C00H-C11@2.1.jpg",
-          "catalog_hd": "https://i3.ztat.net/catalog_hd/C5/15/4C/00/HC/11/C5154C00H-C11@2.1.jpg",
-          "detail": "https://i3.ztat.net/detail/C5/15/4C/00/HC/11/C5154C00H-C11@2.1.jpg",
-          "detail_hd": "https://i3.ztat.net/detail_hd/C5/15/4C/00/HC/11/C5154C00H-C11@2.1.jpg",
-          "large": "https://i3.ztat.net/large/C5/15/4C/00/HC/11/C5154C00H-C11@2.1.jpg",
-          "large_hd": "https://i3.ztat.net/large_hd/C5/15/4C/00/HC/11/C5154C00H-C11@2.1.jpg"
-        },
-        {
-          "order": 2,
-          "catalog": "https://i5.ztat.net/catalog/C5/15/4C/00/HC/11/C5154C00H-C11@9.jpg",
-          "catalog_hd": "https://i5.ztat.net/catalog_hd/C5/15/4C/00/HC/11/C5154C00H-C11@9.jpg",
-          "detail": "https://i5.ztat.net/detail/C5/15/4C/00/HC/11/C5154C00H-C11@9.jpg",
-          "detail_hd": "https://i5.ztat.net/detail_hd/C5/15/4C/00/HC/11/C5154C00H-C11@9.jpg",
-          "large": "https://i5.ztat.net/large/C5/15/4C/00/HC/11/C5154C00H-C11@9.jpg",
-          "large_hd": "https://i5.ztat.net/large_hd/C5/15/4C/00/HC/11/C5154C00H-C11@9.jpg"
-        },
-        {
-          "order": 3,
-          "catalog": "https://i2.ztat.net/catalog/C5/15/4C/00/HC/11/C5154C00H-C11@3.1.jpg",
-          "catalog_hd": "https://i2.ztat.net/catalog_hd/C5/15/4C/00/HC/11/C5154C00H-C11@3.1.jpg",
-          "detail": "https://i2.ztat.net/detail/C5/15/4C/00/HC/11/C5154C00H-C11@3.1.jpg",
-          "detail_hd": "https://i2.ztat.net/detail_hd/C5/15/4C/00/HC/11/C5154C00H-C11@3.1.jpg",
-          "large": "https://i2.ztat.net/large/C5/15/4C/00/HC/11/C5154C00H-C11@3.1.jpg",
-          "large_hd": "https://i2.ztat.net/large_hd/C5/15/4C/00/HC/11/C5154C00H-C11@3.1.jpg"
-        },
-        {
-          "order": 4,
-          "catalog": "https://i1.ztat.net/catalog/C5/15/4C/00/HC/11/C5154C00H-C11@4.1.jpg",
-          "catalog_hd": "https://i1.ztat.net/catalog_hd/C5/15/4C/00/HC/11/C5154C00H-C11@4.1.jpg",
-          "detail": "https://i1.ztat.net/detail/C5/15/4C/00/HC/11/C5154C00H-C11@4.1.jpg",
-          "detail_hd": "https://i1.ztat.net/detail_hd/C5/15/4C/00/HC/11/C5154C00H-C11@4.1.jpg",
-          "large": "https://i1.ztat.net/large/C5/15/4C/00/HC/11/C5154C00H-C11@4.1.jpg",
-          "large_hd": "https://i1.ztat.net/large_hd/C5/15/4C/00/HC/11/C5154C00H-C11@4.1.jpg"
-        },
-        {
-          "order": 5,
-          "catalog": "https://i6.ztat.net/catalog/C5/15/4C/00/HC/11/C5154C00H-C11@5.1.jpg",
-          "catalog_hd": "https://i6.ztat.net/catalog_hd/C5/15/4C/00/HC/11/C5154C00H-C11@5.1.jpg",
-          "detail": "https://i6.ztat.net/detail/C5/15/4C/00/HC/11/C5154C00H-C11@5.1.jpg",
-          "detail_hd": "https://i6.ztat.net/detail_hd/C5/15/4C/00/HC/11/C5154C00H-C11@5.1.jpg",
-          "large": "https://i6.ztat.net/large/C5/15/4C/00/HC/11/C5154C00H-C11@5.1.jpg",
-          "large_hd": "https://i6.ztat.net/large_hd/C5/15/4C/00/HC/11/C5154C00H-C11@5.1.jpg"
-        },
-        {
-          "order": 6,
-          "catalog": "https://i5.ztat.net/catalog/C5/15/4C/00/HC/11/C5154C00H-C11@6.1.jpg",
-          "catalog_hd": "https://i5.ztat.net/catalog_hd/C5/15/4C/00/HC/11/C5154C00H-C11@6.1.jpg",
-          "detail": "https://i5.ztat.net/detail/C5/15/4C/00/HC/11/C5154C00H-C11@6.1.jpg",
-          "detail_hd": "https://i5.ztat.net/detail_hd/C5/15/4C/00/HC/11/C5154C00H-C11@6.1.jpg",
-          "large": "https://i5.ztat.net/large/C5/15/4C/00/HC/11/C5154C00H-C11@6.1.jpg",
-          "large_hd": "https://i5.ztat.net/large_hd/C5/15/4C/00/HC/11/C5154C00H-C11@6.1.jpg"
-        },
-        {
-          "order": 7,
-          "catalog": "https://i4.ztat.net/catalog/C5/15/4C/00/HC/11/C5154C00H-C11@7.1.jpg",
-          "catalog_hd": "https://i4.ztat.net/catalog_hd/C5/15/4C/00/HC/11/C5154C00H-C11@7.1.jpg",
-          "detail": "https://i4.ztat.net/detail/C5/15/4C/00/HC/11/C5154C00H-C11@7.1.jpg",
-          "detail_hd": "https://i4.ztat.net/detail_hd/C5/15/4C/00/HC/11/C5154C00H-C11@7.1.jpg",
-          "large": "https://i4.ztat.net/large/C5/15/4C/00/HC/11/C5154C00H-C11@7.1.jpg",
-          "large_hd": "https://i4.ztat.net/large_hd/C5/15/4C/00/HC/11/C5154C00H-C11@7.1.jpg"
-        }
-      ]
-    }
-  },
-  {
-    "id": "SO254C008-K11",
-    "name": "10 PACK - Socken - navy/dark blue/jeans/stone",
-    "brand": {
-      "name": "s.Oliver"
-    },
-    "lowest_price": {
-      "amount": 19.95,
-      "currency": "EUR"
-    },
-    "media": {
-      "images": [
-        {
-          "order": 1,
-          "catalog": "https://i5.ztat.net/catalog/SO/25/4C/00/8K/11/SO254C008-K11@18.jpg",
-          "catalog_hd": "https://i5.ztat.net/catalog_hd/SO/25/4C/00/8K/11/SO254C008-K11@18.jpg",
-          "detail": "https://i5.ztat.net/detail/SO/25/4C/00/8K/11/SO254C008-K11@18.jpg",
-          "detail_hd": "https://i5.ztat.net/detail_hd/SO/25/4C/00/8K/11/SO254C008-K11@18.jpg",
-          "large": "https://i5.ztat.net/large/SO/25/4C/00/8K/11/SO254C008-K11@18.jpg",
-          "large_hd": "https://i5.ztat.net/large_hd/SO/25/4C/00/8K/11/SO254C008-K11@18.jpg"
-        },
-        {
-          "order": 2,
-          "catalog": "https://i4.ztat.net/catalog/SO/25/4C/00/8K/11/SO254C008-K11@17.jpg",
-          "catalog_hd": "https://i4.ztat.net/catalog_hd/SO/25/4C/00/8K/11/SO254C008-K11@17.jpg",
-          "detail": "https://i4.ztat.net/detail/SO/25/4C/00/8K/11/SO254C008-K11@17.jpg",
-          "detail_hd": "https://i4.ztat.net/detail_hd/SO/25/4C/00/8K/11/SO254C008-K11@17.jpg",
-          "large": "https://i4.ztat.net/large/SO/25/4C/00/8K/11/SO254C008-K11@17.jpg",
-          "large_hd": "https://i4.ztat.net/large_hd/SO/25/4C/00/8K/11/SO254C008-K11@17.jpg"
-        },
-        {
-          "order": 3,
-          "catalog": "https://i5.ztat.net/catalog/SO/25/4C/00/8K/11/SO254C008-K11@16.jpg",
-          "catalog_hd": "https://i5.ztat.net/catalog_hd/SO/25/4C/00/8K/11/SO254C008-K11@16.jpg",
-          "detail": "https://i5.ztat.net/detail/SO/25/4C/00/8K/11/SO254C008-K11@16.jpg",
-          "detail_hd": "https://i5.ztat.net/detail_hd/SO/25/4C/00/8K/11/SO254C008-K11@16.jpg",
-          "large": "https://i5.ztat.net/large/SO/25/4C/00/8K/11/SO254C008-K11@16.jpg",
-          "large_hd": "https://i5.ztat.net/large_hd/SO/25/4C/00/8K/11/SO254C008-K11@16.jpg"
-        },
-        {
-          "order": 4,
-          "catalog": "https://i6.ztat.net/catalog/SO/25/4C/00/8K/11/SO254C008-K11@15.jpg",
-          "catalog_hd": "https://i6.ztat.net/catalog_hd/SO/25/4C/00/8K/11/SO254C008-K11@15.jpg",
-          "detail": "https://i6.ztat.net/detail/SO/25/4C/00/8K/11/SO254C008-K11@15.jpg",
-          "detail_hd": "https://i6.ztat.net/detail_hd/SO/25/4C/00/8K/11/SO254C008-K11@15.jpg",
-          "large": "https://i6.ztat.net/large/SO/25/4C/00/8K/11/SO254C008-K11@15.jpg",
-          "large_hd": "https://i6.ztat.net/large_hd/SO/25/4C/00/8K/11/SO254C008-K11@15.jpg"
-        },
-        {
-          "order": 5,
-          "catalog": "https://i3.ztat.net/catalog/SO/25/4C/00/8K/11/SO254C008-K11@14.jpg",
-          "catalog_hd": "https://i3.ztat.net/catalog_hd/SO/25/4C/00/8K/11/SO254C008-K11@14.jpg",
-          "detail": "https://i3.ztat.net/detail/SO/25/4C/00/8K/11/SO254C008-K11@14.jpg",
-          "detail_hd": "https://i3.ztat.net/detail_hd/SO/25/4C/00/8K/11/SO254C008-K11@14.jpg",
-          "large": "https://i3.ztat.net/large/SO/25/4C/00/8K/11/SO254C008-K11@14.jpg",
-          "large_hd": "https://i3.ztat.net/large_hd/SO/25/4C/00/8K/11/SO254C008-K11@14.jpg"
-        }
-      ]
-    }
-  },
-  {
-    "id": "FA1810000-C11",
-    "name": "COOL KICK - Füßlinge - light grey",
-    "brand": {
-      "name": "Falke"
-    },
-    "lowest_price": {
-      "amount": 8.95,
-      "currency": "EUR"
-    },
-    "media": {
-      "images": [
-        {
-          "order": 1,
-          "catalog": "https://i6.ztat.net/catalog/FA/18/10/00/0C/11/FA1810000-C11@2.jpg",
-          "catalog_hd": "https://i6.ztat.net/catalog_hd/FA/18/10/00/0C/11/FA1810000-C11@2.jpg",
-          "detail": "https://i6.ztat.net/detail/FA/18/10/00/0C/11/FA1810000-C11@2.jpg",
-          "detail_hd": "https://i6.ztat.net/detail_hd/FA/18/10/00/0C/11/FA1810000-C11@2.jpg",
-          "large": "https://i6.ztat.net/large/FA/18/10/00/0C/11/FA1810000-C11@2.jpg",
-          "large_hd": "https://i6.ztat.net/large_hd/FA/18/10/00/0C/11/FA1810000-C11@2.jpg"
-        },
-        {
-          "order": 2,
-          "catalog": "https://i3.ztat.net/catalog/FA/18/10/00/0C/11/FA1810000-C11@3.jpg",
-          "catalog_hd": "https://i3.ztat.net/catalog_hd/FA/18/10/00/0C/11/FA1810000-C11@3.jpg",
-          "detail": "https://i3.ztat.net/detail/FA/18/10/00/0C/11/FA1810000-C11@3.jpg",
-          "detail_hd": "https://i3.ztat.net/detail_hd/FA/18/10/00/0C/11/FA1810000-C11@3.jpg",
-          "large": "https://i3.ztat.net/large/FA/18/10/00/0C/11/FA1810000-C11@3.jpg",
-          "large_hd": "https://i3.ztat.net/large_hd/FA/18/10/00/0C/11/FA1810000-C11@3.jpg"
-        }
-      ]
-    }
-  },
-  {
-    "id": "C5144D002-A11",
-    "name": "6 PACK  - Sportsocken - white",
-    "brand": {
-      "name": "camano"
-    },
-    "lowest_price": {
-      "amount": 14.95,
-      "currency": "EUR"
-    },
-    "media": {
-      "images": [
-        {
-          "order": 1,
-          "catalog": "https://i4.ztat.net/catalog/C5/14/4D/00/2A/11/C5144D002-A11@6.jpg",
-          "catalog_hd": "https://i4.ztat.net/catalog_hd/C5/14/4D/00/2A/11/C5144D002-A11@6.jpg",
-          "detail": "https://i4.ztat.net/detail/C5/14/4D/00/2A/11/C5144D002-A11@6.jpg",
-          "detail_hd": "https://i4.ztat.net/detail_hd/C5/14/4D/00/2A/11/C5144D002-A11@6.jpg",
-          "large": "https://i4.ztat.net/large/C5/14/4D/00/2A/11/C5144D002-A11@6.jpg",
-          "large_hd": "https://i4.ztat.net/large_hd/C5/14/4D/00/2A/11/C5144D002-A11@6.jpg"
-        },
-        {
-          "order": 2,
-          "catalog": "https://i1.ztat.net/catalog/C5/14/4D/00/2A/11/C5144D002-A11@5.jpg",
-          "catalog_hd": "https://i1.ztat.net/catalog_hd/C5/14/4D/00/2A/11/C5144D002-A11@5.jpg",
-          "detail": "https://i1.ztat.net/detail/C5/14/4D/00/2A/11/C5144D002-A11@5.jpg",
-          "detail_hd": "https://i1.ztat.net/detail_hd/C5/14/4D/00/2A/11/C5144D002-A11@5.jpg",
-          "large": "https://i1.ztat.net/large/C5/14/4D/00/2A/11/C5144D002-A11@5.jpg",
-          "large_hd": "https://i1.ztat.net/large_hd/C5/14/4D/00/2A/11/C5144D002-A11@5.jpg"
-        },
-        {
-          "order": 3,
-          "catalog": "https://i2.ztat.net/catalog/C5/14/4D/00/2A/11/C5144D002-A11@4.jpg",
-          "catalog_hd": "https://i2.ztat.net/catalog_hd/C5/14/4D/00/2A/11/C5144D002-A11@4.jpg",
-          "detail": "https://i2.ztat.net/detail/C5/14/4D/00/2A/11/C5144D002-A11@4.jpg",
-          "detail_hd": "https://i2.ztat.net/detail_hd/C5/14/4D/00/2A/11/C5144D002-A11@4.jpg",
-          "large": "https://i2.ztat.net/large/C5/14/4D/00/2A/11/C5144D002-A11@4.jpg",
-          "large_hd": "https://i2.ztat.net/large_hd/C5/14/4D/00/2A/11/C5144D002-A11@4.jpg"
-        }
-      ]
-    }
-  },
-  {
-    "id": "CO482F00C-K11",
-    "name": "BASIC 6 PACK - Socken - neon blue/neon green/neon orange",
-    "brand": {
-      "name": "Converse"
-    },
-    "lowest_price": {
-      "amount": 17.95,
-      "currency": "EUR"
-    },
-    "media": {
-      "images": [
-        {
-          "order": 1,
-          "catalog": "https://i2.ztat.net/catalog/CO/48/2F/00/CK/11/CO482F00C-K11@9.jpg",
-          "catalog_hd": "https://i2.ztat.net/catalog_hd/CO/48/2F/00/CK/11/CO482F00C-K11@9.jpg",
-          "detail": "https://i2.ztat.net/detail/CO/48/2F/00/CK/11/CO482F00C-K11@9.jpg",
-          "detail_hd": "https://i2.ztat.net/detail_hd/CO/48/2F/00/CK/11/CO482F00C-K11@9.jpg",
-          "large": "https://i2.ztat.net/large/CO/48/2F/00/CK/11/CO482F00C-K11@9.jpg",
-          "large_hd": "https://i2.ztat.net/large_hd/CO/48/2F/00/CK/11/CO482F00C-K11@9.jpg"
-        },
-        {
-          "order": 2,
-          "catalog": "https://i4.ztat.net/catalog/CO/48/2F/00/CK/11/CO482F00C-K11@14.jpg",
-          "catalog_hd": "https://i4.ztat.net/catalog_hd/CO/48/2F/00/CK/11/CO482F00C-K11@14.jpg",
-          "detail": "https://i4.ztat.net/detail/CO/48/2F/00/CK/11/CO482F00C-K11@14.jpg",
-          "detail_hd": "https://i4.ztat.net/detail_hd/CO/48/2F/00/CK/11/CO482F00C-K11@14.jpg",
-          "large": "https://i4.ztat.net/large/CO/48/2F/00/CK/11/CO482F00C-K11@14.jpg",
-          "large_hd": "https://i4.ztat.net/large_hd/CO/48/2F/00/CK/11/CO482F00C-K11@14.jpg"
-        },
-        {
-          "order": 3,
-          "catalog": "https://i2.ztat.net/catalog/CO/48/2F/00/CK/11/CO482F00C-K11@10.jpg",
-          "catalog_hd": "https://i2.ztat.net/catalog_hd/CO/48/2F/00/CK/11/CO482F00C-K11@10.jpg",
-          "detail": "https://i2.ztat.net/detail/CO/48/2F/00/CK/11/CO482F00C-K11@10.jpg",
-          "detail_hd": "https://i2.ztat.net/detail_hd/CO/48/2F/00/CK/11/CO482F00C-K11@10.jpg",
-          "large": "https://i2.ztat.net/large/CO/48/2F/00/CK/11/CO482F00C-K11@10.jpg",
-          "large_hd": "https://i2.ztat.net/large_hd/CO/48/2F/00/CK/11/CO482F00C-K11@10.jpg"
-        },
-        {
-          "order": 4,
-          "catalog": "https://i3.ztat.net/catalog/CO/48/2F/00/CK/11/CO482F00C-K11@11.jpg",
-          "catalog_hd": "https://i3.ztat.net/catalog_hd/CO/48/2F/00/CK/11/CO482F00C-K11@11.jpg",
-          "detail": "https://i3.ztat.net/detail/CO/48/2F/00/CK/11/CO482F00C-K11@11.jpg",
-          "detail_hd": "https://i3.ztat.net/detail_hd/CO/48/2F/00/CK/11/CO482F00C-K11@11.jpg",
-          "large": "https://i3.ztat.net/large/CO/48/2F/00/CK/11/CO482F00C-K11@11.jpg",
-          "large_hd": "https://i3.ztat.net/large_hd/CO/48/2F/00/CK/11/CO482F00C-K11@11.jpg"
-        },
-        {
-          "order": 5,
-          "catalog": "https://i2.ztat.net/catalog/CO/48/2F/00/CK/11/CO482F00C-K11@12.jpg",
-          "catalog_hd": "https://i2.ztat.net/catalog_hd/CO/48/2F/00/CK/11/CO482F00C-K11@12.jpg",
-          "detail": "https://i2.ztat.net/detail/CO/48/2F/00/CK/11/CO482F00C-K11@12.jpg",
-          "detail_hd": "https://i2.ztat.net/detail_hd/CO/48/2F/00/CK/11/CO482F00C-K11@12.jpg",
-          "large": "https://i2.ztat.net/large/CO/48/2F/00/CK/11/CO482F00C-K11@12.jpg",
-          "large_hd": "https://i2.ztat.net/large_hd/CO/48/2F/00/CK/11/CO482F00C-K11@12.jpg"
-        },
-        {
-          "order": 6,
-          "catalog": "https://i1.ztat.net/catalog/CO/48/2F/00/CK/11/CO482F00C-K11@13.jpg",
-          "catalog_hd": "https://i1.ztat.net/catalog_hd/CO/48/2F/00/CK/11/CO482F00C-K11@13.jpg",
-          "detail": "https://i1.ztat.net/detail/CO/48/2F/00/CK/11/CO482F00C-K11@13.jpg",
-          "detail_hd": "https://i1.ztat.net/detail_hd/CO/48/2F/00/CK/11/CO482F00C-K11@13.jpg",
-          "large": "https://i1.ztat.net/large/CO/48/2F/00/CK/11/CO482F00C-K11@13.jpg",
-          "large_hd": "https://i1.ztat.net/large_hd/CO/48/2F/00/CK/11/CO482F00C-K11@13.jpg"
-        },
-        {
-          "order": 7,
-          "catalog": "https://i3.ztat.net/catalog/CO/48/2F/00/CK/11/CO482F00C-K11@8.jpg",
-          "catalog_hd": "https://i3.ztat.net/catalog_hd/CO/48/2F/00/CK/11/CO482F00C-K11@8.jpg",
-          "detail": "https://i3.ztat.net/detail/CO/48/2F/00/CK/11/CO482F00C-K11@8.jpg",
-          "detail_hd": "https://i3.ztat.net/detail_hd/CO/48/2F/00/CK/11/CO482F00C-K11@8.jpg",
-          "large": "https://i3.ztat.net/large/CO/48/2F/00/CK/11/CO482F00C-K11@8.jpg",
-          "large_hd": "https://i3.ztat.net/large_hd/CO/48/2F/00/CK/11/CO482F00C-K11@8.jpg"
-        }
-      ]
-    }
-  },
-  {
-    "id": "CO482F002-A12",
-    "name": "BASIC CREW 3 PACK  - Füßlinge - white/black/grey",
-    "brand": {
-      "name": "Converse"
-    },
-    "lowest_price": {
-      "amount": 9.95,
-      "currency": "EUR"
-    },
-    "media": {
-      "images": [
-        {
-          "order": 1,
-          "catalog": "https://i5.ztat.net/catalog/CO/48/2F/00/2A/12/CO482F002-A12@2.jpg",
-          "catalog_hd": "https://i5.ztat.net/catalog_hd/CO/48/2F/00/2A/12/CO482F002-A12@2.jpg",
-          "detail": "https://i5.ztat.net/detail/CO/48/2F/00/2A/12/CO482F002-A12@2.jpg",
-          "detail_hd": "https://i5.ztat.net/detail_hd/CO/48/2F/00/2A/12/CO482F002-A12@2.jpg",
-          "large": "https://i5.ztat.net/large/CO/48/2F/00/2A/12/CO482F002-A12@2.jpg",
-          "large_hd": "https://i5.ztat.net/large_hd/CO/48/2F/00/2A/12/CO482F002-A12@2.jpg"
-        },
-        {
-          "order": 2,
-          "catalog": "https://i2.ztat.net/catalog/CO/48/2F/00/2A/12/CO482F002-A12@7.jpg",
-          "catalog_hd": "https://i2.ztat.net/catalog_hd/CO/48/2F/00/2A/12/CO482F002-A12@7.jpg",
-          "detail": "https://i2.ztat.net/detail/CO/48/2F/00/2A/12/CO482F002-A12@7.jpg",
-          "detail_hd": "https://i2.ztat.net/detail_hd/CO/48/2F/00/2A/12/CO482F002-A12@7.jpg",
-          "large": "https://i2.ztat.net/large/CO/48/2F/00/2A/12/CO482F002-A12@7.jpg",
-          "large_hd": "https://i2.ztat.net/large_hd/CO/48/2F/00/2A/12/CO482F002-A12@7.jpg"
-        },
-        {
-          "order": 3,
-          "catalog": "https://i1.ztat.net/catalog/CO/48/2F/00/2A/12/CO482F002-A12@8.jpg",
-          "catalog_hd": "https://i1.ztat.net/catalog_hd/CO/48/2F/00/2A/12/CO482F002-A12@8.jpg",
-          "detail": "https://i1.ztat.net/detail/CO/48/2F/00/2A/12/CO482F002-A12@8.jpg",
-          "detail_hd": "https://i1.ztat.net/detail_hd/CO/48/2F/00/2A/12/CO482F002-A12@8.jpg",
-          "large": "https://i1.ztat.net/large/CO/48/2F/00/2A/12/CO482F002-A12@8.jpg",
-          "large_hd": "https://i1.ztat.net/large_hd/CO/48/2F/00/2A/12/CO482F002-A12@8.jpg"
-        },
-        {
-          "order": 4,
-          "catalog": "https://i2.ztat.net/catalog/CO/48/2F/00/2A/12/CO482F002-A12@5.jpg",
-          "catalog_hd": "https://i2.ztat.net/catalog_hd/CO/48/2F/00/2A/12/CO482F002-A12@5.jpg",
-          "detail": "https://i2.ztat.net/detail/CO/48/2F/00/2A/12/CO482F002-A12@5.jpg",
-          "detail_hd": "https://i2.ztat.net/detail_hd/CO/48/2F/00/2A/12/CO482F002-A12@5.jpg",
-          "large": "https://i2.ztat.net/large/CO/48/2F/00/2A/12/CO482F002-A12@5.jpg",
-          "large_hd": "https://i2.ztat.net/large_hd/CO/48/2F/00/2A/12/CO482F002-A12@5.jpg"
-        },
-        {
-          "order": 5,
-          "catalog": "https://i3.ztat.net/catalog/CO/48/2F/00/2A/12/CO482F002-A12@6.jpg",
-          "catalog_hd": "https://i3.ztat.net/catalog_hd/CO/48/2F/00/2A/12/CO482F002-A12@6.jpg",
-          "detail": "https://i3.ztat.net/detail/CO/48/2F/00/2A/12/CO482F002-A12@6.jpg",
-          "detail_hd": "https://i3.ztat.net/detail_hd/CO/48/2F/00/2A/12/CO482F002-A12@6.jpg",
-          "large": "https://i3.ztat.net/large/CO/48/2F/00/2A/12/CO482F002-A12@6.jpg",
-          "large_hd": "https://i3.ztat.net/large_hd/CO/48/2F/00/2A/12/CO482F002-A12@6.jpg"
-        }
-      ]
-    }
-  },
-  {
-    "id": "SO254J000-A00",
-    "name": "6 PACK - Socken - white",
-    "brand": {
-      "name": "s.Oliver"
-    },
-    "lowest_price": {
-      "amount": 15.95,
-      "currency": "EUR"
-    },
-    "media": {
-      "images": [
-        {
-          "order": 1,
-          "catalog": "https://i1.ztat.net/catalog/SO/25/4J/00/0A/00/SO254J000-A00@1.2.jpg",
-          "catalog_hd": "https://i1.ztat.net/catalog_hd/SO/25/4J/00/0A/00/SO254J000-A00@1.2.jpg",
-          "detail": "https://i1.ztat.net/detail/SO/25/4J/00/0A/00/SO254J000-A00@1.2.jpg",
-          "detail_hd": "https://i1.ztat.net/detail_hd/SO/25/4J/00/0A/00/SO254J000-A00@1.2.jpg",
-          "large": "https://i1.ztat.net/large/SO/25/4J/00/0A/00/SO254J000-A00@1.2.jpg",
-          "large_hd": "https://i1.ztat.net/large_hd/SO/25/4J/00/0A/00/SO254J000-A00@1.2.jpg"
-        },
-        {
-          "order": 2,
-          "catalog": "https://i2.ztat.net/catalog/SO/25/4J/00/0A/00/SO254J000-A00@2.2.jpg",
-          "catalog_hd": "https://i2.ztat.net/catalog_hd/SO/25/4J/00/0A/00/SO254J000-A00@2.2.jpg",
-          "detail": "https://i2.ztat.net/detail/SO/25/4J/00/0A/00/SO254J000-A00@2.2.jpg",
-          "detail_hd": "https://i2.ztat.net/detail_hd/SO/25/4J/00/0A/00/SO254J000-A00@2.2.jpg",
-          "large": "https://i2.ztat.net/large/SO/25/4J/00/0A/00/SO254J000-A00@2.2.jpg",
-          "large_hd": "https://i2.ztat.net/large_hd/SO/25/4J/00/0A/00/SO254J000-A00@2.2.jpg"
-        },
-        {
-          "order": 3,
-          "catalog": "https://i3.ztat.net/catalog/SO/25/4J/00/0A/00/SO254J000-A00@3.2.jpg",
-          "catalog_hd": "https://i3.ztat.net/catalog_hd/SO/25/4J/00/0A/00/SO254J000-A00@3.2.jpg",
-          "detail": "https://i3.ztat.net/detail/SO/25/4J/00/0A/00/SO254J000-A00@3.2.jpg",
-          "detail_hd": "https://i3.ztat.net/detail_hd/SO/25/4J/00/0A/00/SO254J000-A00@3.2.jpg",
-          "large": "https://i3.ztat.net/large/SO/25/4J/00/0A/00/SO254J000-A00@3.2.jpg",
-          "large_hd": "https://i3.ztat.net/large_hd/SO/25/4J/00/0A/00/SO254J000-A00@3.2.jpg"
-        }
-      ]
-    }
-  },
-  {
-    "id": "TO2810001-A11",
-    "name": "BASIC 8 PACK - Socken - white",
-    "brand": {
-      "name": "TOM TAILOR"
-    },
-    "lowest_price": {
-      "amount": 16.95,
-      "currency": "EUR"
-    },
-    "media": {
-      "images": [
-        {
-          "order": 1,
-          "catalog": "https://i4.ztat.net/catalog/TO/28/10/00/1A/11/TO2810001-A11@2.2.jpg",
-          "catalog_hd": "https://i4.ztat.net/catalog_hd/TO/28/10/00/1A/11/TO2810001-A11@2.2.jpg",
-          "detail": "https://i4.ztat.net/detail/TO/28/10/00/1A/11/TO2810001-A11@2.2.jpg",
-          "detail_hd": "https://i4.ztat.net/detail_hd/TO/28/10/00/1A/11/TO2810001-A11@2.2.jpg",
-          "large": "https://i4.ztat.net/large/TO/28/10/00/1A/11/TO2810001-A11@2.2.jpg",
-          "large_hd": "https://i4.ztat.net/large_hd/TO/28/10/00/1A/11/TO2810001-A11@2.2.jpg"
-        },
-        {
-          "order": 2,
-          "catalog": "https://i4.ztat.net/catalog/TO/28/10/00/1A/11/TO2810001-A11@8.2.jpg",
-          "catalog_hd": "https://i4.ztat.net/catalog_hd/TO/28/10/00/1A/11/TO2810001-A11@8.2.jpg",
-          "detail": "https://i4.ztat.net/detail/TO/28/10/00/1A/11/TO2810001-A11@8.2.jpg",
-          "detail_hd": "https://i4.ztat.net/detail_hd/TO/28/10/00/1A/11/TO2810001-A11@8.2.jpg",
-          "large": "https://i4.ztat.net/large/TO/28/10/00/1A/11/TO2810001-A11@8.2.jpg",
-          "large_hd": "https://i4.ztat.net/large_hd/TO/28/10/00/1A/11/TO2810001-A11@8.2.jpg"
-        },
-        {
-          "order": 3,
-          "catalog": "https://i6.ztat.net/catalog/TO/28/10/00/1A/11/TO2810001-A11@4.2.jpg",
-          "catalog_hd": "https://i6.ztat.net/catalog_hd/TO/28/10/00/1A/11/TO2810001-A11@4.2.jpg",
-          "detail": "https://i6.ztat.net/detail/TO/28/10/00/1A/11/TO2810001-A11@4.2.jpg",
-          "detail_hd": "https://i6.ztat.net/detail_hd/TO/28/10/00/1A/11/TO2810001-A11@4.2.jpg",
-          "large": "https://i6.ztat.net/large/TO/28/10/00/1A/11/TO2810001-A11@4.2.jpg",
-          "large_hd": "https://i6.ztat.net/large_hd/TO/28/10/00/1A/11/TO2810001-A11@4.2.jpg"
-        },
-        {
-          "order": 4,
-          "catalog": "https://i3.ztat.net/catalog/TO/28/10/00/1A/11/TO2810001-A11@7.2.jpg",
-          "catalog_hd": "https://i3.ztat.net/catalog_hd/TO/28/10/00/1A/11/TO2810001-A11@7.2.jpg",
-          "detail": "https://i3.ztat.net/detail/TO/28/10/00/1A/11/TO2810001-A11@7.2.jpg",
-          "detail_hd": "https://i3.ztat.net/detail_hd/TO/28/10/00/1A/11/TO2810001-A11@7.2.jpg",
-          "large": "https://i3.ztat.net/large/TO/28/10/00/1A/11/TO2810001-A11@7.2.jpg",
-          "large_hd": "https://i3.ztat.net/large_hd/TO/28/10/00/1A/11/TO2810001-A11@7.2.jpg"
-        },
-        {
-          "order": 5,
-          "catalog": "https://i2.ztat.net/catalog/TO/28/10/00/1A/11/TO2810001-A11@6.2.jpg",
-          "catalog_hd": "https://i2.ztat.net/catalog_hd/TO/28/10/00/1A/11/TO2810001-A11@6.2.jpg",
-          "detail": "https://i2.ztat.net/detail/TO/28/10/00/1A/11/TO2810001-A11@6.2.jpg",
-          "detail_hd": "https://i2.ztat.net/detail_hd/TO/28/10/00/1A/11/TO2810001-A11@6.2.jpg",
-          "large": "https://i2.ztat.net/large/TO/28/10/00/1A/11/TO2810001-A11@6.2.jpg",
-          "large_hd": "https://i2.ztat.net/large_hd/TO/28/10/00/1A/11/TO2810001-A11@6.2.jpg"
-        }
-      ]
-    }
-  }
-]
+{
+  "similar": [ {
+      "id" : "SO254J000-C00",
+      "tracking_string" : "l:afb;t:ci;r:750;c:751;b:66;e:sro;p:0;s:SO254J000-C00;a:3b4f5f69-0492-4f55-a600-f69569f9ac15;f:OClZAToFEulxqEU",
+      "name" : "6 PACK - Socken - anthracite/grey",
+      "brand" : {
+        "name" : "s.Oliver"
+      },
+      "lowest_price" : {
+        "amount" : 15.95,
+        "currency" : "EUR"
+      },
+      "media" : {
+        "media_items" : [ {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg",
+          "media_character" : "UNSPECIFIED"
+        }, {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/0C/00/SO254J000-C00@2.1.jpg",
+          "media_character" : "UNSPECIFIED"
+        }, {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/0C/00/SO254J000-C00@3.1.jpg",
+          "media_character" : "UNSPECIFIED"
+        }, {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/0C/00/SO254J000-C00@4.1.jpg",
+          "media_character" : "UNSPECIFIED"
+        }, {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/0C/00/SO254J000-C00@5.1.jpg",
+          "media_character" : "UNSPECIFIED"
+        }, {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/0C/00/SO254J000-C00@6.1.jpg",
+          "media_character" : "UNSPECIFIED"
+        } ]
+      }
+    }, {
+      "id" : "BU182F003-Q11",
+      "tracking_string" : "l:afb;t:ci;r:750;c:751;b:66;e:sro;p:1;s:BU182F003-Q11;a:3b4f5f69-0492-4f55-a600-f69569f9ac15;f:OClZAToFEulxqEU",
+      "name" : "6 PACK - Füßlinge - black",
+      "brand" : {
+        "name" : "Bugatti"
+      },
+      "lowest_price" : {
+        "amount" : 13.95,
+        "currency" : "EUR"
+      },
+      "media" : {
+        "media_items" : [ {
+          "type" : "IMAGE",
+          "path" : "BU/18/2F/00/3Q/11/BU182F003-Q11@4.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "BU/18/2F/00/3Q/11/BU182F003-Q11@3.jpg",
+          "media_character" : "NON_MODEL"
+        } ]
+      }
+    }, {
+      "id" : "TO2810001-A11",
+      "tracking_string" : "l:afb;t:ci;r:750;c:751;b:66;e:sro;p:2;s:TO2810001-A11;a:3b4f5f69-0492-4f55-a600-f69569f9ac15;f:OClZAToFEulxqEU",
+      "name" : "BASIC 8 PACK - Socken - white",
+      "brand" : {
+        "name" : "TOM TAILOR"
+      },
+      "lowest_price" : {
+        "amount" : 16.95,
+        "currency" : "EUR"
+      },
+      "media" : {
+        "media_items" : [ {
+          "type" : "IMAGE",
+          "path" : "TO/28/10/00/1A/11/TO2810001-A11@2.2.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "TO/28/10/00/1A/11/TO2810001-A11@8.2.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "TO/28/10/00/1A/11/TO2810001-A11@4.2.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "TO/28/10/00/1A/11/TO2810001-A11@7.2.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "TO/28/10/00/1A/11/TO2810001-A11@6.2.jpg",
+          "media_character" : "NON_MODEL"
+        } ]
+      }
+    }, {
+      "id" : "C5154C00H-C11",
+      "tracking_string" : "l:afb;t:ci;r:750;c:751;b:66;e:sro;p:3;s:C5154C00H-C11;a:3b4f5f69-0492-4f55-a600-f69569f9ac15;f:OClZAToFEulxqEU",
+      "name" : "BOX  7 PACK - Socken - grey",
+      "brand" : {
+        "name" : "camano"
+      },
+      "lowest_price" : {
+        "amount" : 16.95,
+        "currency" : "EUR"
+      },
+      "media" : {
+        "media_items" : [ {
+          "type" : "IMAGE",
+          "path" : "C5/15/4C/00/HC/11/C5154C00H-C11@2.1.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "C5/15/4C/00/HC/11/C5154C00H-C11@9.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "C5/15/4C/00/HC/11/C5154C00H-C11@3.1.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "C5/15/4C/00/HC/11/C5154C00H-C11@4.1.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "C5/15/4C/00/HC/11/C5154C00H-C11@5.1.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "C5/15/4C/00/HC/11/C5154C00H-C11@6.1.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "C5/15/4C/00/HC/11/C5154C00H-C11@7.1.jpg",
+          "media_character" : "NON_MODEL"
+        } ]
+      }
+    }, {
+      "id" : "SO254J00D-Q00",
+      "tracking_string" : "l:afb;t:ci;r:750;c:751;b:66;e:sro;p:4;s:SO254J00D-Q00;a:3b4f5f69-0492-4f55-a600-f69569f9ac15;f:OClZAToFEulxqEU",
+      "name" : "6 PACK - Socken - black",
+      "brand" : {
+        "name" : "s.Oliver"
+      },
+      "lowest_price" : {
+        "amount" : 15.95,
+        "currency" : "EUR"
+      },
+      "media" : {
+        "media_items" : [ {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/DQ/00/SO254J00D-Q00@1.2.jpg",
+          "media_character" : "UNSPECIFIED"
+        }, {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/DQ/00/SO254J00D-Q00@2.2.jpg",
+          "media_character" : "UNSPECIFIED"
+        } ]
+      }
+    }, {
+      "id" : "BU182F002-A11",
+      "tracking_string" : "l:afb;t:ci;r:750;c:751;b:66;e:sro;p:5;s:BU182F002-A11;a:3b4f5f69-0492-4f55-a600-f69569f9ac15;f:OClZAToFEulxqEU",
+      "name" : "9 PACK - Socken - white/dark navy/black",
+      "brand" : {
+        "name" : "Bugatti"
+      },
+      "lowest_price" : {
+        "amount" : 20.95,
+        "currency" : "EUR"
+      },
+      "media" : {
+        "media_items" : [ {
+          "type" : "IMAGE",
+          "path" : "BU/18/2F/00/2A/11/BU182F002-A11@14.1.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "BU/18/2F/00/2A/11/BU182F002-A11@17.1.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "BU/18/2F/00/2A/11/BU182F002-A11@13.1.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "BU/18/2F/00/2A/11/BU182F002-A11@8.1.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "BU/18/2F/00/2A/11/BU182F002-A11@11.1.jpg",
+          "media_character" : "NON_MODEL"
+        } ]
+      }
+    }, {
+      "id" : "ZA882FA01-Q11",
+      "tracking_string" : "l:afb;t:ci;r:750;c:751;b:66;e:sro;p:6;s:ZA882FA01-Q11;a:3b4f5f69-0492-4f55-a600-f69569f9ac15;f:OClZAToFEulxqEU",
+      "name" : "5 PACK - Socken - black",
+      "brand" : {
+        "name" : "Zalando Essentials"
+      },
+      "lowest_price" : {
+        "amount" : 9.95,
+        "currency" : "EUR"
+      },
+      "media" : {
+        "media_items" : [ {
+          "type" : "IMAGE",
+          "path" : "ZA/88/2F/A0/1Q/11/ZA882FA01-Q11@10.1.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "ZA/88/2F/A0/1Q/11/ZA882FA01-Q11@9.1.jpg",
+          "media_character" : "NON_MODEL"
+        } ]
+      }
+    }, {
+      "id" : "TO282F009-K11",
+      "tracking_string" : "l:afb;t:ci;r:750;c:751;b:66;e:sro;p:7;s:TO282F009-K11;a:3b4f5f69-0492-4f55-a600-f69569f9ac15;f:OClZAToFEulxqEU",
+      "name" : "6 PACK  - Socken - blue ",
+      "brand" : {
+        "name" : "TOM TAILOR"
+      },
+      "lowest_price" : {
+        "amount" : 15.95,
+        "currency" : "EUR"
+      },
+      "media" : {
+        "media_items" : [ {
+          "type" : "IMAGE",
+          "path" : "TO/28/2F/00/9K/11/TO282F009-K11@2.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "TO/28/2F/00/9K/11/TO282F009-K11@3.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "TO/28/2F/00/9K/11/TO282F009-K11@4.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "TO/28/2F/00/9K/11/TO282F009-K11@7.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "TO/28/2F/00/9K/11/TO282F009-K11@6.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "TO/28/2F/00/9K/11/TO282F009-K11@8.jpg",
+          "media_character" : "NON_MODEL"
+        } ]
+      }
+    }, {
+      "id" : "C5144D002-Q11",
+      "tracking_string" : "l:afb;t:ci;r:750;c:751;b:66;e:sro;p:8;s:C5144D002-Q11;a:3b4f5f69-0492-4f55-a600-f69569f9ac15;f:OClZAToFEulxqEU",
+      "name" : "6 PACK  - Sportsocken - black",
+      "brand" : {
+        "name" : "camano"
+      },
+      "lowest_price" : {
+        "amount" : 14.95,
+        "currency" : "EUR"
+      },
+      "media" : {
+        "media_items" : [ {
+          "type" : "IMAGE",
+          "path" : "C5/14/4D/00/2Q/11/C5144D002-Q11@4.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "C5/14/4D/00/2Q/11/C5144D002-Q11@3.jpg",
+          "media_character" : "NON_MODEL"
+        } ]
+      }
+    }, {
+      "id" : "CA582F003-A11",
+      "tracking_string" : "l:afb;t:ci;r:750;c:751;b:66;e:sro;p:9;s:CA582F003-A11;a:3b4f5f69-0492-4f55-a600-f69569f9ac15;f:OClZAToFEulxqEU",
+      "name" : "9 PACK - Socken - lax/light denim/black",
+      "brand" : {
+        "name" : "camel active"
+      },
+      "lowest_price" : {
+        "amount" : 25.95,
+        "currency" : "EUR"
+      },
+      "media" : {
+        "media_items" : [ {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@15.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@14.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@10.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@5.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@6.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@7.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@11.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@9.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@12.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@13.jpg",
+          "media_character" : "NON_MODEL"
+        } ]
+      }
+    } ]
+}
