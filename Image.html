@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>AtlasSDK Global</title>
+	<title>AtlasSDK Class: Image</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -40,14 +40,7 @@
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="Address.html">Address</a></li><li><a href="Article.html">Article</a></li><li><a href="Attribute.html">Attribute</a></li><li><a href="Brand.html">Brand</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartItem.html">CartItem</a></li><li><a href="Config.html">Config</a></li><li><a href="CreateOrderRedirectResponse.html">CreateOrderRedirectResponse</a></li><li><a href="CreateOrderRequest.html">CreateOrderRequest</a></li><li><a href="CreateOrderResponse.html">CreateOrderResponse</a></li><li><a href="Customer.html">Customer</a></li><li><a href="Delivery.html">Delivery</a></li><li><a href="GetCheckoutResponse.html">GetCheckoutResponse</a></li><li><a href="MediaItem.html">MediaItem</a></li><li><a href="Partner.html">Partner</a></li><li><a href="Payment.html">Payment</a></li><li><a href="PickupPoint.html">PickupPoint</a></li><li><a href="Price.html">Price</a></li><li><a href="Recommendations.html">Recommendations</a></li><li><a href="RecommendedArticles.html">RecommendedArticles</a></li><li><a href="ReviewEntry.html">ReviewEntry</a></li><li><a href="ReviewRating.html">ReviewRating</a></li><li><a href="ReviewRatingDistribution.html">ReviewRatingDistribution</a></li><li><a href="ReviewRecommendations.html">ReviewRecommendations</a></li><li><a href="Reviews.html">Reviews</a></li><li><a href="ReviewSummary.html">ReviewSummary</a></li><li><a href="SalesChannel.html">SalesChannel</a></li><li><a href="Unit.html">Unit</a></li>
-				</ul>
-			</li>
-			
-			<li class="dropdown">
-				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
-				<ul class="dropdown-menu ">
-					<li><a href="global.html#checkRedirect">checkRedirect</a></li><li><a href="global.html#checkStatus">checkStatus</a></li><li><a href="global.html#createModel">createModel</a></li>
+					<li><a href="Address.html">Address</a></li><li><a href="Article.html">Article</a></li><li><a href="AtlasSDKClient.html">AtlasSDKClient</a></li><li><a href="Attribute.html">Attribute</a></li><li><a href="Brand.html">Brand</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartItem.html">CartItem</a></li><li><a href="Config.html">Config</a></li><li><a href="CreateOrderRedirectResponse.html">CreateOrderRedirectResponse</a></li><li><a href="CreateOrderRequest.html">CreateOrderRequest</a></li><li><a href="CreateOrderResponse.html">CreateOrderResponse</a></li><li><a href="Customer.html">Customer</a></li><li><a href="Delivery.html">Delivery</a></li><li><a href="GetCheckoutResponse.html">GetCheckoutResponse</a></li><li><a href="Image.html">Image</a></li><li><a href="Partner.html">Partner</a></li><li><a href="Payment.html">Payment</a></li><li><a href="PickupPoint.html">PickupPoint</a></li><li><a href="Price.html">Price</a></li><li><a href="Recommendations.html">Recommendations</a></li><li><a href="RecommendedArticles.html">RecommendedArticles</a></li><li><a href="ReviewEntry.html">ReviewEntry</a></li><li><a href="ReviewRating.html">ReviewRating</a></li><li><a href="ReviewRatingDistribution.html">ReviewRatingDistribution</a></li><li><a href="ReviewRecommendations.html">ReviewRecommendations</a></li><li><a href="Reviews.html">Reviews</a></li><li><a href="ReviewSummary.html">ReviewSummary</a></li><li><a href="SalesChannel.html">SalesChannel</a></li><li><a href="Unit.html">Unit</a></li><li><a href="Video.html">Video</a></li><li>{ignore}</li>
 				</ul>
 			</li>
 			
@@ -79,14 +72,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Global</h1>
+	<h1 class="page-title">Class: Image</h1>
 <section>
 
 <header>
     
         <h2>
-        
+        Image
         </h2>
+        
+            <div class="class-description">Class for Image model.</div>
         
     
 </header>
@@ -96,83 +91,14 @@
     <div class="container-overview">
     
         
-
-        
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
 <hr>
 <dt>
-    <h4 class="name" id="checkRedirect"><span class="type-signature"></span>checkRedirect(response)</h4>
+    <h4 class="name" id="Image"><span class="type-signature"></span>new Image(type, mediaCharacter, resolutions)</h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        Checks whether "Location" header is preset.
-Location header means that this is a redirect response with empty body, so
-the Response object with simple JSON { redirect_url: 'URL'} will be returned.
-Otherwise initial Response object is returned.
-    </div>
     
 
     
@@ -206,13 +132,13 @@ Otherwise initial Response object is returned.
 
         <tr>
             
-                <td class="name"><code>response</code></td>
+                <td class="name"><code>type</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Response</span>
+<span class="param-type">String</span>
 
 
 
@@ -223,150 +149,20 @@ Otherwise initial Response object is returned.
 
             
 
-            <td class="description last">Response object</td>
+            <td class="description last">Type of the media item, e.g. 'IMAGE', 'IMAGE_360'</td>
         </tr>
 
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    Response object either original or with redirect URL
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Response</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="checkStatus"><span class="type-signature"></span>checkStatus(response)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Checks the status code of the Response.
-If the status code is <= 400 the Response object is returned.
-Otherwise the Error is thrown.
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
     
 
         <tr>
             
-                <td class="name"><code>response</code></td>
+                <td class="name"><code>mediaCharacter</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Response</span>
+<span class="param-type">String</span>
 
 
 
@@ -377,173 +173,15 @@ Otherwise the Error is thrown.
 
             
 
-            <td class="description last">Response object</td>
+            <td class="description last">Media Character descriptor with meta information about image,
+for example 'MODEL' image that indicates that this media item contains model image URL.</td>
         </tr>
 
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Throws:</h5>
-    
-            
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        - error object accoding to the bad response.
-        </div>
-    </dt>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
-
-
-
-            </dd>
-        </dl>
-    </dt>
-</dl>
-
-
-        
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    Response object
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Response</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="createModel"><span class="type-signature"></span>createModel(schema)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Utility function for creating models from schema and source provided.
-We use convention over configuration approach to define the schema.
-This function also recognizes complex sources, e.g. arrays of custom objects.
-Using a simple type validation check the read-only properties are defined for created models.
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
     
 
         <tr>
             
-                <td class="name"><code>schema</code></td>
+                <td class="name"><code>resolutions</code></td>
             
 
             <td class="type">
@@ -560,7 +198,7 @@ Using a simple type validation check the read-only properties are defined for cr
 
             
 
-            <td class="description last">name of attribute.</td>
+            <td class="description last">Requested resolutions of the media item.</td>
         </tr>
 
     
@@ -620,38 +258,25 @@ Using a simple type validation check the read-only properties are defined for cr
     
 
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    Model - constructor function for a model.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">function</span>
-|
-
-<span class="param-type">Model</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
 
-        </dl>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
     
 
     
