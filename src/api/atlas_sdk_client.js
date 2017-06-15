@@ -143,6 +143,7 @@ class AtlasSDKClient {
    *          <li>'small' – width: 135px</li>
    *          <li>'small_hd' – width: 270px</li>
    *          <li>'medium' – width: 300px, height: 400px</li>
+   *          <li>'medium_sd' – width: 480px</li>
    *          <li>'medium_hd' – width: 600px, height: 800px</li>
    *          <li>'large' – width: 1100px, height: 1100px</li>
    *          <li>'large_hd' – height: 1650px</li>
@@ -287,6 +288,7 @@ class AtlasSDKClient {
    *          <li>'small' – width: 135px</li>
    *          <li>'small_hd' – width: 270px</li>
    *          <li>'medium' – width: 300px, height: 400px</li>
+   *          <li>'medium_sd' – width: 480px</li>
    *          <li>'medium_hd' – width: 600px, height: 800px</li>
    *          <li>'large' – width: 1100px, height: 1100px</li>
    *          <li>'large_hd' – height: 1650px</li>
