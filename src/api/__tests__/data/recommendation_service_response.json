@@ -327,5 +327,58 @@
           "media_character" : "NON_MODEL"
         } ]
       }
-    } ]
+    }, {
+      "id" : "CA582F003-A11",
+      "name" : "9 PACK - Socken - lax/light denim/black",
+      "brand" : {
+        "name" : "camel active"
+      },
+      "lowest_price" : {
+        "amount" : 25.95,
+        "currency" : "EUR"
+      },
+      "media" : {
+        "media_items" : [ {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@15.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@14.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@10.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@5.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@6.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@7.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@11.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@9.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@12.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "CA/58/2F/00/3A/11/CA582F003-A11@13.jpg",
+          "media_character" : "NON_MODEL"
+           }
+         ]
+         }}]
 }

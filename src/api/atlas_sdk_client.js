@@ -272,7 +272,7 @@ class AtlasSDKClient {
    *    {String} <strong>reco_id</strong>: UUID for recommendations API
    *  </li>
    *  <li>
-   *    {String} <strong>tracking_string</strong>: random tracking string
+   *    {String} <strong>tracking_string</strong>: (Optional) The first time you call recommendations it's empty. The response will have it then and then you use it for every further call.
    *  </li>
    *  <li>
    *    <strong>media</strong>:
