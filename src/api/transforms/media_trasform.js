@@ -5,6 +5,7 @@ const AVAILABLE_RESOLUTIONS = {
   small: 'catalog',
   small_hd: 'catalog_hd',
   medium: 'detail',
+  medium_sd: 'pdp-gallery',
   medium_hd: 'detail_hd',
   large: 'large',
   large_hd: 'large_hd'
