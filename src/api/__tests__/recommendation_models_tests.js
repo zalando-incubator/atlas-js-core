@@ -36,8 +36,12 @@ test('Article should be initialized from JSON object', async t => {
   t.is(recommendedArticles[0].name, '6 PACK - Socken - anthracite/grey');
   t.is(recommendedArticles[0].lowestPrice.amount, 15.95);
   t.is(recommendedArticles[0].lowestPrice.currency, 'EUR');
-  t.is(recommendedArticles[0].images[0].type, 'IMAGE');
+  t.is(recommendedArticles[0].images.length, 7);
+  t.is(recommendedArticles[0].images[0].type, 'IMAGE_PARTNER');
   t.is(recommendedArticles[0].images[0].mediaCharacter, 'UNSPECIFIED');
   t.is(recommendedArticles[0].images[0].resolutions.large, imgURL);
+  t.is(recommendedArticles[0].images[1].type, 'IMAGE');
+  t.is(recommendedArticles[0].images[1].mediaCharacter, 'UNSPECIFIED');
+  t.is(recommendedArticles[0].images[1].resolutions.large, imgURL);
   t.falsy(recommendedArticles[recommendedArticles.length - 1].trackingString);
 });
