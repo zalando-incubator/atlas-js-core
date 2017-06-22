@@ -1,6 +1,6 @@
 {
   "name": "atlas-sdk-core",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Atlas JavaScript SDK Core for Zalando Checkout, Guest Checkout, and Catalog APIs.",
   "main": "lib/index.node.js",
   "browser": "lib/index.js",
@@ -23,28 +23,22 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint src test",
-
     "clean": "rm -rf lib",
     "dev:build": "npm run clean && ./node_modules/.bin/webpack --config webpack.config.dev.js --watch",
     "production:build": "npm run clean && ./node_modules/.bin/webpack --config webpack.config.js",
-
     "david": "./node_modules/.bin/david",
     "check": "nsp check package",
     "cover": "nyc --reporter lcov --reporter text npm run test",
     "cover:check": "nyc check-coverage",
     "cover:report-coverage": "npm run cover && cat ./coverage/lcov.info | codecov",
-
     "test": "FORCE_COLOR=t ./node_modules/.bin/ava --verbose | tap-notify | tap-diff",
     "tdd": "ava --watch",
     "validate": "npm run lint && npm test",
-
     "prepare": "npm run validate && npm run production:build && npm run check",
     "release:production": "npm run prepare && npm run docs",
-
     "docs": "rm -rf docs && ./node_modules/.bin/jsdoc -r -c ./jsdoc_conf.json -t ./node_modules/ink-docstrap/template -d docs/ -R README.md",
     "docs:deploy": "./node_modules/.bin/gh-pages -d docs",
     "gh-pages-travis": "gh-pages-travis",
-
     "commit": "./node_modules/.bin/git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -107,7 +101,9 @@
   },
   "ava": {
     "babel": {
-      "presets": ["@ava/stage-4"]
+      "presets": [
+        "@ava/stage-4"
+      ]
     },
     "require": "babel-register",
     "concurrency": 2,
