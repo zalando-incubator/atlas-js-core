@@ -14,7 +14,7 @@ import mediaTransform, {
 
 test('media_transform: check if media type is image', t => {
   t.true(isImage('IMAGE'));
-  t.true(isImage('IMAGE_360'));
+  t.false(isImage('IMAGE_360'));
   t.false(isImage('IMG'));
   t.false(isImage('FOO'));
 });

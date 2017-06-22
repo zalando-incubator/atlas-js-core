@@ -12,7 +12,7 @@ const AVAILABLE_RESOLUTIONS = {
 };
 const DEFAULT_RESOLUTIONS = ['thumbnail', 'medium', 'large'];
 
-const isImage = (type) => ['IMAGE', 'IMAGE_360', 'IMAGE_PARTNER'].indexOf(type) !== -1;
+const isImage = (type) => ['IMAGE', 'IMAGE_PARTNER'].indexOf(type) !== -1;
 const isVideo = (type) => ['VIDEO_THUMBNAIL', 'VIDEO_HD', 'VIDEO_LOW'].indexOf(type) !== -1;
 
 const createImageItem = (item, cdn, imageResolutions) => {
