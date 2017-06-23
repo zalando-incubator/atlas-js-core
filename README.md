@@ -22,6 +22,9 @@ We use Promises a lot :)
 npm install --save atlas-sdk-core es6-promise
 ```
 
+On install we're transpiling the code for your convenience. You have access to two files under a `lib/` folder, one for using in node and another for browser usages.
+
+
 ## Warning
 Cause we are using Promises you must bring your own ES6 Promise compatible polyfill, e.g. [es6-promise](https://github.com/jakearchibald/es6-promise).
 
