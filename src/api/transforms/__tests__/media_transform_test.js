@@ -30,7 +30,7 @@ test('media_transform: check if media type is video', t => {
 test('media_transform: check createVideoItem', t => {
   const item = {
     type: 'VIDEO_HD',
-    path: '/comet/LE/22/1N/02/PK/11/VIDEO/LOW_QUALITY/1479494994821.mp4',
+    path: 'comet/LE/22/1N/02/PK/11/VIDEO/LOW_QUALITY/1479494994821.mp4',
     media_character: 'UNKNOWN'
   };
   const videoItem = createVideoItem(item, 'mosaic02');

@@ -57,11 +57,11 @@
       },
        {
         "type": "VIDEO_THUMBNAIL",
-        "path": "/comet/LE/22/1N/02/PK/11/VIDEO/PREVIEW_IMG/1479494993512.jpg",
+        "path": "comet/LE/22/1N/02/PK/11/VIDEO/PREVIEW_IMG/1479494993512.jpg",
         "media_character": "UNKNOWN"
       }, {
         "type": "VIDEO_HD",
-        "path": "/comet/LE/22/1N/02/PK/11/VIDEO/HD/1479494993512.mp4",
+        "path": "comet/LE/22/1N/02/PK/11/VIDEO/HD/1479494993512.mp4",
         "media_character": "UNKNOWN"
       }
     ]

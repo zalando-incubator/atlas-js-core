@@ -33,7 +33,7 @@ const createVideoItem = (item, cdn) => {
   return {
     type: item.type,
     mediaCharacter: item.media_character,
-    url: `https://${cdn}.ztat.net/vgs${item.path}`
+    url: `https://${cdn}.ztat.net/vgs/${item.path}`
   };
 };
 
