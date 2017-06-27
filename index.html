@@ -105,7 +105,8 @@
 <p>The purpose of this project is to provide low-level calls to API backend and response models for Zalando Checkout, Guest Checkout, and Catalog APIs in order to allow easily integrate and run Zalando Сheckout in
 minutes using your own UI solution.</p>
 <p>We use Promises a lot :)</p>
-<h2>Installation</h2><pre class="prettyprint source lang-sh"><code>npm install --save atlas-sdk-core es6-promise</code></pre><h2>Warning</h2><p>Cause we are using Promises you must bring your own ES6 Promise compatible polyfill, e.g. <a href="https://github.com/jakearchibald/es6-promise">es6-promise</a>.</p>
+<h2>Installation</h2><pre class="prettyprint source lang-sh"><code>npm install --save atlas-sdk-core es6-promise</code></pre><p>On install we're transpiling the code for your convenience. You have access to two files under a <code>lib/</code> folder, one for using in node and another for browser usages.</p>
+<h2>Warning</h2><p>Cause we are using Promises you must bring your own ES6 Promise compatible polyfill, e.g. <a href="https://github.com/jakearchibald/es6-promise">es6-promise</a>.</p>
 <h2>Configuration and Usage</h2><p>You need to configure Atlas JavaScript SDK Core first and use configured instance variable to interact with AtlasSDK.</p>
 <p>In order to configure AtlasSDK manually provide an object with 2 mandatory parameters <strong>client_id</strong> and <strong>sales_channel</strong>:</p>
 <pre class="prettyprint source lang-javascript"><code>import AtlasSDK from 'atlas-sdk-core';
