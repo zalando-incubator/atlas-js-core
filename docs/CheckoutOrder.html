@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>AtlasSDK Class: Config</title>
+	<title>AtlasSDK Class: CheckoutOrder</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,16 +72,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: Config</h1>
+	<h1 class="page-title">Class: CheckoutOrder</h1>
 <section>
 
 <header>
     
         <h2>
-        Config
+        CheckoutOrder
         </h2>
         
-            <div class="class-description">Config class struct</div>
+            <div class="class-description">Class for Guest Customer model</div>
         
     
 </header>
@@ -93,7 +93,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="Config"><span class="type-signature"></span>new Config(source)</h4>
+    <h4 class="name" id="CheckoutOrder"><span class="type-signature"></span>new CheckoutOrder(orderNumber, customerNumber, grossTotal, created, detailUrl)</h4>
     
     
 </dt>
@@ -132,13 +132,13 @@
 
         <tr>
             
-                <td class="name"><code>source</code></td>
+                <td class="name"><code>orderNumber</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">String</span>
 
 
 
@@ -149,7 +149,103 @@
 
             
 
-            <td class="description last">Initialisation object for Config</td>
+            <td class="description last">the order number.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>customerNumber</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the customer number.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>grossTotal</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Price.html">Price</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">gross total of the discount.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>created</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">creation date.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>detailUrl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the details URL.</td>
         </tr>
 
     
@@ -209,29 +305,6 @@
     
 
     
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">
-const source = {
-  catalog_api_url: &#x27;https://catalog_api.com/api&#x27;,
-  checkout_api_url: &#x27;https://checkout_api.com/api&#x27;,
-  oauth2_provider_url: &#x27;https://oauth2_provider.com/api&#x27;,
-  sales_channel: {
-    locale: &#x27;de_DE&#x27;,
-    channel: &#x27;11111111-1111-1111-1111-111111111111&#x27;,
-    toc_url: &#x27;https://m.zalando.de/agb/&#x27;
-  },
-  recommendations: {
-    location: &#x27;my_app_pdp&#x27;,
-    type: &#x27;similar&#x27;,
-    channel: &#x27;myapp&#x27;
-  }
-};
-
-const config = new Config(source);</pre>
-
 
     
 </dd>
