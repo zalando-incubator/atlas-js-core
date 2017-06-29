@@ -21,10 +21,13 @@ const DiscountSchema = {
  * @param {Price} taxTotal - tax total of the discount.
  * @constructor
  */
-const CheckoutCouponDiscount = createModel({
+const CheckoutCouponDiscountSchema = {
   remaining: { key: 'remaining', type: 'object', model: Price, optional: true },
-  ...DiscountSchema
-});
+  gross: { key: 'gross', type: 'object', model: Price, optional: true }
+};
+
+const CheckoutCouponDiscount = createModel(Object.assign({}, CheckoutCouponDiscountSchema, DeliverySchema));
+
 
 /**
  * @class Class for Delivery Request model
@@ -53,12 +56,13 @@ const CreateCartRequest = createModel({
  * @param {String} latest - Delivery latest date.
  * @constructor
  */
-const CheckoutDelivery = createModel({
+const CheckoutDeliverySchema = {
   service: { key: 'service', type: 'string' },
   cost: { key: 'cost', type: 'object', model: Price },
-  options: { key: 'options', type: 'string' },
-  ...DeliverySchema
-});
+  options: { key: 'options', type: 'string' }
+};
+
+const CheckoutDelivery = createModel(Object.assign({}, CheckoutDeliverySchema, DeliverySchema));
 
 /**
  * @class Class for Selected Payment model
@@ -196,5 +200,7 @@ const CheckoutOrderRequest = createModel({
   checkoutId: { key: 'checkout_id', type: 'string' }
 });
 
-export { CreateCartRequest, CartResponse, CreateCheckoutRequest, CheckoutResponse, PutCheckoutRequest,
-  CheckoutOrderResponse, CheckoutGetOrderResponses, CheckoutOrderRequest };
+export {
+  CreateCartRequest, CartResponse, CreateCheckoutRequest, CheckoutResponse, PutCheckoutRequest,
+  CheckoutOrderResponse, CheckoutGetOrderResponses, CheckoutOrderRequest
+};

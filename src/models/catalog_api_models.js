@@ -1,34 +1,31 @@
-import createModel from './base_model.js';
+import createModel from './base_model';
+import { Reviews } from './article_reviews_model';
 
 /**
- * @class Class for ArticleImage model.
- * @param {Number} order - order number of image used for sorting.
- * @param {String} catalog - URL of catalog image.
- * @param {String} catalogHD - URL of HD catalog image.
- * @param {String} detail - URL of details image.
- * @param {String} detailHD - URL of HD details image.
- * @param {String} large - URL of large image.
- * @param {String} largeHD - URL of HD large image.
+ * @class Class for Image model.
+ * @param {String} type - Type of the media item, e.g. 'IMAGE', 'IMAGE_360'
+ * @param {String} mediaCharacter - Media Character descriptor with meta information about image,
+ * for example 'MODEL' image that indicates that this media item contains model image URL.
+ * @param {Object} resolutions - Requested resolutions of the media item.
  * @constructor
  */
-const ArticleImage = createModel({
-  order: { key: 'order', type: 'number' },
-  catalog: { key: 'catalog', type: 'string' },
-  catalogHD: { key: 'catalog_hd', type: 'string' },
-  detail: { key: 'detail', type: 'string' },
-  detailHD: { key: 'detail_hd', type: 'string' },
-  large: { key: 'large', type: 'string' },
-  largeHD: { key: 'large_hd', type: 'string' },
-  type: { key: 'type', type: 'string' }
+const Image = createModel({
+  type: { key: 'type', type: 'string' },
+  mediaCharacter: { key: 'mediaCharacter', type: 'string' },
+  resolutions: { key: 'resolutions', type: 'object' }
 });
 
 /**
- * @class Class for Media model.
- * @param {ArticleImage} images - array of images.
- * @constructor
+ * @class Class for Video model.
+ * @param {String} type - Type of the media item, e.g. 'VIDEO', 'VIDEO_HD', 'VIDEO_THUMBNAIL', 'VIDEO_SMALL'
+ * @param {String} mediaCharacter - Media Character descriptor with meta information about video,
+ * for example 'MODEL' image that indicates that this media item contains model image URL.
+ * @param {String} url - An absolute URL to the image
  */
-const Media = createModel({
-  images: { key: 'media_items', type: 'object', model: ArticleImage, optional: true }
+const Video = createModel({
+  type: { key: 'type', type: 'string' },
+  mediaCharacter: { key: 'mediaCharacter', type: 'string' },
+  url: { key: 'url', type: 'string' }
 });
 
 /**
@@ -73,7 +70,6 @@ const Price = createModel({
  * @param {boolean} available - whether the unit is available or not.
  * @param {number} stock
  * @param {Partner} partner
- * @param {Media} media
  * @constructor
  */
 const Unit = createModel({
@@ -99,11 +95,17 @@ const Attribute = createModel({
 
 /**
  * @class Class for Article model
- * @param {String} id - id of article.
- * @param {String} name - name of article.
- * @param {String} color - color of article.
- * @param {String} brand - brand of article.
- * @param {String[]} infos - infos of article.
+ * @param {String} id - id of the article.
+ * @param {String} name - name of the article.
+ * @param {String} color - color of the article.
+ * @param {String} detailUrl - product detail url of the article.
+ * @param {Brand} brand - brand of the article.
+ * @param {Unit[]} units - size, price and stock availability from the article.
+ * @param {Image[]} images - Array of article images.
+ * @param {Video[]} videos - Array of article videos.
+ * @param {Attribute[]} attributes - characteristics of the article.
+ * @param {String[]} infos - generic article description.
+ * @param {Reviews[]} review - article reviews.
  * @constructor
  */
 const Article = createModel({
@@ -113,10 +115,11 @@ const Article = createModel({
   detailUrl: { key: 'detail_url', type: 'string', optional: true },
   brand: { key: 'brand', type: 'object', model: Brand },
   units: { key: 'units', type: 'object', model: Unit },
-  media: { key: 'media', type: 'object', model: Media, optional: true },
+  images: { key: 'images', type: 'object', model: Image, optional: true },
+  videos: { key: 'videos', type: 'object', model: Video, optional: true },
   attributes: { key: 'attributes', type: 'object', model: Attribute, optional: true },
   infos: { key: 'infos', type: 'string', optional: true },
-  reviews: { key: 'reviews', type: 'object', optional: true }
+  reviews: { key: 'reviews', type: 'object', model: Reviews, optional: true }
 });
 
 export { Article };

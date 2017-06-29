@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>AtlasSDK Class: ArticleImage</title>
+	<title>AtlasSDK Class: ReviewEntry</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -31,16 +31,16 @@
 		<ul class="nav navbar-nav">
 			
 			<li class="dropdown">
-				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="Address.html">Address</a></li><li><a href="Article.html">Article</a></li><li><a href="ArticleImage.html">ArticleImage</a></li><li><a href="AtlasSDK.html">AtlasSDK</a></li><li><a href="Attribute.html">Attribute</a></li><li><a href="Brand.html">Brand</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartItem.html">CartItem</a></li><li><a href="Config.html">Config</a></li><li><a href="CreateOrderRedirectResponse.html">CreateOrderRedirectResponse</a></li><li><a href="CreateOrderRequest.html">CreateOrderRequest</a></li><li><a href="CreateOrderResponse.html">CreateOrderResponse</a></li><li><a href="Customer.html">Customer</a></li><li><a href="Delivery.html">Delivery</a></li><li><a href="GetCheckoutResponse.html">GetCheckoutResponse</a></li><li><a href="Media.html">Media</a></li><li><a href="Partner.html">Partner</a></li><li><a href="Payment.html">Payment</a></li><li><a href="PickupPoint.html">PickupPoint</a></li><li><a href="Price.html">Price</a></li><li><a href="RecommendedArticles.html">RecommendedArticles</a></li><li><a href="SalesChannel.html">SalesChannel</a></li><li><a href="Unit.html">Unit</a></li>
+					<li><a href="AtlasSDK.html">AtlasSDK</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
-				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#checkRedirect">checkRedirect</a></li><li><a href="global.html#checkStatus">checkStatus</a></li><li><a href="global.html">configure</a></li><li><a href="global.html#createModel">createModel</a></li>
+					<li><a href="Address.html">Address</a></li><li><a href="Article.html">Article</a></li><li><a href="AtlasSDKClient.html">AtlasSDKClient</a></li><li><a href="Attribute.html">Attribute</a></li><li><a href="Brand.html">Brand</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartItem.html">CartItem</a></li><li><a href="Config.html">Config</a></li><li><a href="CreateOrderRedirectResponse.html">CreateOrderRedirectResponse</a></li><li><a href="CreateOrderRequest.html">CreateOrderRequest</a></li><li><a href="CreateOrderResponse.html">CreateOrderResponse</a></li><li><a href="Customer.html">Customer</a></li><li><a href="Delivery.html">Delivery</a></li><li><a href="GetCheckoutResponse.html">GetCheckoutResponse</a></li><li><a href="Image.html">Image</a></li><li><a href="Partner.html">Partner</a></li><li><a href="Payment.html">Payment</a></li><li><a href="PickupPoint.html">PickupPoint</a></li><li><a href="Price.html">Price</a></li><li><a href="Recommendations.html">Recommendations</a></li><li><a href="RecommendedArticles.html">RecommendedArticles</a></li><li><a href="ReviewEntry.html">ReviewEntry</a></li><li><a href="ReviewRating.html">ReviewRating</a></li><li><a href="ReviewRatingDistribution.html">ReviewRatingDistribution</a></li><li><a href="ReviewRecommendations.html">ReviewRecommendations</a></li><li><a href="Reviews.html">Reviews</a></li><li><a href="ReviewSummary.html">ReviewSummary</a></li><li><a href="SalesChannel.html">SalesChannel</a></li><li><a href="Unit.html">Unit</a></li><li><a href="Video.html">Video</a></li><li>{ignore}</li>
 				</ul>
 			</li>
 			
@@ -72,16 +72,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: ArticleImage</h1>
+	<h1 class="page-title">Class: ReviewEntry</h1>
 <section>
 
 <header>
     
         <h2>
-        ArticleImage
+        ReviewEntry
         </h2>
         
-            <div class="class-description">Class for ArticleImage model.</div>
+            <div class="class-description">Class for ReviewEntry.</div>
         
     
 </header>
@@ -93,7 +93,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="ArticleImage"><span class="type-signature"></span>new ArticleImage(order, catalog, catalogHD, detail, detailHD, large, largeHD)</h4>
+    <h4 class="name" id="ReviewEntry"><span class="type-signature"></span>new ReviewEntry(name, title, description, rating, recommends, created)</h4>
     
     
 </dt>
@@ -132,7 +132,79 @@
 
         <tr>
             
-                <td class="name"><code>order</code></td>
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">name of Article reviewer.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>title</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">title of Article review.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>description</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">description of Article review.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>rating</code></td>
             
 
             <td class="type">
@@ -149,14 +221,38 @@
 
             
 
-            <td class="description last">order number of image used for sorting.</td>
+            <td class="description last">rating of Article review.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>catalog</code></td>
+                <td class="name"><code>recommends</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">boolean if the reviewer recommends or not.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>created</code></td>
             
 
             <td class="type">
@@ -173,127 +269,7 @@
 
             
 
-            <td class="description last">URL of catalog image.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>catalogHD</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">URL of HD catalog image.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>detail</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">URL of details image.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>detailHD</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">URL of HD details image.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>large</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">URL of large image.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>largeHD</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">URL of HD large image.</td>
+            <td class="description last">created timestamp of Article review.</td>
         </tr>
 
     

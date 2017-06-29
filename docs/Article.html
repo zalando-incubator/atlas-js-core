@@ -31,16 +31,16 @@
 		<ul class="nav navbar-nav">
 			
 			<li class="dropdown">
-				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="Address.html">Address</a></li><li><a href="Article.html">Article</a></li><li><a href="ArticleImage.html">ArticleImage</a></li><li><a href="AtlasSDK.html">AtlasSDK</a></li><li><a href="Attribute.html">Attribute</a></li><li><a href="Brand.html">Brand</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartItem.html">CartItem</a></li><li><a href="Config.html">Config</a></li><li><a href="CreateOrderRedirectResponse.html">CreateOrderRedirectResponse</a></li><li><a href="CreateOrderRequest.html">CreateOrderRequest</a></li><li><a href="CreateOrderResponse.html">CreateOrderResponse</a></li><li><a href="Customer.html">Customer</a></li><li><a href="Delivery.html">Delivery</a></li><li><a href="GetCheckoutResponse.html">GetCheckoutResponse</a></li><li><a href="Media.html">Media</a></li><li><a href="Partner.html">Partner</a></li><li><a href="Payment.html">Payment</a></li><li><a href="PickupPoint.html">PickupPoint</a></li><li><a href="Price.html">Price</a></li><li><a href="RecommendedArticles.html">RecommendedArticles</a></li><li><a href="SalesChannel.html">SalesChannel</a></li><li><a href="Unit.html">Unit</a></li>
+					<li><a href="AtlasSDK.html">AtlasSDK</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
-				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#checkRedirect">checkRedirect</a></li><li><a href="global.html#checkStatus">checkStatus</a></li><li><a href="global.html">configure</a></li><li><a href="global.html#createModel">createModel</a></li>
+					<li><a href="Address.html">Address</a></li><li><a href="Article.html">Article</a></li><li><a href="AtlasSDKClient.html">AtlasSDKClient</a></li><li><a href="Attribute.html">Attribute</a></li><li><a href="Brand.html">Brand</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartItem.html">CartItem</a></li><li><a href="Config.html">Config</a></li><li><a href="CreateOrderRedirectResponse.html">CreateOrderRedirectResponse</a></li><li><a href="CreateOrderRequest.html">CreateOrderRequest</a></li><li><a href="CreateOrderResponse.html">CreateOrderResponse</a></li><li><a href="Customer.html">Customer</a></li><li><a href="Delivery.html">Delivery</a></li><li><a href="GetCheckoutResponse.html">GetCheckoutResponse</a></li><li><a href="Image.html">Image</a></li><li><a href="Partner.html">Partner</a></li><li><a href="Payment.html">Payment</a></li><li><a href="PickupPoint.html">PickupPoint</a></li><li><a href="Price.html">Price</a></li><li><a href="Recommendations.html">Recommendations</a></li><li><a href="RecommendedArticles.html">RecommendedArticles</a></li><li><a href="ReviewEntry.html">ReviewEntry</a></li><li><a href="ReviewRating.html">ReviewRating</a></li><li><a href="ReviewRatingDistribution.html">ReviewRatingDistribution</a></li><li><a href="ReviewRecommendations.html">ReviewRecommendations</a></li><li><a href="Reviews.html">Reviews</a></li><li><a href="ReviewSummary.html">ReviewSummary</a></li><li><a href="SalesChannel.html">SalesChannel</a></li><li><a href="Unit.html">Unit</a></li><li><a href="Video.html">Video</a></li><li>{ignore}</li>
 				</ul>
 			</li>
 			
@@ -93,7 +93,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="Article"><span class="type-signature"></span>new Article(id, name, color, brand, infos)</h4>
+    <h4 class="name" id="Article"><span class="type-signature"></span>new Article(id, name, color, detailUrl, brand, units, images, videos, attributes, infos, review)</h4>
     
     
 </dt>
@@ -149,7 +149,7 @@
 
             
 
-            <td class="description last">id of article.</td>
+            <td class="description last">id of the article.</td>
         </tr>
 
     
@@ -173,7 +173,7 @@
 
             
 
-            <td class="description last">name of article.</td>
+            <td class="description last">name of the article.</td>
         </tr>
 
     
@@ -197,14 +197,14 @@
 
             
 
-            <td class="description last">color of article.</td>
+            <td class="description last">color of the article.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>brand</code></td>
+                <td class="name"><code>detailUrl</code></td>
             
 
             <td class="type">
@@ -221,7 +221,127 @@
 
             
 
-            <td class="description last">brand of article.</td>
+            <td class="description last">product detail url of the article.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>brand</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Brand.html">Brand</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">brand of the article.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>units</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Unit.html">Unit</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">size, price and stock availability from the article.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>images</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Image.html">Image</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array of article images.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>videos</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Video.html">Video</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array of article videos.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>attributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Attribute.html">Attribute</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">characteristics of the article.</td>
         </tr>
 
     
@@ -245,7 +365,31 @@
 
             
 
-            <td class="description last">infos of article.</td>
+            <td class="description last">generic article description.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>review</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Reviews.html">Reviews</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">article reviews.</td>
         </tr>
 
     

@@ -3,12 +3,14 @@ const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 
 const devConfig = {
-  debug: true,
   cache: true,
   plugins: [
-    new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('dev')
+    }),
+    new webpack.NoErrorsPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      debug: true
     })
   ]
 };

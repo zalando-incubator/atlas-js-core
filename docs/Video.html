@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>AtlasSDK Class: Price</title>
+	<title>AtlasSDK Class: Video</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,16 +72,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: Price</h1>
+	<h1 class="page-title">Class: Video</h1>
 <section>
 
 <header>
     
         <h2>
-        Price
+        Video
         </h2>
         
-            <div class="class-description">Class for Article Unit Price model.</div>
+            <div class="class-description">Class for Video model.</div>
         
     
 </header>
@@ -93,7 +93,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="Price"><span class="type-signature"></span>new Price(amount, currency)</h4>
+    <h4 class="name" id="Video"><span class="type-signature"></span>new Video(type, mediaCharacter, url)</h4>
     
     
 </dt>
@@ -132,31 +132,7 @@
 
         <tr>
             
-                <td class="name"><code>amount</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">amount of price.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>currency</code></td>
+                <td class="name"><code>type</code></td>
             
 
             <td class="type">
@@ -173,7 +149,56 @@
 
             
 
-            <td class="description last">currency of price.</td>
+            <td class="description last">Type of the media item, e.g. 'VIDEO', 'VIDEO_HD', 'VIDEO_THUMBNAIL', 'VIDEO_SMALL'</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>mediaCharacter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Media Character descriptor with meta information about video,
+for example 'MODEL' image that indicates that this media item contains model image URL.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An absolute URL to the image</td>
         </tr>
 
     

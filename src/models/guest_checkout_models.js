@@ -7,7 +7,7 @@ import { OrderResponse } from './order_models';
 /**
 * Class for Cart model
 * @class Cart
-* @param {CartItem} items - Array of CartItem.
+* @param {Item} items - Array of CartItem.
 * @param {CartItem} itemsOutOfStock - Array of CartItem which are out of stock.
 * @param {Price} grossTotal - Gross Total Price.
 * @param {Price} taxTotal - Tax Total Price.
@@ -27,11 +27,12 @@ const Cart = createModel({
  * @param {Delivery} delivery object
  * @constructor
  */
-const GuestDelivery = createModel({
+const GuestDeliverySchema = {
   service: { key: 'service', type: 'string' },
-  cost: { key: 'cost', type: 'object', model: Price },
-  ...DeliverySchema
-});
+  cost: { key: 'cost', type: 'object', model: Price }
+};
+
+const GuestDelivery = createModel(Object.assign({}, GuestDeliverySchema, DeliverySchema));
 
 /**
  * @class Class for CreateOrderRequest model
@@ -92,4 +93,13 @@ const GetCheckoutResponse = createModel({
   delivery: { key: 'delivery', type: 'object', model: GuestDelivery }
 });
 
-export { CreateOrderRequest, CreateOrderResponse, CreateOrderRedirectResponse, GetCheckoutResponse };
+export {
+  Address,
+  Cart,
+  Payment,
+  Price,
+  CreateOrderRequest,
+  CreateOrderResponse,
+  CreateOrderRedirectResponse,
+  GetCheckoutResponse
+};

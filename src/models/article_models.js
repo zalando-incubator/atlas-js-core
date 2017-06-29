@@ -144,11 +144,11 @@ const Payment = createModel({
  */
 const DeliverySchema = {
   earliest: { key: 'earliest', type: 'string', optional: true },
-  latest: { key: 'latest', type: 'string' }
+  latest: { key: 'latest', type: 'string', optional: true }
 };
 const Delivery = createModel(DeliverySchema);
 
 export {
   Brand, Partner, Price, Unit, Attribute, ArticleImage, Media, ItemWithPrice,
-    Item, Payment, Delivery, DeliverySchema, PriceSchema
+  Item, Payment, Delivery, DeliverySchema, PriceSchema
 };

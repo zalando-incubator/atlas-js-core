@@ -1,1 +1,1 @@
- export * from './config_models.js';
+export * from './config_models';

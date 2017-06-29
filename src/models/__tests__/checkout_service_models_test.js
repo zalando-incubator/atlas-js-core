@@ -1,8 +1,10 @@
 /* eslint no-magic-numbers : 0 */
 
 import test from 'ava';
-import { CreateCartRequest, CartResponse, CreateCheckoutRequest, CheckoutResponse, PutCheckoutRequest,
-   CheckoutGetOrderResponses, CheckoutOrderRequest }
+import {
+  CreateCartRequest, CartResponse, CreateCheckoutRequest, CheckoutResponse, PutCheckoutRequest,
+  CheckoutGetOrderResponses, CheckoutOrderRequest
+}
   from '../checkout_service_models';
 
 test('CreateCartRequest should be initialized from JSON object', t => {

@@ -34,10 +34,11 @@ const OrderResponse = {
  * @param {String} externalPaymentURL - the payment URL.
  * @constructor
  */
-const CheckoutApiOrderResponse = {
-  customerNumber: { key: 'customer_number', type: 'string' },
-  ...OrderResponse
+const CheckoutApiOrderResponseSchema = {
+  customerNumber: { key: 'customer_number', type: 'string' }
 };
+const CheckoutApiOrderResponse = Object.assign({},
+  CheckoutApiOrderResponseSchema, OrderResponse);
 
 /**
  * @class Class for Guest Customer model

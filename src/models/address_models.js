@@ -54,11 +54,13 @@ const Address = createModel(AddressSchema);
  * @param {Boolean} defaultBilling - is this address the default billing address
  * @param {Boolean} defaultShipping - is this address the default shipping address
  */
-const CheckoutAddress = createModel({
+const CheckoutAddressSchema = {
   customerNumber: { key: 'customer_number', type: 'string' },
   defaultBilling: { key: 'default_billing', type: 'boolean' },
-  defaultShipping: { key: 'default_shipping', type: 'boolean' },
-  ...AddressSchema });
+  defaultShipping: { key: 'default_shipping', type: 'boolean' }
+};
+
+const CheckoutAddress = createModel(Object.assign({}, CheckoutAddressSchema, AddressSchema));
 
 /**
  * @class Baseclass for NormalizedAddress model

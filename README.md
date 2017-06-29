@@ -19,8 +19,14 @@ We use Promises a lot :)
 ## Installation
 
 ```sh
-npm install -g atlas-sdk-core
+npm install --save atlas-sdk-core es6-promise
 ```
+
+On install we're transpiling the code for your convenience. You have access to two files under a `lib/` folder, one for using in node and another for browser usages.
+
+
+## Warning
+Cause we are using Promises you must bring your own ES6 Promise compatible polyfill, e.g. [es6-promise](https://github.com/jakearchibald/es6-promise).
 
 ## Configuration and Usage
 
@@ -34,11 +40,13 @@ import AtlasSDK from 'atlas-sdk-core';
 AtlasSDK.configure({
   client_id: 'CLIENT_ID',
   sales_channel: 'SALES_CHANNEL',
+  is_sandbox: true
 }).then((sdk) => {
   // sdk instance is ready to use
 
-  const article = sdk.getArticle('AD112B0F6-A11');
-  console.log(`Article name: ${article.name}`);
+  sdk.getArticle('AD112B0F6-A11').then((article) => {
+    console.log(`Article name: ${article.name}`);
+  });
 }).catch((error) => {
   console.error(`${error}`);
 });

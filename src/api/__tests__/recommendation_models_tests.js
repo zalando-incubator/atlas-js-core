@@ -1,7 +1,7 @@
 /* eslint no-magic-numbers : 0 */
 import test from 'ava';
 import fetchMock from 'fetch-mock';
-import AtlasSDK from '../../index.js';
+import AtlasSDK from '../../index';
 
 const fs = require('fs');
 const path = require('path');
@@ -22,15 +22,26 @@ test('Article should be initialized from JSON object', async t => {
     is_sandbox: true
   });
 
-  const recommendedArticles = await sdk.getRecommendations('AD112B0F6-A11', '1234');
+  const recommendedArticles = await sdk.getRecommendations('AD112B0F6-A11',
+    {
+      reco_id: '1234',
+      tracking_String: 'TRACKING_STRING'
+    }
+  );
 
-  const imgurl = 'https://i3.ztat.net/catalog/ZA/88/2F/A0/1A/11/ZA882FA01-A11@4.1.jpg';
+  const imgURL = 'https://mosaic01.ztat.net/vgs/media/large/SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg';
 
-  t.is(recommendedArticles[0].id, 'ZA882FA01-A11');
-  t.is(recommendedArticles[0].brand.name, 'Zalando Essentials');
-  t.is(recommendedArticles[0].name, '5 PACK - Socken - white');
-  t.is(recommendedArticles[0].lowestPrice.amount, 11.95);
+  t.is(recommendedArticles[0].id, 'SO254J000-C00');
+  t.is(recommendedArticles[0].brand.name, 's.Oliver');
+  t.is(recommendedArticles[0].name, '6 PACK - Socken - anthracite/grey');
+  t.is(recommendedArticles[0].lowestPrice.amount, 15.95);
   t.is(recommendedArticles[0].lowestPrice.currency, 'EUR');
-  t.is(recommendedArticles[0].media.images[0].catalog, imgurl);
-
+  t.is(recommendedArticles[0].images.length, 7);
+  t.is(recommendedArticles[0].images[0].type, 'IMAGE_PARTNER');
+  t.is(recommendedArticles[0].images[0].mediaCharacter, 'UNSPECIFIED');
+  t.is(recommendedArticles[0].images[0].resolutions.large, imgURL);
+  t.is(recommendedArticles[0].images[1].type, 'IMAGE');
+  t.is(recommendedArticles[0].images[1].mediaCharacter, 'UNSPECIFIED');
+  t.is(recommendedArticles[0].images[1].resolutions.large, imgURL);
+  t.falsy(recommendedArticles[recommendedArticles.length - 1].trackingString);
 });
