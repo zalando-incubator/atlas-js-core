@@ -1,5 +1,6 @@
 import createModel from './base_model';
 import { Reviews } from './article_reviews_model';
+import { Brand, Unit, Attribute } from './article_models';
 
 /**
  * @class Class for Image model.
@@ -28,70 +29,6 @@ const Video = createModel({
   url: { key: 'url', type: 'string' }
 });
 
-/**
- * @class Class for Brand model.
- * @param {String} name - name of brand.
- * @constructor
- */
-const Brand = createModel({
-  name: { key: 'name', type: 'string' }
-});
-
-/**
- * @class Class for Partner model.
- * @param {String} id - id of partner.
- * @param {String} name - name of partner.
- * @param {String} detailURL - URL of partner.
- * @constructor
- */
-const Partner = createModel({
-  id: { key: 'id', type: 'string' },
-  name: { key: 'name', type: 'string' },
-  detailURL: { key: 'detail_url', type: 'string' }
-});
-
-/**
- * @class Class for Article Unit Price model.
- * @param {number} amount - amount of price.
- * @param {String} currency - currency of price.
- * @constructor
- */
-const Price = createModel({
-  amount: { key: 'amount', type: 'number' },
-  currency: { key: 'currency', type: 'string' }
-});
-
-/**
- * @class Class for Article Unit model.
- * @param {String} id - id of article.
- * @param {String} size - size of article.
- * @param {Price} price - price of article.
- * @param {Price} originalPrice - price of article.
- * @param {boolean} available - whether the unit is available or not.
- * @param {number} stock
- * @param {Partner} partner
- * @constructor
- */
-const Unit = createModel({
-  id: { key: 'id', type: 'string' },
-  size: { key: 'size', type: 'string' },
-  price: { key: 'price', type: 'object', model: Price },
-  originalPrice: { key: 'original_price', type: 'object', model: Price },
-  available: { key: 'available', type: 'boolean' },
-  stock: { key: 'stock', type: 'number', optional: true },
-  partner: { key: 'partner', type: 'object', model: Partner }
-});
-
-/**
- * @class Class for Article Unit Attribute model.
- * @param {String} name - name of attribute.
- * @param {String[]} values - values of attribute.
- * @constructor
- */
-const Attribute = createModel({
-  name: { key: 'name', type: 'string' },
-  values: { key: 'values', type: 'string' }
-});
 
 /**
  * @class Class for Article model

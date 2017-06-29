@@ -52,7 +52,7 @@ const Unit = createModel({
   price: { key: 'price', type: 'object', model: Price },
   originalPrice: { key: 'original_price', type: 'object', model: Price },
   available: { key: 'available', type: 'boolean' },
-  stock: { key: 'stock', type: 'number' },
+  stock: { key: 'stock', type: 'number', optional: true },
   partner: { key: 'partner', type: 'object', model: Partner, optional: true }
 });
 
