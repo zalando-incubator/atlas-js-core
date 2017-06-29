@@ -73,6 +73,7 @@ test('CartResponse should be initialized from JSON object', t => {
 
   t.is(createCartResponse.id, '1');
   t.is(createCartResponse.items[0].price.amount, 99.95);
+  t.is(createCartResponse.itemsOutOfStock[0], 'ME142C002-Q110500001');
   t.is(createCartResponse.delivery.earliest, '2015-04-21T13:27:31+01:00');
 });
 
