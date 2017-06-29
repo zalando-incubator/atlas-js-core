@@ -5,10 +5,12 @@ import fetchMock from 'fetch-mock';
 import configureSDK from './helpers/AtlasTestSDK';
 import { CheckoutCustomer } from '../../models/customer_model';
 import { CheckoutAddress, CheckedAddress } from '../../models/address_models';
-import { CartResponse,
+import {
+  CartResponse,
   CheckoutResponse,
   CheckoutOrderResponse,
-  CheckoutGetOrderResponses } from '../../models/checkout_service_models';
+  CheckoutGetOrderResponses
+} from '../../models/checkout_service_models';
 
 
 const fs = require('fs');
@@ -36,7 +38,7 @@ test('Should get addresses successfully after configuring SDK', async t => {
 
   fetchMock.get('https://atlas-checkout-api.com/api/addresses', json);
 
-  const addresses = await sdk.getCheckoutAdresses();
+  const addresses = await sdk.getCheckoutAddresses();
 
   array.push(new CheckoutAddress(json[0]));
 

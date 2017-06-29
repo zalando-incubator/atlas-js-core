@@ -245,7 +245,7 @@ class AtlasSDKClient {
     });
   }
 
-  getCheckoutAdresses() {
+  getCheckoutAddresses() {
     const url = `${this.config.atlasCheckoutApi.url}/api/addresses`;
     const CheckoutEndpoint = {
       url: url,
@@ -513,7 +513,7 @@ class AtlasSDKClient {
       transform: (json) => {
         const result = [];
 
-        json.forEach(oderJson => result.push(new CheckoutGetOrderResponses(oderJson)));
+        json.forEach(orderJson => result.push(new CheckoutGetOrderResponses(orderJson)));
         return result;
       }
     };
