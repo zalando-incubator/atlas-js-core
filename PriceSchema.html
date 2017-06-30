@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>AtlasSDK Namespace: AtlasSDK</title>
+	<title>AtlasSDK Class: PriceSchema</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,14 +72,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Namespace: AtlasSDK</h1>
+	<h1 class="page-title">Class: PriceSchema</h1>
 <section>
 
 <header>
     
         <h2>
-        AtlasSDK
+        PriceSchema
         </h2>
+        
+            <div class="class-description">Class for Article Unit Price model.</div>
         
     
 </header>
@@ -89,82 +91,14 @@
     <div class="container-overview">
     
         
-            <div class="description">AtlasSDK is a global namespace.</div>
-        
-
-        
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
 <hr>
 <dt>
-    <h4 class="name" id=".configure"><span class="type-signature">&lt;static> </span>configure(options)</h4>
+    <h4 class="name" id="PriceSchema"><span class="type-signature"></span>new PriceSchema(amount, currency)</h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        Configure AtlasSDK. This is the main entry point to use the AtlasSDK.
-    </div>
     
 
     
@@ -198,13 +132,13 @@
 
         <tr>
             
-                <td class="name"><code>options</code></td>
+                <td class="name"><code>amount</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">number</span>
 
 
 
@@ -215,12 +149,31 @@
 
             
 
-            <td class="description last">An object containing configiration data: <br />
- <ul>
-   <li>{String} client_id Client Id of a partner</li>
-   <li>{String} sales_channel Sales Channel assigned for a partner</li>
-   <li>{boolean} is_sandbox Indicates sandbox mode (default <i>false</i>)</li>
- </ul></td>
+            <td class="description last">amount of price.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>currency</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">currency of price.</td>
         </tr>
 
     
@@ -280,46 +233,25 @@
     
 
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    a promise resolving with an <a href="AtlasSDKClient.html">AtlasSDKClient</a> object
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;<a href="AtlasSDKClient.html">AtlasSDKClient</a>></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">
-const sdk = await AtlasSDK.configure({
-  client_id: &#x27;CLIENT_ID&#x27;,
-  sales_channel: &#x27;SALES_CHANNEL&#x27;,
-  is_sandBox: true
-});</pre>
-
 
     
 </dd>
 
-        </dl>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
     
 
     
