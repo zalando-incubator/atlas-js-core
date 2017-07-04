@@ -1,6 +1,6 @@
 {
   "name": "atlas-sdk-core",
-  "version": "3.0.5",
+  "version": "4.0.0",
   "description": "Atlas JavaScript SDK Core for Zalando Checkout, Guest Checkout, and Catalog APIs.",
   "main": "lib/index.node.js",
   "browser": "lib/index.js",
@@ -40,7 +40,8 @@
     "docs:deploy": "./node_modules/.bin/gh-pages -d docs",
     "gh-pages-travis": "gh-pages-travis",
     "commit": "./node_modules/.bin/git-cz",
-    "commit-msg": "validate-commit-msg",
+    "precommit": "npm run validate",
+    "commitmsg": "validate-commit-msg" ,
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "author": "Zalando SE",
@@ -55,10 +56,6 @@
       "email": "gleb.galkin@zalando.de",
       "web": "https://github.com/artdaw"
     }
-  ],
-  "pre-commit": [
-    "validate",
-    "commit-msg"
   ],
   "dependencies": {
     "isomorphic-fetch": "2.2.1"
@@ -83,13 +80,13 @@
     "fetch-mock": "^5.11.0",
     "gh-pages": "^1.0.0",
     "gh-pages-travis": "^1.0.4",
+    "husky": "^0.14.2",
     "ink-docstrap": "^1.3.0",
     "jsdoc": "^3.4.3",
     "json-loader": "^0.5.4",
     "node-noop": "^1.0.0",
     "nsp": "^2.2.0",
     "nyc": "^10.3.2",
-    "pre-commit": "^1.2.2",
     "semantic-release": "^6.3.5",
     "tap-diff": "0.1.1",
     "tap-notify": "1.0.0",
@@ -100,6 +97,31 @@
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
+    },
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "build",
+        "ci",
+        "chore",
+        "revert"
+      ],
+      "scope": {
+        "required": true,
+        "validate": false,
+        "multiple": false
+      },
+      "warnOnFail": false,
+      "maxSubjectLength": 200,
+      "subjectPattern": ".+",
+      "helpMessage": "Please, check your commit message format.",
+      "autoFix": true
     }
   },
   "ava": {
