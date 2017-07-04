@@ -39,8 +39,8 @@
     "docs": "rm -rf docs && ./node_modules/.bin/jsdoc -r -c ./jsdoc_conf.json -t ./node_modules/ink-docstrap/template -d docs/ -R README.md",
     "docs:deploy": "./node_modules/.bin/gh-pages -d docs",
     "gh-pages-travis": "gh-pages-travis",
-    "cz": "./node_modules/.bin/git-cz",
-    "precommit": "npm run validate",
+    "commit": "./node_modules/.bin/git-cz",
+    "prepush": "npm run validate",
     "commitmsg": "validate-commit-msg" ,
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
