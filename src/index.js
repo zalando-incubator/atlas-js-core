@@ -54,3 +54,4 @@ const AtlasSDK = {
 };
 
 export default Object.assign({}, AtlasSDK, models);
+export { AtlasSDKClient };
