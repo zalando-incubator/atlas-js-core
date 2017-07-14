@@ -86,7 +86,7 @@ class AtlasSDKClient {
 
   /**
    * Creates an AtlasSDK instance from config provided by config-api
-   * @constructor {ignore}
+   * @constructor
    * @param {Object} config - config from config-api
    */
   constructor(config) {
