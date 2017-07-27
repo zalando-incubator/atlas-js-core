@@ -11,8 +11,7 @@
 
 Atlas JavaScript SDK Core for Zalando Checkout, Guest Checkout, and Catalog APIs.
 
-The purpose of this project is to provide low-level calls to API backend and response models for Zalando Checkout, Guest Checkout, and Catalog APIs in order to allow easily integrate and run Zalando Сheckout in
-minutes using your own UI solution.
+The purpose of this project is to provide low-level calls to API backend and response models for Zalando Checkout, Guest Checkout, and Catalog APIs in order to allow easily integrate and run Zalando Сheckout in minutes using your own UI solution.
 
 We use Promises a lot :)
 
@@ -26,7 +25,8 @@ On install we're transpiling the code for your convenience. You have access to t
 
 
 ## Warning
-Cause we are using Promises you must bring your own ES6 Promise compatible polyfill, e.g. [es6-promise](https://github.com/jakearchibald/es6-promise).
+
+Because we are using Promises you must bring your own ES6 Promise compatible polyfill, e.g. [es6-promise](https://github.com/jakearchibald/es6-promise).
 
 ## Configuration and Usage
 
@@ -66,18 +66,22 @@ console.log(`Article name: ${article.name}`);
 
 ## Local Development
 
-If you want to contribute, please, read out [Contributing](CONTRIBUTING.md) guidelines first.
+If you want to contribute, please, read our [Contributing](CONTRIBUTING.md) guidelines first.
 
 In order to start SDK development simply run
 ```bash
 npm run tdd
 ```
+
 Check existing codebase tests for test examples.
 
 ## AtlasSDK Documentation
 
 [AtlasSDK Reference Documentation](https://zalando-incubator.github.io/atlas-js-core/) is generated automatically during the production build.
 
+## Contact
+
+For any inquiry, please contact Team Atlas via team-atlas@zalando.de
 
 ## LICENSE
 
