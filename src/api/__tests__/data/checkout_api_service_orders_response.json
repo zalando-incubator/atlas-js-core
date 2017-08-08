@@ -1,0 +1,12 @@
+[
+  {
+    "order_number": "1",
+    "customer_number": "1",
+    "gross_total": {
+      "amount": 99.95,
+      "currency": "EUR"
+    },
+    "created": "2015-04-21T13:27:31+01:00",
+    "detail_url": "https://www.zalando.de/benutzerkonto/bestellung-detail/123456789"
+  }
+]

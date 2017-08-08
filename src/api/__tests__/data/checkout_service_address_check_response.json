@@ -1,0 +1,10 @@
+{
+  "status": "CORRECT",
+  "normalized_address": {
+    "street": "Mollstr. 1",
+    "additional": "EG",
+    "zip": "10178",
+    "city": "Berlin",
+    "country_code": "DE"
+  }
+}

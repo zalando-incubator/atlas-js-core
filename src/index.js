@@ -67,7 +67,8 @@ const AtlasSDK = {
         Accept: 'application/json'
       },
       transform: (response) => {
-        return new Config(Object.assign(response, options));
+
+        return new Config(Object.assign({}, response, options));
       }
     };
 
@@ -77,5 +78,5 @@ const AtlasSDK = {
   }
 };
 
-export default Object.assign(AtlasSDK, models);
+export default Object.assign({}, AtlasSDK, models);
 export { AtlasSDKClient };

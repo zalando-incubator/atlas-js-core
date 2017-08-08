@@ -1,0 +1,42 @@
+{
+  "id": "1",
+  "items": [
+    {
+      "sku": "ME142C002-Q110500000",
+      "quantity": 3,
+      "price": {
+        "amount": 99.95,
+        "currency": "EUR"
+      },
+      "original_price": {
+        "amount": 99.95,
+        "currency": "EUR"
+      }
+    }
+  ],
+  "items_out_of_stock": [
+    "ME142C002-Q110500001"
+  ],
+  "delivery": {
+    "earliest": "2015-04-21T13:27:31+01:00",
+    "latest": "2015-04-23T13:27:31+01:00"
+  },
+  "gross_total": {
+    "amount": 99.95,
+    "currency": "EUR"
+  },
+  "tax_total": {
+    "amount": 99.95,
+    "currency": "EUR"
+  },
+  "total_discount": {
+    "grossTotal": {
+      "amount": 99.95,
+      "currency": "EUR"
+    },
+    "taxTotal": {
+      "amount": 99.95,
+      "currency": "EUR"
+    }
+  }
+}
