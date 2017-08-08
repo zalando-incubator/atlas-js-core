@@ -14,7 +14,7 @@ test('Should fetch article successfully after configuring SDK', async t => {
   const sdk = await AtlasSDK.configure({
     client_id: 'CLIENT_ID',
     sales_channel: 'SALES_CHANNEL',
-    is_sandbox: true
+    environment: 'staging'
   });
 
   const article = await sdk.getArticle('AD112B0F6-A11');

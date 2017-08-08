@@ -19,7 +19,7 @@ test('Article should be initialized from JSON object', async t => {
   const sdk = await AtlasSDK.configure({
     client_id: 'CLIENT_ID',
     sales_channel: 'SALES_CHANNEL',
-    is_sandbox: true
+    environment: 'staging'
   });
 
   const recommendedArticles = await sdk.getRecommendations('AD112B0F6-A11',

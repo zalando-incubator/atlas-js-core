@@ -12,7 +12,7 @@ test('Should configure AtlasSDK successfully', async t => {
   const sdk = await AtlasSDK.configure({
     client_id: 'CLIENT_ID',
     sales_channel: 'SALES_CHANNEL',
-    is_sandbox: true
+    environment: 'staging'
   }).catch(error => {
     t.fail(error);
   });
@@ -31,7 +31,7 @@ test('Should return current locale, language and country code according to Sales
   const sdk = await AtlasSDK.configure({
     client_id: 'CLIENT_ID',
     sales_channel: 'SALES_CHANNEL',
-    is_sandbox: true
+    environment: 'staging'
   }).catch(error => {
     t.fail(error);
   });

@@ -16,7 +16,7 @@ test('Should create guest checkout with Prepayment successfully', async t => {
   const sdk = await AtlasSDK.configure({
     client_id: 'CLIENT_ID',
     sales_channel: 'SALES_CHANNEL',
-    is_sandbox: true
+    environment: 'staging'
   });
 
   const createOrderRequestJson = {

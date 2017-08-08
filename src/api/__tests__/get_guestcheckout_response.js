@@ -16,7 +16,7 @@ test('Should create guest checkout with Prepayment successfully', async t => {
   const sdk = await AtlasSDK.configure({
     client_id: 'CLIENT_ID',
     sales_channel: 'SALES_CHANNEL',
-    is_sandbox: true
+    environment: 'staging'
   });
 
   const getCheckoutResponse = {
@@ -68,7 +68,7 @@ test('Should create guest checkout with Prepayment successfully', async t => {
       latest: '2016-12-17T15:22:11.823Z'
     }
   };
-  const getCheckoutObject = await sdk.getCheckout('123', '123');
+  const getCheckoutObject = await sdk.getGuestCheckout('123', '123');
 
   t.is(getCheckoutObject.delivery.service, getCheckoutResponse.delivery.service);
   fetchMock.restore();

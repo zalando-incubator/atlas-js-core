@@ -49,7 +49,7 @@ const Config = createModel({
   clientId: { key: 'client_id', type: 'string' },
   salesChannel: { key: 'sales_channel', type: 'string' },
   recommendations: { key: 'recommendations', type: 'object', model: Recommendations },
-  isSandbox: { key: 'is_sandbox', type: 'boolean' }
+  environment: { key: 'environment', type: 'string' }
 });
 
 export { SalesChannel, Config };

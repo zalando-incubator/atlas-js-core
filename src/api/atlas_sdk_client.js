@@ -47,13 +47,13 @@ const checkRedirect = (response) => {
   return response;
 };
 
-function fetchEndpoint(endpoint) {
-  return fetch(endpoint.url, {
-    method: endpoint.method,
-    mode: endpoint.mode,
-    redirect: endpoint.redirect,
-    headers: endpoint.headers,
-    body: endpoint.body
+function fetchEndpoint(request) {
+  return fetch(request.url, {
+    method: request.method,
+    mode: request.mode,
+    redirect: request.redirect,
+    headers: request.headers,
+    body: request.body
   })
         .then(checkStatus)
         .then(checkRedirect)
@@ -61,7 +61,7 @@ function fetchEndpoint(endpoint) {
           return response.json();
         })
         .then(response => {
-          return endpoint.transform(response);
+          return request.transform(Object.assign({}, response));
         }).catch(error => {
           console.error(error); /* eslint no-console: 0 */
           throw error;
@@ -78,9 +78,32 @@ class AtlasSDKClient {
    * Creates an AtlasSDK instance from config provided by config-api
    * @constructor {ignore}
    * @param {Object} config - config from config-api
+   * @param {Object} options
+   * @param {Object} options.mocksAPI - a service that intercepts fetch calls and provides it's own response
    */
-  constructor(config) {
+  constructor(config, options = {}) {
     this.config = config;
+    this.mocks = options.mocks;
+  }
+
+  fetchEndpoint(endpoint, request) {
+    const config = this.getConfig();
+
+    if (config.environment === 'development') {
+      const mocks = this.mocks;
+
+      return new Promise((resolve, reject) => {
+        try {
+          const mock = mocks.fetch(endpoint, request);
+
+          return resolve(request.transform(Object.assign({}, mock)));
+        } catch (e) {
+          return reject(e);
+        }
+      });
+    }
+
+    return fetchEndpoint(request);
   }
 
   /**
@@ -176,7 +199,7 @@ class AtlasSDKClient {
    */
   getArticle(sku, options = {}) {
     const url = `${this.config.catalogApi.url}/articles/${sku}?client_id=${this.config.clientId}`;
-    const CatalogEndpoint = {
+    const CatalogRequest = {
       url: url,
       method: 'GET',
       headers: {
@@ -191,7 +214,7 @@ class AtlasSDKClient {
       }
     };
 
-    return fetchEndpoint(CatalogEndpoint).then(article => {
+    return this.fetchEndpoint('getArticle', CatalogRequest).then(article => {
       return article;
     });
   }
@@ -205,9 +228,9 @@ class AtlasSDKClient {
    * @param {String} token
    * @return {GetCheckoutResponse} guest checkout object
    */
-  getCheckout(checkoutId, token) {
+  getGuestCheckout(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/checkouts/${checkoutId}/${token}`;
-    const GetCheckoutEndpoint = {
+    const GetCheckoutRequest = {
       url: url,
       method: 'GET',
       headers: {
@@ -223,8 +246,8 @@ class AtlasSDKClient {
       }
     };
 
-    return fetchEndpoint(GetCheckoutEndpoint).then(getCheckoutResponse => {
-      return getCheckoutResponse;
+    return this.fetchEndpoint('getGuestCheckout', GetCheckoutRequest).then(getGuestCheckoutResponse => {
+      return getGuestCheckoutResponse;
     });
   }
 
@@ -236,13 +259,13 @@ class AtlasSDKClient {
    * @param {String} token
    * @return {CreateOrderResponse} object with order information
    */
-  createOrder(checkoutId, token) {
+  createGuestOrder(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
     const body = JSON.stringify({
       checkout_id: checkoutId,
       token: token
     });
-    const CreateOrderEndpoint = {
+    const CreateOrderRequest = {
       url: url,
       method: 'POST',
       headers: {
@@ -257,7 +280,7 @@ class AtlasSDKClient {
       }
     };
 
-    return fetchEndpoint(CreateOrderEndpoint).then(createOrderResponse => {
+    return this.fetchEndpoint('createGuestOrder', CreateOrderRequest).then(createOrderResponse => {
       return createOrderResponse;
     });
   }
@@ -332,7 +355,7 @@ class AtlasSDKClient {
     const catalogUrl = config.catalogApi.url;
     const type = config.recommendations[0].type;
     const url = `${catalogUrl}/articles/${sku}/recommendations/?client_id=${config.clientId}&anon_id=${options.reco_id}`; /* eslint max-len: 0 */
-    const GetRecommendationsEndpoint = {
+    const GetRecommendationsRequest = {
       url: url,
       method: 'GET',
       headers: {
@@ -357,7 +380,7 @@ class AtlasSDKClient {
       }
     };
 
-    return fetchEndpoint(GetRecommendationsEndpoint).then(recommendedArticles => {
+    return this.fetchEndpoint('getRecommendations', GetRecommendationsRequest).then(recommendedArticles => {
       return recommendedArticles;
     });
   }
@@ -372,7 +395,7 @@ class AtlasSDKClient {
    */
   createGuestCheckout(json) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
-    const GuestCheckoutEndpoint = {
+    const GuestCheckoutRequest = {
       url: url,
       method: 'POST',
       mode: 'cors',
@@ -393,7 +416,7 @@ class AtlasSDKClient {
       }
     };
 
-    return fetchEndpoint(GuestCheckoutEndpoint).then(guestCheckoutResponse => {
+    return this.fetchEndpoint('createGuestCheckout', GuestCheckoutRequest).then(guestCheckoutResponse => {
       return guestCheckoutResponse;
     });
   }

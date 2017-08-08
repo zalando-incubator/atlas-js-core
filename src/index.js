@@ -2,6 +2,10 @@ import * as models from './models/index.js';
 import { AtlasSDKClient, fetchEndpoint } from './api/atlas_sdk_client.js';
 import { Config } from './models/config_models';
 
+const ENVIRONMENTS = ['development', 'staging', 'production'];
+
+const isValidEnv = (type) => ENVIRONMENTS.indexOf(type) !== -1; /* eslint no-magic-numbers: [0] */
+
 /**
  * AtlasSDK is a global namespace.
  * @namespace AtlasSDK
@@ -28,12 +32,33 @@ const AtlasSDK = {
    * const sdk = await AtlasSDK.configure({
    *   client_id: 'CLIENT_ID',
    *   sales_channel: 'SALES_CHANNEL',
-   *   is_sandBox: true
+   *   environment: 'dev',
+   *   mocks: mocks
    * });
    */
   configure(options = {}) {
-    const env = options.is_sandbox ? 'staging' : 'production';
+    const env = options.environment;
+    const mocks = options.mocks;
+
+    if (!isValidEnv(env)) {
+      throw new Error('Please choose one of the available environments: "development", "staging", "production"');
+    }
+
     const url = `https://atlas-config-api.dc.zalan.do/api/config/${options.client_id}-${env}.json`;
+
+    if (env === 'development') {
+      if (!mocks) {
+        throw new Error('Please provide a mocks service through "options.mocks"');
+      }
+
+      if (!mocks.fetch) {
+        throw new Error('The mocks service must expose a "fetch" method');
+      }
+
+      const mockConfig = mocks.fetch('config');
+
+      return Promise.resolve(new AtlasSDKClient(new Config(Object.assign(mockConfig, options)), { mocks }));
+    }
 
     const ConfigEndpoint = {
       url: url,
@@ -53,3 +78,4 @@ const AtlasSDK = {
 };
 
 export default Object.assign(AtlasSDK, models);
+export { AtlasSDKClient };

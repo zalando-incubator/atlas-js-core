@@ -32,11 +32,12 @@ const baseConfig = {
       {
         test: /\.(js)$/,
         loader: 'babel-loader',
-        include: srcPath
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
+        include: srcPath,
+        options: {
+          plugins: [
+            'syntax-dynamic-import'
+          ]
+        }
       }
     ]
   },

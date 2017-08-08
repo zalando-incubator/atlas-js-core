@@ -28,7 +28,7 @@ test('Config should be initialized from JSON object', t => {
   const json = {
     client_id: 'CLIENT_ID',
     sales_channel: 'SALES_CHANNEL',
-    is_sandbox: true,
+    environment: 'staging',
     'atlas-catalog-api': {
       url: 'https://catalog_api.com/api'
     },
@@ -56,7 +56,7 @@ test('Config should be initialized from JSON object', t => {
 
   t.is(config.clientId, 'CLIENT_ID');
   t.is(config.salesChannel, 'SALES_CHANNEL');
-  t.is(config.isSandbox, true);
+  t.is(config.environment, 'staging');
   t.is(config.catalogApi.url, 'https://catalog_api.com/api');
   t.is(config.atlasCheckoutGateway.url, 'https://atlas-checkout-gateway.com');
   t.is(config.salesChannels[0].locale, 'de_DE');

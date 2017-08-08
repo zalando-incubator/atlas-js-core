@@ -8,7 +8,7 @@ const devConfig = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('dev')
     }),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.LoaderOptionsPlugin({
       debug: true
     })
