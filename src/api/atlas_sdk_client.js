@@ -110,13 +110,14 @@ class AtlasSDKClient {
     if (config.environment === 'development') {
       const mocks = this.mocks;
 
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         try {
           const mock = mocks.fetch(endpoint, request);
 
           return resolve(request.transform(Object.assign({}, mock)));
-        } catch (e) {
-          return reject(e);
+        } catch (err) {
+          console.error(err); /* eslint no-console: 0 */
+          throw err;
         }
       });
     }
@@ -396,6 +397,7 @@ class AtlasSDKClient {
 
           result.push(new RecommendedArticles(json));
         });
+
         return result;
       }
     };
