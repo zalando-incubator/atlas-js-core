@@ -9,9 +9,13 @@
 
 # Atlas JavaScript SDK Core
 
-Atlas JavaScript SDK Core for Zalando Checkout, Guest Checkout, and Catalog APIs.
+This SDK covers the functionality provided by team Atlas' (aka Distributed Commerce) APIs, namely, Checkout, Guest Checkout, and Catalog APIs.
+
+Those APIs, and in turn this SDK, provide our partners a more streamlined access the Zalando shopping platform to enable our customers to purchase wherever they are.
 
 The purpose of this project is to provide low-level calls to API backend and response models for Zalando Checkout, Guest Checkout, and Catalog APIs in order to allow easily integrate and run Zalando Сheckout in minutes using your own UI solution.
+
+If you want to access the APIs directly we recommend that you take a look at their [documentation](https://zalando-incubator.github.io/checkoutapi-docs/).
 
 We use Promises a lot :)
 
