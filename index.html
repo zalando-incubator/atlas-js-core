@@ -101,8 +101,10 @@
 <a href="https://codecov.io/gh/zalando-incubator/atlas-js-core"><img src="https://codecov.io/gh/zalando-incubator/atlas-js-core/branch/master/graph/badge.svg" alt="codecov"></a>
 <a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen friendly"></a>
 <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square" alt="semantic-release"></a></p>
-<h1>Atlas JavaScript SDK Core</h1><p>Atlas JavaScript SDK Core for Zalando Checkout, Guest Checkout, and Catalog APIs.</p>
+<h1>Atlas JavaScript SDK Core</h1><p>This SDK covers the functionality provided by team Atlas' (aka Distributed Commerce) APIs, namely, Checkout, Guest Checkout, and Catalog APIs.</p>
+<p>Those APIs, and in turn this SDK, provide our partners a more streamlined access the Zalando shopping platform to enable our customers to purchase wherever they are.</p>
 <p>The purpose of this project is to provide low-level calls to API backend and response models for Zalando Checkout, Guest Checkout, and Catalog APIs in order to allow easily integrate and run Zalando Сheckout in minutes using your own UI solution.</p>
+<p>If you want to access the APIs directly we recommend that you take a look at their <a href="https://zalando-incubator.github.io/checkoutapi-docs/">documentation</a>.</p>
 <p>We use Promises a lot :)</p>
 <h2>Installation</h2><pre class="prettyprint source lang-sh"><code>npm install --save atlas-sdk-core es6-promise</code></pre><p>On install we're transpiling the code for your convenience. You have access to two files under a <code>lib/</code> folder, one for using in node and another for browser usages.</p>
 <h2>Warning</h2><p>Because we are using Promises you must bring your own ES6 Promise compatible polyfill, e.g. <a href="https://github.com/jakearchibald/es6-promise">es6-promise</a>.</p>
