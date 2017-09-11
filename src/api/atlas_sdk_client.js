@@ -338,11 +338,12 @@ class AtlasSDKClient {
    */
   getRecommendations(sku, options = {
     reco_id: '',
-    tracking_string: ''
+    tracking_string: '',
+    type: ''
   }) {
     const config = this.config;
     const catalogUrl = config.catalogApi.url;
-    const type = config.recommendations[0].type;
+    const type = options.type ? options.type : config.recommendations[0].type;
     const url = `${catalogUrl}/articles/${sku}/recommendations/?client_id=${config.clientId}&anon_id=${options.reco_id}`; /* eslint max-len: 0 */
     const GetRecommendationsEndpoint = {
       url: url,

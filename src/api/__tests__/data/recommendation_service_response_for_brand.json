@@ -1,0 +1,68 @@
+{
+  "brand": [ {
+      "id" : "SO254J000-C00",
+      "tracking_string" : "TRACKING_STRING",
+      "name" : "6 PACK - Socken - anthracite/grey",
+      "brand" : {
+        "name" : "s.Oliver"
+      },
+      "lowest_price" : {
+        "amount" : 15.95,
+        "currency" : "EUR"
+      },
+      "media" : {
+        "media_items" : [
+        {
+          "type" : "IMAGE_PARTNER",
+          "path" : "SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg",
+          "media_character" : "UNSPECIFIED"
+        },
+        {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg",
+          "media_character" : "UNSPECIFIED"
+        }, {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/0C/00/SO254J000-C00@2.1.jpg",
+          "media_character" : "UNSPECIFIED"
+        }, {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/0C/00/SO254J000-C00@3.1.jpg",
+          "media_character" : "UNSPECIFIED"
+        }, {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/0C/00/SO254J000-C00@4.1.jpg",
+          "media_character" : "UNSPECIFIED"
+        }, {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/0C/00/SO254J000-C00@5.1.jpg",
+          "media_character" : "UNSPECIFIED"
+        }, {
+          "type" : "IMAGE",
+          "path" : "SO/25/4J/00/0C/00/SO254J000-C00@6.1.jpg",
+          "media_character" : "UNSPECIFIED"
+        } ]
+      }
+    }, {
+      "id" : "BU182F003-Q11",
+      "name" : "6 PACK - Füßlinge - black",
+      "brand" : {
+        "name" : "Bugatti"
+      },
+      "lowest_price" : {
+        "amount" : 13.95,
+        "currency" : "EUR"
+      },
+      "media" : {
+        "media_items" : [ {
+          "type" : "IMAGE",
+          "path" : "BU/18/2F/00/3Q/11/BU182F003-Q11@4.jpg",
+          "media_character" : "NON_MODEL"
+        }, {
+          "type" : "IMAGE",
+          "path" : "BU/18/2F/00/3Q/11/BU182F003-Q11@3.jpg",
+          "media_character" : "NON_MODEL"
+        } ]
+      }
+    }]
+}
