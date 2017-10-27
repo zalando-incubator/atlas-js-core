@@ -9,7 +9,7 @@ import createModel from './base_model';
 const PickupPoint = createModel({
   name: { key: 'name', type: 'string' },
   id: { key: 'id', type: 'string' },
-  memberId: { key: 'member_id', type: 'string' }
+  memberId: { key: 'member_id', type: 'string', optional: true }
 });
 
 /**

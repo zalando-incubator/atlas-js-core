@@ -13,8 +13,7 @@ test('Addresses should be initialized from JSON object', t => {
     country_code: 'DE',
     pickup_point: {
       name: 'PACKSTATION',
-      id: '802',
-      member_id: '45685217'
+      id: '802'
     }
 
   };
@@ -30,8 +29,6 @@ test('Addresses should be initialized from JSON object', t => {
   t.is(address.countryCode, 'DE');
   t.is(address.pickupPoint.name, 'PACKSTATION');
   t.is(address.pickupPoint.id, '802');
-  t.is(address.pickupPoint.memberId, '45685217');
-
 });
 
 test('Checkout addresses should be initialized from JSON object', t => {
