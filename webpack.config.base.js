@@ -26,17 +26,23 @@ const baseConfig = {
         exclude: /node_modules/,
         enforce: 'pre',
         use: [
-          'eslint-loader'
+          {
+            loader: 'eslint-loader'
+          }
         ]
       },
       {
         test: /\.(js)$/,
-        loader: 'babel-loader',
-        include: srcPath
+        include: srcPath,
+        use: {
+          loader: 'babel-loader'
+        }
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        use: {
+          loader: 'json-loader'
+        }
       }
     ]
   },

@@ -79,7 +79,7 @@ function fetchEndpoint(endpoint) {
 }
 
 /**
- * AtlasSDK instance returned from {@link AtlasSDK.configure} method.
+ * AtlasSDK instance returned from AtlasSDK configure method.
  * @instance
  */
 class AtlasSDKClient {
@@ -172,7 +172,7 @@ class AtlasSDKClient {
    * }
    * </pre>
    * @return {Article} return {@link Article} object
-   * @example {@lang javascript}
+   * @example
    * const sdk = await AtlasSDK.configure({
    *   client_id: 'CLIENT_ID',
    *   sales_channel: 'SALES_CHANNEL',
@@ -321,7 +321,7 @@ class AtlasSDKClient {
    * }
    * </pre>
    * @return {Array<RecommendedArticles>} return array of {@link RecommendedArticles} objects
-   * @example {@lang javascript}
+   * @example
    * const sdk = await AtlasSDK.configure({
    *   client_id: 'CLIENT_ID',
    *   sales_channel: 'SALES_CHANNEL',

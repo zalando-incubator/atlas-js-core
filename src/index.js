@@ -4,7 +4,7 @@ import { Config } from './models/config_models';
 
 /**
  * AtlasSDK is a global namespace.
- * @namespace AtlasSDK
+ * @module AtlasSDK
  * @public
  * @static
  */
@@ -12,8 +12,6 @@ const AtlasSDK = {
 
   /**
    * Configure AtlasSDK. This is the main entry point to use the AtlasSDK.
-   *
-   * @memberof AtlasSDK
    * @method configure
    * @static
    * @public
@@ -24,7 +22,7 @@ const AtlasSDK = {
    *    <li>{boolean} is_sandbox Indicates sandbox mode (default <i>false</i>)</li>
    *  </ul>
    * @return {Promise<AtlasSDKClient>} a promise resolving with an {@link AtlasSDKClient} object
-   * @example {@lang javascript}
+   * @example
    * const sdk = await AtlasSDK.configure({
    *   client_id: 'CLIENT_ID',
    *   sales_channel: 'SALES_CHANNEL',
@@ -53,5 +51,4 @@ const AtlasSDK = {
   }
 };
 
-export default Object.assign({}, AtlasSDK, models);
-export { AtlasSDKClient };
+export default Object.assign({}, AtlasSDK, { AtlasSDKClient: AtlasSDKClient }, models);

@@ -21,10 +21,9 @@ test('Should throw Error with bad request code', t => {
 
 test('Should return redirect Response when Location header is preset', t => {
   const response = new Response(null, { status: 204, headers: { Location: 'redirect' } });
+  const body = JSON.parse(checkRedirect(response).body);
 
-  checkRedirect(response).json().then(json => {
-    t.is(json.redirect_url, 'redirect');
-  });
+  t.is(body.redirect_url, 'redirect');
 });
 
 test('Should return intial Response when no Location header is preset', t => {

@@ -36,7 +36,7 @@ test('Should create CreateOrderRequest from JSON', t => {
       }]
     },
     payment: {
-      method: 'VIRTUAL_CREDIT_CARD',
+      method: 'CREDIT_CARD',
       metadata: {
         type: 'MASTERCARD',
         holder: 'John Doe',
