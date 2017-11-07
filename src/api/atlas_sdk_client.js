@@ -97,9 +97,16 @@ class AtlasSDKClient {
    * Returns locale based on sales channel, e.g. 'de_DE'
    * @method
    * @return {String} locale
+   * @throws Error - if sales channel doesn't exists for the client id, an Error is thrown.
    */
   getLocale() {
-    return this.config.salesChannels.find(sc => sc.channel === this.config.salesChannel).locale;
+    const salesChannel = this.config.salesChannels.find(sc => sc.channel === this.config.salesChannel);
+
+    if (salesChannel) {
+      return salesChannel.locale;
+    }
+
+    throw new Error(`Cannot get locale for ${this.config.salesChannel} sales channel. This sales channel does not exists.`);
   }
 
   /**

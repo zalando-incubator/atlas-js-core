@@ -44,6 +44,24 @@ test('Should return current locale, language and country code according to Sales
 
 });
 
+test('Should throw error if sales_channel is bad', async t => {
+  fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', configJson);
+
+  const sdk = await AtlasSDK.configure({
+    client_id: 'CLIENT_ID',
+    sales_channel: 'SALES_CHANNEL_BAD',
+    is_sandbox: true
+  }).catch(error => {
+    t.fail(error);
+  });
+
+  const error = t.throws(() => {
+    sdk.getLocale();
+  }, Error);
+
+  t.is(error.message, 'Cannot get locale for SALES_CHANNEL_BAD sales channel. This sales channel does not exists.');
+});
+
 test.afterEach.always(() => {
   fetchMock.restore();
 });
