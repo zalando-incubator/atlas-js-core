@@ -24,7 +24,7 @@ test('Should get customer details successfully after configuring SDK', async t =
 
   fetchMock.get('https://atlas-checkout-api.com/api/customer', json);
 
-  const customer = await sdk.getCheckoutCustomer();
+  const customer = await sdk.getCheckoutCustomer('TOKEN');
 
   t.deepEqual(customer, new CheckoutCustomer(json));
 
@@ -38,7 +38,7 @@ test('Should get addresses successfully after configuring SDK', async t => {
 
   fetchMock.get('https://atlas-checkout-api.com/api/addresses', json);
 
-  const addresses = await sdk.getCheckoutAddresses();
+  const addresses = await sdk.getCheckoutAddresses('TOKEN');
 
   array.push(new CheckoutAddress(json[0]));
 

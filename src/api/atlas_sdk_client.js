@@ -206,17 +206,17 @@ class AtlasSDKClient {
     });
   }
 
+  /**
+   * Returns guest checkout object {@link GetCheckoutResponse} created using {@link AtlasSDKClient#createGuestCheckout}.
+   * Parameters <strong>checkoutId</strong>, <strong>token</strong> should be fetched from redirect URL after payment.
+   * @public
+   * @method
+   * @param {String} checkoutId - Id of guest checkout object
+   * @param {String} token
+   * @return {GetCheckoutResponse} guest checkout object
+   */
   getGuestCheckout(checkoutId, token) {
 
-    /**
-     * Returns guest checkout object {@link GetCheckoutResponse} created using {@link AtlasSDKClient#createGuestCheckout}.
-     * Parameters <strong>checkoutId</strong>, <strong>token</strong> should be fetched from redirect URL after payment.
-     * @public
-     * @method
-     * @param {String} checkoutId - Id of guest checkout object
-     * @param {String} token
-     * @return {GetCheckoutResponse} guest checkout object
-     */
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/checkouts/${checkoutId}/${token}`;
     const GetCheckoutEndpoint = {
       url: url,
@@ -239,16 +239,17 @@ class AtlasSDKClient {
     });
   }
 
+
+  /**
+   * Creates an order for the guest chekout object based on <strong>checkoutId</strong>, <strong>token</strong>.
+   * @public
+   * @method
+   * @param {String} checkoutId - Id of guest checkout object
+   * @param {String} token
+   * @return {CreateOrderResponse} object with order information
+   */
   createGuestOrder(checkoutId, token) {
 
-    /**
-     * Creates an order for the guest chekout object based on <strong>checkoutId</strong>, <strong>token</strong>.
-     * @public
-     * @method
-     * @param {String} checkoutId - Id of guest checkout object
-     * @param {String} token
-     * @return {CreateOrderResponse} object with order information
-     */
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
     const body = JSON.stringify({
       checkout_id: checkoutId,
@@ -411,14 +412,23 @@ class AtlasSDKClient {
     });
   }
 
-  getCheckoutCustomer() {
+  /**
+   * Returns customer object {@link CheckoutCustomer}.
+   * Parameters customer <strong>token</strong> needed to fetch customer object.
+   * @public
+   * @method
+   * @param {String} token - token of customer object
+   * @return {CheckoutCustomer} customer object
+   */
+  getCheckoutCustomer(token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/customer`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
       headers: {
-        Accept: 'application/x.zalando.order.create.response+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel
+        Accept: 'application/x.zalando.customer+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel,
+        Authorization: `Bearer ${token}`
       },
       transform: (response) => {
         return new CheckoutCustomer(response);
@@ -430,14 +440,23 @@ class AtlasSDKClient {
     });
   }
 
-  getCheckoutAddresses() {
+  /**
+   * Returns customer addresses {@link CheckoutAddress}.
+   * Parameters customer <strong>token</strong> needed to fetch customer object.
+   * @public
+   * @method
+   * @param {String} token - token of customer object
+   * @return {CheckoutAddress} CheckoutAddress array
+   */
+  getCheckoutAddresses(token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/addresses`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
       headers: {
         Accept: 'application/x.zalando.order.customer.addresses+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel
+        'X-Sales-Channel': this.config.salesChannel,
+        Authorization: `Bearer ${token}`
       },
       transform: (json) => {
 
