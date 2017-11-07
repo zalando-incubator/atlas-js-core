@@ -23,7 +23,7 @@ const Recommendations = createModel({
 /**
 * @class Config class struct
 * @param source {Object} - Initialisation object for Config
-* @example {@lang javascript}
+* @example
 const source = {
   catalog_api_url: 'https://catalog_api.com/api',
   checkout_api_url: 'https://checkout_api.com/api',

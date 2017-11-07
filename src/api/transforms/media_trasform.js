@@ -41,11 +41,11 @@ const getImageResolutions = (optsImageResolutions) => {
   const imageResolutions = optsImageResolutions || DEFAULT_RESOLUTIONS;
 
   return Object.keys(AVAILABLE_RESOLUTIONS)
-               .filter(key => imageResolutions.indexOf(key) !== -1) /* eslint no-magic-numbers: [0] */
-               .reduce((finalResolutions, key) => {
-                 finalResolutions[key] = AVAILABLE_RESOLUTIONS[key];
-                 return finalResolutions;
-               }, {});
+    .filter(key => imageResolutions.indexOf(key) !== -1) /* eslint no-magic-numbers: [0] */
+    .reduce((finalResolutions, key) => {
+      finalResolutions[key] = AVAILABLE_RESOLUTIONS[key];
+      return finalResolutions;
+    }, {});
 };
 
 const getCdnAndResolutions = (options) => {

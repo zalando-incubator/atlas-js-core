@@ -5,6 +5,7 @@ cache:
 notifications:
   email: false
 node_js:
+- '8'
 - '7'
 - '6'
 - '4'
@@ -19,8 +20,6 @@ script:
 after_success:
 - npm run cover:report-coverage
 - npm run semantic-release
-- npm run docs
-- npm run gh-pages-travis
 branches:
   except:
   - "/^v\\d+\\.\\d+\\.\\d+$/"
