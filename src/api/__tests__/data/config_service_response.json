@@ -19,7 +19,7 @@
     "url": "https://atlas-checkout-gateway.com"
   },
   "atlas-checkout-api": {
-    "url": "https://atlas-checkout-api.com"
+    "url": "https://atlas-checkout-api.com/api"
   },
   "recommendations": [{
     "location" : "my_app_pdp",
