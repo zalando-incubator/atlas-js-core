@@ -403,7 +403,7 @@ class AtlasSDKClient {
    * @return {CheckoutCustomer} customer object
    */
   getCheckoutCustomer(token) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/customer`;
+    const url = `${this.config.atlasCheckoutApi.url}/customer`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
@@ -427,7 +427,7 @@ class AtlasSDKClient {
    * @return {CheckoutAddress} CheckoutAddress array
    */
   getCheckoutAddresses(token) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/addresses`;
+    const url = `${this.config.atlasCheckoutApi.url}/addresses`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
@@ -443,7 +443,7 @@ class AtlasSDKClient {
   }
 
   createCheckoutAddress(json, token) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/addresses`;
+    const url = `${this.config.atlasCheckoutApi.url}/addresses`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
@@ -461,7 +461,7 @@ class AtlasSDKClient {
   }
 
   deleteCheckoutAddress(addressId, token) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/addresses/${addressId}`;
+    const url = `${this.config.atlasCheckoutApi.url}/addresses/${addressId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
@@ -476,7 +476,7 @@ class AtlasSDKClient {
   }
 
   getCheckoutAddress(addressId, token) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/addresses/${addressId}`;
+    const url = `${this.config.atlasCheckoutApi.url}/addresses/${addressId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
@@ -493,7 +493,7 @@ class AtlasSDKClient {
   }
 
   putCheckoutAddress(json, addressId, token) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/addresses/${addressId}`;
+    const url = `${this.config.atlasCheckoutApi.url}/addresses/${addressId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'PUT',
@@ -511,7 +511,7 @@ class AtlasSDKClient {
   }
 
   checkAddress(json, token) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/address-checks`;
+    const url = `${this.config.atlasCheckoutApi.url}/address-checks`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
@@ -529,7 +529,7 @@ class AtlasSDKClient {
   }
 
   createCheckoutCart(json, token) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/carts`;
+    const url = `${this.config.atlasCheckoutApi.url}/carts`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
@@ -547,7 +547,7 @@ class AtlasSDKClient {
   }
 
   getCheckoutCart(cartId) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/carts/${cartId}`;
+    const url = `${this.config.atlasCheckoutApi.url}/carts/${cartId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
@@ -562,7 +562,7 @@ class AtlasSDKClient {
   }
 
   putCheckoutcart(json, cartId) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/carts/${cartId}`;
+    const url = `${this.config.atlasCheckoutApi.url}/carts/${cartId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'PUT',
@@ -579,7 +579,7 @@ class AtlasSDKClient {
   }
 
   createCheckout(json, token) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/checkouts`;
+    const url = `${this.config.atlasCheckoutApi.url}/checkouts`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
@@ -597,7 +597,7 @@ class AtlasSDKClient {
   }
 
   getCheckout(checkoutId, token) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/checkouts/${checkoutId}`;
+    const url = `${this.config.atlasCheckoutApi.url}/checkouts/${checkoutId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
@@ -613,7 +613,7 @@ class AtlasSDKClient {
   }
 
   putCheckout(json, checkoutId, token) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/checkouts/${checkoutId}`;
+    const url = `${this.config.atlasCheckoutApi.url}/checkouts/${checkoutId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'PUT',
@@ -631,7 +631,7 @@ class AtlasSDKClient {
   }
 
   getOrders() {
-    const url = `${this.config.atlasCheckoutApi.url}/api/orders`;
+    const url = `${this.config.atlasCheckoutApi.url}/orders`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
@@ -651,7 +651,7 @@ class AtlasSDKClient {
   }
 
   createOrder(json, token) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/orders`;
+    const url = `${this.config.atlasCheckoutApi.url}/orders`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
@@ -669,7 +669,7 @@ class AtlasSDKClient {
   }
 
   getOrder(orderId, token) {
-    const url = `${this.config.atlasCheckoutApi.url}/api/orders/${orderId}`;
+    const url = `${this.config.atlasCheckoutApi.url}/orders/${orderId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
