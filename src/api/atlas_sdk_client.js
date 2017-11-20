@@ -432,9 +432,9 @@ class AtlasSDKClient {
       url: url,
       method: 'GET',
       headers: {
+        Authorization: `Bearer ${token}`,
         Accept: 'application/x.zalando.order.customer.addresses+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel,
-        Authorization: `Bearer ${token}`
+        'X-Sales-Channel': this.config.salesChannel
       },
       transform: (json) => json.map(address => new CheckoutAddress(address))
     };
@@ -442,12 +442,13 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  createCheckoutAddress(json) {
+  createCheckoutAddress(json, token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/addresses`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
       headers: {
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/x.zalando.address.create+json',
         Accept: 'application/x.zalando.address.create.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
@@ -459,12 +460,13 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  deleteCheckoutAddress(addressId) {
+  deleteCheckoutAddress(addressId, token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/addresses/${addressId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
       headers: {
+        Authorization: `Bearer ${token}`,
         Accept: 'application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
       }
@@ -473,12 +475,13 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  getCheckoutAddress(addressId) {
+  getCheckoutAddress(addressId, token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/addresses/${addressId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
       headers: {
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/x.zalando.address.create+json',
         Accept: 'application/x.zalando.address.create.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
@@ -489,12 +492,13 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  putCheckoutAddress(json, addressId) {
+  putCheckoutAddress(json, addressId, token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/addresses/${addressId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'PUT',
       headers: {
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/x.zalando.customer.address.update+json',
         Accept: 'application/x.zalando.address.customer.address.update.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
@@ -506,12 +510,13 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  checkAddress(json) {
+  checkAddress(json, token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/address-checks`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
       headers: {
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/x.zalando.address-check.create+json',
         Accept: 'application/x.zalando.address-check.create.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
@@ -523,12 +528,13 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  createCheckoutCart(json) {
+  createCheckoutCart(json, token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/carts`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
       headers: {
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/x.zalando.cart.create+json',
         Accept: 'application/x.zalando.cart.create.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
@@ -572,12 +578,13 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  createCheckout(json) {
+  createCheckout(json, token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/checkouts`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
       headers: {
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/x.zalando.customer.checkout.create+json',
         Accept: 'application/x.zalando.customer.checkout.create.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
@@ -589,12 +596,13 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  getCheckout(checkoutId) {
+  getCheckout(checkoutId, token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/checkouts/${checkoutId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
       headers: {
+        Authorization: `Bearer ${token}`,
         Accept: 'application/x.zalando.customer.checkout+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
       },
@@ -604,12 +612,13 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  putCheckout(json, checkoutId) {
+  putCheckout(json, checkoutId, token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/checkouts/${checkoutId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'PUT',
       headers: {
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/x.zalando.customer.checkout+json',
         Accept: 'application/x.zalando.customer.checkout.update.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
@@ -641,12 +650,13 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  createOrder(json) {
+  createOrder(json, token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/orders`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
       headers: {
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/x.zalando.customer.order.create+json',
         Accept: 'application/x.zalando.customer.order.create.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
@@ -658,12 +668,13 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  getOrder(orderId) {
+  getOrder(orderId, token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/orders/${orderId}`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
       headers: {
+        Authorization: `Bearer ${token}`,
         Accept: 'application/x.zalando.customer.orders+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
       },
