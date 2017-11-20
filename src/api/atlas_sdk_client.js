@@ -201,22 +201,19 @@ class AtlasSDKClient {
       }
     };
 
-    return fetchEndpoint(CatalogEndpoint).then(article => {
-      return article;
-    });
+    return fetchEndpoint(CatalogEndpoint).then(res => res);
   }
 
+  /**
+   * Returns the complete details of the checkout: guest checkout object {@link GetCheckoutResponse} created using {@link AtlasSDKClient#createGuestCheckout}.
+   * Parameters <strong>checkoutId</strong>, <strong>token</strong> should be fetched from redirect URL after payment.
+   * @public
+   * @method
+   * @param {String} checkoutId - Id of guest checkout object
+   * @param {String} token - Token for checkout completion.
+   * @return {GetCheckoutResponse} guest checkout object
+   */
   getGuestCheckout(checkoutId, token) {
-
-    /**
-     * Returns guest checkout object {@link GetCheckoutResponse} created using {@link AtlasSDKClient#createGuestCheckout}.
-     * Parameters <strong>checkoutId</strong>, <strong>token</strong> should be fetched from redirect URL after payment.
-     * @public
-     * @method
-     * @param {String} checkoutId - Id of guest checkout object
-     * @param {String} token
-     * @return {GetCheckoutResponse} guest checkout object
-     */
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/checkouts/${checkoutId}/${token}`;
     const GetCheckoutEndpoint = {
       url: url,
@@ -225,30 +222,24 @@ class AtlasSDKClient {
         'Content-Type': 'application/x.zalando.guest-checkout+json',
         Accept: 'application/x.zalando.guest-checkout+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel,
-        'X-UID': this.config.clientId,
-        checkout_id: checkoutId,
-        token: token
+        'X-UID': this.config.clientId
       },
-      transform: (json) => {
-        return new GetCheckoutResponse(json);
-      }
+      transform: (json) => new GetCheckoutResponse(json)
     };
 
-    return fetchEndpoint(GetCheckoutEndpoint).then(getCheckoutResponse => {
-      return getCheckoutResponse;
-    });
+    return fetchEndpoint(GetCheckoutEndpoint).then(res => res);
   }
 
-  createGuestOrder(checkoutId, token) {
 
-    /**
-     * Creates an order for the guest chekout object based on <strong>checkoutId</strong>, <strong>token</strong>.
-     * @public
-     * @method
-     * @param {String} checkoutId - Id of guest checkout object
-     * @param {String} token
-     * @return {CreateOrderResponse} object with order information
-     */
+  /**
+   * Creates an order for the guest chekout object based on <strong>checkoutId</strong>, <strong>token</strong>.
+   * @public
+   * @method
+   * @param {String} checkoutId - Id of guest checkout object
+   * @param {String} token
+   * @return {CreateOrderResponse} object with order information
+   */
+  createGuestOrder(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
     const body = JSON.stringify({
       checkout_id: checkoutId,
@@ -264,14 +255,10 @@ class AtlasSDKClient {
         'X-UID': this.config.clientId
       },
       body: body,
-      transform: (json) => {
-        return new CreateOrderResponse(json);
-      }
+      transform: (json) => new CreateOrderResponse(json)
     };
 
-    return fetchEndpoint(CreateOrderEndpoint).then(createOrderResponse => {
-      return createOrderResponse;
-    });
+    return fetchEndpoint(CreateOrderEndpoint).then(res => res);
   }
 
   /**
@@ -370,9 +357,7 @@ class AtlasSDKClient {
       }
     };
 
-    return fetchEndpoint(GetRecommendationsEndpoint).then(recommendedArticles => {
-      return recommendedArticles;
-    });
+    return fetchEndpoint(GetRecommendationsEndpoint).then(res => res);
   }
 
   /**
@@ -406,51 +391,55 @@ class AtlasSDKClient {
       }
     };
 
-    return fetchEndpoint(GuestCheckoutEndpoint).then(guestCheckoutResponse => {
-      return guestCheckoutResponse;
-    });
+    return fetchEndpoint(GuestCheckoutEndpoint).then(res => res);
   }
 
-  getCheckoutCustomer() {
+  /**
+   * Returns customer object {@link CheckoutCustomer}.
+   * Parameters customer <strong>token</strong> needed to fetch customer object.
+   * @public
+   * @method
+   * @param {String} token - customer OAuth2 token
+   * @return {CheckoutCustomer} customer object
+   */
+  getCheckoutCustomer(token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/customer`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
       headers: {
-        Accept: 'application/x.zalando.order.create.response+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel
+        Accept: 'application/x.zalando.customer+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel,
+        Authorization: `Bearer ${token}`
       },
-      transform: (response) => {
-        return new CheckoutCustomer(response);
-      }
+      transform: (response) => new CheckoutCustomer(response)
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  getCheckoutAddresses() {
+  /**
+   * Returns customer addresses {@link CheckoutAddress}.
+   * Parameters customer <strong>token</strong> needed to fetch customer object.
+   * @public
+   * @method
+   * @param {String} token - customer OAuth2 token
+   * @return {CheckoutAddress} CheckoutAddress array
+   */
+  getCheckoutAddresses(token) {
     const url = `${this.config.atlasCheckoutApi.url}/api/addresses`;
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
       headers: {
         Accept: 'application/x.zalando.order.customer.addresses+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel
+        'X-Sales-Channel': this.config.salesChannel,
+        Authorization: `Bearer ${token}`
       },
-      transform: (json) => {
-
-        const result = [];
-
-        json.forEach(addressJson => result.push(new CheckoutAddress(addressJson)));
-        return result;
-      }
+      transform: (json) => json.map(address => new CheckoutAddress(address))
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
   createCheckoutAddress(json) {
@@ -464,15 +453,10 @@ class AtlasSDKClient {
         'X-Sales-Channel': this.config.salesChannel
       },
       body: json,
-      transform: (response) => {
-        return new CheckoutAddress(response);
-      }
+      transform: (response) => new CheckoutAddress(response)
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
   deleteCheckoutAddress(addressId) {
@@ -486,10 +470,7 @@ class AtlasSDKClient {
       }
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
   getCheckoutAddress(addressId) {
@@ -502,15 +483,10 @@ class AtlasSDKClient {
         Accept: 'application/x.zalando.address.create.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
       },
-      transform: (response) => {
-        return new CheckoutAddress(response);
-      }
+      transform: (response) => new CheckoutAddress(response)
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
   putCheckoutAddress(json, addressId) {
@@ -524,15 +500,10 @@ class AtlasSDKClient {
         'X-Sales-Channel': this.config.salesChannel
       },
       body: json,
-      transform: (response) => {
-        return new CheckoutAddress(response);
-      }
+      transform: (response) => new CheckoutAddress(response)
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
   checkAddress(json) {
@@ -546,15 +517,10 @@ class AtlasSDKClient {
         'X-Sales-Channel': this.config.salesChannel
       },
       body: json,
-      transform: (response) => {
-        return new CheckedAddress(response);
-      }
+      transform: (response) => new CheckedAddress(response)
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
   createCheckoutCart(json) {
@@ -568,15 +534,10 @@ class AtlasSDKClient {
         'X-Sales-Channel': this.config.salesChannel
       },
       body: json,
-      transform: (response) => {
-        return new CartResponse(response);
-      }
+      transform: (response) => new CartResponse(response)
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
   getCheckoutCart(cartId) {
@@ -588,15 +549,10 @@ class AtlasSDKClient {
         Accept: 'application/x.zalando.cart+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
       },
-      transform: (response) => {
-        return new CartResponse(response);
-      }
+      transform: (response) => new CartResponse(response)
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
   putCheckoutcart(json, cartId) {
@@ -610,17 +566,11 @@ class AtlasSDKClient {
         'X-Sales-Channel': this.config.salesChannel
       },
       body: json,
-      transform: (response) => {
-        return new CartResponse(response);
-      }
+      transform: (response) => new CartResponse(response)
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
-
 
   createCheckout(json) {
     const url = `${this.config.atlasCheckoutApi.url}/api/checkouts`;
@@ -633,15 +583,10 @@ class AtlasSDKClient {
         'X-Sales-Channel': this.config.salesChannel
       },
       body: json,
-      transform: (response) => {
-        return new CheckoutResponse(response);
-      }
+      transform: (response) => new CheckoutResponse(response)
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
   getCheckout(checkoutId) {
@@ -653,15 +598,10 @@ class AtlasSDKClient {
         Accept: 'application/x.zalando.customer.checkout+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
       },
-      transform: (response) => {
-        return new CheckoutResponse(response);
-      }
+      transform: (response) => new CheckoutResponse(response)
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
   putCheckout(json, checkoutId) {
@@ -675,15 +615,10 @@ class AtlasSDKClient {
         'X-Sales-Channel': this.config.salesChannel
       },
       body: json,
-      transform: (response) => {
-        return new CheckoutResponse(response);
-      }
+      transform: (response) => new CheckoutResponse(response)
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
   getOrders() {
@@ -703,10 +638,7 @@ class AtlasSDKClient {
       }
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
   createOrder(json) {
@@ -720,15 +652,10 @@ class AtlasSDKClient {
         'X-Sales-Channel': this.config.salesChannel
       },
       body: json,
-      transform: (response) => {
-        return new CheckoutOrderResponse(response);
-      }
+      transform: (response) => new CheckoutOrderResponse(response)
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
   getOrder(orderId) {
@@ -740,17 +667,11 @@ class AtlasSDKClient {
         Accept: 'application/x.zalando.customer.orders+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
       },
-      transform: (reponse) => {
-        return new CheckoutOrderResponse(reponse);
-      }
+      transform: (reponse) => new CheckoutOrderResponse(reponse)
     };
 
-    return fetchEndpoint(CheckoutEndpoint).then(EndpointResponse => {
-      return EndpointResponse;
-    });
-
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
-
 
 }
 export { AtlasSDKClient, fetchEndpoint, checkStatus, checkRedirect };

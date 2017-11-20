@@ -295,8 +295,12 @@ AtlasSDK instance returned from AtlasSDK configure method.
     * [.getCountryCode()](#AtlasSDKClient+getCountryCode) ⇒ <code>String</code>
     * [.getConfig()](#AtlasSDKClient+getConfig) ⇒ <code>Object</code>
     * [.getArticle(sku, [options])](#AtlasSDKClient+getArticle) ⇒ [<code>Article</code>](#Article)
+    * [.getGuestCheckout(checkoutId, token)](#AtlasSDKClient+getGuestCheckout) ⇒ [<code>GetCheckoutResponse</code>](#GetCheckoutResponse)
+    * [.createGuestOrder(checkoutId, token)](#AtlasSDKClient+createGuestOrder) ⇒ [<code>CreateOrderResponse</code>](#CreateOrderResponse)
     * [.getRecommendations(sku, [options])](#AtlasSDKClient+getRecommendations) ⇒ [<code>Array.&lt;RecommendedArticles&gt;</code>](#RecommendedArticles)
     * [.createGuestCheckout(json)](#AtlasSDKClient+createGuestCheckout) ⇒ [<code>CreateOrderRedirectResponse</code>](#CreateOrderRedirectResponse)
+    * [.getCheckoutCustomer(token)](#AtlasSDKClient+getCheckoutCustomer) ⇒ [<code>CheckoutCustomer</code>](#CheckoutCustomer)
+    * [.getCheckoutAddresses(token)](#AtlasSDKClient+getCheckoutAddresses) ⇒ <code>CheckoutAddress</code>
 
 <a name="new_AtlasSDKClient_new"></a>
 
@@ -363,6 +367,35 @@ const article = await sdk.getArticle('AD112B0F6-A11', {
    }
 });
 ```
+<a name="AtlasSDKClient+getGuestCheckout"></a>
+
+### atlasSDKClient.getGuestCheckout(checkoutId, token) ⇒ [<code>GetCheckoutResponse</code>](#GetCheckoutResponse)
+Returns the complete details of the checkout: guest checkout object [GetCheckoutResponse](#GetCheckoutResponse) created using [createGuestCheckout](#AtlasSDKClient+createGuestCheckout).
+Parameters <strong>checkoutId</strong>, <strong>token</strong> should be fetched from redirect URL after payment.
+
+**Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
+**Returns**: [<code>GetCheckoutResponse</code>](#GetCheckoutResponse) - guest checkout object  
+**Access**: public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| checkoutId | <code>String</code> | Id of guest checkout object |
+| token | <code>String</code> | Token for checkout completion. |
+
+<a name="AtlasSDKClient+createGuestOrder"></a>
+
+### atlasSDKClient.createGuestOrder(checkoutId, token) ⇒ [<code>CreateOrderResponse</code>](#CreateOrderResponse)
+Creates an order for the guest chekout object based on <strong>checkoutId</strong>, <strong>token</strong>.
+
+**Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
+**Returns**: [<code>CreateOrderResponse</code>](#CreateOrderResponse) - object with order information  
+**Access**: public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| checkoutId | <code>String</code> | Id of guest checkout object |
+| token | <code>String</code> |  |
+
 <a name="AtlasSDKClient+getRecommendations"></a>
 
 ### atlasSDKClient.getRecommendations(sku, [options]) ⇒ [<code>Array.&lt;RecommendedArticles&gt;</code>](#RecommendedArticles)
@@ -406,6 +439,34 @@ that should be used to go to the payment.
 | Param | Type | Description |
 | --- | --- | --- |
 | json | <code>Object</code> | JSON payload |
+
+<a name="AtlasSDKClient+getCheckoutCustomer"></a>
+
+### atlasSDKClient.getCheckoutCustomer(token) ⇒ [<code>CheckoutCustomer</code>](#CheckoutCustomer)
+Returns customer object [CheckoutCustomer](#CheckoutCustomer).
+Parameters customer <strong>token</strong> needed to fetch customer object.
+
+**Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
+**Returns**: [<code>CheckoutCustomer</code>](#CheckoutCustomer) - customer object  
+**Access**: public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| token | <code>String</code> | customer OAuth2 token |
+
+<a name="AtlasSDKClient+getCheckoutAddresses"></a>
+
+### atlasSDKClient.getCheckoutAddresses(token) ⇒ <code>CheckoutAddress</code>
+Returns customer addresses [CheckoutAddress](CheckoutAddress).
+Parameters customer <strong>token</strong> needed to fetch customer object.
+
+**Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
+**Returns**: <code>CheckoutAddress</code> - CheckoutAddress array  
+**Access**: public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| token | <code>String</code> | customer OAuth2 token |
 
 <a name="PickupPoint"></a>
 
