@@ -162,7 +162,7 @@ const CheckoutResponse = createModel({
   customerNumber: { key: 'customer_number', type: 'string' },
   cartId: { key: 'cart_id', type: 'string' },
   billingAddress: { key: 'billing_address', type: 'object', model: Address },
-  shippingAddress: { key: 'billing_address', type: 'object', model: Address },
+  shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
   delivery: { key: 'delivery', type: 'object', model: CheckoutDelivery },
   couponDetails: { key: 'coupon_details', type: 'object', model: CheckoutCouponDetails, optional: true },
   payment: { key: 'payment', type: 'object', model: Payment }
