@@ -64,8 +64,8 @@ test('Should create address successfully after configuring SDK', async t => {
     country_code: 'DE',
     pickup_point: {
       name: 'PACKSTATION',
-      id: 802,
-      member_id: 45685217
+      id: '802',
+      member_id: '45685217'
     },
     default_billing: true,
     default_shipping: false
@@ -112,8 +112,8 @@ test('Should update address successfully after configuring SDK', async t => {
     country_code: 'DE',
     pickup_point: {
       name: 'PACKSTATION',
-      id: 802,
-      member_id: 45685217
+      id: '802',
+      member_id: '45685217'
     },
     default_billing: true,
     default_shipping: false
@@ -143,7 +143,7 @@ test('Should check address successfully after configuring SDK', async t => {
     },
     pickup_point: {
       name: 'PACKSTATION',
-      id: 802,
+      id: '802',
       member_id: 45685217
     }
   };
@@ -239,15 +239,15 @@ test('Should create checkout successfully after configuring SDK', async t => {
       gender: 'MALE',
       first_name: 'John',
       last_name: 'Doe',
-      street: 'Mollstr. 1',
+      street: 'Eatside. 1',
       additional: 'EG',
       zip: '10178',
       city: 'Berlin',
       country_code: 'DE',
       pickup_point: {
         name: 'PACKSTATION',
-        id: 802,
-        member_id: 45685217
+        id: '802',
+        member_id: '45685217'
       }
     },
     delivery: {
@@ -310,8 +310,8 @@ test('Should update checkout successfully after configuring SDK', async t => {
       country_code: 'DE',
       pickup_point: {
         name: 'PACKSTATION',
-        id: 802,
-        member_id: 45685217
+        id: '802',
+        member_id: '45685217'
       }
     },
     delivery: {

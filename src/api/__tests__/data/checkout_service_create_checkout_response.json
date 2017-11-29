@@ -25,8 +25,8 @@
     "country_code": "DE",
     "pickup_point": {
       "name": "PACKSTATION",
-      "id": 802,
-      "member_id": 45685217
+      "id": "802",
+      "member_id": "45685217"
     }
   },
   "delivery": {
