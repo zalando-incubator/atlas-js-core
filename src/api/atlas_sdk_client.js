@@ -63,7 +63,7 @@ function fetchEndpoint(endpoint) {
     mode: endpoint.mode,
     redirect: endpoint.redirect,
     headers: endpoint.headers,
-    body: endpoint.body
+    body: endpoint.body ? JSON.stringify(endpoint.body) : undefined
   })
     .then(checkStatus)
     .then(checkRedirect)
