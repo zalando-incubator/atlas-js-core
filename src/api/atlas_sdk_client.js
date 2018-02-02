@@ -528,8 +528,16 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
+  /**
+   * Creates Zalando customer cart
+   *
+   * @param {CreateCartRequest} json - cart to create
+   * @param {String} token - customer OAuth2 token
+   * @return {CartResponse} - customer cart
+   */
   createCheckoutCart(json, token) {
     const url = `${this.config.atlasCheckoutApi.url}/carts`;
+
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
@@ -546,8 +554,15 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
+  /**
+   * Returns a cart by id
+   *
+   * @param {String} cartId - cart ID to get
+   * @return {CartResponse} - cart
+   */
   getCheckoutCart(cartId) {
     const url = `${this.config.atlasCheckoutApi.url}/carts/${cartId}`;
+
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
@@ -561,8 +576,16 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
+  /**
+   * Updates existing cart by id
+   *
+   * @param {CreateCartRequest} json - cart object to update a cart with
+   * @param {String} cartId - id of the cart to be updated
+   * @return {CartResponse} - updated cart
+   */
   putCheckoutcart(json, cartId) {
     const url = `${this.config.atlasCheckoutApi.url}/carts/${cartId}`;
+
     const CheckoutEndpoint = {
       url: url,
       method: 'PUT',
