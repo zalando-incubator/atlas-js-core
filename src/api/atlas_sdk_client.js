@@ -529,7 +529,6 @@ class AtlasSDKClient {
   }
 
   createCheckoutCart(json, token) {
-
     const url = `${this.config.atlasCheckoutApi.url}/carts`;
     const CheckoutEndpoint = {
       url: url,
@@ -538,8 +537,7 @@ class AtlasSDKClient {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/x.zalando.cart.create+json',
         Accept: 'application/x.zalando.cart.create.response+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel,
-        'X-UID': this.config.clientId
+        'X-Sales-Channel': this.config.salesChannel
       },
       body: json,
       transform: (response) => new CartResponse(response)
@@ -555,8 +553,7 @@ class AtlasSDKClient {
       method: 'GET',
       headers: {
         Accept: 'application/x.zalando.cart+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel,
-        'X-UID': this.config.clientId
+        'X-Sales-Channel': this.config.salesChannel
       },
       transform: (response) => new CartResponse(response)
     };
@@ -572,8 +569,7 @@ class AtlasSDKClient {
       headers: {
         'Content-Type': 'application/x.zalando.cart.update+json',
         Accept: 'application/x.zalando.address.cart.update.response+json, application/x.problem+json',
-        'X-Sales-Channel': this.config.salesChannel,
-        'X-UID': this.config.clientId
+        'X-Sales-Channel': this.config.salesChannel
       },
       body: json,
       transform: (response) => new CartResponse(response)
