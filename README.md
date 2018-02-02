@@ -301,6 +301,9 @@ AtlasSDK instance returned from AtlasSDK configure method.
     * [.createGuestCheckout(json)](#AtlasSDKClient+createGuestCheckout) ⇒ [<code>CreateOrderRedirectResponse</code>](#CreateOrderRedirectResponse)
     * [.getCheckoutCustomer(token)](#AtlasSDKClient+getCheckoutCustomer) ⇒ [<code>CheckoutCustomer</code>](#CheckoutCustomer)
     * [.getCheckoutAddresses(token)](#AtlasSDKClient+getCheckoutAddresses) ⇒ <code>CheckoutAddress</code>
+    * [.createCheckoutCart(json, token)](#AtlasSDKClient+createCheckoutCart) ⇒ [<code>CartResponse</code>](#CartResponse)
+    * [.getCheckoutCart(cartId)](#AtlasSDKClient+getCheckoutCart) ⇒ [<code>CartResponse</code>](#CartResponse)
+    * [.putCheckoutcart(json, cartId)](#AtlasSDKClient+putCheckoutcart) ⇒ [<code>CartResponse</code>](#CartResponse)
 
 <a name="new_AtlasSDKClient_new"></a>
 
@@ -467,6 +470,44 @@ Parameters customer <strong>token</strong> needed to fetch customer object.
 | Param | Type | Description |
 | --- | --- | --- |
 | token | <code>String</code> | customer OAuth2 token |
+
+<a name="AtlasSDKClient+createCheckoutCart"></a>
+
+### atlasSDKClient.createCheckoutCart(json, token) ⇒ [<code>CartResponse</code>](#CartResponse)
+Creates Zalando customer cart
+
+**Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
+**Returns**: [<code>CartResponse</code>](#CartResponse) - - customer cart  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| json | [<code>CreateCartRequest</code>](#CreateCartRequest) | cart to create |
+| token | <code>String</code> | customer OAuth2 token |
+
+<a name="AtlasSDKClient+getCheckoutCart"></a>
+
+### atlasSDKClient.getCheckoutCart(cartId) ⇒ [<code>CartResponse</code>](#CartResponse)
+Returns a cart by id
+
+**Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
+**Returns**: [<code>CartResponse</code>](#CartResponse) - - cart  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| cartId | <code>String</code> | cart ID to get |
+
+<a name="AtlasSDKClient+putCheckoutcart"></a>
+
+### atlasSDKClient.putCheckoutcart(json, cartId) ⇒ [<code>CartResponse</code>](#CartResponse)
+Updates existing cart by id
+
+**Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
+**Returns**: [<code>CartResponse</code>](#CartResponse) - - updated cart  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| json | [<code>CreateCartRequest</code>](#CreateCartRequest) | cart object to update a cart with |
+| cartId | <code>String</code> | id of the cart to be updated |
 
 <a name="PickupPoint"></a>
 
