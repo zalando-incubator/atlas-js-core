@@ -110,7 +110,7 @@ class AtlasSDKClient {
   getLanguage() {
     const startPosition = 0;
 
-    return this.getLocale().substring(startPosition, this.getLocale().indexOf('_'));
+    return this.config.lang ? this.config.lang : this.getLocale().substring(startPosition, this.getLocale().indexOf('_'));
   }
 
   /**
