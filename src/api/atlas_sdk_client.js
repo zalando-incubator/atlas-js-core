@@ -176,7 +176,8 @@ class AtlasSDKClient {
    * const sdk = await AtlasSDK.configure({
    *   client_id: 'CLIENT_ID',
    *   sales_channel: 'SALES_CHANNEL',
-   *   is_sandBox: true
+   *   is_sandBox: true,
+   *   lang: 'en'
    * });
    * const article = await sdk.getArticle('AD112B0F6-A11', {
    *    media: {
