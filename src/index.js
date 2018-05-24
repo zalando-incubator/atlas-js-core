@@ -2,6 +2,12 @@ import * as models from './models/index.js';
 import { AtlasSDKClient, fetchEndpoint } from './api/atlas_sdk_client.js';
 import { Config } from './models/config_models';
 
+
+/**
+ * A temporary fix to handle the current high load capacity
+ */
+const configCache = {};
+
 /**
  * AtlasSDK is a global namespace.
  * @module AtlasSDK
@@ -31,7 +37,8 @@ const AtlasSDK = {
    */
   configure(options = {}) {
     const env = options.is_sandbox ? 'staging' : 'production';
-    const url = `https://atlas-config-api.dc.zalan.do/api/config/${options.client_id}-${env}.json`;
+    const fileName = `${options.client_id}-${env}`;
+    const url = `https://atlas-config-api.dc.zalan.do/api/config/${fileName}.json`;
 
     const ConfigEndpoint = {
       url: url,
@@ -45,7 +52,11 @@ const AtlasSDK = {
       }
     };
 
+    if (configCache[fileName]) {
+      return new AtlasSDKClient(configCache[fileName]);
+    }
     return fetchEndpoint(ConfigEndpoint).then(config => {
+      configCache[fileName] = config;
       return new AtlasSDKClient(config);
     });
   }
