@@ -54,7 +54,7 @@ const AtlasSDK = {
 
     if (configCache[fileName]) {
       return new AtlasSDKClient(configCache[fileName]);
-    } 
+    }
     return fetchEndpoint(ConfigEndpoint).then(config => {
       configCache[fileName] = config;
       return new AtlasSDKClient(config);
