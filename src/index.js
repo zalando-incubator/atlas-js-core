@@ -36,8 +36,12 @@ const AtlasSDK = {
    * });
    */
   configure(options = {}) {
+    console.log('configCache22222');
+    console.log(JSON.stringify(configCache));
     const env = options.is_sandbox ? 'staging' : 'production';
     const fileName = `${options.client_id}-${env}`;
+    const cachedConfName = `${options.client_id}-${options.sales_channel}-${env}`;
+
     const url = `https://atlas-config-api.dc.zalan.do/api/config/${fileName}.json`;
 
     const ConfigEndpoint = {
@@ -52,11 +56,12 @@ const AtlasSDK = {
       }
     };
 
-    if (configCache[fileName]) {
-      return Promise.resolve(new AtlasSDKClient(configCache[fileName]));
+
+    if (configCache[cachedConfName]) {
+      return Promise.resolve(new AtlasSDKClient(configCache[cachedConfName]));
     }
     return fetchEndpoint(ConfigEndpoint).then(config => {
-      configCache[fileName] = config;
+      configCache[cachedConfName] = config;
       return new AtlasSDKClient(config);
     });
   }
