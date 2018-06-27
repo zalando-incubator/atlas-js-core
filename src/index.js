@@ -36,8 +36,6 @@ const AtlasSDK = {
    * });
    */
   configure(options = {}) {
-    console.log('configCache22222');
-    console.log(JSON.stringify(configCache));
     const env = options.is_sandbox ? 'staging' : 'production';
     const fileName = `${options.client_id}-${env}`;
     const cachedConfName = `${options.client_id}-${options.sales_channel}-${env}`;
