@@ -59,4 +59,17 @@ const Article = createModel({
   reviews: { key: 'reviews', type: 'object', model: Reviews, optional: true }
 });
 
-export { Article };
+/**
+ * @class Class for ArticleFamily model
+* @param {String} id - id of the article.
+* @param {String} color - color of the article.
+ * @param {Image[]} images - Array of article images.
+ * @constructor
+ */
+const ArticleFamily = createModel({
+  id: { key: 'id', type: 'string' },
+  color: { key: 'color', type: 'string' },
+  images: { key: 'images', type: 'object', model: Image, optional: true }
+});
+
+export { Article, ArticleFamily };
