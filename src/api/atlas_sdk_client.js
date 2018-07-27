@@ -73,7 +73,6 @@ function fetchEndpoint(endpoint) {
     .then(response => {
       return endpoint.transform(response);
     }).catch(error => {
-      console.error(error); /* eslint no-console: 0 */
       throw error;
     });
 }
