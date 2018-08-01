@@ -51,7 +51,9 @@ const checkStatus = (response) => {
  * @return {Response} Response object either original or with redirect URL
  */
 const checkRedirect = (response) => {
+  console.log('HEADERS', response.headers);
   if (response.headers.get('Location')) {
+
     return new Response(JSON.stringify({ redirect_url: response.headers.get('Location') }));
   }
   return response;
@@ -601,17 +603,17 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  createCheckout(json, token) {
+  createCheckout(json, token, headers = {}) {
     const url = `${this.config.atlasCheckoutApi.url}/checkouts`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
-      headers: {
+      headers: Object.assign({}, {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/x.zalando.customer.checkout.create+json',
         Accept: 'application/x.zalando.customer.checkout.create.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
-      },
+      }, headers),
       body: json,
       transform: (response) => new CheckoutResponse(response)
     };
