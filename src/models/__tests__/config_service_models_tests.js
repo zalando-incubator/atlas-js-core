@@ -29,6 +29,7 @@ test('Config should be initialized from JSON object', t => {
     client_id: 'CLIENT_ID',
     sales_channel: 'SALES_CHANNEL',
     is_sandbox: true,
+    lang: 'en',
     'atlas-catalog-api': {
       url: 'https://catalog_api.com/api'
     },
@@ -60,6 +61,7 @@ test('Config should be initialized from JSON object', t => {
   t.is(config.catalogApi.url, 'https://catalog_api.com/api');
   t.is(config.atlasCheckoutGateway.url, 'https://atlas-checkout-gateway.com');
   t.is(config.salesChannels[0].locale, 'de_DE');
+  t.is(config.lang, 'en');
   t.is(config.salesChannels[0].channel, '11111111-1111-1111-1111-111111111111');
   t.is(config.salesChannels[0].tocURL, 'https://m.zalando.de/agb/');
 });

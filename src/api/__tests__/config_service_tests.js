@@ -44,6 +44,26 @@ test('Should return current locale, language and country code according to Sales
 
 });
 
+test('Should override language', async t => {
+  fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', configJson);
+
+  const sdk = await AtlasSDK.configure({
+    client_id: 'CLIENT_ID',
+    sales_channel: 'SALES_CHANNEL',
+    is_sandbox: true,
+    lang: 'en'
+  }).catch(error => {
+    t.fail(error);
+  });
+
+  t.is(sdk.getLocale(), 'de_DE');
+  t.is(sdk.getLanguage(), 'en');
+  t.is(sdk.getCountryCode(), 'DE');
+  t.is(sdk.getConfig().clientId, 'CLIENT_ID');
+  t.is(sdk.getConfig().salesChannel, 'SALES_CHANNEL');
+
+});
+
 test.afterEach.always(() => {
   fetchMock.restore();
 });

@@ -48,6 +48,7 @@ const Config = createModel({
   atlasCheckoutApi: { key: 'atlas-checkout-api', type: 'object', optional: true },
   salesChannels: { key: 'sales-channels', type: 'object', model: SalesChannel },
   clientId: { key: 'client_id', type: 'string' },
+  lang: { key: 'lang', type: 'string', optional: true },
   salesChannel: { key: 'sales_channel', type: 'string' },
   recommendations: { key: 'recommendations', type: 'object', model: Recommendations },
   isSandbox: { key: 'is_sandbox', type: 'boolean' }
