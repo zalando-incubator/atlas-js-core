@@ -51,9 +51,7 @@ const checkStatus = (response) => {
  * @return {Response} Response object either original or with redirect URL
  */
 const checkRedirect = (response) => {
-  console.log('HEADERS', response.headers);
   if (response.headers.get('Location')) {
-
     return new Response(JSON.stringify({ redirect_url: response.headers.get('Location') }));
   }
   return response;
