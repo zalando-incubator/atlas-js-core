@@ -77,7 +77,7 @@ function fetchEndpoint(endpoint) {
     .then(response => {
       return endpoint.transform(response);
     }).catch(error => {
-      error.response && error.response.headerse && error.response.headers.set('Authorization', 'BEARER XXX');
+      error.response && error.response.headers && error.response.headers.set('Authorization', 'BEARER XXX');
       throw error;
     });
 }
