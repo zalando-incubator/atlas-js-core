@@ -73,7 +73,7 @@ function fetchEndpoint(endpoint) {
     .then(response => {
       return endpoint.transform(response);
     }).catch(error => {
-      console.error(error); /* eslint no-console: 0 */
+      error.response && error.response.headers.set('Authorization', 'BEARER XXX');
       throw error;
     });
 }
@@ -681,17 +681,17 @@ class AtlasSDKClient {
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
   }
 
-  createCheckout(json, token) {
+  createCheckout(json, token, headers = {}) {
     const url = `${this.config.atlasCheckoutApi.url}/checkouts`;
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
-      headers: {
+      headers: Object.assign({}, {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/x.zalando.customer.checkout.create+json',
         Accept: 'application/x.zalando.customer.checkout.create.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
-      },
+      }, headers),
       body: json,
       transform: (response) => new CheckoutResponse(response)
     };
