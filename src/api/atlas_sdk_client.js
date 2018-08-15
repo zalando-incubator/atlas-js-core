@@ -259,7 +259,7 @@ class AtlasSDKClient {
       url: url,
       method: 'GET',
       headers: {
-        Accept: 'application/x.zalando.article+json, application/x.problem+json',
+        Accept: 'application/x.zalando.article.families+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel,
         'X-UID': this.config.clientId
       },
