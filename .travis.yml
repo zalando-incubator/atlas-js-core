@@ -16,7 +16,7 @@ before_script:
 script:
 - npm run validate
 - npm run production:build
-- npm run check
+- npm audit
 after_success:
 - npm run cover:report-coverage
 - npm run semantic-release
