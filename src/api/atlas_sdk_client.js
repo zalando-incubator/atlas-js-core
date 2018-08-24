@@ -1,6 +1,6 @@
 require('isomorphic-fetch');
 
-import { Article } from '../models/catalog_api_models';
+import { Article, ArticleFamily } from '../models/catalog_api_models';
 import {
   CreateOrderResponse,
   CreateOrderRedirectResponse,
@@ -205,6 +205,73 @@ class AtlasSDKClient {
         const article = mediaTransform(json, options);
 
         return new Article(article);
+      }
+    };
+
+    return fetchEndpoint(CatalogEndpoint).then(res => res);
+  }
+
+  /**
+   * Fetches article families based on SKU.
+   * @public
+   * @method
+   * @param  {String} sku - SKU of an article
+   * @param  {Object} [options] - Configuration options:
+   * <ul>
+   *  <li>
+   *    <strong>media</strong>:
+   *    <ul>
+   *      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>
+   *      <li>
+   *        {Array} <strong>image_resolutions</strong>: request media image with the different resolutions
+   *        (default ['thumbnail', 'medium', 'large']):
+   *        <ul>
+   *          <li>'thumbnail' – width: 78px</li>
+   *          <li>'thumbnail_hd' – width: 76px</li>
+   *          <li>'small' – width: 135px</li>
+   *          <li>'small_hd' – width: 270px</li>
+   *          <li>'medium' – width: 300px, height: 400px</li>
+   *          <li>'medium_sd' – width: 480px</li>
+   *          <li>'medium_hd' – width: 600px, height: 800px</li>
+   *          <li>'large' – width: 1100px, height: 1100px</li>
+   *          <li>'large_hd' – height: 1650px</li>
+   *        </ul>
+   *      </li>
+   *    </ul>
+   *  </li>
+   * </ul>
+   * For example
+   * <pre>
+   * {
+   *  media: {
+   *    cdn: 'mosaic02',
+   *    image_resolutions: ['thumbnail', 'medium']
+   *  }
+   * }
+   * </pre>
+   * @return {ArticleFamily[]} return {@link ArticleFamily[]} object
+   * @example
+   * const sdk = await AtlasSDK.configure({
+   *   client_id: 'CLIENT_ID',
+   *   sales_channel: 'SALES_CHANNEL',
+   *   is_sandBox: true,
+   *   lang: 'en'
+   * });
+   * const article = await sdk.getArticleFamilies('AD112B0F6-A11');
+   */
+  getArticleFamilies(sku, options = {}) {
+    const url = `${this.config.catalogApi.url}/article-families/${sku}?client_id=${this.config.clientId}`;
+    const CatalogEndpoint = {
+      url: url,
+      method: 'GET',
+      headers: {
+        Accept: 'application/x.zalando.article.families+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel,
+        'X-UID': this.config.clientId
+      },
+      transform: (json) => {
+        return json.article_families.map(family =>
+          new ArticleFamily(mediaTransform(family, options)));
       }
     };
 
