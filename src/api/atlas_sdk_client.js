@@ -264,20 +264,8 @@ class AtlasSDKClient {
         'X-UID': this.config.clientId
       },
       transform: (json) => {
-        const articleFamilies = json.article_families;
-        const result = [];
-
-        if (articleFamilies.length) {
-          articleFamilies.forEach((family) => {
-
-            const familyJson = mediaTransform(family, options);
-
-            result.push(new ArticleFamily(familyJson));
-          });
-
-        }
-
-        return result;
+        return json.article_families.map(family =>
+          new ArticleFamily(mediaTransform(family, options)));
       }
     };
 
