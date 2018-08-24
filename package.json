@@ -83,6 +83,7 @@
     "semantic-release": "^15.9.9",
     "tap-diff": "0.1.1",
     "tap-notify": "1.0.0",
+    "travis-deploy-once": "^5.0.2",
     "validate-commit-msg": "^2.12.2",
     "webpack": "^3.8.1",
     "webpack-merge": "^4.1.0"
