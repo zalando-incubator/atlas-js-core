@@ -39,7 +39,7 @@
     "commit": "./node_modules/.bin/git-cz",
     "prepush": "npm run validate",
     "commitmsg": "./node_modules/.bin/validate-commit-msg",
-    "semantic-release": "./node_modules/.bin/semantic-release pre && npm publish && ./node_modules/.bin/semantic-release post"
+    "semantic-release": "npx semantic-release"
   },
   "author": "Zalando SE",
   "maintainers": [
