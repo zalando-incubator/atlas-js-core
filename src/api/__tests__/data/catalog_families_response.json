@@ -1,0 +1,70 @@
+{
+    "article_families": [
+        {
+            "id": "AN621D0BX-K11",
+            "color": "dunkelblau",
+            "media": {
+                "media_items": [
+                    {
+                        "type": "IMAGE",
+                        "path": "AN/62/1D/0B/XK/11/AN621D0BX-K11@2.png",
+                        "media_character": "NON_MODEL"
+                    },
+                    {
+                        "type": "IMAGE",
+                        "path": "AN/62/1D/0B/XK/11/AN621D0BX-K11@9.jpg",
+                        "media_character": "STYLE"
+                    },
+                    {
+                        "type": "IMAGE",
+                        "path": "AN/62/1D/0B/XK/11/AN621D0BX-K11@8.jpg",
+                        "media_character": "PREMIUM"
+                    },
+                    {
+                        "type": "IMAGE",
+                        "path": "AN/62/1D/0B/XK/11/AN621D0BX-K11@7.jpg",
+                        "media_character": "PREMIUM"
+                    },
+                    {
+                        "type": "IMAGE",
+                        "path": "AN/62/1D/0B/XK/11/AN621D0BX-K11@6.jpg",
+                        "media_character": "DETAILED"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "AN621D0BX-Q11",
+            "color": "schwarz",
+            "media": {
+                "media_items": [
+                    {
+                        "type": "IMAGE",
+                        "path": "AN/62/1D/0B/XQ/11/AN621D0BX-Q11@10.jpg",
+                        "media_character": "NON_MODEL"
+                    },
+                    {
+                        "type": "IMAGE",
+                        "path": "AN/62/1D/0B/XQ/11/AN621D0BX-Q11@9.jpg",
+                        "media_character": "STYLE"
+                    },
+                    {
+                        "type": "IMAGE",
+                        "path": "AN/62/1D/0B/XQ/11/AN621D0BX-Q11@8.jpg",
+                        "media_character": "PREMIUM"
+                    },
+                    {
+                        "type": "IMAGE",
+                        "path": "AN/62/1D/0B/XQ/11/AN621D0BX-Q11@7.jpg",
+                        "media_character": "PREMIUM"
+                    },
+                    {
+                        "type": "IMAGE",
+                        "path": "AN/62/1D/0B/XQ/11/AN621D0BX-Q11@6.jpg",
+                        "media_character": "PREMIUM"
+                    }
+                ]
+            }
+        }
+    ]
+}
