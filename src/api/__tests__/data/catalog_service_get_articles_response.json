@@ -1,0 +1,216 @@
+{
+  "articles": [
+    {
+      "id": "AD112B0F6-A11",
+      "name": "LOS ANGELES - Trainers - white",
+      "color": "Orange",
+      "brand": {
+        "name": "Adidas"
+      },
+      "detail_url": "https://www.zalando.de/adidas-originals-los-angeles-sneaker-ad112b0f6-a11.html",
+      "units": [
+        {
+          "id": "AD112B0F6-A110135000",
+          "size": "M",
+          "price": {
+            "amount": 99.95,
+            "currency": "EUR"
+          },
+          "original_price": {
+            "amount": 99.95,
+            "currency": "EUR"
+          },
+          "available": true,
+          "stock": 3,
+          "partner": {
+            "id": "123",
+            "name": "Adidas",
+            "detail_url": "https://www.zalando.de/adidas-originals-los-angeles-sneaker-ad112b0f6-a11.html"
+          }
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Internal material",
+          "values": [
+            "textile"
+          ]
+        }
+      ],
+      "infos": [
+        "Removable cover sole"
+      ],
+      "media": {
+        "media_items": [
+          {
+            "type": "IMAGE",
+            "path": "SO/25/4J/00/0C/00/SO254J000-C00@1.1.jpg",
+            "media_character": "NON_MODEL"
+          },
+          {
+            "type": "IMAGE",
+            "path": "SO/25/4J/00/0C/00/SO254J000-C00@2.1.jpg",
+            "media_character": "NON_MODEL"
+          },
+          {
+            "type": "IMAGE",
+            "path": "SO/25/4J/00/0C/00/SO254J000-C00@3.1.jpg",
+            "media_character": "NON_MODEL"
+          },
+           {
+            "type": "VIDEO_THUMBNAIL",
+            "path": "comet/LE/22/1N/02/PK/11/VIDEO/PREVIEW_IMG/1479494993512.jpg",
+            "media_character": "UNKNOWN"
+          }, {
+            "type": "VIDEO_HD",
+            "path": "comet/LE/22/1N/02/PK/11/VIDEO/HD/1479494993512.mp4",
+            "media_character": "UNKNOWN"
+          }
+        ]
+      },
+      "reviews": {
+        "summary": {
+          "total": 45,
+          "rating": {
+            "average": 4.3,
+            "distribution": [
+              {
+                "level": "4",
+                "count": 17
+              }
+            ]
+          },
+          "recommendations": {
+            "total": 30,
+            "positive": 25
+          }
+        },
+        "entries": [
+          {
+            "name": "John",
+            "title": "Loved it!",
+            "description": "The best sneakers I ever bought! :)",
+            "rating": 5,
+            "recommends": true,
+            "created": "2015-04-21T13:27:31+01:00"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SO254C009-K12",
+      "name": "8 PACK - Socken - stone mix",
+      "color": "blau",
+      "brand": {
+        "name": "s.Oliver"
+      },
+      "detail_url": "https://www.zalando.de/s-oliver-8-pack-socken-so254c009-k12.html",
+      "units": [
+        {
+          "id": "SO254C009-K120035000",
+          "size": "35-38",
+          "price": {
+            "amount": 19.95,
+            "currency": "EUR"
+          },
+          "original_price": {
+            "amount": 19.95,
+            "currency": "EUR"
+          },
+          "available": true,
+          "stock": 3
+        },
+        {
+          "id": "SO254C009-K120039000",
+          "size": "39-42",
+          "price": {
+            "amount": 19.99,
+            "currency": "EUR"
+          },
+          "original_price": {
+            "amount": 19.99,
+            "currency": "EUR"
+          },
+          "available": true,
+          "stock": 3
+        },
+        {
+          "id": "SO254C009-K120043000",
+          "size": "43-46",
+          "price": {
+            "amount": 19.99,
+            "currency": "EUR"
+          },
+          "original_price": {
+            "amount": 19.99,
+            "currency": "EUR"
+          },
+          "available": true,
+          "stock": 3
+        }
+      ],
+      "media": {
+        "media_items": [
+          {
+            "type": "IMAGE",
+            "path": "SO/25/4C/00/9K/12/SO254C009-K12@6.1.jpg",
+            "media_character": "NON_MODEL"
+          },
+          {
+            "type": "IMAGE",
+            "path": "SO/25/4C/00/9K/12/SO254C009-K12@11.1.jpg",
+            "media_character": "NON_MODEL"
+          },
+          {
+            "type": "IMAGE",
+            "path": "SO/25/4C/00/9K/12/SO254C009-K12@4.1.jpg",
+            "media_character": "NON_MODEL"
+          },
+          {
+            "type": "IMAGE",
+            "path": "SO/25/4C/00/9K/12/SO254C009-K12@5.1.jpg",
+            "media_character": "NON_MODEL"
+          },
+          {
+            "type": "IMAGE",
+            "path": "SO/25/4C/00/9K/12/SO254C009-K12@8.1.jpg",
+            "media_character": "NON_MODEL"
+          },
+          {
+            "type": "IMAGE",
+            "path": "SO/25/4C/00/9K/12/SO254C009-K12@7.1.jpg",
+            "media_character": "NON_MODEL"
+          },
+          {
+            "type": "IMAGE",
+            "path": "SO/25/4C/00/9K/12/SO254C009-K12@9.1.jpg",
+            "media_character": "NON_MODEL"
+          }
+        ]
+      },
+      "attributes": [
+        {
+          "name": "Material Oberstoff",
+          "category": "Material",
+          "values": [
+            "62% Baumwolle, 36% Polyester, 2% Elasthan"
+          ]
+        },
+        {
+          "name": "Länge",
+          "category": "cut_and_shape",
+          "values": [
+            "knöchelhoch"
+          ]
+        },
+        {
+          "name": "Muster",
+          "category": "general_and_details",
+          "values": [
+            "meliert"
+          ]
+        }
+      ]
+  }
+  ]
+}
