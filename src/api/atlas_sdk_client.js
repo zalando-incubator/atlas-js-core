@@ -212,6 +212,76 @@ class AtlasSDKClient {
   }
 
   /**
+   * Fetches multiple articles based on SKUs.
+   * @public
+   * @method
+   * @param  {String} skus - comma separated SKUs of multiple articles
+   * @param  {Object} [options] - Configuration options:
+   * <ul>
+   *  <li>
+   *    <strong>media</strong>:
+   *    <ul>
+   *      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>
+   *      <li>
+   *        {Array} <strong>image_resolutions</strong>: request media image with the different resolutions
+   *        (default ['thumbnail', 'medium', 'large']):
+   *        <ul>
+   *          <li>'thumbnail' – width: 78px</li>
+   *          <li>'thumbnail_hd' – width: 76px</li>
+   *          <li>'small' – width: 135px</li>
+   *          <li>'small_hd' – width: 270px</li>
+   *          <li>'medium' – width: 300px, height: 400px</li>
+   *          <li>'medium_sd' – width: 480px</li>
+   *          <li>'medium_hd' – width: 600px, height: 800px</li>
+   *          <li>'large' – width: 1100px, height: 1100px</li>
+   *          <li>'large_hd' – height: 1650px</li>
+   *        </ul>
+   *      </li>
+   *    </ul>
+   *  </li>
+   * </ul>
+   * For example
+   * <pre>
+   * {
+   *  media: {
+   *    cdn: 'mosaic02',
+   *    image_resolutions: ['thumbnail', 'medium']
+   *  }
+   * }
+   * </pre>
+   * @return {Article[]} return {@link Article[]} object
+   * @example
+   * const sdk = await AtlasSDK.configure({
+   *   client_id: 'CLIENT_ID',
+   *   sales_channel: 'SALES_CHANNEL',
+   *   is_sandBox: true,
+   *   lang: 'en'
+   * });
+   * const articles = await sdk.getArticles('AD112B0F6-A11,SO254C009-K12', {
+   *    media: {
+   *      image_resolutions: ['thumbnail', 'medium']
+   *    }
+   * });
+   */
+  getArticles(skus, options = {}) {
+    const url = `${this.config.catalogApi.url}/articles?config_skus=${skus}&client_id=${this.config.clientId}`;
+    const CatalogEndpoint = {
+      url: url,
+      method: 'GET',
+      headers: {
+        Accept: 'application/x.zalando.articles+json;charset=UTF-8, application/x.problem+json;charset=UTF-8',
+        'X-Sales-Channel': this.config.salesChannel,
+        'X-UID': this.config.clientId
+      },
+      transform: (json) => {
+        return json.articles.map(article => new Article(mediaTransform(article, options)));
+      }
+    };
+
+    return fetchEndpoint(CatalogEndpoint).then(res => res);
+  }
+
+  /**
    * Fetches article families based on SKU.
    * @public
    * @method

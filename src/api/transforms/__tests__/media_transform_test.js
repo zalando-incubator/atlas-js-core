@@ -2,7 +2,10 @@ import test from 'ava';
 import fs from 'fs';
 import path from 'path';
 
-const json = fs.readFileSync(path.join(__dirname, '../../__tests__/data/catalog_service_response.json'), 'utf8');
+const json = fs.readFileSync(
+  path.join(__dirname, '../../__tests__/data/catalog_service_get_article_response.json'),
+  'utf8',
+);
 
 import mediaTransform, {
   isImage,
