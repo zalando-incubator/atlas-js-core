@@ -25,8 +25,15 @@ test('Should fetch article successfully after configuring SDK', async t => {
 
   t.is(article.id, 'AD112B0F6-A11');
   t.is(article.name, 'LOS ANGELES - Trainers - white');
-  t.is(article.attributes[0].name, 'Internal material');
+  t.is(article.attributes[0].name, 'Lining');
+  t.is(article.attributes[0].category, 'material');
   t.is(article.attributes[0].values[0], 'textile');
+  t.is(article.enrichmentAttributes[0].key, 'assortment_area');
+  t.is(article.enrichmentAttributes[0].value[0], 'STANDARD');
+  t.is(article.targetGroups.gender[1], 'FEMALE');
+  t.is(article.targetGroups.age[0], 'ADULT');
+  t.is(article.targetGroups.domain[0], 'DEFAULT');
+  t.is(article.targetGroups.ageRange[1], 'Teens');
   t.is(article.infos[0], 'Removable cover sole');
 });
 
@@ -47,7 +54,7 @@ test('Should fetch articles successfully after configuring SDK', async t => {
 
   t.is(articles[0].id, 'AD112B0F6-A11');
   t.is(articles[0].name, 'LOS ANGELES - Trainers - white');
-  t.is(articles[0].attributes[0].name, 'Internal material');
+  t.is(articles[0].attributes[0].name, 'Lining');
   t.is(articles[0].attributes[0].values[0], 'textile');
   t.is(articles[0].infos[0], 'Removable cover sole');
   t.is(articles[1].id, 'SO254C009-K12');
