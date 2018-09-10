@@ -1,6 +1,6 @@
 import createModel from './base_model';
 import { Reviews } from './article_reviews_model';
-import { Brand, Unit, Attribute } from './article_models';
+import { Brand, Unit, Attribute, EnrichmentAttribute, TargetGroups } from './article_models';
 
 /**
  * @class Class for Image model.
@@ -41,6 +41,8 @@ const Video = createModel({
  * @param {Image[]} images - Array of article images.
  * @param {Video[]} videos - Array of article videos.
  * @param {Attribute[]} attributes - characteristics of the article.
+ * @param {EnrichmentAttributes[]} enrichmentAttributes - variable generic attributes.
+ * @param {TargetGroups} targetGroups - the targeted groups of the article.
  * @param {String[]} infos - generic article description.
  * @param {Reviews[]} review - article reviews.
  * @constructor
@@ -55,6 +57,8 @@ const Article = createModel({
   images: { key: 'images', type: 'object', model: Image, optional: true },
   videos: { key: 'videos', type: 'object', model: Video, optional: true },
   attributes: { key: 'attributes', type: 'object', model: Attribute, optional: true },
+  enrichmentAttributes: { key: 'enrichment_attributes', type: 'object', model: EnrichmentAttribute, optional: true },
+  targetGroups: { key: 'target_groups', type: 'object', model: TargetGroups, optional: true },
   infos: { key: 'infos', type: 'string', optional: true },
   reviews: { key: 'reviews', type: 'object', model: Reviews, optional: true }
 });
