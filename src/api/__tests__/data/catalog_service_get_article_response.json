@@ -29,12 +29,84 @@
   ],
   "attributes": [
     {
-      "name": "Internal material",
-      "values": [
-        "textile"
-      ]
+      "name": "Lining",
+      "category": "material",
+      "values": ["textile"]
+    },
+    {
+      "name": "Insole",
+      "category": "material",
+      "values": ["textile"]
+    },
+    {
+      "name": "upper material",
+      "category": "material",
+      "values": ["leather and imitation leather"]
+    },
+    {
+      "name": "Sole",
+      "category": "material",
+      "values": ["synthetics"]
+    },
+    {
+      "name": "Padding type",
+      "category": "material_details",
+      "values": ["No padding"]
+    },
+    {
+      "name": "Occasion",
+      "category": "occasion",
+      "values": ["leisure"]
+    },
+    {
+      "name": "Shoe tip",
+      "category": "cut_and_shape",
+      "values": ["round"]
+    },
+    {
+      "name": "Heel type",
+      "category": "cut_and_shape",
+      "values": ["flat"]
+    },
+    {
+      "name": "Detail",
+      "category": "general_and_details",
+      "values": ["decorative seams"]
+    },
+    {
+      "name": "Shoe fastener",
+      "category": "general_and_details",
+      "values": ["laces"]
     }
   ],
+  "enrichment_attributes": [
+    {
+      "key": "assortment_area",
+      "value": ["STANDARD"]
+    },
+    {
+      "key": "is_vip",
+      "value": ["false"]
+    },
+    {
+      "key": "is_new",
+      "value": ["false"]
+    },
+    {
+      "key": "is_travel_size",
+      "value": ["false"]
+    },
+    {
+      "key": "is_natural",
+      "value": ["false"]
+    }
+  ],
+  "target_groups": {
+    "gender": ["MALE", "FEMALE"],
+    "age": ["ADULT"],
+    "domain": ["DEFAULT"],
+    "age_range": ["20+", "Teens"]
+  },
   "infos": [
     "Removable cover sole"
   ],

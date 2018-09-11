@@ -64,7 +64,34 @@ const Unit = createModel({
  */
 const Attribute = createModel({
   name: { key: 'name', type: 'string' },
+  category: { key: 'category', type: 'string' },
   values: { key: 'values', type: 'string' }
+});
+
+/**
+ * @class Class for Article Unit EnrichmentAttribute model.
+ * @param {String} key - name of enrichment attribute.
+ * @param {String[]} value - values of enrichment attribute.
+ * @constructor
+ */
+const EnrichmentAttribute = createModel({
+  key: { key: 'key', type: 'string' },
+  value: { key: 'value', type: 'string' }
+});
+
+/**
+ * @class Class for TargetGroups model.
+ * @param {String[]} gender - The targeted gender group. Can be FEMALE or MALE. Unisex articles will have both.
+ * @param {String[]} age - The targeted age group. Current values are: ADULT, BABY, KID, TEEN
+ * @param {String[]} domain - The target domain. Can be: DEFAULT, GREEN, LIFESTYLE, MATERNITY, PREMIUM, OVERSIZE, SPORTS
+ * @param {String[]} ageRange - Current values: Under 20, 20-29, 30-39, 40-49, Over 50
+ * @constructor
+ */
+const TargetGroups = createModel({
+  gender: { key: 'gender', type: 'string', optional: true },
+  age: { key: 'age', type: 'string', optional: true },
+  domain: { key: 'domain', type: 'string', optional: true },
+  ageRange: { key: 'age_range', type: 'string', optional: true }
 });
 
 /**
@@ -149,6 +176,6 @@ const DeliverySchema = {
 const Delivery = createModel(DeliverySchema);
 
 export {
-  Brand, Partner, Price, Unit, Attribute, ArticleImage, Media, ItemWithPrice,
-  Item, Payment, Delivery, DeliverySchema, PriceSchema
+  Brand, Partner, Price, Unit, Attribute, EnrichmentAttribute, TargetGroups, ArticleImage,
+  Media, ItemWithPrice, Item, Payment, Delivery, DeliverySchema, PriceSchema
 };

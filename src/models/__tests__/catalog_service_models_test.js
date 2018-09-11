@@ -53,6 +53,73 @@ test('Article should be initialized from JSON object', t => {
         mediaCharacter: 'UNKNOWN'
       }
     ],
+    attributes: [
+      {
+        name: 'Lining',
+        category: 'material',
+        values: ['textile']
+      }, {
+        name: 'Insole',
+        category: 'material',
+        values: ['textile']
+      }, {
+        name: 'upper material',
+        category: 'material',
+        values: ['leather and imitation leather']
+      }, {
+        name: 'Sole',
+        category: 'material',
+        values: ['synthetics']
+      }, {
+        name: 'Padding type',
+        category: 'material_details',
+        values: ['No padding']
+      }, {
+        name: 'Occasion',
+        category: 'occasion',
+        values: ['leisure']
+      }, {
+        name: 'Shoe tip',
+        category: 'cut_and_shape',
+        values: ['round']
+      }, {
+        name: 'Heel type',
+        category: 'cut_and_shape',
+        values: ['flat']
+      }, {
+        name: 'Detail',
+        category: 'general_and_details',
+        values: ['decorative seams']
+      }, {
+        name: 'Shoe fastener',
+        category: 'general_and_details',
+        values: ['laces']
+      }
+    ],
+    enrichment_attributes: [
+      {
+        key: 'assortment_area',
+        value: ['STANDARD']
+      }, {
+        key: 'is_vip',
+        value: ['false']
+      }, {
+        key: 'is_new',
+        value: ['false']
+      }, {
+        key: 'is_travel_size',
+        value: ['false']
+      }, {
+        key: 'is_natural',
+        value: ['false']
+      }
+    ],
+    target_groups: {
+      gender: ['MALE', 'FEMALE'],
+      age: ['ADULT'],
+      domain: ['DEFAULT'],
+      age_range: ['20+', 'Teens']
+    },
     infos: [
       'Removable cover sole'
     ],
@@ -132,8 +199,21 @@ test('Article should be initialized from JSON object', t => {
   t.is(article.videos[1].type, 'VIDEO_HD');
 
   if (article.attributes) {
-    t.is(article.attributes[0].name, 'Internal material');
+    t.is(article.attributes[0].name, 'Lining');
+    t.is(article.attributes[0].category, 'material');
     t.is(article.attributes[0].values[0], 'textile');
+  }
+  if (article.enrichmentAttributes) {
+    t.is(article.enrichmentAttributes[0].key, 'assortment_area');
+    t.is(article.enrichmentAttributes[0].value[0], 'STANDARD');
+  }
+  if (article.targetGroups) {
+    t.is(article.targetGroups.gender[0], 'MALE');
+    t.is(article.targetGroups.gender[1], 'FEMALE');
+    t.is(article.targetGroups.age[0], 'ADULT');
+    t.is(article.targetGroups.domain[0], 'DEFAULT');
+    t.is(article.targetGroups.ageRange[0], '20+');
+    t.is(article.targetGroups.ageRange[1], 'Teens');
   }
   t.is(article.infos[0], 'Removable cover sole');
   t.is(article.reviews.entries.length, 1);
