@@ -59,12 +59,15 @@ const Unit = createModel({
 /**
  * @class Class for Article Unit Attribute model.
  * @param {String} name - name of attribute.
+ * @param {String} category - category of attribute.
+ * @param {String} subCategory - sub-category of attribute.
  * @param {String[]} values - values of attribute.
  * @constructor
  */
 const Attribute = createModel({
   name: { key: 'name', type: 'string' },
   category: { key: 'category', type: 'string' },
+  subCategory: { key: 'sub_category', type: 'string' },
   values: { key: 'values', type: 'string' }
 });
 

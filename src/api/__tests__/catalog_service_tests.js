@@ -27,6 +27,7 @@ test('Should fetch article successfully after configuring SDK', async t => {
   t.is(article.name, 'LOS ANGELES - Trainers - white');
   t.is(article.attributes[0].name, 'Lining');
   t.is(article.attributes[0].category, 'material');
+  t.is(article.attributes[0].subCategory, 'lining');
   t.is(article.attributes[0].values[0], 'textile');
   t.is(article.enrichmentAttributes[0].key, 'assortment_area');
   t.is(article.enrichmentAttributes[0].value[0], 'STANDARD');
