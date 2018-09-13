@@ -57,42 +57,52 @@ test('Article should be initialized from JSON object', t => {
       {
         name: 'Lining',
         category: 'material',
+        sub_category: 'lining',
         values: ['textile']
       }, {
         name: 'Insole',
         category: 'material',
+        sub_category: 'material_insole',
         values: ['textile']
       }, {
         name: 'upper material',
         category: 'material',
+        sub_category: 'upper_material',
         values: ['leather and imitation leather']
       }, {
         name: 'Sole',
         category: 'material',
+        sub_category: 'sole_material',
         values: ['synthetics']
       }, {
         name: 'Padding type',
         category: 'material_details',
+        sub_category: 'padding_type',
         values: ['No padding']
       }, {
         name: 'Occasion',
         category: 'occasion',
+        sub_category: 'occasion',
         values: ['leisure']
       }, {
         name: 'Shoe tip',
         category: 'cut_and_shape',
+        sub_category: 'shoe_toecap',
         values: ['round']
       }, {
         name: 'Heel type',
         category: 'cut_and_shape',
+        sub_category: 'heel_form',
         values: ['flat']
       }, {
         name: 'Detail',
         category: 'general_and_details',
+        sub_category: 'shoe_detail',
         values: ['decorative seams']
       }, {
         name: 'Shoe fastener',
         category: 'general_and_details',
+        sub_category: 'shoe_fastener',
         values: ['laces']
       }
     ],
@@ -201,6 +211,7 @@ test('Article should be initialized from JSON object', t => {
   if (article.attributes) {
     t.is(article.attributes[0].name, 'Lining');
     t.is(article.attributes[0].category, 'material');
+    t.is(article.attributes[0].subCategory, 'lining');
     t.is(article.attributes[0].values[0], 'textile');
   }
   if (article.enrichmentAttributes) {
