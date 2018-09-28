@@ -385,10 +385,10 @@ class AtlasSDKClient {
    */
   createGuestOrder(checkoutId, token) {
     const url = `${this.config.atlasCheckoutGateway.url}/guest-checkout/api/orders`;
-    const body = JSON.stringify({
+    const body = {
       checkout_id: checkoutId,
       token: token
-    });
+    };
     const CreateOrderEndpoint = {
       url: url,
       method: 'POST',
