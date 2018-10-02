@@ -302,8 +302,8 @@ AtlasSDK instance returned from AtlasSDK configure method.
     * [.getCheckoutCustomer(token)](#AtlasSDKClient+getCheckoutCustomer) ⇒ [<code>CheckoutCustomer</code>](#CheckoutCustomer)
     * [.getCheckoutAddresses(token)](#AtlasSDKClient+getCheckoutAddresses) ⇒ <code>CheckoutAddress</code>
     * [.createCheckoutCart(json, token)](#AtlasSDKClient+createCheckoutCart) ⇒ [<code>CartResponse</code>](#CartResponse)
-    * [.getCheckoutCart(cartId)](#AtlasSDKClient+getCheckoutCart) ⇒ [<code>CartResponse</code>](#CartResponse)
-    * [.putCheckoutcart(json, cartId)](#AtlasSDKClient+putCheckoutcart) ⇒ [<code>CartResponse</code>](#CartResponse)
+    * [.getCheckoutCart(cartId, token)](#AtlasSDKClient+getCheckoutCart) ⇒ [<code>CartResponse</code>](#CartResponse)
+    * [.putCheckoutcart(json, cartId, token, headers)](#AtlasSDKClient+putCheckoutcart) ⇒ [<code>CartResponse</code>](#CartResponse)
 
 <a name="new_AtlasSDKClient_new"></a>
 
@@ -487,7 +487,7 @@ Creates Zalando customer cart
 
 <a name="AtlasSDKClient+getCheckoutCart"></a>
 
-### atlasSDKClient.getCheckoutCart(cartId) ⇒ [<code>CartResponse</code>](#CartResponse)
+### atlasSDKClient.getCheckoutCart(cartId, token) ⇒ [<code>CartResponse</code>](#CartResponse)
 Returns a cart by id
 
 **Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
@@ -496,10 +496,11 @@ Returns a cart by id
 | Param | Type | Description |
 | --- | --- | --- |
 | cartId | <code>String</code> | cart ID to get |
+| token | <code>String</code> |
 
 <a name="AtlasSDKClient+putCheckoutcart"></a>
 
-### atlasSDKClient.putCheckoutcart(json, cartId) ⇒ [<code>CartResponse</code>](#CartResponse)
+### atlasSDKClient.putCheckoutcart(json, cartId, token, headers) ⇒ [<code>CartResponse</code>](#CartResponse)
 Updates existing cart by id
 
 **Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
@@ -509,6 +510,8 @@ Updates existing cart by id
 | --- | --- | --- |
 | json | [<code>CreateCartRequest</code>](#CreateCartRequest) | cart object to update a cart with |
 | cartId | <code>String</code> | id of the cart to be updated |
+| token | <code>String</code> |
+| headers | <code>Object</code> | additional headers that will override the default ones |
 
 <a name="PickupPoint"></a>
 
