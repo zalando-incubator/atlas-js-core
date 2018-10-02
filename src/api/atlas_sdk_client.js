@@ -702,15 +702,17 @@ class AtlasSDKClient {
    * Returns a cart by id
    *
    * @param {String} cartId - cart ID to get
+   * @param {String} token
    * @return {CartResponse} - cart
    */
-  getCheckoutCart(cartId) {
+  getCheckoutCart(cartId, token) {
     const url = `${this.config.atlasCheckoutApi.url}/carts/${cartId}`;
 
     const CheckoutEndpoint = {
       url: url,
       method: 'GET',
       headers: {
+        Authorization: `Bearer ${token}`,
         Accept: 'application/x.zalando.cart+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
       },
@@ -725,19 +727,22 @@ class AtlasSDKClient {
    *
    * @param {CreateCartRequest} json - cart object to update a cart with
    * @param {String} cartId - id of the cart to be updated
+   * @param {String} token
+   * @param {Object} headers - additional headers that will override the default ones
    * @return {CartResponse} - updated cart
    */
-  putCheckoutcart(json, cartId) {
+  putCheckoutcart(json, cartId, token, headers = {}) {
     const url = `${this.config.atlasCheckoutApi.url}/carts/${cartId}`;
 
     const CheckoutEndpoint = {
       url: url,
       method: 'PUT',
-      headers: {
+      headers: Object.assign({}, {
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/x.zalando.cart.update+json',
         Accept: 'application/x.zalando.address.cart.update.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
-      },
+      }, headers),
       body: json,
       transform: (response) => new CartResponse(response)
     };
