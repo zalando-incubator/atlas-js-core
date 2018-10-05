@@ -7,6 +7,8 @@ test('Article should be initialized from JSON object', t => {
     id: 'AD112B0F6-A11',
     name: 'LOS ANGELES - Trainers - white',
     color: 'Orange',
+    supplier_color: 'white',
+    product_group: 'shoe',
     brand: {
       name: 'Adidas'
     },
@@ -180,6 +182,8 @@ test('Article should be initialized from JSON object', t => {
 
   t.is(article.id, 'AD112B0F6-A11');
   t.is(article.color, 'Orange');
+  t.is(article.supplierColor, 'white');
+  t.is(article.productGroup, 'shoe');
   t.is(article.detailUrl, 'https://www.zalando.de/adidas-originals-los-angeles-sneaker-ad112b0f6-a11.html');
   t.is(article.units[0].size, 'M');
   if (article.units[0].stock) {
