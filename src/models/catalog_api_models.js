@@ -35,6 +35,8 @@ const Video = createModel({
  * @param {String} id - id of the article.
  * @param {String} name - name of the article.
  * @param {String} color - color of the article.
+ * @param {String} supplierColor - color of the article from supplier.
+ * @param {String} productGroup - product group of the article.
  * @param {String} detailUrl - product detail url of the article.
  * @param {Brand} brand - brand of the article.
  * @param {Unit[]} units - size, price and stock availability from the article.
@@ -51,6 +53,8 @@ const Article = createModel({
   id: { key: 'id', type: 'string' },
   name: { key: 'name', type: 'string' },
   color: { key: 'color', type: 'string' },
+  supplierColor: { key: 'supplier_color', type: 'string', optional: true },
+  productGroup: { key: 'product_group', type: 'string', optional: true },
   detailUrl: { key: 'detail_url', type: 'string', optional: true },
   brand: { key: 'brand', type: 'object', model: Brand },
   units: { key: 'units', type: 'object', model: Unit },
@@ -67,12 +71,14 @@ const Article = createModel({
  * @class Class for ArticleFamily model
 * @param {String} id - id of the article.
 * @param {String} color - color of the article.
+* @param {String} supplierColor - color of the article from supplier.
  * @param {Image[]} images - Array of article images.
  * @constructor
  */
 const ArticleFamily = createModel({
   id: { key: 'id', type: 'string' },
   color: { key: 'color', type: 'string' },
+  supplierColor: { key: 'supplier_color', type: 'string', optional: true },
   images: { key: 'images', type: 'object', model: Image, optional: true }
 });
 
