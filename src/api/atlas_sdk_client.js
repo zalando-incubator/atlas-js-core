@@ -11,6 +11,7 @@ import { RecommendedArticles } from '../models/recommendation_models';
 import { CheckoutCustomer } from '../models/customer_model';
 import { CheckoutAddress, CheckedAddress } from '../models/address_models';
 import {
+  CartsResponse,
   CartResponse,
   CheckoutResponse,
   CheckoutOrderResponse,
@@ -667,6 +668,30 @@ class AtlasSDKClient {
       },
       body: json,
       transform: (response) => new CheckedAddress(response)
+    };
+
+    return fetchEndpoint(CheckoutEndpoint).then(res => res);
+  }
+
+  /**
+   * Returns a customer's cart(s)
+   *
+   * @param {String} token
+   * @param {Object} headers - additional headers that will override the default ones
+   * @return {CartsResponse} - carts
+   */
+  getCheckoutCarts(token, headers = {}) {
+    const url = `${this.config.atlasCheckoutApi.url}/carts`;
+
+    const CheckoutEndpoint = {
+      url: url,
+      method: 'GET',
+      headers: Object.assign({}, {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/x.zalando.carts+json, application/x.problem+json',
+        'X-Sales-Channel': this.config.salesChannel
+      }, headers),
+      transform: (response) => new CartsResponse(response)
     };
 
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
