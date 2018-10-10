@@ -6,6 +6,7 @@ import configureSDK from './helpers/AtlasTestSDK';
 import { CheckoutCustomer } from '../../models/customer_model';
 import { CheckoutAddress, CheckedAddress } from '../../models/address_models';
 import {
+  CartsResponse,
   CartResponse,
   CheckoutResponse,
   CheckoutOrderResponse,
@@ -152,6 +153,20 @@ test('Should check address successfully after configuring SDK', async t => {
   const addresses = await sdk.checkAddress(req);
 
   t.deepEqual(addresses, new CheckedAddress(JSON.parse(json)));
+});
+
+test('Should get carts successfully after configuring SDK', async t => {
+  const sdk = await configureSDK();
+  const json = JSON.parse(
+    fs.readFileSync(path.join(__dirname, 'data/checkout_service_get_carts_response.json'), 'utf8'));
+
+  fetchMock.get('https://atlas-checkout-api.com/api/carts', json);
+
+
+  const cart = await sdk.getCheckoutCarts('token');
+
+  t.deepEqual(cart, new CartsResponse(json));
+
 });
 
 test('Should create cart successfully after configuring SDK', async t => {

@@ -1,0 +1,47 @@
+{
+    "id": "892d93b83aa31ccca47508c7564d1d4a256c838f2f652aa211c340728161d6ee",
+    "carts": [
+        {
+            "id": "892d93b83aa31ccca47508c7564d1d4a256c838f2f652aa211c340728161d6ee",
+            "items": [
+                {
+                    "sku": "SO254C009-K120043000",
+                    "quantity": 1,
+                    "price": {
+                        "amount": 19.95,
+                        "currency": "EUR"
+                    },
+                    "original_price": {
+                        "amount": 19.95,
+                        "currency": "EUR"
+                    }
+                },
+                {
+                    "sku": "ES122D0H3-Q11000S000",
+                    "quantity": 2,
+                    "price": {
+                        "amount": 25.45,
+                        "currency": "EUR"
+                    },
+                    "original_price": {
+                        "amount": 29.95,
+                        "currency": "EUR"
+                    }
+                }
+            ],
+            "items_out_of_stock": [],
+            "delivery": {
+                "earliest": "2018-10-06T11:41:39.879Z",
+                "latest": "2018-10-09T11:41:39.879Z"
+            },
+            "gross_total": {
+                "amount": 70.85,
+                "currency": "EUR"
+            },
+            "tax_total": {
+                "amount": 11.31,
+                "currency": "EUR"
+            }
+        }
+    ]
+}
