@@ -125,6 +125,22 @@ const CartResponse = createModel({
 });
 
 /**
+ * @class Class for Cart Response model
+ * @param {String} id - the response id.
+ * @param {ItemWithPrice} items - the items with price.
+ * @param {String} itemsOutOfStock - a list of items that are out of stock.
+ * @param {Delivery} delivery - the delivery information.
+ * @param {Price} grossTotal - the gross total.
+ * @param {Price} taxTotal - the tax total.
+ * @param {DiscountSchema} totalDiscount - the total discount.
+ * @constructor
+ */
+const CartsResponse = createModel({
+  id: { key: 'id', type: 'string' },
+  carts: { key: 'carts', type: 'object', model: CartResponse }
+});
+
+/**
  * @class Class for Checkout Request model
  * @param {String} id - the cart id.
  * @param {String} billingAddressId - the id of the billing address.
@@ -201,6 +217,6 @@ const CheckoutOrderRequest = createModel({
 });
 
 export {
-  CreateCartRequest, CartResponse, CreateCheckoutRequest, CheckoutResponse, PutCheckoutRequest,
-  CheckoutOrderResponse, CheckoutGetOrderResponses, CheckoutOrderRequest
+  CreateCartRequest, CartsResponse, CartResponse, CreateCheckoutRequest, CheckoutResponse,
+  PutCheckoutRequest, CheckoutOrderResponse, CheckoutGetOrderResponses, CheckoutOrderRequest
 };

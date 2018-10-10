@@ -2,10 +2,63 @@
 
 import test from 'ava';
 import {
-  CreateCartRequest, CartResponse, CreateCheckoutRequest, CheckoutResponse, PutCheckoutRequest,
-  CheckoutGetOrderResponses, CheckoutOrderRequest
+  CreateCartRequest, CartsResponse, CartResponse, CreateCheckoutRequest, CheckoutResponse,
+  PutCheckoutRequest, CheckoutGetOrderResponses, CheckoutOrderRequest
 }
   from '../checkout_service_models';
+
+test('CartsResponse should be initialized from JSON object', t => {
+  const json = {
+    id: '892d93b83aa31ccca47508c7564d1d4a256c838f2f652aa211c340728161d6ee',
+    carts: [{
+      id: '892d93b83aa31ccca47508c7564d1d4a256c838f2f652aa211c340728161d6ee',
+      items: [{
+        sku: 'SO254C009-K120043000',
+        quantity: 1,
+        price: {
+          amount: 19.95,
+          currency: 'EUR'
+        },
+        original_price: {
+          amount: 19.95,
+          currency: 'EUR'
+        }
+      }, {
+        sku: 'ES122D0H3-Q11000S000',
+        quantity: 2,
+        price: {
+          amount: 25.45,
+          currency: 'EUR'
+        },
+        original_price: {
+          amount: 29.95,
+          currency: 'EUR'
+        }
+      }],
+      items_out_of_stock: [],
+      delivery: {
+        earliest: '2018-10-06T11:41:39.879Z',
+        latest: '2018-10-09T11:41:39.879Z'
+      },
+      gross_total: {
+        amount: 70.85,
+        currency: 'EUR'
+      },
+      tax_total: {
+        amount: 11.31,
+        currency: 'EUR'
+      }
+    }]
+  };
+
+  const getCartsResponse = new CartsResponse(json);
+
+  t.is(getCartsResponse.id, '892d93b83aa31ccca47508c7564d1d4a256c838f2f652aa211c340728161d6ee');
+  t.is(getCartsResponse.carts[0].items[0].price.amount, 19.95);
+  t.is(getCartsResponse.carts[0].grossTotal.amount, 70.85);
+  t.is(getCartsResponse.carts[0].taxTotal.amount, 11.31);
+  t.is(getCartsResponse.carts[0].delivery.earliest, '2018-10-06T11:41:39.879Z');
+});
 
 test('CreateCartRequest should be initialized from JSON object', t => {
   const json = {
@@ -23,7 +76,6 @@ test('CreateCartRequest should be initialized from JSON object', t => {
   t.is(createCart.items[0].sku, 'ME142C002-Q110500000');
   t.is(createCart.items[0].quantity, 2);
 });
-
 
 test('CartResponse should be initialized from JSON object', t => {
   const json = {
