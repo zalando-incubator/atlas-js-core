@@ -3,6 +3,7 @@
   "items": [
     {
       "sku": "ME142C002-Q110500000",
+      "config_sku": "ME142C002-Q11",
       "quantity": 3,
       "price": {
         "amount": 99.95,
