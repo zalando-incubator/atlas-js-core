@@ -14,6 +14,7 @@ test('CartsResponse should be initialized from JSON object', t => {
       id: '892d93b83aa31ccca47508c7564d1d4a256c838f2f652aa211c340728161d6ee',
       items: [{
         sku: 'SO254C009-K120043000',
+        config_sku: 'SO254C009-K12',
         quantity: 1,
         price: {
           amount: 19.95,
@@ -25,6 +26,7 @@ test('CartsResponse should be initialized from JSON object', t => {
         }
       }, {
         sku: 'ES122D0H3-Q11000S000',
+        config_sku: 'ES122D0H3-Q11',
         quantity: 2,
         price: {
           amount: 25.45,
@@ -83,6 +85,7 @@ test('CartResponse should be initialized from JSON object', t => {
     items: [
       {
         sku: 'ME142C002-Q110500000',
+        config_sku: 'ME142C002-Q11',
         quantity: 3,
         price: {
           amount: 99.95,
