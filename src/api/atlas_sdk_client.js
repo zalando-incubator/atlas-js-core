@@ -440,6 +440,10 @@ class AtlasSDKClient {
    *      </li>
    *    </ul>
    *  </li>
+   *  <li>
+   *    {Object} <strong>filters</strong>: (Optional) receives filter type as key and its value can be
+   *    {Array} or {String} (default is {})
+   *  </li>
    * </ul>
    * For example
    * <pre>
@@ -449,6 +453,10 @@ class AtlasSDKClient {
    *  media: {
    *    cdn: 'mosaic02',
    *    image_resolutions: ['thumbnail', 'medium']
+   *  },
+   *  filters: {
+   *    brand_code: ['AN1],
+   *    filter_gender: 'FEMALE'
    *  }
    * }
    * </pre>
@@ -465,6 +473,10 @@ class AtlasSDKClient {
    *    media: {
    *      cdn: 'mosaic02',
    *      image_resolutions: ['thumbnail', 'medium']
+   *    },
+   *    filters: {
+   *      brand_code: ['AN1'],
+   *      filter_gender: 'FEMALE'
    *    }
    * });
    */
