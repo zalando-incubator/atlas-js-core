@@ -15,8 +15,7 @@ before_script:
 - npm prune
 script:
 - npm run validate
-- npm run production:build
-- npm audit
+- npm run release:production
 after_success:
 - npm run cover:report-coverage
 - npx travis-deploy-once "npx semantic-release"
