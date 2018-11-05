@@ -468,15 +468,25 @@ class AtlasSDKClient {
    *    }
    * });
    */
-  getRecommendations(sku, options = {
-    reco_id: '',
-    tracking_string: '',
-    type: ''
-  }) {
+  getRecommendations(sku, options) {
+    options = Object.assign({
+      reco_id: '',
+      tracking_string: '',
+      type: '',
+      filters: {}
+    }, options);
     const config = this.config;
     const catalogUrl = config.catalogApi.url;
     const type = options.type ? options.type : config.recommendations[0].type;
-    const url = `${catalogUrl}/articles/${sku}/recommendations/?client_id=${config.clientId}&anon_id=${options.reco_id}`; /* eslint max-len: 0 */
+    const filters = Object.keys(options.filters).reduce((previous, key) => {
+      // if the key is also an array -> convert it to string with ;
+      const val = Array.isArray(options.filters[key]) ? options.filters[key].join(';') : options.filters[key];
+
+      return `${previous}&filters=${key}:${val}`;
+    }, '');
+
+    const url = `${catalogUrl}/articles/${sku}/recommendations/?client_id=${config.clientId}&anon_id=${options.reco_id}${filters}`; /* eslint max-len: 0 */
+
     const GetRecommendationsEndpoint = {
       url: url,
       method: 'GET',
