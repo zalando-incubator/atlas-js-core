@@ -123,6 +123,12 @@ console.log(`Article name: ${article.name}`);
 <dt><a href="#Attribute">Attribute</a></dt>
 <dd><p>Class for Article Unit Attribute model.</p>
 </dd>
+<dt><a href="#EnrichmentAttribute">EnrichmentAttribute</a></dt>
+<dd><p>Class for Article Unit EnrichmentAttribute model.</p>
+</dd>
+<dt><a href="#TargetGroups">TargetGroups</a></dt>
+<dd><p>Class for TargetGroups model.</p>
+</dd>
 <dt><a href="#ArticleImage">ArticleImage</a></dt>
 <dd><p>Class for ArticleImage model.</p>
 </dd>
@@ -168,6 +174,9 @@ console.log(`Article name: ${article.name}`);
 <dt><a href="#Article">Article</a></dt>
 <dd><p>Class for Article model</p>
 </dd>
+<dt><a href="#ArticleFamily">ArticleFamily</a></dt>
+<dd><p>Class for ArticleFamily model</p>
+</dd>
 <dt><a href="#DiscountSchema">DiscountSchema</a></dt>
 <dd><p>Class for Discount model</p>
 </dd>
@@ -194,6 +203,9 @@ console.log(`Article name: ${article.name}`);
 </dd>
 <dt><a href="#CartResponse">CartResponse</a></dt>
 <dd><p>Class for Cart Response model</p>
+</dd>
+<dt><a href="#CartsResponse">CartsResponse</a></dt>
+<dd><p>Class for Carts Response model</p>
 </dd>
 <dt><a href="#CreateCheckoutRequest">CreateCheckoutRequest</a></dt>
 <dd><p>Class for Checkout Request model</p>
@@ -254,6 +266,14 @@ console.log(`Article name: ${article.name}`);
 </dd>
 </dl>
 
+## Constants
+
+<dl>
+<dt><a href="#configCache">configCache</a></dt>
+<dd><p>A temporary fix to handle the current high load capacity</p>
+</dd>
+</dl>
+
 <a name="module_AtlasSDK"></a>
 
 ## AtlasSDK
@@ -295,12 +315,15 @@ AtlasSDK instance returned from AtlasSDK configure method.
     * [.getCountryCode()](#AtlasSDKClient+getCountryCode) ⇒ <code>String</code>
     * [.getConfig()](#AtlasSDKClient+getConfig) ⇒ <code>Object</code>
     * [.getArticle(sku, [options])](#AtlasSDKClient+getArticle) ⇒ [<code>Article</code>](#Article)
+    * [.getArticles(skus, [options])](#AtlasSDKClient+getArticles) ⇒ [<code>Array.&lt;Article&gt;</code>](#Article)
+    * [.getArticleFamilies(sku, [options])](#AtlasSDKClient+getArticleFamilies) ⇒ [<code>Array.&lt;ArticleFamily&gt;</code>](#ArticleFamily)
     * [.getGuestCheckout(checkoutId, token)](#AtlasSDKClient+getGuestCheckout) ⇒ [<code>GetCheckoutResponse</code>](#GetCheckoutResponse)
     * [.createGuestOrder(checkoutId, token)](#AtlasSDKClient+createGuestOrder) ⇒ [<code>CreateOrderResponse</code>](#CreateOrderResponse)
     * [.getRecommendations(sku, [options])](#AtlasSDKClient+getRecommendations) ⇒ [<code>Array.&lt;RecommendedArticles&gt;</code>](#RecommendedArticles)
     * [.createGuestCheckout(json)](#AtlasSDKClient+createGuestCheckout) ⇒ [<code>CreateOrderRedirectResponse</code>](#CreateOrderRedirectResponse)
     * [.getCheckoutCustomer(token)](#AtlasSDKClient+getCheckoutCustomer) ⇒ [<code>CheckoutCustomer</code>](#CheckoutCustomer)
     * [.getCheckoutAddresses(token)](#AtlasSDKClient+getCheckoutAddresses) ⇒ <code>CheckoutAddress</code>
+    * [.getCheckoutCarts(token, headers)](#AtlasSDKClient+getCheckoutCarts) ⇒ [<code>CartsResponse</code>](#CartsResponse)
     * [.createCheckoutCart(json, token)](#AtlasSDKClient+createCheckoutCart) ⇒ [<code>CartResponse</code>](#CartResponse)
     * [.getCheckoutCart(cartId, token)](#AtlasSDKClient+getCheckoutCart) ⇒ [<code>CartResponse</code>](#CartResponse)
     * [.putCheckoutcart(json, cartId, token, headers)](#AtlasSDKClient+putCheckoutcart) ⇒ [<code>CartResponse</code>](#CartResponse)
@@ -370,6 +393,58 @@ const article = await sdk.getArticle('AD112B0F6-A11', {
      image_resolutions: ['thumbnail', 'medium']
    }
 });
+```
+<a name="AtlasSDKClient+getArticles"></a>
+
+### atlasSDKClient.getArticles(skus, [options]) ⇒ [<code>Array.&lt;Article&gt;</code>](#Article)
+Fetches multiple articles based on SKUs.
+
+**Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
+**Returns**: [<code>Array.&lt;Article&gt;</code>](#Article) - return [Article[]](Article[]) object  
+**Access**: public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| skus | <code>String</code> | comma separated SKUs of multiple articles |
+| [options] | <code>Object</code> | Configuration options: <ul>  <li>    <strong>media</strong>:    <ul>      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>      <li>        {Array} <strong>image_resolutions</strong>: request media image with the different resolutions        (default ['thumbnail', 'medium', 'large']):        <ul>          <li>'thumbnail' – width: 78px</li>          <li>'thumbnail_hd' – width: 76px</li>          <li>'small' – width: 135px</li>          <li>'small_hd' – width: 270px</li>          <li>'medium' – width: 300px, height: 400px</li>          <li>'medium_sd' – width: 480px</li>          <li>'medium_hd' – width: 600px, height: 800px</li>          <li>'large' – width: 1100px, height: 1100px</li>          <li>'large_hd' – height: 1650px</li>        </ul>      </li>    </ul>  </li> </ul> For example <pre> {  media: {    cdn: 'mosaic02',    image_resolutions: ['thumbnail', 'medium']  } } </pre> |
+
+**Example**  
+```js
+const sdk = await AtlasSDK.configure({
+  client_id: 'CLIENT_ID',
+  sales_channel: 'SALES_CHANNEL',
+  is_sandBox: true,
+  lang: 'en'
+});
+const articles = await sdk.getArticles('AD112B0F6-A11,SO254C009-K12', {
+   media: {
+     image_resolutions: ['thumbnail', 'medium']
+   }
+});
+```
+<a name="AtlasSDKClient+getArticleFamilies"></a>
+
+### atlasSDKClient.getArticleFamilies(sku, [options]) ⇒ [<code>Array.&lt;ArticleFamily&gt;</code>](#ArticleFamily)
+Fetches article families based on SKU.
+
+**Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
+**Returns**: [<code>Array.&lt;ArticleFamily&gt;</code>](#ArticleFamily) - return [ArticleFamily[]](ArticleFamily[]) object  
+**Access**: public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| sku | <code>String</code> | SKU of an article |
+| [options] | <code>Object</code> | Configuration options: <ul>  <li>    <strong>media</strong>:    <ul>      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>      <li>        {Array} <strong>image_resolutions</strong>: request media image with the different resolutions        (default ['thumbnail', 'medium', 'large']):        <ul>          <li>'thumbnail' – width: 78px</li>          <li>'thumbnail_hd' – width: 76px</li>          <li>'small' – width: 135px</li>          <li>'small_hd' – width: 270px</li>          <li>'medium' – width: 300px, height: 400px</li>          <li>'medium_sd' – width: 480px</li>          <li>'medium_hd' – width: 600px, height: 800px</li>          <li>'large' – width: 1100px, height: 1100px</li>          <li>'large_hd' – height: 1650px</li>        </ul>      </li>    </ul>  </li> </ul> For example <pre> {  media: {    cdn: 'mosaic02',    image_resolutions: ['thumbnail', 'medium']  } } </pre> |
+
+**Example**  
+```js
+const sdk = await AtlasSDK.configure({
+  client_id: 'CLIENT_ID',
+  sales_channel: 'SALES_CHANNEL',
+  is_sandBox: true,
+  lang: 'en'
+});
+const article = await sdk.getArticleFamilies('AD112B0F6-A11');
 ```
 <a name="AtlasSDKClient+getGuestCheckout"></a>
 
@@ -472,6 +547,19 @@ Parameters customer <strong>token</strong> needed to fetch customer object.
 | --- | --- | --- |
 | token | <code>String</code> | customer OAuth2 token |
 
+<a name="AtlasSDKClient+getCheckoutCarts"></a>
+
+### atlasSDKClient.getCheckoutCarts(token, headers) ⇒ [<code>CartsResponse</code>](#CartsResponse)
+Returns a customer's cart(s)
+
+**Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
+**Returns**: [<code>CartsResponse</code>](#CartsResponse) - - carts  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| token | <code>String</code> |  |
+| headers | <code>Object</code> | additional headers that will override the default ones |
+
 <a name="AtlasSDKClient+createCheckoutCart"></a>
 
 ### atlasSDKClient.createCheckoutCart(json, token) ⇒ [<code>CartResponse</code>](#CartResponse)
@@ -496,7 +584,7 @@ Returns a cart by id
 | Param | Type | Description |
 | --- | --- | --- |
 | cartId | <code>String</code> | cart ID to get |
-| token | <code>String</code> |
+| token | <code>String</code> |  |
 
 <a name="AtlasSDKClient+putCheckoutcart"></a>
 
@@ -510,7 +598,7 @@ Updates existing cart by id
 | --- | --- | --- |
 | json | [<code>CreateCartRequest</code>](#CreateCartRequest) | cart object to update a cart with |
 | cartId | <code>String</code> | id of the cart to be updated |
-| token | <code>String</code> |
+| token | <code>String</code> |  |
 | headers | <code>Object</code> | additional headers that will override the default ones |
 
 <a name="PickupPoint"></a>
@@ -680,12 +768,46 @@ Class for Article Unit Attribute model.
 **Kind**: global class  
 <a name="new_Attribute_new"></a>
 
-### new Attribute(name, values)
+### new Attribute(name, category, subCategory, values)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | name | <code>String</code> | name of attribute. |
+| category | <code>String</code> | category of attribute. |
+| subCategory | <code>String</code> | sub-category of attribute. |
 | values | <code>Array.&lt;String&gt;</code> | values of attribute. |
+
+<a name="EnrichmentAttribute"></a>
+
+## EnrichmentAttribute
+Class for Article Unit EnrichmentAttribute model.
+
+**Kind**: global class  
+<a name="new_EnrichmentAttribute_new"></a>
+
+### new EnrichmentAttribute(key, value)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| key | <code>String</code> | name of enrichment attribute. |
+| value | <code>Array.&lt;String&gt;</code> | values of enrichment attribute. |
+
+<a name="TargetGroups"></a>
+
+## TargetGroups
+Class for TargetGroups model.
+
+**Kind**: global class  
+<a name="new_TargetGroups_new"></a>
+
+### new TargetGroups(gender, age, domain, ageRange)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| gender | <code>Array.&lt;String&gt;</code> | The targeted gender group. Can be FEMALE or MALE. Unisex articles will have both. |
+| age | <code>Array.&lt;String&gt;</code> | The targeted age group. Current values are: ADULT, BABY, KID, TEEN |
+| domain | <code>Array.&lt;String&gt;</code> | The target domain. Can be: DEFAULT, GREEN, LIFESTYLE, MATERNITY, PREMIUM, OVERSIZE, SPORTS |
+| ageRange | <code>Array.&lt;String&gt;</code> | Current values: Under 20, 20-29, 30-39, 40-49, Over 50 |
 
 <a name="ArticleImage"></a>
 
@@ -744,11 +866,12 @@ Class for CartItem model
 **Kind**: global class  
 <a name="new_ItemWithPrice_new"></a>
 
-### new ItemWithPrice(sku, quantity, price)
+### new ItemWithPrice(sku, configSku, quantity, price)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | sku | <code>String</code> | SKU of item. |
+| configSku | <code>String</code> | Config SKU of the item. |
 | quantity | <code>Number</code> | Quantity of item. |
 | price | <code>Price</code> | pirce of the item |
 
@@ -932,21 +1055,42 @@ Class for Article model
 **Kind**: global class  
 <a name="new_Article_new"></a>
 
-### new Article(id, name, color, detailUrl, brand, units, images, videos, attributes, infos, review)
+### new Article(id, name, color, supplierColor, productGroup, detailUrl, brand, units, images, videos, attributes, enrichmentAttributes, targetGroups, infos, review)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | id of the article. |
 | name | <code>String</code> | name of the article. |
 | color | <code>String</code> | color of the article. |
+| supplierColor | <code>String</code> | color of the article from supplier. |
+| productGroup | <code>String</code> | product group of the article. |
 | detailUrl | <code>String</code> | product detail url of the article. |
 | brand | [<code>Brand</code>](#Brand) | brand of the article. |
 | units | [<code>Array.&lt;Unit&gt;</code>](#Unit) | size, price and stock availability from the article. |
 | images | [<code>Array.&lt;Image&gt;</code>](#Image) | Array of article images. |
 | videos | [<code>Array.&lt;Video&gt;</code>](#Video) | Array of article videos. |
 | attributes | [<code>Array.&lt;Attribute&gt;</code>](#Attribute) | characteristics of the article. |
+| enrichmentAttributes | <code>Array.&lt;EnrichmentAttributes&gt;</code> | variable generic attributes. |
+| targetGroups | [<code>TargetGroups</code>](#TargetGroups) | the targeted groups of the article. |
 | infos | <code>Array.&lt;String&gt;</code> | generic article description. |
 | review | [<code>Array.&lt;Reviews&gt;</code>](#Reviews) | article reviews. |
+
+<a name="ArticleFamily"></a>
+
+## ArticleFamily
+Class for ArticleFamily model
+
+**Kind**: global class  
+<a name="new_ArticleFamily_new"></a>
+
+### new ArticleFamily(id, color, supplierColor, images)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id | <code>String</code> | id of the article. |
+| color | <code>String</code> | color of the article. |
+| supplierColor | <code>String</code> | color of the article from supplier. |
+| images | [<code>Array.&lt;Image&gt;</code>](#Image) | Array of article images. |
 
 <a name="DiscountSchema"></a>
 
@@ -1107,6 +1251,21 @@ Class for Cart Response model
 | grossTotal | <code>Price</code> | the gross total. |
 | taxTotal | <code>Price</code> | the tax total. |
 | totalDiscount | [<code>DiscountSchema</code>](#DiscountSchema) | the total discount. |
+
+<a name="CartsResponse"></a>
+
+## CartsResponse
+Class for Carts Response model
+
+**Kind**: global class  
+<a name="new_CartsResponse_new"></a>
+
+### new CartsResponse(id, carts)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id | <code>String</code> | the response id. |
+| carts | [<code>Array.&lt;CartResponse&gt;</code>](#CartResponse) | the requested carts. |
 
 <a name="CreateCheckoutRequest"></a>
 
@@ -1462,6 +1621,12 @@ Class for Recommended Article model
 | images | [<code>Array.&lt;Image&gt;</code>](#Image) | Array of article images. |
 | videos | [<code>Array.&lt;Video&gt;</code>](#Video) | Array of article videos. |
 
+<a name="configCache"></a>
+
+## configCache
+A temporary fix to handle the current high load capacity
+
+**Kind**: global constant  
 
 ## Contact
 
