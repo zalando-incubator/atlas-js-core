@@ -142,12 +142,14 @@ const Item = createModel({
 /**
  * @class Class for CartItem model
  * @param {String} sku - SKU of item.
+ * @param {String} configSku - Config SKU of the item.
  * @param {Number} quantity - Quantity of item.
  * @param {Price} price - pirce of the item
  * @constructor
  */
 const ItemWithPrice = createModel({
   sku: { key: 'sku', type: 'string' },
+  configSku: { key: 'config_sku', type: 'string' },
   quantity: { key: 'quantity', type: 'number' },
   price: { key: 'price', type: 'object', model: Price },
   originalPrice: { key: 'original_price', type: 'object', model: Price }

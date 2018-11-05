@@ -6,6 +6,7 @@
             "items": [
                 {
                     "sku": "SO254C009-K120043000",
+                    "config_sku": "SO254C009-K12",
                     "quantity": 1,
                     "price": {
                         "amount": 19.95,
@@ -18,6 +19,7 @@
                 },
                 {
                     "sku": "ES122D0H3-Q11000S000",
+                    "config_sku": "ES122D0H3-Q11",
                     "quantity": 2,
                     "price": {
                         "amount": 25.45,

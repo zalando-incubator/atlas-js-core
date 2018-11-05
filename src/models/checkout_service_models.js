@@ -125,14 +125,9 @@ const CartResponse = createModel({
 });
 
 /**
- * @class Class for Cart Response model
+ * @class Class for Carts Response model
  * @param {String} id - the response id.
- * @param {ItemWithPrice} items - the items with price.
- * @param {String} itemsOutOfStock - a list of items that are out of stock.
- * @param {Delivery} delivery - the delivery information.
- * @param {Price} grossTotal - the gross total.
- * @param {Price} taxTotal - the tax total.
- * @param {DiscountSchema} totalDiscount - the total discount.
+ * @param {CartResponse[]} carts - the requested carts.
  * @constructor
  */
 const CartsResponse = createModel({
