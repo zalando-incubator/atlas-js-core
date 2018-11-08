@@ -70,7 +70,7 @@
     "babel-register": "^6.26.0",
     "chalk": "^2.3.0",
     "codecov": "^3.0.4",
-    "commitizen": "^2.10.1",
+    "commitizen": "^3.0.4",
     "conventional-changelog-angular": "^5.0.1",
     "cz-conventional-changelog": "^1.2.0",
     "eslint": "^4.10.0",
