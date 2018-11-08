@@ -420,6 +420,10 @@ class AtlasSDKClient {
    *    {String} <strong>tracking_string</strong>: (Optional) The first time you call recommendations it's empty. The response will have it then and then you use it for every further call.
    *  </li>
    *  <li>
+   *    {String} <strong>type</strong>: Defines what type of recommendations should be returned. Multiple reco_types can be requested at the same time.
+   *                                    In the result there will be no duplicate recommendations. Available values : similar, cross_sell, add_on, more_of_the_same_brand, personalized, most_popular, tag_enabled
+   *  </li>
+   *  <li>
    *    <strong>media</strong>:
    *    <ul>
    *      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>
@@ -441,8 +445,14 @@ class AtlasSDKClient {
    *    </ul>
    *  </li>
    *  <li>
-   *    {Object} <strong>filters</strong>: (Optional) receives filter type as key and its value can be
-   *    {Array} or {String} (default is {})
+   *    {Object} <strong>filters</strong>: (Optional) receives filter type as key and its value can be {Array} or {String} (default is {})
+   *    For example
+   *    <pre>
+   *    {
+   *      '-filter_gender': 'FEMALE',
+   *      'brand_code': ['AN1', 'N12', 'PU1'],
+   *    }
+   *    </pre>
    *  </li>
    * </ul>
    * For example
@@ -455,8 +465,8 @@ class AtlasSDKClient {
    *    image_resolutions: ['thumbnail', 'medium']
    *  },
    *  filters: {
-   *    brand_code: ['AN1],
-   *    filter_gender: 'FEMALE'
+   *    '-filter_gender': 'FEMALE'
+   *    'brand_code': ['AN1', 'N12', 'PU1'],
    *  }
    * }
    * </pre>
@@ -475,8 +485,8 @@ class AtlasSDKClient {
    *      image_resolutions: ['thumbnail', 'medium']
    *    },
    *    filters: {
-   *      brand_code: ['AN1'],
-   *      filter_gender: 'FEMALE'
+   *      '-filter_gender': 'FEMALE'
+   *      'brand_code': ['AN1', 'N12', 'PU1'],
    *    }
    * });
    */
