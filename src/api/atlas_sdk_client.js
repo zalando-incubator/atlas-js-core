@@ -420,6 +420,10 @@ class AtlasSDKClient {
    *    {String} <strong>tracking_string</strong>: (Optional) The first time you call recommendations it's empty. The response will have it then and then you use it for every further call.
    *  </li>
    *  <li>
+   *    {String} <strong>type</strong>: Defines what type of recommendations should be returned. Multiple reco_types can be requested at the same time.
+   *                                    In the result there will be no duplicate recommendations. Available values : similar, cross_sell, add_on, more_of_the_same_brand, personalized, most_popular, tag_enabled
+   *  </li>
+   *  <li>
    *    <strong>media</strong>:
    *    <ul>
    *      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>
@@ -440,6 +444,16 @@ class AtlasSDKClient {
    *      </li>
    *    </ul>
    *  </li>
+   *  <li>
+   *    {Object} <strong>filters</strong>: (Optional) receives filter type as key and its value can be {Array} or {String} (default is {})
+   *    For example
+   *    <pre>
+   *    {
+   *      '-filter_gender': 'FEMALE',
+   *      'brand_code': ['AN1', 'N12', 'PU1'],
+   *    }
+   *    </pre>
+   *  </li>
    * </ul>
    * For example
    * <pre>
@@ -449,6 +463,10 @@ class AtlasSDKClient {
    *  media: {
    *    cdn: 'mosaic02',
    *    image_resolutions: ['thumbnail', 'medium']
+   *  },
+   *  filters: {
+   *    '-filter_gender': 'FEMALE'
+   *    'brand_code': ['AN1', 'N12', 'PU1'],
    *  }
    * }
    * </pre>
@@ -465,18 +483,32 @@ class AtlasSDKClient {
    *    media: {
    *      cdn: 'mosaic02',
    *      image_resolutions: ['thumbnail', 'medium']
+   *    },
+   *    filters: {
+   *      '-filter_gender': 'FEMALE'
+   *      'brand_code': ['AN1', 'N12', 'PU1'],
    *    }
    * });
    */
-  getRecommendations(sku, options = {
-    reco_id: '',
-    tracking_string: '',
-    type: ''
-  }) {
+  getRecommendations(sku, options) {
+    options = Object.assign({
+      reco_id: '',
+      tracking_string: '',
+      type: '',
+      filters: {}
+    }, options);
     const config = this.config;
     const catalogUrl = config.catalogApi.url;
     const type = options.type ? options.type : config.recommendations[0].type;
-    const url = `${catalogUrl}/articles/${sku}/recommendations/?client_id=${config.clientId}&anon_id=${options.reco_id}`; /* eslint max-len: 0 */
+    const filters = Object.keys(options.filters).reduce((previous, key) => {
+      // if the key is also an array -> convert it to string with ;
+      const val = Array.isArray(options.filters[key]) ? options.filters[key].join(';') : options.filters[key];
+
+      return `${previous}&filters=${key}:${val}`;
+    }, '');
+
+    const url = `${catalogUrl}/articles/${sku}/recommendations/?client_id=${config.clientId}&anon_id=${options.reco_id}${filters}`; /* eslint max-len: 0 */
+
     const GetRecommendationsEndpoint = {
       url: url,
       method: 'GET',

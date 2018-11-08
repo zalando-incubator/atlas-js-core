@@ -487,7 +487,7 @@ Fetches recommendations for an article based on a SKU.
 | Param | Type | Description |
 | --- | --- | --- |
 | sku | <code>String</code> | SKU of an article |
-| [options] | <code>Object</code> | Configuration options: <ul>  <li>    {String} <strong>reco_id</strong>: UUID for recommendations API  </li>  <li>    {String} <strong>tracking_string</strong>: (Optional) The first time you call recommendations it's empty. The response will have it then and then you use it for every further call.  </li>  <li>    <strong>media</strong>:    <ul>      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>      <li>        {Array} <strong>image_resolutions</strong>: request media image with the different resolutions        (default ['thumbnail', 'medium', 'large']):        <ul>          <li>'thumbnail' – width: 78px</li>          <li>'thumbnail_hd' – width: 76px</li>          <li>'small' – width: 135px</li>          <li>'small_hd' – width: 270px</li>          <li>'medium' – width: 300px, height: 400px</li>          <li>'medium_sd' – width: 480px</li>          <li>'medium_hd' – width: 600px, height: 800px</li>          <li>'large' – width: 1100px, height: 1100px</li>          <li>'large_hd' – height: 1650px</li>        </ul>      </li>    </ul>  </li> </ul> For example <pre> {  reco_id: 'UUUID',  tracking_string: 'SOME_TRACKING_STRING',  media: {    cdn: 'mosaic02',    image_resolutions: ['thumbnail', 'medium']  } } </pre> |
+| [options] | <code>Object</code> | Configuration options: <ul>  <li>    {String} <strong>reco_id</strong>: UUID for recommendations API  </li>  <li>    {String} <strong>tracking_string</strong>: (Optional) The first time you call recommendations it's empty. The response will have it then and then you use it for every further call.  </li>  <li>    {String} <strong>type</strong>: Defines what type of recommendations should be returned. Multiple reco_types can be requested at the same time.                                    In the result there will be no duplicate recommendations. Available values : similar, cross_sell, add_on, more_of_the_same_brand, personalized, most_popular, tag_enabled  </li>  <li>    <strong>media</strong>:    <ul>      <li>{String} <strong>cdn</strong>: 'mosaic01' or 'mosaic02' (default is 'mosaic01')</li>      <li>        {Array} <strong>image_resolutions</strong>: request media image with the different resolutions        (default ['thumbnail', 'medium', 'large']):        <ul>          <li>'thumbnail' – width: 78px</li>          <li>'thumbnail_hd' – width: 76px</li>          <li>'small' – width: 135px</li>          <li>'small_hd' – width: 270px</li>          <li>'medium' – width: 300px, height: 400px</li>          <li>'medium_sd' – width: 480px</li>          <li>'medium_hd' – width: 600px, height: 800px</li>          <li>'large' – width: 1100px, height: 1100px</li>          <li>'large_hd' – height: 1650px</li>        </ul>      </li>    </ul>  </li>  <li>    {Object} <strong>filters</strong>: (Optional) receives filter type as key and its value can be {Array} or {String} (default is {})    For example    <pre>    {      '-filter_gender': 'FEMALE',      'brand_code': ['AN1', 'N12', 'PU1'],    }    </pre>  </li> </ul> For example <pre> {  reco_id: 'UUUID',  tracking_string: 'SOME_TRACKING_STRING',  media: {    cdn: 'mosaic02',    image_resolutions: ['thumbnail', 'medium']  },  filters: {    '-filter_gender': 'FEMALE'    'brand_code': ['AN1', 'N12', 'PU1'],  } } </pre> |
 
 **Example**  
 ```js
@@ -502,6 +502,10 @@ const recos = await sdk.getRecommendations('AD112B0F6-A11', {
    media: {
      cdn: 'mosaic02',
      image_resolutions: ['thumbnail', 'medium']
+   },
+   filters: {
+     '-filter_gender': 'FEMALE'
+     'brand_code': ['AN1', 'N12', 'PU1'],
    }
 });
 ```
