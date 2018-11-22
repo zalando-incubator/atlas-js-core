@@ -1,5 +1,10 @@
 import test from 'ava';
-import { CreateOrderRequest, CreateOrderResponse, CreateOrderRedirectResponse } from '../guest_checkout_models.js';
+import {
+  CreateOrderRequest,
+  CreateOrderResponse,
+  CreateOrderRedirectResponse,
+  GetCheckoutResponse
+} from '../guest_checkout_models.js';
 
 test('Should create CreateOrderRequest from JSON', t => {
   const json = {
@@ -107,6 +112,74 @@ test('Should create CreateOrderRedirectResponse from Location header', t => {
   const res = new CreateOrderRedirectResponse(json);
 
   t.is(res.redirectURL, 'redirect');
+});
+
+test('Should create GetCheckoutResponse from JSON', t => {
+  const json = {
+    cart: {
+      items: [{
+        sku: 'ME142C002-Q110500000',
+        quantity: 2
+      }],
+      items_out_of_stock: [
+        'ME142C002-Q110500001'
+      ],
+      gross_total: {
+        amount: 99.95,
+        currency: 'EUR'
+      },
+      tax_total: {
+        amount: 99.95,
+        currency: 'EUR'
+      }
+    },
+    billing_address: {
+      gender: 'MALE',
+      first_name: 'John',
+      last_name: 'Doe',
+      street: 'Mollstr. 1',
+      additional: 'EG',
+      zip: '10178',
+      city: 'Berlin',
+      country_code: 'DE'
+    },
+    shipping_address: {
+      gender: 'MALE',
+      first_name: 'John',
+      last_name: 'Doe',
+      street: 'Mollstr. 1',
+      additional: 'EG',
+      zip: '10178',
+      city: 'Berlin',
+      country_code: 'DE',
+      pickup_point: {
+        name: 'PACKSTATION',
+        id: '802',
+        member_id: '45685217'
+      }
+    },
+    payment: {
+      method: 'PREPAYMENT',
+      selection_page_url: 'http://pay.zalando.de/ae45f19'
+    },
+    delivery: {
+      service: 'STANDARD',
+      cost: {
+        amount: 3.5,
+        currency: 'EUR'
+      },
+      earliest: '2016-12-16T15:22:11.823Z',
+      latest: '2016-12-17T15:22:11.823Z',
+      options: [
+        'STANDARD',
+        'EXPRESS'
+      ]
+    }
+  };
+
+  const res = new GetCheckoutResponse(json);
+
+  t.truthy(res);
 });
 
 test('Should be JSON.stringify()', t => {
