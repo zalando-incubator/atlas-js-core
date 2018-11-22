@@ -19,8 +19,17 @@
     "ME142C002-Q110500001"
   ],
   "delivery": {
+    "service": "STANDARD",
+    "cost": {
+      "amount": 3.5,
+      "currency": "EUR"
+    },
     "earliest": "2015-04-21T13:27:31+01:00",
-    "latest": "2015-04-23T13:27:31+01:00"
+    "latest": "2015-04-23T13:27:31+01:00",
+    "options": [
+      "STANDARD",
+      "EXPRESS"
+    ]
   },
   "gross_total": {
     "amount": 99.95,

@@ -33,8 +33,17 @@
             ],
             "items_out_of_stock": [],
             "delivery": {
+                "service": "STANDARD",
+                "cost": {
+                  "amount": 3.5,
+                  "currency": "EUR"
+                },
                 "earliest": "2018-10-06T11:41:39.879Z",
-                "latest": "2018-10-09T11:41:39.879Z"
+                "latest": "2018-10-09T11:41:39.879Z",
+                "options": [
+                  "STANDARD",
+                  "EXPRESS"
+                ]
             },
             "gross_total": {
                 "amount": 70.85,

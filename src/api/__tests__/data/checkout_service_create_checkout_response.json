@@ -32,7 +32,7 @@
   "delivery": {
     "service": "STANDARD",
     "cost": {
-      "amount": 99.95,
+      "amount": 3.5,
       "currency": "EUR"
     },
     "earliest": "2015-04-21T13:27:31+01:00",

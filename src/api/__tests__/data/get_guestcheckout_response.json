@@ -38,10 +38,14 @@
   "delivery" : {
     "service" : "STANDARD",
     "cost" : {
-      "amount" : 0,
+      "amount" : 3.5,
       "currency" : "EUR"
     },
     "earliest" : "2016-12-16T15:22:11.823Z",
-    "latest" : "2016-12-17T15:22:11.823Z"
+    "latest" : "2016-12-17T15:22:11.823Z",
+    "options": [
+      "STANDARD",
+      "EXPRESS"
+    ]
   }
 }
