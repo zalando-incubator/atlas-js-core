@@ -169,18 +169,23 @@ const Payment = createModel({
 });
 
 /**
- * @class Class for Delivery model
+ * @class Class for Delivery model'
+* @param {String} service - the delivery service.
+ * @param {Price} cost - the delivery cost.
  * @param {String} earliest - Delivery earliest date.
  * @param {String} latest - Delivery latest date.
+ * @param {String[]} options - the delivery options.
  * @constructor
  */
-const DeliverySchema = {
+const Delivery = createModel({
+  service: { key: 'service', type: 'string' },
+  cost: { key: 'cost', type: 'object', model: Price },
   earliest: { key: 'earliest', type: 'string', optional: true },
-  latest: { key: 'latest', type: 'string', optional: true }
-};
-const Delivery = createModel(DeliverySchema);
+  latest: { key: 'latest', type: 'string' },
+  options: { key: 'options', type: 'string' }
+});
 
 export {
   Brand, Partner, Price, Unit, Attribute, EnrichmentAttribute, TargetGroups, ArticleImage,
-  Media, ItemWithPrice, Item, Payment, Delivery, DeliverySchema, PriceSchema
+  Media, ItemWithPrice, Item, Payment, Delivery, PriceSchema
 };

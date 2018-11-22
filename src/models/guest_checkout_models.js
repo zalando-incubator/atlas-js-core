@@ -1,5 +1,5 @@
 import createModel from './base_model';
-import { Price, Item, Payment, DeliverySchema } from './article_models';
+import { Price, Item, Payment, Delivery } from './article_models';
 import { GuestCustomer } from './customer_model';
 import { Address } from './address_models';
 import { OrderResponse } from './order_models';
@@ -7,8 +7,8 @@ import { OrderResponse } from './order_models';
 /**
 * Class for Cart model
 * @class Cart
-* @param {Item} items - Array of CartItem.
-* @param {CartItem} itemsOutOfStock - Array of CartItem which are out of stock.
+* @param {Item[]} items - Array of CartItem.
+* @param {String[]} itemsOutOfStock - Array of simple SKUs for CartItems which are out of stock.
 * @param {Price} grossTotal - Gross Total Price.
 * @param {Price} taxTotal - Tax Total Price.
 * @constructor
@@ -19,20 +19,6 @@ const Cart = createModel({
   grossTotal: { key: 'gross_total', type: 'object', model: Price },
   taxTotal: { key: 'tax_total', type: 'object', model: Price }
 });
-
-/**
- * @class Class for GuestDelivery model
- * @param {String} service - Service method (STANDARD, EXPRESS, ...)
- * @param {Price} cost - Cost of the delivery
- * @param {Delivery} delivery object
- * @constructor
- */
-const GuestDeliverySchema = {
-  service: { key: 'service', type: 'string' },
-  cost: { key: 'cost', type: 'object', model: Price }
-};
-
-const GuestDelivery = createModel(Object.assign({}, GuestDeliverySchema, DeliverySchema));
 
 /**
  * @class Class for CreateOrderRequest model
@@ -76,11 +62,11 @@ const CreateOrderRedirectResponse = createModel({
 
 /**
  * @class Class for GetCheckoutResponse model
- * @param {String} customerNumber - Customer Number.
  * @param {Cart} cart - Cart of Order.
  * @param {Address} billingAddress - Billing GuestAddress of Order.
  * @param {Address} shippingAddress - Shipping GuestAddress of Order.
  * @param {Payment} payment - Payment of Order.
+ * @param {Delivery} delivery - the delivery information.
  * @constructor
  */
 const GetCheckoutResponse = createModel({
@@ -88,9 +74,7 @@ const GetCheckoutResponse = createModel({
   billingAddress: { key: 'billing_address', type: 'object', model: Address },
   shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
   payment: { key: 'payment', type: 'object', model: Payment, optional: true },
-  grossTotal: { key: 'gross_total', type: 'object', model: Price },
-  taxTotal: { key: 'tax_total', type: 'object', model: Price },
-  delivery: { key: 'delivery', type: 'object', model: GuestDelivery }
+  delivery: { key: 'delivery', type: 'object', model: Delivery }
 });
 
 export {
