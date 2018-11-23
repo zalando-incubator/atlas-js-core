@@ -39,8 +39,17 @@ test('CartsResponse should be initialized from JSON object', t => {
       }],
       items_out_of_stock: [],
       delivery: {
+        service: 'STANDARD',
+        cost: {
+          amount: 3.5,
+          currency: 'EUR'
+        },
         earliest: '2018-10-06T11:41:39.879Z',
-        latest: '2018-10-09T11:41:39.879Z'
+        latest: '2018-10-09T11:41:39.879Z',
+        options: [
+          'STANDARD',
+          'EXPRESS'
+        ]
       },
       gross_total: {
         amount: 70.85,
@@ -59,6 +68,8 @@ test('CartsResponse should be initialized from JSON object', t => {
   t.is(getCartsResponse.carts[0].items[0].price.amount, 19.95);
   t.is(getCartsResponse.carts[0].grossTotal.amount, 70.85);
   t.is(getCartsResponse.carts[0].taxTotal.amount, 11.31);
+  t.is(getCartsResponse.carts[0].delivery.service, 'STANDARD');
+  t.is(getCartsResponse.carts[0].delivery.cost.amount, 3.5);
   t.is(getCartsResponse.carts[0].delivery.earliest, '2018-10-06T11:41:39.879Z');
 });
 
@@ -101,8 +112,17 @@ test('CartResponse should be initialized from JSON object', t => {
       'ME142C002-Q110500001'
     ],
     delivery: {
+      service: 'STANDARD',
+      cost: {
+        amount: 3.5,
+        currency: 'EUR'
+      },
       earliest: '2015-04-21T13:27:31+01:00',
-      latest: '2015-04-23T13:27:31+01:00'
+      latest: '2015-04-23T13:27:31+01:00',
+      options: [
+        'STANDARD',
+        'EXPRESS'
+      ]
     },
     gross_total: {
       amount: 99.95,
@@ -129,6 +149,8 @@ test('CartResponse should be initialized from JSON object', t => {
   t.is(createCartResponse.id, '1');
   t.is(createCartResponse.items[0].price.amount, 99.95);
   t.is(createCartResponse.itemsOutOfStock[0], 'ME142C002-Q110500001');
+  t.is(createCartResponse.delivery.service, 'STANDARD');
+  t.is(createCartResponse.delivery.cost.amount, 3.5);
   t.is(createCartResponse.delivery.earliest, '2015-04-21T13:27:31+01:00');
 });
 
@@ -217,13 +239,14 @@ test('CheckoutResponse is initialized from JSON object', t => {
     delivery: {
       service: 'STANDARD',
       cost: {
-        amount: 99.95,
+        amount: 3.5,
         currency: 'EUR'
       },
       earliest: '2015-04-21T13:27:31+01:00',
       latest: '2015-04-23T13:27:31+01:00',
       options: [
-        'STANDARD'
+        'STANDARD',
+        'EXPRESS'
       ]
     },
     coupon_details: [
@@ -270,9 +293,10 @@ test('CheckoutResponse is initialized from JSON object', t => {
   t.is(createCheckoutResponse.shippingAddress.id, '1');
   t.is(createCheckoutResponse.shippingAddress.gender, 'MALE');
   t.is(createCheckoutResponse.delivery.service, 'STANDARD');
-  t.is(createCheckoutResponse.delivery.cost.amount, 99.95);
+  t.is(createCheckoutResponse.delivery.cost.amount, 3.5);
   t.is(createCheckoutResponse.delivery.earliest, '2015-04-21T13:27:31+01:00');
   t.is(createCheckoutResponse.delivery.options[0], 'STANDARD');
+  t.is(createCheckoutResponse.delivery.options[1], 'EXPRESS');
   t.is(createCheckoutResponse.couponDetails[0].discount.gross.amount, 99.95);
   t.is(createCheckoutResponse.couponDetails[0].discount.remaining.amount, 99.95);
   t.is(createCheckoutResponse.payment.selected.method, 'CREDIT_CARD');

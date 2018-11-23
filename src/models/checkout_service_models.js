@@ -1,5 +1,5 @@
 import createModel from './base_model';
-import { Item, ItemWithPrice, Price, Delivery, DeliverySchema } from './article_models';
+import { Item, ItemWithPrice, Price, Delivery } from './article_models';
 import { Address } from './address_models';
 import { CheckoutApiOrderResponse, CheckoutOrder } from './order_models';
 
@@ -17,16 +17,15 @@ const DiscountSchema = {
 /**
  * @class Class for Checkout Discount model
  * @param {Price} remaining - remaining amount.
- * @param {Price} grossTotal - gross total of the discount.
- * @param {Price} taxTotal - tax total of the discount.
+ * @param {Price} gross - gross total of the discount.
+ * @param {Price} tax - tax total of the discount.
  * @constructor
  */
-const CheckoutCouponDiscountSchema = {
+const CheckoutCouponDiscount = createModel({
   remaining: { key: 'remaining', type: 'object', model: Price, optional: true },
-  gross: { key: 'gross', type: 'object', model: Price, optional: true }
-};
-
-const CheckoutCouponDiscount = createModel(Object.assign({}, CheckoutCouponDiscountSchema, DeliverySchema));
+  gross: { key: 'gross', type: 'object', model: Price, optional: true },
+  tax: { key: 'tax', type: 'object', model: Price, optional: true }
+});
 
 
 /**
@@ -46,23 +45,6 @@ const DeliveryRequest = createModel({
 const CreateCartRequest = createModel({
   items: { key: 'items', type: 'object', model: Item }
 });
-
-/**
- * @class Class for Checkout Delivery model
- * @param {String} service - the delivery service.
- * @param {Price} cost - the delivery cost.
- * @param {String} options - the delivery options.
- * @param {String} earliest - Delivery earliest date.
- * @param {String} latest - Delivery latest date.
- * @constructor
- */
-const CheckoutDeliverySchema = {
-  service: { key: 'service', type: 'string' },
-  cost: { key: 'cost', type: 'object', model: Price },
-  options: { key: 'options', type: 'string' }
-};
-
-const CheckoutDelivery = createModel(Object.assign({}, CheckoutDeliverySchema, DeliverySchema));
 
 /**
  * @class Class for Selected Payment model
@@ -163,7 +145,7 @@ const CreateCheckoutRequest = createModel({
  * @param {String} cartId - the id of the cart id.
  * @param {Address} billingAddress - the billing address.
  * @param {Address} shippingAddress - the shipping address.
- * @param {CheckoutDelivery} delivery - the delivery type.
+ * @param {Delivery} delivery - the delivery information.
  * @param {CheckoutCouponDetails} couponDetails - the coupon details.
  * @param {Payment} payment - the payment selection.
  * @constructor
@@ -174,7 +156,7 @@ const CheckoutResponse = createModel({
   cartId: { key: 'cart_id', type: 'string' },
   billingAddress: { key: 'billing_address', type: 'object', model: Address },
   shippingAddress: { key: 'shipping_address', type: 'object', model: Address },
-  delivery: { key: 'delivery', type: 'object', model: CheckoutDelivery },
+  delivery: { key: 'delivery', type: 'object', model: Delivery },
   couponDetails: { key: 'coupon_details', type: 'object', model: CheckoutCouponDetails, optional: true },
   payment: { key: 'payment', type: 'object', model: Payment }
 });

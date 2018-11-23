@@ -144,8 +144,8 @@ console.log(`Article name: ${article.name}`);
 <dt><a href="#Payment">Payment</a></dt>
 <dd><p>Class for Payment model</p>
 </dd>
-<dt><a href="#DeliverySchema">DeliverySchema</a></dt>
-<dd><p>Class for Delivery model</p>
+<dt><a href="#Delivery">Delivery</a></dt>
+<dd><p>Class for Delivery model&#39;</p>
 </dd>
 <dt><a href="#ReviewRatingDistribution">ReviewRatingDistribution</a></dt>
 <dd><p>Class for ReviewRatingDistribution.</p>
@@ -180,7 +180,7 @@ console.log(`Article name: ${article.name}`);
 <dt><a href="#DiscountSchema">DiscountSchema</a></dt>
 <dd><p>Class for Discount model</p>
 </dd>
-<dt><a href="#CheckoutCouponDiscountSchema">CheckoutCouponDiscountSchema</a></dt>
+<dt><a href="#CheckoutCouponDiscount">CheckoutCouponDiscount</a></dt>
 <dd><p>Class for Checkout Discount model</p>
 </dd>
 <dt><a href="#DeliveryRequest">DeliveryRequest</a></dt>
@@ -188,9 +188,6 @@ console.log(`Article name: ${article.name}`);
 </dd>
 <dt><a href="#CreateCartRequest">CreateCartRequest</a></dt>
 <dd><p>Class for Cart Request model</p>
-</dd>
-<dt><a href="#CheckoutDeliverySchema">CheckoutDeliverySchema</a></dt>
-<dd><p>Class for Checkout Delivery model</p>
 </dd>
 <dt><a href="#SelectedPayment">SelectedPayment</a></dt>
 <dd><p>Class for Selected Payment model</p>
@@ -236,9 +233,6 @@ console.log(`Article name: ${article.name}`);
 </dd>
 <dt><a href="#Cart">Cart</a></dt>
 <dd><p>Cart</p>
-</dd>
-<dt><a href="#GuestDeliverySchema">GuestDeliverySchema</a></dt>
-<dd><p>Class for GuestDelivery model</p>
 </dd>
 <dt><a href="#CreateOrderRequest">CreateOrderRequest</a></dt>
 <dd><p>Class for CreateOrderRequest model</p>
@@ -909,20 +903,23 @@ Class for Payment model
 | selected | [<code>SelectedPayment</code>](#SelectedPayment) | the selected payment. |
 | selectionPageUrl | <code>String</code> | URL of the payment selection page. |
 
-<a name="DeliverySchema"></a>
+<a name="Delivery"></a>
 
-## DeliverySchema
-Class for Delivery model
+## Delivery
+Class for Delivery model'
 
 **Kind**: global class  
-<a name="new_DeliverySchema_new"></a>
+<a name="new_Delivery_new"></a>
 
-### new DeliverySchema(earliest, latest)
+### new Delivery(service, cost, earliest, latest, options)
 
 | Param | Type | Description |
 | --- | --- | --- |
+| service | <code>String</code> | the delivery service. |
+| cost | <code>Price</code> | the delivery cost. |
 | earliest | <code>String</code> | Delivery earliest date. |
 | latest | <code>String</code> | Delivery latest date. |
+| options | <code>Array.&lt;String&gt;</code> | the delivery options. |
 
 <a name="ReviewRatingDistribution"></a>
 
@@ -1111,21 +1108,21 @@ Class for Discount model
 | grossTotal | <code>Price</code> | gross total of the discount. |
 | taxTotal | <code>Price</code> | tax total of the discount. |
 
-<a name="CheckoutCouponDiscountSchema"></a>
+<a name="CheckoutCouponDiscount"></a>
 
-## CheckoutCouponDiscountSchema
+## CheckoutCouponDiscount
 Class for Checkout Discount model
 
 **Kind**: global class  
-<a name="new_CheckoutCouponDiscountSchema_new"></a>
+<a name="new_CheckoutCouponDiscount_new"></a>
 
-### new CheckoutCouponDiscountSchema(remaining, grossTotal, taxTotal)
+### new CheckoutCouponDiscount(remaining, gross, tax)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | remaining | <code>Price</code> | remaining amount. |
-| grossTotal | <code>Price</code> | gross total of the discount. |
-| taxTotal | <code>Price</code> | tax total of the discount. |
+| gross | <code>Price</code> | gross total of the discount. |
+| tax | <code>Price</code> | tax total of the discount. |
 
 <a name="DeliveryRequest"></a>
 
@@ -1154,24 +1151,6 @@ Class for Cart Request model
 | Param | Type | Description |
 | --- | --- | --- |
 | items | <code>Items</code> | a list of items. |
-
-<a name="CheckoutDeliverySchema"></a>
-
-## CheckoutDeliverySchema
-Class for Checkout Delivery model
-
-**Kind**: global class  
-<a name="new_CheckoutDeliverySchema_new"></a>
-
-### new CheckoutDeliverySchema(service, cost, options, earliest, latest)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| service | <code>String</code> | the delivery service. |
-| cost | <code>Price</code> | the delivery cost. |
-| options | <code>String</code> | the delivery options. |
-| earliest | <code>String</code> | Delivery earliest date. |
-| latest | <code>String</code> | Delivery latest date. |
 
 <a name="SelectedPayment"></a>
 
@@ -1234,7 +1213,7 @@ Class for Checkout Coupon Details model
 | coupon | <code>String</code> | the coupon. |
 | warning | <code>String</code> | warnings regardings coupons. |
 | error | <code>String</code> | errors regardings coupons. |
-| discount | <code>CheckoutCouponDiscount</code> | the discount. |
+| discount | [<code>CheckoutCouponDiscount</code>](#CheckoutCouponDiscount) | the discount. |
 
 <a name="CartResponse"></a>
 
@@ -1251,7 +1230,7 @@ Class for Cart Response model
 | id | <code>String</code> | the response id. |
 | items | [<code>ItemWithPrice</code>](#ItemWithPrice) | the items with price. |
 | itemsOutOfStock | <code>String</code> | a list of items that are out of stock. |
-| delivery | <code>Delivery</code> | the delivery information. |
+| delivery | [<code>Delivery</code>](#Delivery) | the delivery information. |
 | grossTotal | <code>Price</code> | the gross total. |
 | taxTotal | <code>Price</code> | the tax total. |
 | totalDiscount | [<code>DiscountSchema</code>](#DiscountSchema) | the total discount. |
@@ -1308,7 +1287,7 @@ Class for Checkout Response model
 | cartId | <code>String</code> | the id of the cart id. |
 | billingAddress | <code>Address</code> | the billing address. |
 | shippingAddress | <code>Address</code> | the shipping address. |
-| delivery | <code>CheckoutDelivery</code> | the delivery type. |
+| delivery | [<code>Delivery</code>](#Delivery) | the delivery information. |
 | couponDetails | [<code>CheckoutCouponDetails</code>](#CheckoutCouponDetails) | the coupon details. |
 | payment | [<code>Payment</code>](#Payment) | the payment selection. |
 
@@ -1454,26 +1433,10 @@ Class for Cart model
 
 | Param | Type | Description |
 | --- | --- | --- |
-| items | [<code>Item</code>](#Item) | Array of CartItem. |
-| itemsOutOfStock | <code>CartItem</code> | Array of CartItem which are out of stock. |
+| items | [<code>Array.&lt;Item&gt;</code>](#Item) | Array of CartItem. |
+| itemsOutOfStock | <code>Array.&lt;String&gt;</code> | Array of simple SKUs for CartItems which are out of stock. |
 | grossTotal | <code>Price</code> | Gross Total Price. |
 | taxTotal | <code>Price</code> | Tax Total Price. |
-
-<a name="GuestDeliverySchema"></a>
-
-## GuestDeliverySchema
-Class for GuestDelivery model
-
-**Kind**: global class  
-<a name="new_GuestDeliverySchema_new"></a>
-
-### new GuestDeliverySchema(service, cost, delivery)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| service | <code>String</code> | Service method (STANDARD, EXPRESS, ...) |
-| cost | <code>Price</code> | Cost of the delivery |
-| delivery | <code>Delivery</code> | object |
 
 <a name="CreateOrderRequest"></a>
 
@@ -1536,15 +1499,15 @@ Class for GetCheckoutResponse model
 **Kind**: global class  
 <a name="new_GetCheckoutResponse_new"></a>
 
-### new GetCheckoutResponse(customerNumber, cart, billingAddress, shippingAddress, payment)
+### new GetCheckoutResponse(cart, billingAddress, shippingAddress, payment, delivery)
 
 | Param | Type | Description |
 | --- | --- | --- |
-| customerNumber | <code>String</code> | Customer Number. |
 | cart | [<code>Cart</code>](#Cart) | Cart of Order. |
 | billingAddress | <code>Address</code> | Billing GuestAddress of Order. |
 | shippingAddress | <code>Address</code> | Shipping GuestAddress of Order. |
 | payment | [<code>Payment</code>](#Payment) | Payment of Order. |
+| delivery | [<code>Delivery</code>](#Delivery) | the delivery information. |
 
 <a name="OrderResponse"></a>
 
