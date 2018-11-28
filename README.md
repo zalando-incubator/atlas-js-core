@@ -318,7 +318,7 @@ AtlasSDK instance returned from AtlasSDK configure method.
     * [.getCheckoutCustomer(token)](#AtlasSDKClient+getCheckoutCustomer) ⇒ [<code>CheckoutCustomer</code>](#CheckoutCustomer)
     * [.getCheckoutAddresses(token)](#AtlasSDKClient+getCheckoutAddresses) ⇒ <code>CheckoutAddress</code>
     * [.getCheckoutCarts(token, headers)](#AtlasSDKClient+getCheckoutCarts) ⇒ [<code>CartsResponse</code>](#CartsResponse)
-    * [.createCheckoutCart(json, token)](#AtlasSDKClient+createCheckoutCart) ⇒ [<code>CartResponse</code>](#CartResponse)
+    * [.createCheckoutCart(json, token, headers)](#AtlasSDKClient+createCheckoutCart) ⇒ [<code>CartResponse</code>](#CartResponse)
     * [.getCheckoutCart(cartId, token)](#AtlasSDKClient+getCheckoutCart) ⇒ [<code>CartResponse</code>](#CartResponse)
     * [.putCheckoutcart(json, cartId, token, headers)](#AtlasSDKClient+putCheckoutcart) ⇒ [<code>CartResponse</code>](#CartResponse)
 
@@ -560,7 +560,7 @@ Returns a customer's cart(s)
 
 <a name="AtlasSDKClient+createCheckoutCart"></a>
 
-### atlasSDKClient.createCheckoutCart(json, token) ⇒ [<code>CartResponse</code>](#CartResponse)
+### atlasSDKClient.createCheckoutCart(json, token, headers) ⇒ [<code>CartResponse</code>](#CartResponse)
 Creates Zalando customer cart
 
 **Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
@@ -570,6 +570,7 @@ Creates Zalando customer cart
 | --- | --- | --- |
 | json | [<code>CreateCartRequest</code>](#CreateCartRequest) | cart to create |
 | token | <code>String</code> | customer OAuth2 token |
+| headers | <code>Object</code> | additional headers that will override the default ones |
 
 <a name="AtlasSDKClient+getCheckoutCart"></a>
 
