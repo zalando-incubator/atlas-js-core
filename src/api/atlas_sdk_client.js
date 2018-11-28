@@ -734,20 +734,21 @@ class AtlasSDKClient {
    *
    * @param {CreateCartRequest} json - cart to create
    * @param {String} token - customer OAuth2 token
+   * @param {Object} headers - additional headers that will override the default ones
    * @return {CartResponse} - customer cart
    */
-  createCheckoutCart(json, token) {
+  createCheckoutCart(json, token, headers = {}) {
     const url = `${this.config.atlasCheckoutApi.url}/carts`;
 
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
-      headers: {
+      headers: Object.assign({
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/x.zalando.cart.create+json',
         Accept: 'application/x.zalando.cart.create.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
-      },
+      }, headers),
       body: json,
       transform: (response) => new CartResponse(response)
     };
