@@ -185,11 +185,37 @@ test('Should create cart successfully after configuring SDK', async t => {
       }
     ]
   };
-
   const cart = await sdk.createCheckoutCart(req);
 
   t.deepEqual(cart, new CartResponse(json));
+});
 
+test('Should create cart successfully after configuring SDK with options', async t => {
+  const sdk = await configureSDK();
+  const json = JSON.parse(
+    fs.readFileSync(path.join(__dirname, 'data/checkout_service_create_cart_response.json'), 'utf8'));
+
+  fetchMock.post('https://atlas-checkout-api.com/api/carts', json);
+
+
+  const req = {
+    items: [
+      {
+        sku: 'ME142C002-Q110500000',
+        quantity: 2
+      }
+    ]
+  };
+  const options = {
+    rawResponse: true
+  };
+
+  const cart = await sdk.createCheckoutCart(req, null, options);
+  const hasRawResponse = cart.hasOwnProperty('_response');
+
+  t.truthy(hasRawResponse);
+  delete cart._response;
+  t.deepEqual(cart, new CartResponse(json));
 });
 
 test('Should get cart successfully after configuring SDK', async t => {

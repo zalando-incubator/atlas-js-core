@@ -64,6 +64,13 @@ const checkRedirect = (response) => {
   return response;
 };
 
+
+/**
+ * Calls the given endpoint using fetch and intercepts the response
+ * via various operations
+ * @param {Object} endpoint endpoint object.
+ * @returns {Promise} Promise after resolving or rejecting the request.
+ */
 function fetchEndpoint(endpoint) {
   return fetch(endpoint.url, {
     method: endpoint.method,
@@ -75,11 +82,17 @@ function fetchEndpoint(endpoint) {
     .then(checkStatus)
     .then(checkRedirect)
     .then(response => {
-      return response.json();
+      return response.json().then(json => {
+        const transformedJson = endpoint.transform(json);
+
+        //  set raw response in body
+        if (endpoint.rawResponse) {
+          transformedJson._response = response;
+        }
+        return transformedJson;
+      });
     })
-    .then(response => {
-      return endpoint.transform(response);
-    }).catch(error => {
+    .catch(error => {
       error.response && error.response.headers && error.response.headers.set('Authorization', 'BEARER XXX');
       throw error;
     });
@@ -734,12 +747,15 @@ class AtlasSDKClient {
    *
    * @param {CreateCartRequest} json - cart to create
    * @param {String} token - customer OAuth2 token
-   * @param {Object} headers - additional headers that will override the default ones
+   * @param {Object} options - additional headers, rawResponse that will override the default ones
    * @return {CartResponse} - customer cart
    */
-  createCheckoutCart(json, token, headers = {}) {
+  createCheckoutCart(json, token, options) {
+    options = Object.assign({
+      headers: {},
+      rawResponse: false
+    }, options);
     const url = `${this.config.atlasCheckoutApi.url}/carts`;
-
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
@@ -748,9 +764,10 @@ class AtlasSDKClient {
         'Content-Type': 'application/x.zalando.cart.create+json',
         Accept: 'application/x.zalando.cart.create.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
-      }, headers),
+      }, options.headers),
       body: json,
-      transform: (response) => new CartResponse(response)
+      transform: (response) => new CartResponse(response),
+      rawResponse: options.rawResponse
     };
 
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
