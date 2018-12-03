@@ -268,6 +268,15 @@ console.log(`Article name: ${article.name}`);
 </dd>
 </dl>
 
+## Functions
+
+<dl>
+<dt><a href="#fetchEndpoint">fetchEndpoint(endpoint)</a> ⇒ <code>Promise</code></dt>
+<dd><p>Calls the given endpoint using fetch and intercepts the response
+via various operations</p>
+</dd>
+</dl>
+
 <a name="module_AtlasSDK"></a>
 
 ## AtlasSDK
@@ -1595,6 +1604,19 @@ Class for Recommended Article model
 A temporary fix to handle the current high load capacity
 
 **Kind**: global constant  
+<a name="fetchEndpoint"></a>
+
+## fetchEndpoint(endpoint) ⇒ <code>Promise</code>
+Calls the given endpoint using fetch and intercepts the response
+via various operations
+
+**Kind**: global function  
+**Returns**: <code>Promise</code> - Promise after resolving or rejecting the request.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| endpoint | <code>Object</code> | endpoint object. |
+
 
 ## Contact
 
