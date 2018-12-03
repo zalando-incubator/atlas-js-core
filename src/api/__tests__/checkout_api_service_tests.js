@@ -185,11 +185,12 @@ test('Should create cart successfully after configuring SDK', async t => {
       }
     ]
   };
-
   const cart = await sdk.createCheckoutCart(req);
+  const hasRawResponse = cart.hasOwnProperty('_response');
 
+  t.truthy(hasRawResponse);
+  delete cart._response;
   t.deepEqual(cart, new CartResponse(json));
-
 });
 
 test('Should get cart successfully after configuring SDK', async t => {

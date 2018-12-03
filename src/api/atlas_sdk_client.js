@@ -64,6 +64,13 @@ const checkRedirect = (response) => {
   return response;
 };
 
+
+/**
+ * Calls the given endpoint using fetch and intercepts the response
+ * via various operations
+ * @param {Object} endpoint endpoint object.
+ * @returns {Promise} Promise after resolving or rejecting the request.
+ */
 function fetchEndpoint(endpoint) {
   return fetch(endpoint.url, {
     method: endpoint.method,
@@ -75,11 +82,17 @@ function fetchEndpoint(endpoint) {
     .then(checkStatus)
     .then(checkRedirect)
     .then(response => {
-      return response.json();
+      return response.json().then(json => {
+        const transformedJson = endpoint.transform(json);
+
+        //  set raw response in body
+        if (endpoint.rawResponse) {
+          transformedJson._response = response;
+        }
+        return transformedJson;
+      });
     })
-    .then(response => {
-      return endpoint.transform(response);
-    }).catch(error => {
+    .catch(error => {
       error.response && error.response.headers && error.response.headers.set('Authorization', 'BEARER XXX');
       throw error;
     });
@@ -739,7 +752,6 @@ class AtlasSDKClient {
    */
   createCheckoutCart(json, token, headers = {}) {
     const url = `${this.config.atlasCheckoutApi.url}/carts`;
-
     const CheckoutEndpoint = {
       url: url,
       method: 'POST',
@@ -750,7 +762,8 @@ class AtlasSDKClient {
         'X-Sales-Channel': this.config.salesChannel
       }, headers),
       body: json,
-      transform: (response) => new CartResponse(response)
+      transform: (response) => new CartResponse(response),
+      rawResponse: true
     };
 
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
