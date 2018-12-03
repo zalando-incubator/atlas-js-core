@@ -747,10 +747,14 @@ class AtlasSDKClient {
    *
    * @param {CreateCartRequest} json - cart to create
    * @param {String} token - customer OAuth2 token
-   * @param {Object} headers - additional headers that will override the default ones
+   * @param {Object} options - additional headers, rawResponse that will override the default ones
    * @return {CartResponse} - customer cart
    */
-  createCheckoutCart(json, token, headers = {}) {
+  createCheckoutCart(json, token, options) {
+    options = Object.assign({
+      headers: {},
+      rawResponse: false
+    }, options);
     const url = `${this.config.atlasCheckoutApi.url}/carts`;
     const CheckoutEndpoint = {
       url: url,
@@ -760,10 +764,10 @@ class AtlasSDKClient {
         'Content-Type': 'application/x.zalando.cart.create+json',
         Accept: 'application/x.zalando.cart.create.response+json, application/x.problem+json',
         'X-Sales-Channel': this.config.salesChannel
-      }, headers),
+      }, options.headers),
       body: json,
       transform: (response) => new CartResponse(response),
-      rawResponse: true
+      rawResponse: options.rawResponse
     };
 
     return fetchEndpoint(CheckoutEndpoint).then(res => res);
