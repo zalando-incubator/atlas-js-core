@@ -1586,7 +1586,7 @@ Class for Recommended Article model
 **Kind**: global class  
 <a name="new_RecommendedArticles_new"></a>
 
-### new RecommendedArticles(id, tracking_string, name, lowestPrice, brand, images, videos)
+### new RecommendedArticles(id, tracking_string, name, lowestPrice, brand, images, videos, units)
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -1597,6 +1597,7 @@ Class for Recommended Article model
 | brand | [<code>Brand</code>](#Brand) | brand of article. |
 | images | [<code>Array.&lt;Image&gt;</code>](#Image) | Array of article images. |
 | videos | [<code>Array.&lt;Video&gt;</code>](#Video) | Array of article videos. |
+| units | [<code>Array.&lt;Unit&gt;</code>](#Unit) | Array of article units. |
 
 <a name="configCache"></a>
 
