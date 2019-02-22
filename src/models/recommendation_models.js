@@ -1,5 +1,5 @@
 import createModel from './base_model';
-import { Brand, Price, Image, Video } from './catalog_api_models';
+import { Brand, Price, Image, Video, Unit } from './article_models';
 
 /**
  * @class Class for Recommended Article model
@@ -10,6 +10,7 @@ import { Brand, Price, Image, Video } from './catalog_api_models';
  * @param {Brand} brand - brand of article.
  * @param {Image[]} images - Array of article images.
  * @param {Video[]} videos - Array of article videos.
+ * @param {Unit[]} units - Array of article units.
  * @constructor
  */
 const RecommendedArticles = createModel({
@@ -19,7 +20,8 @@ const RecommendedArticles = createModel({
   brand: { key: 'brand', type: 'object', model: Brand },
   lowestPrice: { key: 'lowest_price', type: 'object', model: Price },
   images: { key: 'images', type: 'object', model: Image, optional: true },
-  videos: { key: 'images', type: 'object', model: Video, optional: true }
+  videos: { key: 'images', type: 'object', model: Video, optional: true },
+  units: { key: 'units', type: 'object', model: Unit }
 });
 
 export { RecommendedArticles };

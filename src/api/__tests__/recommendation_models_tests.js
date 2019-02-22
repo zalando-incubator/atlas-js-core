@@ -47,6 +47,8 @@ test('Recommended articles should be initialized from JSON object', async t => {
   t.is(recommendedArticles[0].images[1].type, 'IMAGE');
   t.is(recommendedArticles[0].images[1].mediaCharacter, 'UNSPECIFIED');
   t.is(recommendedArticles[0].images[1].resolutions.large, imgURL);
+  t.is(recommendedArticles[0].units[0].id, 'AD111A0HE-A110035000');
+  t.is(recommendedArticles[0].units[0].price.amount, 99.95);
   t.falsy(recommendedArticles[recommendedArticles.length - 1].trackingString);
 });
 

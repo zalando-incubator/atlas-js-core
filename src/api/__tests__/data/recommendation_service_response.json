@@ -42,7 +42,34 @@
           "path" : "SO/25/4J/00/0C/00/SO254J000-C00@6.1.jpg",
           "media_character" : "UNSPECIFIED"
         } ]
-      }
+      },
+      "units": [
+        {
+          "id" : "AD111A0HE-A110035000",
+          "size" : "36",
+          "price" : {
+            "amount" : 99.95,
+            "currency" : "EUR"
+          },
+          "original_price" : {
+            "amount" : 99.95,
+            "currency" : "EUR"
+          },
+          "available" : true
+        }, {
+          "id" : "AD111A0HE-A110040000",
+          "size" : "36 2/3",
+          "price" : {
+            "amount" : 69.95,
+            "currency" : "EUR"
+          },
+          "original_price" : {
+            "amount" : 99.95,
+            "currency" : "EUR"
+          },
+          "available" : true
+        }
+      ]
     }, {
       "id" : "BU182F003-Q11",
       "name" : "6 PACK - Füßlinge - black",
@@ -63,6 +90,33 @@
           "path" : "BU/18/2F/00/3Q/11/BU182F003-Q11@3.jpg",
           "media_character" : "NON_MODEL"
         } ]
-      }
+      },
+      "units" : [
+        {
+          "id" : "AD111A0L6-A120035000",
+          "size" : "36",
+          "price" : {
+            "amount" : 79.95,
+            "currency" : "EUR"
+          },
+          "original_price" : {
+            "amount" : 99.95,
+            "currency" : "EUR"
+          },
+          "available" : true
+        }, {
+          "id" : "AD111A0L6-A120040000",
+          "size" : "36 2/3",
+          "price" : {
+            "amount" : 79.95,
+            "currency" : "EUR"
+          },
+          "original_price" : {
+            "amount" : 99.95,
+            "currency" : "EUR"
+          },
+          "available" : true
+        }
+      ]
     }]
 }
