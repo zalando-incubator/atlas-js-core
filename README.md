@@ -40,6 +40,7 @@ In order to start SDK development simply run
 ```bash
 npm run tdd
 ```
+Update version in `package.json` before merging to master according to semantic release standards. 
 
 Check existing codebase tests for test examples.
 
