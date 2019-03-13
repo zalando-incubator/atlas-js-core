@@ -530,7 +530,7 @@ class AtlasSDKClient {
         Accept: 'application/x.zalando.article.recommendation+json, application/x.problem+json',
         'X-Sales-Channel': config.salesChannel,
         'X-UID': config.clientId,
-        'X-Reco-Location': config.recommendations[0].location,
+        'X-Reco-Location': options.reco_location || config.recommendations[0].location,
         'X-Reco-Type': type,
         'X-Channel': config.recommendations[0].channel,
         'X-Tracking-String': options.tracking_string
