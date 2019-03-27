@@ -436,6 +436,9 @@ class AtlasSDKClient {
    *    {String} <strong>type</strong>: Defines what type of recommendations should be returned. Multiple reco_types can be requested at the same time.
    *                                    In the result there will be no duplicate recommendations. Available values : similar, cross_sell, add_on, more_of_the_same_brand, personalized, most_popular, tag_enabled
    *  </li>
+   * <li>
+   *    {String} <strong>reco_location</strong>: (Optional) Defines which reco location should be used. If not specified, it falls back to the one defined in the config
+   *  </li>
    *  <li>
    *    <strong>media</strong>:
    *    <ul>
@@ -473,6 +476,7 @@ class AtlasSDKClient {
    * {
    *  reco_id: 'UUUID',
    *  tracking_string: 'SOME_TRACKING_STRING',
+   *  reco_location: 'some_reco_location',
    *  media: {
    *    cdn: 'mosaic02',
    *    image_resolutions: ['thumbnail', 'medium']
@@ -530,7 +534,7 @@ class AtlasSDKClient {
         Accept: 'application/x.zalando.article.recommendation+json, application/x.problem+json',
         'X-Sales-Channel': config.salesChannel,
         'X-UID': config.clientId,
-        'X-Reco-Location': config.recommendations[0].location,
+        'X-Reco-Location': options.reco_location || config.recommendations[0].location,
         'X-Reco-Type': type,
         'X-Channel': config.recommendations[0].channel,
         'X-Tracking-String': options.tracking_string
