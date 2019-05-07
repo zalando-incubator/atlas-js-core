@@ -35,6 +35,7 @@ const Video = createModel({
  * @param {String} id - id of the article.
  * @param {String} name - name of the article.
  * @param {String} color - color of the article.
+ * @param {String} silhouetteCode - silhouette code of the article.
  * @param {String} supplierColor - color of the article from supplier.
  * @param {String} productGroup - product group of the article.
  * @param {String} detailUrl - product detail url of the article.
@@ -53,6 +54,7 @@ const Article = createModel({
   id: { key: 'id', type: 'string' },
   name: { key: 'name', type: 'string' },
   color: { key: 'color', type: 'string' },
+  silhouetteCode: { key: 'silhouette_code', type: 'string', optional: true },
   supplierColor: { key: 'supplier_color', type: 'string', optional: true },
   productGroup: { key: 'product_group', type: 'string', optional: true },
   detailUrl: { key: 'detail_url', type: 'string', optional: true },
