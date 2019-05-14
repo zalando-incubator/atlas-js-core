@@ -1,5 +1,6 @@
 import createModel from './base_model';
-import { Brand, Price, Image, Video, Unit } from './article_models';
+import { Brand, Price, Unit } from './article_models';
+import { Image, Video } from './catalog_api_models';
 
 /**
  * @class Class for Recommended Article model

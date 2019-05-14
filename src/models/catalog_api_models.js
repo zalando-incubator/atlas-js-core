@@ -26,7 +26,7 @@ const Image = createModel({
 const Video = createModel({
   type: { key: 'type', type: 'string' },
   mediaCharacter: { key: 'mediaCharacter', type: 'string' },
-  url: { key: 'url', type: 'string' }
+  url: { key: 'url', type: 'string', optional: true }
 });
 
 
@@ -82,4 +82,4 @@ const ArticleFamily = createModel({
   images: { key: 'images', type: 'object', model: Image, optional: true }
 });
 
-export { Article, ArticleFamily };
+export { Article, ArticleFamily, Image, Video };
