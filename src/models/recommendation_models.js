@@ -13,7 +13,7 @@ import { Brand, Price, Image, Video, Unit } from './article_models';
  * @param {Unit[]} units - Array of article units.
  * @constructor
  */
-const RecommendedArticles = createModel({
+const RecommendedArticle = createModel({
   id: { key: 'id', type: 'string' },
   trackingString: { key: 'tracking_string', type: 'string', optional: true },
   name: { key: 'name', type: 'string' },
@@ -24,4 +24,4 @@ const RecommendedArticles = createModel({
   units: { key: 'units', type: 'object', model: Unit }
 });
 
-export { RecommendedArticles };
+export { RecommendedArticle };
