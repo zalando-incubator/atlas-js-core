@@ -3,6 +3,10 @@
         {
             "id": "AN621D0BX-K11",
             "color": "dunkelblau",
+            "lowest_price" : {
+                "amount" : 19.99,
+                "currency" : "EUR"
+            },
             "media": {
                 "media_items": [
                     {
@@ -36,6 +40,10 @@
         {
             "id": "AN621D0BX-Q11",
             "color": "schwarz",
+            "lowest_price" : {
+                "amount" : 19.99,
+                "currency" : "EUR"
+            },
             "media": {
                 "media_items": [
                     {

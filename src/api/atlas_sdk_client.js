@@ -461,9 +461,6 @@ class AtlasSDKClient {
    *    </ul>
    *  </li>
    *  <li>
-   *    {String} <strong>productGroup</strong>: (Optional) The name of the general article group
-   *  </li>
-   *  <li>
    *    {Object} <strong>filters</strong>: (Optional) receives filter type as key and its value can be {Array} or {String} (default is {})
    *    For example
    *    <pre>
@@ -490,7 +487,7 @@ class AtlasSDKClient {
    *  }
    * }
    * </pre>
-   * @return {Array<RecommendedArticle>} return array of {@link RecommendedArticle} objects
+   * @return {Array<RecommendedArticle>} return array of {@link RecommendedArticle[]} objects
    * @example
    * const sdk = await AtlasSDK.configure({
    *   client_id: 'CLIENT_ID',
