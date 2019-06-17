@@ -33,7 +33,7 @@ const Image = createModel({
 const Video = createModel({
   type: { key: 'type', type: 'string' },
   mediaCharacter: { key: 'mediaCharacter', type: 'string' },
-  url: { key: 'url', type: 'string', optional: true }
+  url: { key: 'url', type: 'string' }
 });
 
 
