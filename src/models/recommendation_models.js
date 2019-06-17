@@ -21,7 +21,7 @@ const RecommendedArticle = createModel({
   brand: { key: 'brand', type: 'object', model: Brand },
   lowestPrice: { key: 'lowest_price', type: 'object', model: Price },
   images: { key: 'images', type: 'object', model: Image, optional: true },
-  videos: { key: 'images', type: 'object', model: Video, optional: true },
+  videos: { key: 'videos', type: 'object', model: Video, optional: true },
   units: { key: 'units', type: 'object', model: Unit },
   productGroup: { key: 'product_group', type: 'string', optional: true }
 });
