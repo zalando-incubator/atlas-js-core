@@ -34,20 +34,14 @@ test('RecommendedArticle should be initialized from JSON object', t => {
     ],
     videos: [
       {
-        type: 'IMAGE',
+        type: 'VIDEO_HD',
         mediaCharacter: 'NON_MODEL',
-        resolutions: {
-          medium: 'https://mosaic01.ztat.net/vgs/media/detail/IC/14/1D/00/LA/11/IC141D00L-A11@8.jpg',
-          medium_hd: 'https://mosaic01.ztat.net/vgs/media/detail_hd/IC/14/1D/00/LA/11/IC141D00L-A11@8.jpg'
-        }
+        url: 'https://mosaic01.ztat.net/vgs/IC/14/1D/00/LA/11/IC141D00L-A11@8.jpg'
       },
       {
-        type: 'IMAGE',
+        type: 'VIDEO_LOW',
         mediaCharacter: 'STYLE',
-        resolutions: {
-          medium: 'https://mosaic01.ztat.net/vgs/media/detail/IC/14/1D/00/LA/11/IC141D00L-A11@7.jpg',
-          medium_hd: 'https://mosaic01.ztat.net/vgs/media/detail_hd/IC/14/1D/00/LA/11/IC141D00L-A11@7.jpg'
-        }
+        url: 'https://mosaic01.ztat.net/vgs/IC/14/1D/00/LA/11/IC141D00L-A11@7.jpg'
       }
     ],
     units: [
@@ -95,9 +89,9 @@ test('RecommendedArticle should be initialized from JSON object', t => {
   t.is(recommendedArticle.images[1].type, 'IMAGE');
   t.is(recommendedArticle.images[1].mediaCharacter, 'STYLE');
   t.is(recommendedArticle.images[1].resolutions.medium_hd, json.images[1].resolutions.medium_hd);
-  t.is(recommendedArticle.videos[0].type, 'IMAGE');
+  t.is(recommendedArticle.videos[0].type, 'VIDEO_HD');
   t.is(recommendedArticle.videos[0].mediaCharacter, 'NON_MODEL');
-  t.is(recommendedArticle.videos[1].type, 'IMAGE');
+  t.is(recommendedArticle.videos[1].type, 'VIDEO_LOW');
   t.is(recommendedArticle.videos[1].mediaCharacter, 'STYLE');
   t.is(recommendedArticle.units[0].id, 'IC141D00L-A11000S000');
   t.is(recommendedArticle.units[0].price.amount, 17.95);
