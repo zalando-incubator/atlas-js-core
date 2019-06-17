@@ -4,6 +4,7 @@
       "id": "AD112B0F6-A11",
       "name": "LOS ANGELES - Trainers - white",
       "color": "Orange",
+      "silhouette_code": "sneaker",
       "brand": {
         "name": "Adidas"
       },
@@ -182,6 +183,7 @@
       "id": "SO254C009-K12",
       "name": "8 PACK - Socken - stone mix",
       "color": "blau",
+      "silhouette_code": "stocking",
       "brand": {
         "name": "s.Oliver"
       },

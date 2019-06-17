@@ -3,7 +3,7 @@ import test from 'ava';
 import { GuestCustomer, CheckoutCustomer } from '../customer_model.js';
 
 
-test('Checkout customer should be initialized from JSON object', t => {
+test('Checkout guest customer should be initialized from JSON object', t => {
   const json = {
     email: 'john.doe@example.com',
     subscribe_newsletter: true
