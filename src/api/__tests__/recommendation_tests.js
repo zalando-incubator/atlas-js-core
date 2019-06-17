@@ -13,7 +13,7 @@ const recommendedBrandFilteredJSON = fs.readFileSync(path.join(__dirname,
   'data/recommendation_service_response_for_brand_filter.json'), 'utf8');
 const configJson = fs.readFileSync(path.join(__dirname, 'data/config_service_response.json'), 'utf8');
 
-test('Recommended articles should be initialized from JSON object', async t => {
+test('Should fetch article recommendations successfully', async t => {
   fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', configJson);
 
   const url = 'https://catalog_api.com/api/articles/AD112B0F6-A11/recommendations/?client_id=CLIENT_ID&anon_id=1234';
@@ -50,9 +50,10 @@ test('Recommended articles should be initialized from JSON object', async t => {
   t.is(recommendedArticles[0].units[0].id, 'AD111A0HE-A110035000');
   t.is(recommendedArticles[0].units[0].price.amount, 99.95);
   t.falsy(recommendedArticles[recommendedArticles.length - 1].trackingString);
+  t.is(recommendedArticles[1].productGroup, 'underwear');
 });
 
-test('Recommended same brand articles should be initialized from JSON object', async t => {
+test('Should fetch article\'s same brand recommendations successfully', async t => {
   fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', configJson);
 
   const url = 'https://catalog_api.com/api/articles/AD112B0F6-A11/recommendations/?client_id=CLIENT_ID&anon_id=12345';
@@ -90,7 +91,7 @@ test('Recommended same brand articles should be initialized from JSON object', a
   t.falsy(recommendedArticles[recommendedArticles.length - 1].trackingString);
 });
 
-test('Recommended cross sell articles with brand code filter should be initialized from JSON object', async t => {
+test('Should fetch article\'s cross sell recommendations with brand code filter', async t => {
   fetchMock.get('https://atlas-config-api.dc.zalan.do/api/config/CLIENT_ID-staging.json', configJson);
 
   const url = 'https://catalog_api.com/api/articles/AD112B0F6-A11/recommendations/?client_id=CLIENT_ID&anon_id=12345&filters=brand_code:BRAND1;BRAND2'; /* eslint max-len: 0 */
@@ -127,5 +128,6 @@ test('Recommended cross sell articles with brand code filter should be initializ
   t.is(recommendedArticles[0].images[1].type, 'IMAGE');
   t.is(recommendedArticles[0].images[1].mediaCharacter, 'UNSPECIFIED');
   t.is(recommendedArticles[0].images[1].resolutions.large, imgURL);
+  t.is(recommendedArticles[0].productGroup, 'underwear');
 });
 

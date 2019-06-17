@@ -69,7 +69,8 @@
           },
           "available" : true
         }
-      ]
+      ],
+      "product_group": "underwear"
     }, {
       "id" : "BU182F003-Q11",
       "name" : "6 PACK - Füßlinge - black",
@@ -117,6 +118,7 @@
           },
           "available" : true
         }
-      ]
+      ],
+      "product_group": "underwear"
     }]
 }

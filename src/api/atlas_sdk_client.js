@@ -7,7 +7,7 @@ import {
   GetCheckoutResponse
 } from '../models/guest_checkout_models';
 
-import { RecommendedArticles } from '../models/recommendation_models';
+import { RecommendedArticle } from '../models/recommendation_models';
 import { CheckoutCustomer } from '../models/customer_model';
 import { CheckoutAddress, CheckedAddress } from '../models/address_models';
 import {
@@ -487,7 +487,7 @@ class AtlasSDKClient {
    *  }
    * }
    * </pre>
-   * @return {Array<RecommendedArticles>} return array of {@link RecommendedArticles} objects
+   * @return {Array<RecommendedArticle>} return array of {@link RecommendedArticle[]} objects
    * @example
    * const sdk = await AtlasSDK.configure({
    *   client_id: 'CLIENT_ID',
@@ -545,7 +545,7 @@ class AtlasSDKClient {
         response[type].forEach(articleJson => {
           const json = mediaTransform(articleJson, options);
 
-          result.push(new RecommendedArticles(json));
+          result.push(new RecommendedArticle(json));
         });
         return result;
       }
