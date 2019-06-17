@@ -1073,6 +1073,7 @@ Class for Article model
 | id | <code>String</code> | id of the article. |
 | name | <code>String</code> | name of the article. |
 | color | <code>String</code> | color of the article. |
+| silhouetteCode | <code>String</code> | silhouette code of the article. |
 | supplierColor | <code>String</code> | color of the article from supplier. |
 | productGroup | <code>String</code> | product group of the article. |
 | detailUrl | <code>String</code> | product detail url of the article. |
