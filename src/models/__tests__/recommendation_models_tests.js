@@ -99,3 +99,58 @@ test('RecommendedArticle should be initialized from JSON object', t => {
   t.is(recommendedArticle.productGroup, 'clothing');
 
 });
+
+
+test('RecommendedArticle should be initialized from JSON object with optional fields removed', t => {
+  const json = {
+    id: 'IC141D00L-A11',
+    name: 'KASSIDY - Poloshirt - weiß',
+    brand: {
+      name: 'Icepeak'
+    },
+    lowest_price: {
+      amount: 17.95,
+      currency: 'EUR'
+    },
+    units: [
+      {
+        id: 'IC141D00L-A11000S000',
+        size: 'S',
+        price: {
+          amount: 17.95,
+          currency: 'EUR'
+        },
+        original_price: {
+          amount: 17.95,
+          currency: 'EUR'
+        },
+        available: true
+      },
+      {
+        id: 'IC141D00L-A11000M000',
+        size: 'M',
+        price: {
+          amount: 17.95,
+          currency: 'EUR'
+        },
+        original_price: {
+          amount: 17.95,
+          currency: 'EUR'
+        },
+        available: true
+      }
+    ]
+  };
+
+  const recommendedArticle = new RecommendedArticle(json);
+
+  t.is(recommendedArticle.id, 'IC141D00L-A11');
+  t.is(recommendedArticle.brand.name, 'Icepeak');
+  t.is(recommendedArticle.name, 'KASSIDY - Poloshirt - weiß');
+  t.is(recommendedArticle.lowestPrice.amount, 17.95);
+  t.is(recommendedArticle.lowestPrice.currency, 'EUR');
+  t.is(recommendedArticle.units[0].id, 'IC141D00L-A11000S000');
+  t.is(recommendedArticle.units[0].price.amount, 17.95);
+  t.is(recommendedArticle.units[0].originalPrice.amount, 17.95);
+
+});
