@@ -112,7 +112,8 @@
         "build",
         "ci",
         "chore",
-        "revert"
+        "revert",
+        "update"
       ],
       "scope": {
         "required": true,
