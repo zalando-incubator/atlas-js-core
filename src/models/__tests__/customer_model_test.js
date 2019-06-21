@@ -19,6 +19,7 @@ test('Checkout guest customer should be initialized from JSON object', t => {
 test('Checkout customer should be initialized from JSON object', t => {
   const json = {
     customer_number: '1',
+    customer_hash: 'c4ca4238a0b923820dcc509a6f75849b',
     gender: 'MALE',
     first_name: 'John',
     last_name: 'Doe',
@@ -28,6 +29,7 @@ test('Checkout customer should be initialized from JSON object', t => {
   const customer = new CheckoutCustomer(json);
 
   t.is(customer.customerNumber, '1');
+  t.is(customer.customerHash, 'c4ca4238a0b923820dcc509a6f75849b');
   t.is(customer.gender, 'MALE');
   t.is(customer.firstName, 'John');
   t.is(customer.lastName, 'Doe');
