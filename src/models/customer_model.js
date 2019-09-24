@@ -14,6 +14,7 @@ const GuestCustomer = createModel({
 /**
  * @class Class for Guest Customer model
  * @param {String} customerNumber - the customer number.
+ * @param {String} customerHash - the customer hash.
  * @param {String} gender - the gender.
  * @param {String} firstName - the first name.
  * @param {String} lastName - the last name.
@@ -22,6 +23,7 @@ const GuestCustomer = createModel({
  */
 const CheckoutCustomer = createModel({
   customerNumber: { key: 'customer_number', type: 'string' },
+  customerHash: { key: 'customer_hash', type: 'string' },
   gender: { key: 'gender', type: 'string' },
   firstName: { key: 'first_name', type: 'string' },
   lastName: { key: 'last_name', type: 'string' },

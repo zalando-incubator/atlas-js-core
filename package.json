@@ -1,6 +1,6 @@
 {
   "name": "atlas-sdk-core",
-  "version": "4.13.0",
+  "version": "4.17.0",
   "description": "Atlas JavaScript SDK Core for Zalando Checkout, Guest Checkout, and Catalog APIs.",
   "main": "lib/index.node.js",
   "browser": "lib/index.js",
@@ -30,7 +30,7 @@
     "cover": "./node_modules/.bin/nyc --reporter lcov --reporter text npm run test",
     "cover:check": "./node_modules/.bin/nyc check-coverage",
     "cover:report-coverage": "npm run cover && cat ./coverage/lcov.info | ./node_modules/.bin/codecov",
-    "test": "FORCE_COLOR=t ./node_modules/.bin/ava --verbose | tap-notify | tap-diff",
+    "test": "FORCE_COLOR=t ./node_modules/.bin/ava --verbose src/**/__tests__/*.js | tap-notify | tap-diff",
     "tdd": "./node_modules/.bin/ava --watch",
     "validate": "npm run lint && npm test",
     "prepare:release": "npm run validate && npm run production:build && npm audit",
@@ -55,16 +55,19 @@
     }
   ],
   "dependencies": {
-    "isomorphic-fetch": "2.2.1"
+    "isomorphic-fetch": "2.2.1",
+    "uglifyjs-webpack-plugin": "^1.0.0"
   },
   "devDependencies": {
-    "@ava/babel-preset-stage-4": "^1.0.0",
-    "ava": "^0.25.0",
+    "@ava/babel-preset-stage-4": "^1.1.0",
+    "ava": "^2.0.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
     "babel-loader": "^7.1.2",
     "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-import": "^1.12.0",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
@@ -77,13 +80,14 @@
     "eslint-loader": "^1.9.0",
     "fetch-mock": "^5.11.0",
     "husky": "^0.14.2",
-    "jsdoc-to-markdown": "^4.0.1",
+    "jsdoc-to-markdown": "^5.0.0",
     "json-loader": "^0.5.4",
     "node-noop": "^1.0.0",
-    "nyc": "^13.0.1",
-    "semantic-release": "^15.9.9",
+    "nyc": "^14.1.1",
+    "semantic-release": "^15.13.15",
     "tap-diff": "0.1.1",
     "tap-notify": "1.0.0",
+    "terser-webpack-plugin-legacy": "^1.2.3",
     "travis-deploy-once": "^5.0.2",
     "validate-commit-msg": "^2.12.2",
     "webpack": "^3.8.1",
@@ -108,7 +112,8 @@
         "build",
         "ci",
         "chore",
-        "revert"
+        "revert",
+        "update"
       ],
       "scope": {
         "required": true,
@@ -123,14 +128,16 @@
     }
   },
   "ava": {
-    "babel": {
+    "testOptions": {
+      "babelrc": false,
+      "configFile": false,
       "presets": [
         "@ava/stage-4"
       ]
     },
     "require": [
-      "babel-register",
-      "babel-polyfill"
+      "@babel/register",
+      "@babel/polyfill"
     ],
     "concurrency": 2,
     "tap": true

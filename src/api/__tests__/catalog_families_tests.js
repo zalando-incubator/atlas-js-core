@@ -21,12 +21,16 @@ test('Should fetch article successfully after configuring SDK', async t => {
 
   t.is(articleFamilies[0].id, 'AN621D0BX-K11');
   t.is(articleFamilies[0].color, 'dunkelblau');
+  t.is(articleFamilies[0].lowestPrice.amount, 19.99);
+  t.is(articleFamilies[0].lowestPrice.currency, 'EUR');
   t.is(articleFamilies[0].images[0].resolutions.thumbnail,
     'https://mosaic01.ztat.net/vgs/media/pdp-thumb/AN/62/1D/0B/XK/11/AN621D0BX-K11@2.png');
 
 
   t.is(articleFamilies[1].id, 'AN621D0BX-Q11');
   t.is(articleFamilies[1].color, 'schwarz');
+  t.is(articleFamilies[0].lowestPrice.amount, 19.99);
+  t.is(articleFamilies[0].lowestPrice.currency, 'EUR');
   t.is(articleFamilies[1].images[0].resolutions.thumbnail,
     'https://mosaic01.ztat.net/vgs/media/pdp-thumb/AN/62/1D/0B/XQ/11/AN621D0BX-Q11@10.jpg');
 

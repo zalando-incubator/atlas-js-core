@@ -255,7 +255,7 @@ console.log(`Article name: ${article.name}`);
 <dt><a href="#CheckoutOrder">CheckoutOrder</a></dt>
 <dd><p>Class for Guest Customer model</p>
 </dd>
-<dt><a href="#RecommendedArticles">RecommendedArticles</a></dt>
+<dt><a href="#RecommendedArticle">RecommendedArticle</a></dt>
 <dd><p>Class for Recommended Article model</p>
 </dd>
 </dl>
@@ -322,7 +322,7 @@ AtlasSDK instance returned from AtlasSDK configure method.
     * [.getArticleFamilies(sku, [options])](#AtlasSDKClient+getArticleFamilies) ⇒ [<code>Array.&lt;ArticleFamily&gt;</code>](#ArticleFamily)
     * [.getGuestCheckout(checkoutId, token)](#AtlasSDKClient+getGuestCheckout) ⇒ [<code>GetCheckoutResponse</code>](#GetCheckoutResponse)
     * [.createGuestOrder(checkoutId, token)](#AtlasSDKClient+createGuestOrder) ⇒ [<code>CreateOrderResponse</code>](#CreateOrderResponse)
-    * [.getRecommendations(sku, [options])](#AtlasSDKClient+getRecommendations) ⇒ [<code>Array.&lt;RecommendedArticles&gt;</code>](#RecommendedArticles)
+    * [.getRecommendations(sku, [options])](#AtlasSDKClient+getRecommendations) ⇒ [<code>Array.&lt;RecommendedArticle&gt;</code>](#RecommendedArticle)
     * [.createGuestCheckout(json)](#AtlasSDKClient+createGuestCheckout) ⇒ [<code>CreateOrderRedirectResponse</code>](#CreateOrderRedirectResponse)
     * [.getCheckoutCustomer(token)](#AtlasSDKClient+getCheckoutCustomer) ⇒ [<code>CheckoutCustomer</code>](#CheckoutCustomer)
     * [.getCheckoutAddresses(token)](#AtlasSDKClient+getCheckoutAddresses) ⇒ <code>CheckoutAddress</code>
@@ -480,11 +480,11 @@ Creates an order for the guest chekout object based on <strong>checkoutId</stron
 
 <a name="AtlasSDKClient+getRecommendations"></a>
 
-### atlasSDKClient.getRecommendations(sku, [options]) ⇒ [<code>Array.&lt;RecommendedArticles&gt;</code>](#RecommendedArticles)
+### atlasSDKClient.getRecommendations(sku, [options]) ⇒ [<code>Array.&lt;RecommendedArticle&gt;</code>](#RecommendedArticle)
 Fetches recommendations for an article based on a SKU.
 
 **Kind**: instance method of [<code>AtlasSDKClient</code>](#AtlasSDKClient)  
-**Returns**: [<code>Array.&lt;RecommendedArticles&gt;</code>](#RecommendedArticles) - return array of [RecommendedArticles](#RecommendedArticles) objects  
+**Returns**: [<code>Array.&lt;RecommendedArticle&gt;</code>](#RecommendedArticle) - return array of [RecommendedArticle[]](RecommendedArticle[]) objects  
 **Access**: public  
 
 | Param | Type | Description |
@@ -1066,13 +1066,14 @@ Class for Article model
 **Kind**: global class  
 <a name="new_Article_new"></a>
 
-### new Article(id, name, color, supplierColor, productGroup, detailUrl, brand, units, images, videos, attributes, enrichmentAttributes, targetGroups, infos, review)
+### new Article(id, name, color, silhouetteCode, supplierColor, productGroup, detailUrl, brand, units, images, videos, attributes, enrichmentAttributes, targetGroups, infos, review)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | id of the article. |
 | name | <code>String</code> | name of the article. |
 | color | <code>String</code> | color of the article. |
+| silhouetteCode | <code>String</code> | silhouette code of the article. |
 | supplierColor | <code>String</code> | color of the article from supplier. |
 | productGroup | <code>String</code> | product group of the article. |
 | detailUrl | <code>String</code> | product detail url of the article. |
@@ -1094,13 +1095,14 @@ Class for ArticleFamily model
 **Kind**: global class  
 <a name="new_ArticleFamily_new"></a>
 
-### new ArticleFamily(id, color, supplierColor, images)
+### new ArticleFamily(id, color, supplierColor, lowestPrice, images)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | id of the article. |
 | color | <code>String</code> | color of the article. |
 | supplierColor | <code>String</code> | color of the article from supplier. |
+| lowestPrice | <code>Price</code> | lowestPrice of article. |
 | images | [<code>Array.&lt;Image&gt;</code>](#Image) | Array of article images. |
 
 <a name="DiscountSchema"></a>
@@ -1419,11 +1421,12 @@ Class for Guest Customer model
 **Kind**: global class  
 <a name="new_CheckoutCustomer_new"></a>
 
-### new CheckoutCustomer(customerNumber, gender, firstName, lastName, email)
+### new CheckoutCustomer(customerNumber, customerHash, gender, firstName, lastName, email)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | customerNumber | <code>String</code> | the customer number. |
+| customerHash | <code>String</code> | the customer hash. |
 | gender | <code>String</code> | the gender. |
 | firstName | <code>String</code> | the first name. |
 | lastName | <code>String</code> | the last name. |
@@ -1578,15 +1581,15 @@ Class for Guest Customer model
 | created | <code>String</code> | creation date. |
 | detailUrl | <code>String</code> | the details URL. |
 
-<a name="RecommendedArticles"></a>
+<a name="RecommendedArticle"></a>
 
-## RecommendedArticles
+## RecommendedArticle
 Class for Recommended Article model
 
 **Kind**: global class  
-<a name="new_RecommendedArticles_new"></a>
+<a name="new_RecommendedArticle_new"></a>
 
-### new RecommendedArticles(id, tracking_string, name, lowestPrice, brand, images, videos, units)
+### new RecommendedArticle(id, tracking_string, name, lowestPrice, brand, images, videos, units)
 
 | Param | Type | Description |
 | --- | --- | --- |

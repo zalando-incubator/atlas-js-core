@@ -1,6 +1,13 @@
 import createModel from './base_model';
 import { Reviews } from './article_reviews_model';
-import { Brand, Unit, Attribute, EnrichmentAttribute, TargetGroups } from './article_models';
+import {
+  Brand,
+  Unit,
+  Attribute,
+  EnrichmentAttribute,
+  TargetGroups,
+  Price
+} from './article_models';
 
 /**
  * @class Class for Image model.
@@ -35,6 +42,7 @@ const Video = createModel({
  * @param {String} id - id of the article.
  * @param {String} name - name of the article.
  * @param {String} color - color of the article.
+ * @param {String} silhouetteCode - silhouette code of the article.
  * @param {String} supplierColor - color of the article from supplier.
  * @param {String} productGroup - product group of the article.
  * @param {String} detailUrl - product detail url of the article.
@@ -53,6 +61,7 @@ const Article = createModel({
   id: { key: 'id', type: 'string' },
   name: { key: 'name', type: 'string' },
   color: { key: 'color', type: 'string' },
+  silhouetteCode: { key: 'silhouette_code', type: 'string', optional: true },
   supplierColor: { key: 'supplier_color', type: 'string', optional: true },
   productGroup: { key: 'product_group', type: 'string', optional: true },
   detailUrl: { key: 'detail_url', type: 'string', optional: true },
@@ -69,17 +78,19 @@ const Article = createModel({
 
 /**
  * @class Class for ArticleFamily model
-* @param {String} id - id of the article.
-* @param {String} color - color of the article.
-* @param {String} supplierColor - color of the article from supplier.
+ * @param {String} id - id of the article.
+ * @param {String} color - color of the article.
+ * @param {String} supplierColor - color of the article from supplier.
+ * @param {Price} lowestPrice - lowestPrice of article.
  * @param {Image[]} images - Array of article images.
  * @constructor
- */
+*/
 const ArticleFamily = createModel({
   id: { key: 'id', type: 'string' },
   color: { key: 'color', type: 'string' },
   supplierColor: { key: 'supplier_color', type: 'string', optional: true },
+  lowestPrice: { key: 'lowest_price', type: 'object', model: Price },
   images: { key: 'images', type: 'object', model: Image, optional: true }
 });
 
-export { Article, ArticleFamily };
+export { Article, ArticleFamily, Image, Video };

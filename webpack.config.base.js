@@ -35,7 +35,11 @@ const baseConfig = {
         test: /\.(js)$/,
         include: srcPath,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['env'],
+            plugins: ['add-module-exports', 'transform-es2015-modules-umd']
+          }
         }
       },
       {
